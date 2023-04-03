@@ -1,0 +1,31 @@
+{
+  "name": "nypl-header-app",
+  "version": "0.0.0",
+  "description": "NYPL Header App",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prod": "vite build --mode=production && vite preview"
+  },
+	"dependencies": {
+		"@nypl/design-system-react-components": "1.5.1",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@types/node": "^18.13.0",
+		"@types/react": "16.9.41",
+		"@types/react-dom": "^16.9.0", 
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+		"typescript": "^4.9.3",
+		"vite": "^4.1.1"
+	}
+}
