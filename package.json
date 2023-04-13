@@ -6,17 +6,30 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prod": "vite build --mode=production && vite preview"
+    "prod": "vite build --mode=production && vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-	"dependencies": {
-		"@nypl/design-system-react-components": "1.5.1",
-		"react": "17.0.2",
-		"react-dom": "17.0.2"
-	},
-	"devDependencies": {
-		"@types/node": "^18.13.0",
-		"@types/react": "16.9.41",
-		"@types/react-dom": "^16.9.0", 
+  "dependencies": {
+    "@nypl/design-system-react-components": "1.5.2",
+    "js-cookie": "^3.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "vite-plugin-svgr": "^2.4.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/user-event": "13.2.1",
+    "@types/jest": "^29.5.0",
+    "@types/jest-axe": "^3.5.5",
+    "@types/jsdom": "16.2.4",
+    "@types/node": "^18.13.0",
+    "@types/react": "17.0.35",
+    "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.36.0",
@@ -25,7 +38,13 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
-		"typescript": "^4.9.3",
-		"vite": "^4.1.1"
-	}
+    "jest": "^29.5.0",
+    "jest-axe": "^7.0.1",
+    "jest-environment-jsdom": "^29.5.0",
+    "jsdom": "^16.7.0",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^29.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.1"
+  }
 }
