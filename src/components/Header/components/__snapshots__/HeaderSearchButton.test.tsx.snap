@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    data-focus-lock-disabled="disabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      aria-expanded={null}
+      aria-haspopup="true"
+      aria-label="Open Search"
+      className="chakra-button css-1xdhyk6"
+      id="searchButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        Search
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1vgifmd"
+          focusable={false}
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Open Search
+          </title>
+          <path
+            clipRule="evenodd"
+            d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-1.671 7.743A9.958 9.958 0 0 1 10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10a9.958 9.958 0 0 1-2.257 6.329l5.96 5.96a1 1 0 0 1-1.414 1.414l-5.96-5.96z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+</div>
+`;
+
+exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    data-focus-lock-disabled="disabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      aria-expanded={null}
+      aria-haspopup="true"
+      aria-label="Open Search"
+      className="chakra-button css-1xdhyk6"
+      id="searchButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1vgifmd"
+          focusable={false}
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Open Search
+          </title>
+          <path
+            clipRule="evenodd"
+            d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-1.671 7.743A9.958 9.958 0 0 1 10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10a9.958 9.958 0 0 1-2.257 6.329l5.96 5.96a1 1 0 0 1-1.414 1.414l-5.96-5.96z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    data-focus-guard={true}
+    style={
+      {
+        "height": "0px",
+        "left": "1px",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": "1px",
+        "width": "1px",
+      }
+    }
+    tabIndex={-1}
+  />
+</div>
+`;
