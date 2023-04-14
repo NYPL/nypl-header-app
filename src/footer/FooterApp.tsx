@@ -1,7 +1,7 @@
 import {
   DSProvider
 } from "@nypl/design-system-react-components";
-import Footer from "./Footer/Footer";
+import Footer from "../components/Footer/Footer";
 
 const FooterApp: any = ({ isTestMode = false }): any => {
   return (

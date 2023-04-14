@@ -1,7 +1,7 @@
 import {
   DSProvider
 } from "@nypl/design-system-react-components";
-import Header from "./Header/Header";
+import Header from "../components/Header/Header";
 
 const HeaderApp: any = ({ isTestMode = false }): any => {
   return (
