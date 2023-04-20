@@ -6,6 +6,7 @@ WORKDIR /app
 COPY package.json /app
 # Install dependencies
 RUN npm install
+# Workaround for Vite + Docker build error
 RUN npm rebuild esbuild
 # Copy source code to /app directory
 COPY . ./
