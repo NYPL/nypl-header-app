@@ -13,6 +13,7 @@ $ npm run prod
 
 ### Running the app locally with Docker
 Note: Docker needs to be installed and running on your machine in order to build the image and run the app through Docker
+
 Build the Docker image
 ```sh
 $ docker build -t nypl-header-app .
@@ -22,6 +23,7 @@ This command builds the Docker image using the Dockerfile, which does the follow
 2. Installs the app's dependencies via `npm install`
 3. Builds the app via `npm run prod`
 The Docker image will be named `nypl-header-app`
+
 Run the Docker instance
 ```sh
 $ docker run -p 4173:4173 -d nypl-header-app
