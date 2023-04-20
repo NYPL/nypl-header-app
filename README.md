@@ -1,7 +1,7 @@
 # NYPL Header App
-The NYPL Header App can be used for projects across the NYPL organization to import the Header and Footer components.
+The NYPL Header App can be used for projects across the NYPL organization to import the Header and Footer components through embeddable Javascript scripts. The Header and Footer are built with the NYPL Reservoir Design System and are hosted in this repo as React components.
 
-# Running the app locally
+## Running the app locally
 Install all dependencies
 ```sh
 $ npm install
@@ -11,7 +11,8 @@ Builds the app into `./dist` and preview the app at `localhost:4173`
 $ npm run prod
 ```
 
-## Running the locally app with Docker
+### Running the app locally with Docker
+Note: Docker needs to be installed and running on your machine in order to build the image and run the app through Docker
 Build the Docker image
 ```sh
 $ docker build -t nypl-header-app .
@@ -27,13 +28,13 @@ $ docker run -p 4173:4173 -d nypl-header-app
 ```
 This command runs the Docker container with port mapping on 4173 ([Port access from Browser]:[Port exposed from the container]) using the Docker image above. Access the app at `localhost:4173`.
 
-# Available Routes
+## Available Routes
 | Endpoint      | Feature|
 |:--------------|:--------------------------------|
 | `/header`     | Displays the rendered DS Header |
 | `/footer`     | Displays the rendered DS Footer |
 
-# Unit Testing
+## Unit Testing
 To run all tests once:
 ```sh
 $ npm test
