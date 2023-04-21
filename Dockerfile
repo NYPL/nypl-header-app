@@ -1,5 +1,5 @@
 # Setup node environment
-FROM node:18-alpine
+FROM node:16.19.0-alpine
 # Create app directory
 WORKDIR /app
 # Copy package.json to /app directory
