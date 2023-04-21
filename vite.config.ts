@@ -23,7 +23,7 @@ module.exports = defineConfig({
       input: {
         header: resolve(root, "header", "index.html"),
         footer: resolve(root, "footer", "index.html"),
-        "header-latest": resolve(root, "header", "main.tsx"),
+        "header.min": resolve(root, "header", "main.tsx"),
         "footer-latest": resolve(root, "footer", "main.tsx"),
       },
       output: {
