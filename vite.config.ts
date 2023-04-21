@@ -7,6 +7,9 @@ const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
 
 module.exports = defineConfig({
+  server: {
+    host: true, // for Docker Container port mapping
+  },
   plugins: [
     react(),
     svgr({
