@@ -17,15 +17,15 @@ jobs:
       before_install:
         - if [[ $TRAVIS_BRANCH == "qa" ]];
           then
-          export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_QA};
-          export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_QA};
+          export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_QA;
+          export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_QA;
           export ENV="qa";
           export ECR_URL=491147561046.dkr.ecr.us-east-1.amazonaws.com/nyplglobalheader;
           fi
         - if [[ "$TRAVIS_BRANCH" == "production" ]];
           then
-          export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION};
-          export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_PRODUCTION};
+          export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PRODUCTION;
+          export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PRODUCTION;
           export ENV="production";
           export ECR_URL=463786892988.dkr.ecr.us-east-1.amazonaws.com/nyplglobalheader;
           fi
