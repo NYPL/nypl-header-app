@@ -37,7 +37,7 @@ jobs:
         - export LOCAL_TAG_NAME="${ENV}-latest"
       script:
         - eval $(aws ecr get-login --no-include-email --region us-east-1)
-        - DOCKER_BUILDKIT=1 docker build -t "$LOCAL_TAG_NAME" --secret id=AWS_ACCESS_KEY_ID --secret id=AWS_SECRET_ACCESS_KEY" .
+        - DOCKER_BUILDKIT=1 docker build -t "$LOCAL_TAG_NAME" --secret id=AWS_ACCESS_KEY_ID --secret id=AWS_SECRET_ACCESS_KEY .
         - docker tag "$LOCAL_TAG_NAME" "$ECR_URL:$LOCAL_TAG_NAME"
         - docker push "$ECR_URL:$LOCAL_TAG_NAME"
 
