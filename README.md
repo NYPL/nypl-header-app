@@ -1,5 +1,5 @@
 # NYPL Header App
-The NYPL Header App can be used for projects across the NYPL organization to import the Header and Footer components through embeddable Javascript scripts. The Header and Footer are built with the NYPL Reservoir Design System and are hosted in this repo as React components.
+The NYPL Header App can be used for projects across the NYPL organization to import the Header and Footer components through embeddable Javascript scripts. The Header and Footer are built with the NYPL Reservoir Design System and are hosted in this repo as React components. Dark mode for these components is available to consuming applications that use [NYPL Reservoir DS](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page).
 
 ## Running the app locally
 Install all dependencies
