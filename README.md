@@ -36,6 +36,7 @@ This command runs the Docker container with port mapping on 4173 ([Port access f
 | `/header`         | Displays the rendered DS Header                         |
 | `/footer`         | Displays the rendered DS Footer                         |
 | `/header.min.js`  | Returns the compiled DS Header JS for the embed script. |
+| `/footer.min.js`  | Returns the compiled DS Footer JS for the embed script. |
 
 ## Unit Testing
 To run all tests once:
