@@ -62,11 +62,6 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
           nyplHeaderObject.processedScripts = [];
         }
 
-        // Keep track of the processed style tags within nyplHeader
-        if (!nyplHeaderObject.styleTags) {
-          nyplHeaderObject.styleTags = [];
-        }
-
         // Only create the nyplHeader if the global.nyplHeaderObject.scripts is empty
         if (nyplHeaderObject.processedScripts.length === 0) {
           /*
@@ -83,12 +78,10 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
            * we need to use call to iterate with forEach.
            */
           [].forEach.call(allScriptTags, (value: HTMLScriptElement) => {
-            console.log("each", value);
-            if (value.src.indexOf("header-latest") !== -1) {
+            if (value.src.indexOf("header.min") !== -1) {
               scriptTag = value;
 
               containerId = getQueryParam(scriptTag.src, "containerId");
-              console.log("containerId", containerId);
               // If an element id is passed in, append the header to that
               // element. This assumes the element is already on the page.
               // Otherwise, append the header to the body on the element
