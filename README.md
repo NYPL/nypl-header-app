@@ -31,10 +31,11 @@ $ docker run -p 4173:4173 -d nypl-header-app
 This command runs the Docker container with port mapping on 4173 ([Port access from Browser]:[Port exposed from the container]) using the Docker image above. Access the app at `localhost:4173`.
 
 ## Available Routes
-| Endpoint      | Feature|
-|:--------------|:--------------------------------|
-| `/header`     | Displays the rendered DS Header |
-| `/footer`     | Displays the rendered DS Footer |
+| Endpoint          | Feature|
+|:------------------|:--------------------------------------------------------|
+| `/header`         | Displays the rendered DS Header                         |
+| `/footer`         | Displays the rendered DS Footer                         |
+| `/header.min.js`  | Returns the compiled DS Header JS for the embed script. |
 
 ## Unit Testing
 To run all tests once:
