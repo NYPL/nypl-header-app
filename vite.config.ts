@@ -24,6 +24,7 @@ module.exports = defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
+        ".": resolve(root, "index.html"),
         header: resolve(root, "header", "index.html"),
         footer: resolve(root, "footer", "index.html"),
         "header.min": resolve(root, "header", "main.tsx"),
