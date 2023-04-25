@@ -27,7 +27,7 @@ module.exports = defineConfig({
         header: resolve(root, "header", "index.html"),
         footer: resolve(root, "footer", "index.html"),
         "header.min": resolve(root, "header", "main.tsx"),
-        "footer-latest": resolve(root, "footer", "main.tsx"),
+        "footer.min": resolve(root, "footer", "main.tsx"),
       },
       output: {
         entryFileNames: "[name].js",
