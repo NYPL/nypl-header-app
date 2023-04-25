@@ -39,12 +39,6 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
     if (typeof window !== "undefined") {
       let isRenderedByServer = false;
 
-      // ReactDOM.render(
-      //   <FooterApp />,
-      //   document.getElementById('root') as any
-      // );
-      console.log("footer about to render.");
-
       // Render Client Side Only
       if (!isRenderedByServer) {
         let allScriptTags: HTMLCollectionOf<HTMLScriptElement>;
@@ -53,7 +47,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
         // create element to hold the single footer instance.
         const htmlElement = document.createElement("div");
         let containerId!: string;
-        htmlElement.id = "nypl-dgx-footer";
+        htmlElement.id = "footer";
 
         // Make a global object to store the instances of nyplFooter
         if (!(window as any).nyplFooter) {
@@ -77,7 +71,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
         if (nyplFooterObject.processedScripts.length === 0) {
           /*
            * Loop through all <script> tags in the DOM.
-           * Find the match which contains 'dgx-footer.min.js'.
+           * Find the match which contains 'footer.min.js'.
            * Insert the markup holding the NYPL footer
            * right before the <script> tag matched.
            * In addition, setup the proper client appEnv
@@ -90,7 +84,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
            */
           [].forEach.call(allScriptTags, (value: HTMLScriptElement) => {
             console.log("each", value);
-            if (value.src.indexOf("footer-latest") !== -1) {
+            if (value.src.indexOf("footer.min") !== -1) {
               scriptTag = value;
 
               containerId = getQueryParam(scriptTag.src, "containerId");
