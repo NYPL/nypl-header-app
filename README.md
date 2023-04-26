@@ -38,6 +38,24 @@ This command runs the Docker container with port mapping on 4173 ([Port access f
 | `/header.min.js`  | Returns the compiled DS Header JS for the embed script. |
 | `/footer.min.js`  | Returns the compiled DS Footer JS for the embed script. |
 
+## Embeddable Scripts
+Any app can pull in the Header and Footer through an embeddable standalone script tag that should be used in the <body> element of the main HTML file (or any other HTML files in the app). It is suggested that the components be imported as a whole with the following markup:
+
+```HTML
+<!-- Header -->
+<div id="nypl-header">
+<script type="module" src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header" async></script> 
+
+<!-- your app content here --> 
+<main>...</main>
+
+<!-- Footer -->
+<div id="nypl-footer">
+<script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script> 
+```
+
+For Next.js apps, it is recommended for the script to be added to the `_document.tsx` file for the Header and Footer components to render properly. 
+
 ## Unit Testing
 To run all tests once:
 ```sh
