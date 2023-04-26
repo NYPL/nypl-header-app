@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prod": "vite build --mode=production && vite preview",
+    "prod": "vite build --mode=production && vite preview --port 3001",
     "test": "jest",
     "test:watch": "jest --watch"
   },
