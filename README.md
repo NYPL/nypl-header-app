@@ -6,7 +6,7 @@ Install all dependencies
 ```sh
 $ npm install
 ```
-Builds the app into `./dist` and preview the app at `localhost:4173`
+Builds the app into `./dist` and preview the app at `localhost:3001`
 ```sh
 $ npm run prod
 ```
@@ -26,9 +26,9 @@ The Docker image will be named `nypl-header-app`
 
 Run the Docker instance
 ```sh
-$ docker run -p 4173:4173 -d nypl-header-app
+$ docker run -p 3001:3001 -d nypl-header-app
 ```
-This command runs the Docker container with port mapping on 4173 ([Port access from Browser]:[Port exposed from the container]) using the Docker image above. Access the app at `localhost:4173`.
+This command runs the Docker container with port mapping on 3001 ([Port access from Browser]:[Port exposed from the container]) using the Docker image above. Access the app at `localhost:3001`.
 
 ## Available Routes
 | Endpoint          | Feature|
