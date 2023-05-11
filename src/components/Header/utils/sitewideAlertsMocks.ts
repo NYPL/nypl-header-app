@@ -1,7 +1,7 @@
 // This is based on the Refinery API endpoint response.
 const getApiResponse = (
   startDate = "2022-03-14T00:00:00-04:00",
-  endDate = "2022-12-31T23:59:00-05:00"
+  endDate = "2030-12-31T23:59:00-05:00"
 ) => ({
   data: [
     {
@@ -40,7 +40,9 @@ const getApiResponse = (
     },
   ],
   jsonapi: { version: "1.0" },
-  links: { self: "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts" },
+  links: {
+    self: "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts",
+  },
   meta: { count: 1 },
 });
 export const refineryResponse = getApiResponse();

@@ -15,18 +15,7 @@ import {
 import { alertsApiUrl, tokenRefreshLink } from "./utils/headerUtils";
 import { refineryResponse } from "./utils/sitewideAlertsMocks";
 
-// We want to mock the media queries and set the desktop view.
-// jest.mock("useNYPLBreakpoints", () => {
-//   return jest.fn().mockImplementation(() => ({
-//     isLargerThanSmall: true,
-//     isLargerThanMedium: true,
-//     isLargerThanMobile: true,
-//     isLargerThanLarge: true,
-//     isLargerThanXLarge: true,
-//   }));
-// });
-
-describe.skip("Header Accessibility", () => {
+describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
@@ -48,7 +37,7 @@ describe.skip("Header Accessibility", () => {
 // TODO: These tests do not currently test the mobile web view.
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
-describe.skip("Header", () => {
+describe("Header", () => {
   let container;
 
   beforeEach(async () => {
@@ -59,6 +48,13 @@ describe.skip("Header", () => {
         json: () => Promise.resolve(refineryResponse),
       })
     ) as jest.Mock;
+
+    // Mocks matchMedia so that the desktop view renders rather than mobile.
+    global.matchMedia = jest.fn(() => ({
+      addListener: () => {},
+      removeListener: () => {},
+      matches: true,
+    })) as jest.Mock;
 
     await waitFor(() => {
       const utils = render(<Header isProduction={false} />);
@@ -88,10 +84,13 @@ describe.skip("Header", () => {
   });
 
   it("renders the NYPL logo", () => {
-    expect(container.querySelectorAll("svg")[0]).toHaveAttribute(
-      "title",
-      "NYPL Header Logo"
-    );
+    const nyplLink = screen.getAllByRole("link", {
+      name: "The New York Public Library",
+    })[0];
+
+    const logo = within(nyplLink).getByRole("img");
+
+    expect(logo).toHaveAttribute("aria-label", "NYPL Header Logo");
   });
 
   it("sends a GA event when the NYPL logo is clicked", () => {
@@ -99,10 +98,11 @@ describe.skip("Header", () => {
       .getAllByRole("link", { name: "The New York Public Library" })[0]
       .click();
 
-    // The first five calls are all from initializing GA when calling the
-    // `render` function. The sixth call is the first GA event and the one
+    // The first 10 calls are all from initializing GA when calling the
+    // `render` function. The ninth call is the first GA event and the one
     // we're interested in. There might be a better way to do this.
-    expect(ReactGa.testModeAPI.calls[5]).toEqual([
+
+    expect(ReactGa.testModeAPI.calls[10]).toEqual([
       "send",
       {
         eventCategory: "Global Header",
@@ -115,9 +115,11 @@ describe.skip("Header", () => {
   it("renders the upper links", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
+
     // The first list is the skip navigation.
     // The second list is the list of alerts in the `SitewideAlerts` component.
     // The third list is the upper navigation.
+
     const upperList = screen.getAllByRole("list")[2];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
@@ -152,11 +154,11 @@ describe.skip("Header", () => {
 
     expect(upperLinks.length).toEqual(6);
 
-    const logInButton = within(upperLinks[0]).getByRole("button");
-    expect(upperLinks[0]).toHaveTextContent(/log in/i);
+    const myAccountButton = within(upperLinks[0]).getByRole("button");
+    expect(upperLinks[0]).toHaveTextContent(/my account/i);
     expect(upperLinks[1]).toHaveTextContent(/locations/i);
 
-    userEvent.click(logInButton);
+    userEvent.click(myAccountButton);
 
     upperList = screen.getAllByRole("list")[2];
     upperLinks = within(upperList).getAllByRole("listitem");
@@ -164,7 +166,7 @@ describe.skip("Header", () => {
     // Login menu opens, revealing two additional list items.
     expect(upperLinks.length).toEqual(8);
     expect(upperLinks[0]).toHaveTextContent(/close/i);
-    expect(upperLinks[1]).toHaveTextContent(/log into/i);
+    expect(upperLinks[1]).toHaveTextContent(/go to the catalog/i);
   });
 
   it("renders the horizontal rule", () => {
@@ -178,6 +180,7 @@ describe.skip("Header", () => {
   });
 });
 
+// Skipping because this functionality is temporarily removed.
 describe.skip("Patron API call succeeds", () => {
   const realGet = Cookies.get;
 
@@ -243,6 +246,7 @@ describe.skip("Patron API call succeeds", () => {
   });
 });
 
+// Skipping because this functionality is temporarily removed.
 describe.skip("Patron API call fails", () => {
   const realGet = Cookies.get;
 
@@ -289,6 +293,7 @@ describe.skip("Patron API call fails", () => {
   });
 });
 
+// Skipping because this functionality is temporarily removed.
 describe.skip("Patron API returns wrong data", () => {
   const realGet = Cookies.get;
 
@@ -332,6 +337,7 @@ describe.skip("Patron API returns wrong data", () => {
   });
 });
 
+// Skipping because this functionality is temporarily removed.
 describe.skip("Patron API returns expired data, but refreshes the token successfully", () => {
   const realGet = Cookies.get;
 
@@ -419,6 +425,7 @@ describe.skip("Patron API returns expired data, but refreshes the token successf
   });
 });
 
+// Skipping because this functionality is temporarily removed.
 describe.skip("Patron API returns expired data and cannot refresh the token successfully", () => {
   const realGet = Cookies.get;
 

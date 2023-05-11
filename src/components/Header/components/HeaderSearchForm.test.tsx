@@ -33,6 +33,8 @@ describe("HeaderSearchForm", () => {
     (window as any).location = { assign: jest.fn() };
     // Override the `Date` class so we always get the same
     // timestamp when `getTime` is called.
+    // OW: This mock is not currently not working, which
+    // is why the tests are being skipped.
     const currentDate = new Date("2022-01-01");
     realDate = Date;
     (global as any).Date = class extends Date {
@@ -116,6 +118,17 @@ describe("HeaderSearchForm", () => {
         2,
         "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
+
+      // OW: This did not work, but I tried to create a regular expression that
+      // would match the URL without a specific timestamp, just any 13-digit
+      // number.
+
+      // expect(window.location.assign).toHaveBeenNthCalledWith(
+      //   2,
+      //   expect.stringMatching(
+      //     /^https:\/\/www\.nypl\.org\/research\/research-catalog\/search\?q=cats&searched_from=header_search&timestamp=\d{13}&lang=eng/i
+      //   )
+      // );
     });
 
     it.skip("makes a request to the web catalog", () => {
