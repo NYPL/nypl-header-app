@@ -6,13 +6,14 @@ services:
 branches:
   only:
   - qa
+  - test-adobe
   - production
 jobs:
   include:
   - stage: docker build
-    if: "(branch = qa or branch = production)"
+    if: "(branch = test-adobe or branch = production)"
     before_install:
-    - if [[ $TRAVIS_BRANCH == "qa" ]]; then export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_DEVELOPMENT;
+    - if [[ $TRAVIS_BRANCH == "test-adobe" ]]; then export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_DEVELOPMENT;
       export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_DEVELOPMENT; export ENV="qa";
       export ECR_URL=491147561046.dkr.ecr.us-east-1.amazonaws.com/nyplglobalheader;
       fi
@@ -32,8 +33,8 @@ jobs:
       --secret id=AWS_SECRET_ACCESS_KEY .
     - docker tag "$LOCAL_TAG_NAME" "$ECR_URL:$LOCAL_TAG_NAME"
     - docker push "$ECR_URL:$LOCAL_TAG_NAME"
-  - stage: deploy qa
-    if: branch IN (qa) AND type != pull_request
+  - stage: deploy test-adobe
+    if: branch IN (test-adobe) AND type != pull_request
     env:
     - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_DEVELOPMENT
     - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_DEVELOPMENT
