@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Header</title>
+    <script>
+      // First define the global variable for the entire data layer array
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      adobeDataLayer.push({
+        page_name: null,
+        site_section: null,
+      });
+      // then push the new values
+      window.adobeDataLayer.push({
+        page_name: "Header QA",
+        site_section: "Global Header"
+      });
+    </script>
+    <script src="https://assets.adobedtm.com/1a9376472d37/ddf1bedfe52e/launch-a812361a3be9-development.min.js" async></script>
   </head>
   <body>
     <div id="root"></div>

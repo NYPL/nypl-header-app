@@ -10,6 +10,12 @@ export interface HeaderLoginButtonProps {
   isMobile?: boolean;
 }
 
+declare global {
+  interface Window {
+      adobeDataLayer: any;
+  }
+}
+
 /**
  * This is the button that will render the login menu when it is clicked
  * and keep focus trapped within the menu. Its display text will be "Log In"
@@ -49,6 +55,20 @@ const HeaderLoginButton = chakra(
             id="loginButton"
             onClick={() => {
               gaUtils.trackEvent(gaAction, gaLabel);
+              //first clear the data layer of previous values
+              window.adobeDataLayer.push({
+                event_data: null,
+              });
+              //then push in the new values
+              window.adobeDataLayer.push({
+                event: 'send_event',
+                event_data: {
+                  name: 'header_login_click',
+                  description: `${gaAction} - ${gaLabel}`,
+                  platform: 'Global Header App',
+                }
+              });
+              console.log(window.adobeDataLayer);
               setIsOpen(!isOpen);
             }}
             __css={styles}
