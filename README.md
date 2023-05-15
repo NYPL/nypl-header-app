@@ -43,14 +43,14 @@ Any app can pull in the Header and Footer through an embeddable standalone scrip
 
 ```HTML
 <!-- Header -->
-<div id="nypl-header">
+<div id="nypl-header"></div>
 <script type="module" src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header" async></script> 
 
 <!-- your app content here --> 
 <main>...</main>
 
 <!-- Footer -->
-<div id="nypl-footer">
+<div id="nypl-footer"></div>
 <script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script> 
 ```
 
