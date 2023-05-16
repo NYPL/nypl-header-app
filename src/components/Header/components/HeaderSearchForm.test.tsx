@@ -84,11 +84,6 @@ describe("HeaderSearchForm", () => {
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
 
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
-
       // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
@@ -105,11 +100,6 @@ describe("HeaderSearchForm", () => {
       // Select the "Search the research catalog" radio button.
       userEvent.click(researchRadio);
       userEvent.click(searchBtn);
-
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
 
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
@@ -128,11 +118,6 @@ describe("HeaderSearchForm", () => {
       userEvent.click(webRadio);
       // Run the search.
       userEvent.click(searchBtn);
-
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
 
       // We mock `window.location.assign` before ALL tests and restore after
       // ALL tests. So we should have two calls to `window.location.assign`.
@@ -176,11 +161,6 @@ describe("HeaderSearchForm", () => {
       // Select the books, music, and movies radio button
       userEvent.click(circulatingCatalogRadio);
 
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
-
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
         "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
@@ -195,11 +175,6 @@ describe("HeaderSearchForm", () => {
       // Select the Research Catalog
       userEvent.click(researchCatalogRadio);
 
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
-
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
         "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
@@ -213,11 +188,6 @@ describe("HeaderSearchForm", () => {
       userEvent.type(searchInput, "cats");
       // Select the Website
       userEvent.click(websiteRadio);
-
-      // Fast-forward until all timers have been executed.
-      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
-      // internally has a timer.
-      jest.runAllTimers();
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         3,

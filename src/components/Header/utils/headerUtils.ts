@@ -134,11 +134,9 @@ export const encoreEncodeSearchString = (searchString) => {
 };
 
 /**
- * Generates the queries to be added to the URL of the search pages. It is
- * used by the Google Analytics scripts  to tell where the search request is
- * coming from.
+ * Generates the queries to be added to the URL of the search pages.
  */
-const generateQueriesForGA = () => {
+const generateQueriesForTracking = () => {
   // the time stamp here is for the purpose of telling when this search query is made.
   const currentTimeStamp = new Date().getTime();
   return `?searched_from=header_search&timestamp=${currentTimeStamp}`;
@@ -155,7 +153,7 @@ export const getEncoreCatalogURL = (searchValue) => {
   if (encodedSearchInput) {
     finalEncoreUrl =
       `${rootUrl}C__S${encodedSearchInput}__Orightresult__U` +
-      generateQueriesForGA() +
+      generateQueriesForTracking() +
       `&lang=eng`;
     return finalEncoreUrl;
   }
@@ -171,7 +169,7 @@ export const getResearchCatalogURL = (searchValue) => {
   if (searchValue) {
     return `${catalogUrl}${encodeURIComponent(
       searchValue
-    )}&${generateQueriesForGA()}&lang=eng`;
+    )}&${generateQueriesForTracking()}&lang=eng`;
   }
   return null;
 };
@@ -184,7 +182,7 @@ export const getNYPLSearchURL = (searchString) => {
 
   if (searchString) {
     return (
-      catalogUrl + encodeURIComponent(searchString) + generateQueriesForGA()
+      catalogUrl + encodeURIComponent(searchString) + generateQueriesForTracking()
     );
   }
   return null;

@@ -113,7 +113,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/books-music-movies"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -124,7 +123,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/research"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -135,7 +133,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/education"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -146,7 +143,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/events"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -157,7 +153,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/connect"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -168,7 +163,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/give"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -179,7 +173,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
           <a
             className="css-1xdhyk6"
             href="https://www.nypl.org/get-help"
-            onClick={[Function]}
             rel={null}
             target={null}
           >
@@ -196,7 +189,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     <a
       className="css-g8syzw"
       href="https://www.nypl.org/library-card/new"
-      onClick={[Function]}
       rel={null}
       target={null}
     >
@@ -223,7 +215,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     <a
       className="css-1i5qkun"
       href="https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7"
-      onClick={[Function]}
       rel={null}
       target={null}
     >
@@ -250,7 +241,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     <a
       className="css-1hbu0qa"
       href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
-      onClick={[Function]}
       rel={null}
       target={null}
     >
@@ -275,7 +265,6 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     <a
       className="css-847rpw"
       href="https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN"
-      onClick={[Function]}
       rel={null}
       target={null}
     >

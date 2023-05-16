@@ -6,9 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import { Link, Logo, List, SimpleGrid, Icon } from "@nypl/design-system-react-components";
-import React from "react";
 
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 
 /**
@@ -21,7 +19,6 @@ const HeaderMobileNav = chakra(() => {
     <Link
       href={href}
       key={text}
-      onClick={() => gaUtils.trackEvent("Go to...", text)}
     >
       {text}
     </Link>
@@ -57,9 +54,6 @@ const HeaderMobileNav = chakra(() => {
           borderTop="1px solid rgb(54, 54, 54)"
           borderRight="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 1"
-          onClick={() =>
-            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Library Card")
-          }
         >
           <Icon
             align="left"
@@ -73,9 +67,6 @@ const HeaderMobileNav = chakra(() => {
           href={upperNavLinks.emailUpdates.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="2 / span 1"
-          onClick={() =>
-            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Email Updates")
-          }
         >
           <Icon
             align="left"
@@ -89,9 +80,6 @@ const HeaderMobileNav = chakra(() => {
           href={upperNavLinks.shop.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 2"
-          onClick={() =>
-            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Shop NYPL")
-          }
         >
           <Icon
             align="left"
@@ -104,7 +92,6 @@ const HeaderMobileNav = chakra(() => {
         <Link
           href={upperNavLinks.donate.href}
           gridColumn="1 / span 2"
-          onClick={() => gaUtils.trackEvent("Donate", "Mobile Buttons Donate")}
         >
           {upperNavLinks.donate.text.toUpperCase()}
         </Link>

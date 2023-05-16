@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 
 import { getLoginLinks } from "../utils/headerUtils";
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { HeaderContext } from "../context/headerContext";
 import { List, Link, Icon } from "@nypl/design-system-react-components";
 
@@ -22,7 +21,6 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
   const styles = useMultiStyleConfig("HeaderLogin", {
     patronName: "",
   });
-  const gaAction = `${isMobile ? "Mobile " : ""}${"Go To"}`;
 
   return (
     <VStack __css={styles}>
@@ -31,7 +29,6 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
           <Link
             href={catalogLink}
             key="logInCatalog"
-            onClick={() => gaUtils.trackEvent(gaAction, "Catalog")}
             ref={catalogRef}
             type="button"
           >
@@ -48,7 +45,6 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
           <Link
             href={researchLink}
             key="logInResearch"
-            onClick={() => gaUtils.trackEvent(gaAction, "Research")}
             type="button"
           >
             <Icon
