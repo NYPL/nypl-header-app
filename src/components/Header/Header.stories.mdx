@@ -37,7 +37,6 @@ import { getCategory } from "../../utils/componentCategories";
 - [Search](#search)
 - [Navigation](#navigation)
 - [Header Log In Timeout](#header-log-in-timeout)
-- [Google Analytics](#google-analytics)
 
 ## Overview
 
@@ -270,37 +269,3 @@ will start in the `Header` component. Once this timer reaches 0, the Header will
 insert an `iframe` HTML element into the `body` HTML element of the webpage.
 This `iframe`'s `src` attribute is set to the necessary Encore Catalog logout
 link. This `iframe` element has a style of `display: none` so it is not visible.
-
-## Google Analytics
-
-Google will sunset Google Analytics (GA) in 2023, but the current NYPL Header
-uses GA and therefore the Reservoir `Header` component will continue to use GA
-until GA is sunset.
-
-The `Header` component takes two props that are used to configure GA:
-
-- `isProduction`: a boolean that determines whether the `Header` is in
-  production mode or not. If `true`, the production GA code is set and the
-  `testMode` status for unit testing is set to `false`; if `false`, the
-  development GA code is set and the `testMode` is set to `true`. This props is
-  set to `true` by default. Pass in `false` if you are rendering the
-  `Header` component in tests.
-- `fetchSitewideAlerts`: a boolean that determines whether the `Header` should
-  fetch sitewide alerts or not. Pass in `false` if you are rendering the
-  `Header` component in tests. This is to prevent calling the `fetch` function.
-- `gaOptions`: an object that contains the GA settings with the following
-  properties:
-  - `debug`: a boolean that determines whether to log GA debug messages to the
-    console. This is set to `false` by default.
-  - `standardImplementation`: a boolean to initialize GA with the standard
-    implementation. This is `false` by default, but if your app uses the
-    standard initialize GA code that is set in the HTML body element, then
-    set this to `true`.
-  - `testMode`: a boolean that determines whether to set GA to test mode to use
-    its special API for unit testing GA calls through the `testModeAPI`
-    property. `false` by default but set to `true` when running unit tests.
-  - `titleCase`: a boolean that determines whether to use title case for the
-    GA page title. By default, this is set to the opposite value of
-    `isProduction`. For example, when `isProduction` is `true`, then `titleCase`
-    is `false`. Since `isProduction` is `true` by default, `titleCase` is
-    `false` by default.

@@ -2,7 +2,6 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React from "react";
 
 import HeaderLoginButton from "./HeaderLoginButton";
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { upperNavLinks } from "../utils/headerUtils";
 import { List, Link, Icon } from "@nypl/design-system-react-components";
 
@@ -24,27 +23,18 @@ const HeaderUpperNav = chakra(() => {
           <Link
             href={upperNavLinks.locations.href}
             key="locationsLink"
-            onClick={() => gaUtils.trackEvent("Locations", "Header Top Links")}
           >
             {upperNavLinks.locations.text}
           </Link>,
           <Link
             href={upperNavLinks.libraryCard.href}
             key="libraryCardLink"
-            onClick={() =>
-              gaUtils.trackEvent("Get a Library Card", "Header Top Links")
-            }
           >
             {upperNavLinks.libraryCard.text}
           </Link>,
           <Link
             href={upperNavLinks.emailUpdates.href}
             key="emailUpdatesLink"
-            onClick={() =>
-              // This is a new event not in the original NYPL Header.
-              // The old implementation used a dropdown for subcription.
-              gaUtils.trackEvent("Subscribe", "Subscription")
-            }
             __css={styles.emailUpdatesLink}
           >
             <>
@@ -55,7 +45,6 @@ const HeaderUpperNav = chakra(() => {
           <Link
             href={upperNavLinks.donate.href}
             key="donateLink"
-            onClick={() => gaUtils.trackEvent("Donate", "Header Top Links")}
             type="button"
             __css={styles.donateLink}
           >
@@ -64,7 +53,6 @@ const HeaderUpperNav = chakra(() => {
           <Link
             href={upperNavLinks.shop.href}
             key="shopLink"
-            onClick={() => gaUtils.trackEvent("Shop", "Header Top Links")}
           >
             {upperNavLinks.shop.text}
           </Link>,

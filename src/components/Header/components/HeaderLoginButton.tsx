@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
 import HeaderLogin from "./HeaderLogin";
 
@@ -26,11 +25,6 @@ const HeaderLoginButton = chakra(
     const desktopIcon = isOpen ? "close" : "arrow";
     const mobileIcon = isOpen ? "close" : "legacyAccountFilled";
     const desktopButtonLabel = isOpen ? "Close" : "My Account";
-    const gaAction = isMobile ? "Click" : "My Account";
-    const gaLabelBase = isMobile
-      ? "clickMyAccount"
-      : `MyNyplButton - ${isOpen ? "Closed" : "Open"}`;
-    const gaLabel = `${isMobile ? "Mobile " : ""}${gaLabelBase}`;
 
     useCloseDropDown(setIsOpen, wrapperRef);
 
@@ -48,7 +42,6 @@ const HeaderLoginButton = chakra(
             buttonType="text"
             id="loginButton"
             onClick={() => {
-              gaUtils.trackEvent(gaAction, gaLabel);
               setIsOpen(!isOpen);
             }}
             __css={styles}

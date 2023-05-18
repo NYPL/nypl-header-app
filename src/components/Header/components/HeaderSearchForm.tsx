@@ -1,13 +1,11 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-
 import {
   getEncoreCatalogURL,
   getNYPLSearchURL,
   getResearchCatalogURL,
 } from "../utils/headerUtils";
-import gaUtils, { gaConfig } from "../utils/googleAnalyticsUtils";
 import { Form, FormRow, FormField, Fieldset, TextInput, ButtonGroup, Button, Icon, RadioGroup, Radio } from "@nypl/design-system-react-components";
 
 export interface HeaderSearchFormProps {
@@ -33,71 +31,26 @@ const HeaderSearchForm = chakra(
     const [searchOption, setSearchOption] = useState<SearchOptionType>(
       defaultSearchRadioValue
     );
-    const [isSearchRequested, setIsSearchRequested] = useState<boolean>(false);
-    const [isGAResponseReceived, setIsGAResponseReceived] =
-      useState<boolean>(false);
     const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
-    // GASearchedRepo indicates which kind of search is sent.
-    let gaSearchedRepo = "Unknown";
 
     const onSubmit = (e: any) => {
       e.preventDefault();
-      const newGaConfig = { ...gaConfig };
-      let gaSearchLabel;
       let requestUrl;
 
       // If there is a search input, make the request.
       if (searchInput) {
         if (searchOption === "circulatingCatalog") {
-          gaSearchLabel = "Submit Circulating Catalog Search";
-          gaSearchedRepo = "Encore";
           requestUrl = getEncoreCatalogURL(searchInput);
         }
         if (searchOption === "researchCatalog") {
-          gaSearchLabel = "Submit Research Catalog Search";
-          gaSearchedRepo = "Research Catalog";
           requestUrl = getResearchCatalogURL(searchInput);
         }
         if (searchOption === "website") {
-          gaSearchLabel = "Submit Search";
-          gaSearchedRepo = "DrupalSearch";
           requestUrl = getNYPLSearchURL(searchInput);
         }
 
-        if (requestUrl && gaSearchLabel) {
-          gaUtils.trackEvent("Search", gaSearchLabel);
-          // Set a dynamic value for custom dimension2 for GA.
-          newGaConfig.customDimensions.dimension2 = gaSearchedRepo;
-
-          // There are three phases to handle the GA search event. We need to
-          // prevent sending extra GA events after the search request is made.
-          if (isSearchRequested && !isGAResponseReceived) {
-            return false;
-          }
-
-          if (isSearchRequested && isGAResponseReceived) {
-            window.location.assign(requestUrl);
-            return true;
-          }
-
-          // If the search request is not made yet and the GA event hasn't been
-          // sent yet, send the GA event, wait until it is received, and then
-          // go to the search page.
-          if (!isSearchRequested && !isGAResponseReceived) {
-            setIsSearchRequested(true);
-            // Send GA "Search" category and "QuerySent" action event
-            // with custom dimensions for the type of search: Encore or Drupal.
-            gaUtils.trackSearchQuerySend(
-              searchInput,
-              newGaConfig.customDimensions,
-              () => {
-                // Once the GA event is sent, go to the proper search page.
-                setIsGAResponseReceived(true);
-                window.location.assign(requestUrl);
-              }
-            );
-          }
-        }
+        window.location.assign(requestUrl);
+        return true;
       }
       // Otherwise, don't do anything and update the placeholder message.
       setPlaceholder("Please enter a search term.");

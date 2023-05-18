@@ -1,9 +1,7 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import React from "react";
 
 import HeaderSearchButton from "./HeaderSearchButton";
 import { siteNavLinks } from "../utils/headerUtils";
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { Link, List } from "@nypl/design-system-react-components";
 
 /**
@@ -16,7 +14,6 @@ const HeaderLowerNav = chakra(() => {
     <Link
       href={href}
       key={text}
-      onClick={() => gaUtils.trackEvent("Go to...", text)}
     >
       {text}
     </Link>
