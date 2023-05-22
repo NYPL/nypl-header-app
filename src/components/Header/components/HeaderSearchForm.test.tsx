@@ -5,6 +5,19 @@ import * as renderer from "react-test-renderer";
 
 import HeaderSearchForm from "./HeaderSearchForm";
 
+// OW: Skipped tests were failing because the timestamp wasn't matching up,
+// and I wasn't able to mock it successfully after several attempts. I also
+// tried to create a regular expression that would match the URL without a
+// specific timestamp, but rather any 13-digit number (example below), but
+// this also didn't work.
+
+// expect(window.location.assign).toHaveBeenNthCalledWith(
+//   2,
+//   expect.stringMatching(
+//     /^https:\/\/www\.nypl\.org\/research\/research-catalog\/search\?q=cats&searched_from=header_search&timestamp=\d{13}&lang=eng/i
+//   )
+// );
+
 describe("HeaderSearchForm Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchForm />);
@@ -118,17 +131,6 @@ describe("HeaderSearchForm", () => {
         2,
         "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
-
-      // OW: This did not work, but I tried to create a regular expression that
-      // would match the URL without a specific timestamp, just any 13-digit
-      // number.
-
-      // expect(window.location.assign).toHaveBeenNthCalledWith(
-      //   2,
-      //   expect.stringMatching(
-      //     /^https:\/\/www\.nypl\.org\/research\/research-catalog\/search\?q=cats&searched_from=header_search&timestamp=\d{13}&lang=eng/i
-      //   )
-      // );
     });
 
     it.skip("makes a request to the web catalog", () => {
