@@ -1,9 +1,8 @@
 import FocusLock from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 import HeaderSearchForm from "./HeaderSearchForm";
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
 
 export interface HeaderSearchButtonProps {
@@ -21,12 +20,6 @@ const HeaderSearchButton = chakra(
     const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
     const labelText = isOpen ? "Close Search" : "Open Search";
     const ref = useRef<HTMLDivElement>(null);
-    const gaAction = isMobile ? "Click" : "Search";
-    const gaLabel = isMobile
-      ? "Mobile clickSearch"
-      : isOpen
-      ? "Close Menu"
-      : "Open Menu";
 
     useCloseDropDown(setIsOpen, ref);
 
@@ -40,7 +33,6 @@ const HeaderSearchButton = chakra(
             buttonType="text"
             id="searchButton"
             onClick={() => {
-              gaUtils.trackEvent(gaAction, gaLabel);
               setIsOpen(!isOpen);
             }}
             __css={styles}

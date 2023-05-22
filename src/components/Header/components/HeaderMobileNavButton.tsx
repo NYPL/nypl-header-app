@@ -1,9 +1,8 @@
 import FocusLock from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 
-import gaUtils from "../utils/googleAnalyticsUtils";
 import HeaderMobileNav from "./HeaderMobileNav";
 
 /**
@@ -27,7 +26,6 @@ const HeaderMobileNavButton = chakra(() => {
           buttonType="text"
           id="mobileNav-btn"
           onClick={() => {
-            gaUtils.trackEvent("Click", "Mobile mobileMenu");
             setIsOpen(!isOpen);
           }}
           __css={styles}

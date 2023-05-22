@@ -2,7 +2,6 @@ import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as Cookies from "js-cookie";
-import ReactGa from "react-ga";
 import * as renderer from "react-test-renderer";
 
 import Header from "./Header";
@@ -91,25 +90,6 @@ describe("Header", () => {
     const logo = within(nyplLink).getByRole("img");
 
     expect(logo).toHaveAttribute("aria-label", "NYPL Header Logo");
-  });
-
-  it("sends a GA event when the NYPL logo is clicked", () => {
-    screen
-      .getAllByRole("link", { name: "The New York Public Library" })[0]
-      .click();
-
-    // The first 10 calls are all from initializing GA when calling the
-    // `render` function. The ninth call is the first GA event and the one
-    // we're interested in. There might be a better way to do this.
-
-    expect(ReactGa.testModeAPI.calls[10]).toEqual([
-      "send",
-      {
-        eventCategory: "Global Header",
-        eventAction: "Click Logo",
-        hitType: "event",
-      },
-    ]);
   });
 
   it("renders the upper links", () => {

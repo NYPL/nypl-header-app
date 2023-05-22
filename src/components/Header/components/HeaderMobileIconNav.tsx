@@ -1,10 +1,8 @@
-import React from "react";
 import { chakra, Flex, useStyleConfig } from "@chakra-ui/react";
 
 import HeaderLoginButton from "./HeaderLoginButton";
 import HeaderMobileNavButton from "./HeaderMobileNavButton";
 import HeaderSearchButton from "./HeaderSearchButton";
-import gaUtils from "../utils/googleAnalyticsUtils";
 import { Link, Icon } from "@nypl/design-system-react-components";
 
 /**
@@ -20,7 +18,6 @@ const HeaderMobileIconNav = chakra(() => {
       <Link
         aria-label="NYPL Locations Near Me"
         href="https://nypl.org/locations"
-        onClick={() => gaUtils.trackEvent("Click", "Mobile Locations Button")}
       >
         <Icon name="locator" size="large" title="NYPL Locator" />
       </Link>
