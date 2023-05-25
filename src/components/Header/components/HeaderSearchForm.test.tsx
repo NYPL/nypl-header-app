@@ -5,19 +5,6 @@ import * as renderer from "react-test-renderer";
 
 import HeaderSearchForm from "./HeaderSearchForm";
 
-// OW: Skipped tests were failing because the timestamp wasn't matching up,
-// and I wasn't able to mock it successfully after several attempts. I also
-// tried to create a regular expression that would match the URL without a
-// specific timestamp, but rather any 13-digit number (example below), but
-// this also didn't work.
-
-// expect(window.location.assign).toHaveBeenNthCalledWith(
-//   2,
-//   expect.stringMatching(
-//     /^https:\/\/www\.nypl\.org\/research\/research-catalog\/search\?q=cats&searched_from=header_search&timestamp=\d{13}&lang=eng/i
-//   )
-// );
-
 describe("HeaderSearchForm Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchForm />);
@@ -46,8 +33,6 @@ describe("HeaderSearchForm", () => {
     (window as any).location = { assign: jest.fn() };
     // Override the `Date` class so we always get the same
     // timestamp when `getTime` is called.
-    // OW: This mock is not currently not working, which
-    // is why the tests are being skipped.
     const currentDate = new Date("2022-01-01");
     realDate = Date;
     (global as any).Date = class extends Date {
@@ -63,18 +48,14 @@ describe("HeaderSearchForm", () => {
     window.location = realLocation;
     // Restore the `Date` class.
     (global as any).Date = realDate;
+    // Running all pending timers and switching to real timers using Jest
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
   });
 
   describe("Desktop", () => {
     beforeEach(() => {
       render(<HeaderSearchForm />);
-      jest.useFakeTimers();
-    });
-
-    // Running all pending timers and switching to real timers using Jest
-    afterEach(() => {
-      jest.runOnlyPendingTimers();
-      jest.useRealTimers();
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
@@ -90,7 +71,7 @@ describe("HeaderSearchForm", () => {
       expect(searchBtn).toHaveAttribute("aria-label", "Search");
     });
 
-    it.skip("makes a request to the Encore catalog", async () => {
+    it("makes a request to the Encore catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
@@ -106,7 +87,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the Research Catalog", async () => {
+    it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const researchRadio = screen.getByText("Search the Research Catalog");
       const searchBtn = screen.getByRole("button");
@@ -123,7 +104,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const webRadio = screen.getByText("Search the library website");
       const searchBtn = screen.getByRole("button");
@@ -168,7 +149,7 @@ describe("HeaderSearchForm", () => {
       ).toBeInTheDocument();
     });
 
-    it.skip("makes a request to the Encore catalog", () => {
+    it("makes a request to the Encore catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
@@ -182,7 +163,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the Research Catalog", () => {
+    it("makes a request to the Research Catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const researchCatalogRadio = screen.getAllByRole("radio")[1];
 
@@ -196,7 +177,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const websiteRadio = screen.getAllByRole("radio")[2];
 

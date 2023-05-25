@@ -41,7 +41,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         aria-label="The New York Public Library"
         className="css-1xdhyk6"
         href="https://nypl.org"
-        onClick={[Function]}
         rel={null}
         target={null}
       >
@@ -162,7 +161,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
           aria-label="NYPL Locations Near Me"
           className="css-1xdhyk6"
           href="https://nypl.org/locations"
-          onClick={[Function]}
           rel={null}
           target={null}
         >
