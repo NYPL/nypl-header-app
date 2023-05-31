@@ -26,15 +26,17 @@ module.exports = defineConfig({
     // emptyOutDir: true,
     rollupOptions: {
       input: {
-        ".": resolve(root, "index.html"),
-        header: resolve(root, "header", "index.html"),
-        footer: resolve(root, "footer", "index.html"),
+        // ".": resolve(root, "index.html"),
+        // header: resolve(root, "header", "index.html"),
+        // footer: resolve(root, "footer", "index.html"),
         // "header.min": resolve(root, "header", "main.tsx"),
-        // "footer.min": resolve(root, "footer", "main.tsx"),
+        "footer.min": resolve(root, "footer", "main.tsx"),
       },
       output: {
+        format: "iife",
         // manualChunks: undefined,
         entryFileNames: "[name].js",
+        // inlineDynamicImports: true,
         // assetFileNames: "[name].[ext]", // currently does not work for images
       },
       // plugins: [
