@@ -33,7 +33,7 @@ jobs:
           --secret id=AWS_SECRET_ACCESS_KEY .
         - docker tag "$LOCAL_TAG_NAME" "$ECR_URL:$LOCAL_TAG_NAME"
         - docker push "$ECR_URL:$LOCAL_TAG_NAME"
-    - stage: deploy test-build
+    - stage: deploy qa
       if: branch IN (test-build) AND type != pull_request
       env:
         - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_DEVELOPMENT
