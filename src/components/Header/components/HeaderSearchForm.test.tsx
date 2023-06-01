@@ -48,18 +48,14 @@ describe("HeaderSearchForm", () => {
     window.location = realLocation;
     // Restore the `Date` class.
     (global as any).Date = realDate;
+    // Running all pending timers and switching to real timers using Jest
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
   });
 
   describe("Desktop", () => {
     beforeEach(() => {
       render(<HeaderSearchForm />);
-      jest.useFakeTimers();
-    });
-
-    // Running all pending timers and switching to real timers using Jest
-    afterEach(() => {
-      jest.runOnlyPendingTimers();
-      jest.useRealTimers();
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
@@ -75,7 +71,7 @@ describe("HeaderSearchForm", () => {
       expect(searchBtn).toHaveAttribute("aria-label", "Search");
     });
 
-    it.skip("makes a request to the Encore catalog", async () => {
+    it("makes a request to the Encore catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
@@ -91,7 +87,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the Research Catalog", async () => {
+    it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const researchRadio = screen.getByText("Search the Research Catalog");
       const searchBtn = screen.getByRole("button");
@@ -108,7 +104,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const webRadio = screen.getByText("Search the library website");
       const searchBtn = screen.getByRole("button");
@@ -153,7 +149,7 @@ describe("HeaderSearchForm", () => {
       ).toBeInTheDocument();
     });
 
-    it.skip("makes a request to the Encore catalog", () => {
+    it("makes a request to the Encore catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
@@ -167,7 +163,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the Research Catalog", () => {
+    it("makes a request to the Research Catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const researchCatalogRadio = screen.getAllByRole("radio")[1];
 
@@ -181,7 +177,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it.skip("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const websiteRadio = screen.getAllByRole("radio")[2];
 
