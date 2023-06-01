@@ -1,8 +1,16 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import { Image, List, Link, Icon, IconNames, Logo } from "@nypl/design-system-react-components";
+import { Box, chakra } from "@chakra-ui/react";
+import {
+  Image,
+  List,
+  Link,
+  Icon,
+  IconNames,
+  Logo,
+} from "@nypl/design-system-react-components";
 import { forwardRef } from "react";
 
 import linkData from "./footerLinks";
+import styles from "../../theme/footer";
 
 interface FooterProps {
   /** Additional class name to add. */
@@ -19,13 +27,11 @@ interface FooterProps {
 export const Footer = chakra(
   forwardRef<HTMLDivElement, FooterProps>(
     ({ className, id = "footer", ...rest }, ref?) => {
-      const styles = useMultiStyleConfig("Footer", {});
-
       const nyplLinks = linkData.nyplLinks.map((links, index) => (
         <List
           key={index}
           listItems={links.map((link) => (
-            <Link href={link.href} key={link.text}>
+            <Link href={link.href} key={link.text} __css={styles.a}>
               {link.text}
             </Link>
           ))}
@@ -35,13 +41,19 @@ export const Footer = chakra(
         />
       ));
       const socialLinks = linkData.socialMedia.map((link, index) => (
-        <Link aria-label={link.title} href={link.href} key={index}>
+        <Link
+          aria-label={link.title}
+          href={link.href}
+          key={index}
+          __css={styles.a}
+        >
           <Icon
             aria-label={link.title}
             decorative={false}
             name={link.iconName as IconNames}
             size="small"
             title={link.title}
+            __css={styles.svg}
           />
         </Link>
       ));
@@ -54,7 +66,7 @@ export const Footer = chakra(
           ref={ref}
           role="contentinfo"
           {...rest}
-          __css={styles}
+          __css={styles.baseStyle}
         >
           <Box __css={styles.listsContainer}>
             <List

@@ -1,9 +1,10 @@
+import { chakra, VStack } from "@chakra-ui/react";
+import { List, Link, Icon } from "@nypl/design-system-react-components";
 import React, { useContext } from "react";
-import { chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 
 import { getLoginLinks } from "../utils/headerUtils";
 import { HeaderContext } from "../context/headerContext";
-import { List, Link, Icon } from "@nypl/design-system-react-components";
+import styles from "../../../theme/header/headerLogin";
 
 export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLDivElement & HTMLAnchorElement>;
@@ -18,12 +19,12 @@ export interface HeaderLoginProps {
 const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
   const { isProduction } = useContext(HeaderContext);
   const { catalogLink, researchLink } = getLoginLinks("", isProduction);
-  const styles = useMultiStyleConfig("HeaderLogin", {
-    patronName: "",
-  });
+  // const styles = useMultiStyleConfig("HeaderLogin", {
+  //   patronName: "",
+  // });
 
   return (
-    <VStack __css={styles}>
+    <VStack __css={styles.baseStyle}>
       <List
         listItems={[
           <Link
@@ -31,6 +32,7 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
             key="logInCatalog"
             ref={catalogRef}
             type="button"
+            __css={styles.a}
           >
             <Icon
               align="left"
@@ -46,6 +48,7 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
             href={researchLink}
             key="logInResearch"
             type="button"
+            __css={styles.a}
           >
             <Icon
               align="left"
@@ -60,6 +63,7 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
         ]}
         noStyling
         type="ul"
+        __css={styles.ul}
       />
     </VStack>
   );
