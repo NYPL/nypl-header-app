@@ -4,9 +4,12 @@
   "description": "NYPL Header App",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:header": "vite build --config vite.config.header.ts --mode=production",
+    "build:footer": "vite build --config vite.config.footer.ts --mode=production",
+    "build:app": "vite build --config vite.config.ts --mode=production",
+    "build": "tsc && npm run build:header && npm run build:footer && npm run build:app",
     "preview": "vite preview",
-    "prod": "vite build --mode=production && vite preview --port 3001",
+    "prod": "npm run build && vite preview --port 3001",
     "test": "jest",
     "test:watch": "jest --watch"
   },

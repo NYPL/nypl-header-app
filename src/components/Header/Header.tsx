@@ -15,7 +15,13 @@ import HeaderSitewideAlerts from "./components/HeaderSitewideAlerts";
 import HeaderUpperNav from "./components/HeaderUpperNav";
 /** Internal Header-only utils */
 import { HeaderProvider } from "./context/headerContext";
-import { useNYPLBreakpoints, SkipNavigation, Link, Logo, HorizontalRule } from "@nypl/design-system-react-components";
+import {
+  useNYPLBreakpoints,
+  SkipNavigation,
+  Link,
+  Logo,
+  HorizontalRule,
+} from "@nypl/design-system-react-components";
 
 export interface HeaderProps {
   /** Whether to render sitewide alerts or not. True by default. */
@@ -30,10 +36,7 @@ export interface HeaderProps {
  * the NYPL.org site.
  */
 export const Header = chakra(
-  ({
-    fetchSitewideAlerts = true,
-    isProduction = true,
-  }: HeaderProps) => {
+  ({ fetchSitewideAlerts = true, isProduction = true }: HeaderProps) => {
     const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
     const styles = useMultiStyleConfig("Header", {});
 
