@@ -1,4 +1,4 @@
-import { chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import { List, Notification } from "@nypl/design-system-react-components";
 import React, { useState, useEffect } from "react";
 
@@ -41,19 +41,13 @@ export const HeaderSitewideAlerts = chakra(() => {
   // contain HTML which is rendered as-is.
   const getAlertsElems = (data: Alert[]) => {
     return (
-      <List
-        noStyling
-        type="ul"
-        __css={{
-          li: {
-            marginBottom: "0 !important",
-          },
-        }}
-      >
+      <List noStyling type="ul">
         {data.map((alert: Alert) => (
-          <li
+          <Box
+            as="li"
             key={alert.id}
             dangerouslySetInnerHTML={{ __html: alert.description }}
+            marginBottom="0 !important"
           />
         ))}
       </List>
