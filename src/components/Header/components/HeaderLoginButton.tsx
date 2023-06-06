@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
-import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
+import {
+  Button,
+  Icon,
+  useCloseDropDown,
+} from "@nypl/design-system-react-components";
 import HeaderLogin from "./HeaderLogin";
 
 export interface HeaderLoginButtonProps {
@@ -44,7 +48,7 @@ const HeaderLoginButton = chakra(
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            __css={styles}
+            __css={{ ...styles, border: "none !important" }}
           >
             {isMobile ? null : desktopButtonLabel}
             <Icon

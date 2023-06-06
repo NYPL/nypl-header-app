@@ -34,6 +34,8 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
     } else {
       document.addEventListener("DOMContentLoaded", fn);
     }
+
+    document.getElementsByTagName("html")[0].style.fontSize = "1em";
   }
   function header() {
     if (typeof window !== "undefined") {
