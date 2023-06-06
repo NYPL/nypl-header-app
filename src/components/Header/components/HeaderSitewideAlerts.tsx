@@ -41,7 +41,15 @@ export const HeaderSitewideAlerts = chakra(() => {
   // contain HTML which is rendered as-is.
   const getAlertsElems = (data: Alert[]) => {
     return (
-      <List noStyling type="ul">
+      <List
+        noStyling
+        type="ul"
+        __css={{
+          li: {
+            marginBottom: "0 !important",
+          },
+        }}
+      >
         {data.map((alert: Alert) => (
           <li
             key={alert.id}
