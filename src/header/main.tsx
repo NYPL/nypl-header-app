@@ -34,10 +34,11 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
     } else {
       document.addEventListener("DOMContentLoaded", fn);
     }
-
     // This is to set the font size to 1em on the HTML element for sites
     // that may have a different base font size, such as "62.5%".
-    document.getElementsByTagName("html")[0].style.fontSize = "1em";
+    if (window.location.origin.includes("vega")) {
+      document.getElementsByTagName("html")[0].style.fontSize = "1em";
+    }
   }
   function header() {
     if (typeof window !== "undefined") {
