@@ -67,7 +67,12 @@ export const Header = chakra(
 
     return (
       <HeaderProvider isProduction={isProduction}>
-        <Box __css={styles}>
+        <Box
+          __css={{
+            ...styles,
+            "& > nav li": { marginBottom: "0 !important" },
+          }}
+        >
           <SkipNavigation />
           {fetchSitewideAlerts ? <HeaderSitewideAlerts /> : null}
           <header>

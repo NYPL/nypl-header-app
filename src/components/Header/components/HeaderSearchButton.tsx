@@ -3,7 +3,11 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 
 import HeaderSearchForm from "./HeaderSearchForm";
-import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
+import {
+  Button,
+  Icon,
+  useCloseDropDown,
+} from "@nypl/design-system-react-components";
 
 export interface HeaderSearchButtonProps {
   isMobile?: boolean;
@@ -35,7 +39,7 @@ const HeaderSearchButton = chakra(
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            __css={styles}
+            __css={{ ...styles, border: "none !important", letterSpacing: 0 }}
           >
             <span>
               {buttonText}
