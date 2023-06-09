@@ -20,16 +20,10 @@ const HeaderUpperNav = chakra(() => {
         inline
         listItems={[
           <HeaderLoginButton key="login" />,
-          <Link
-            href={upperNavLinks.locations.href}
-            key="locationsLink"
-          >
+          <Link href={upperNavLinks.locations.href} key="locationsLink">
             {upperNavLinks.locations.text}
           </Link>,
-          <Link
-            href={upperNavLinks.libraryCard.href}
-            key="libraryCardLink"
-          >
+          <Link href={upperNavLinks.libraryCard.href} key="libraryCardLink">
             {upperNavLinks.libraryCard.text}
           </Link>,
           <Link
@@ -50,15 +44,17 @@ const HeaderUpperNav = chakra(() => {
           >
             {upperNavLinks.donate.text}
           </Link>,
-          <Link
-            href={upperNavLinks.shop.href}
-            key="shopLink"
-          >
+          <Link href={upperNavLinks.shop.href} key="shopLink">
             {upperNavLinks.shop.text}
           </Link>,
         ]}
         noStyling
         type="ul"
+        __css={{
+          li: {
+            marginBottom: "0 !important",
+          },
+        }}
       />
     </Box>
   );

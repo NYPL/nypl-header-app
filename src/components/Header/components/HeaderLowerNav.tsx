@@ -11,10 +11,7 @@ import { Link, List } from "@nypl/design-system-react-components";
 const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
   const listItems = siteNavLinks.map(({ href, text }) => (
-    <Link
-      href={href}
-      key={text}
-    >
+    <Link href={href} key={text}>
       {text}
     </Link>
   ));
@@ -27,6 +24,11 @@ const HeaderLowerNav = chakra(() => {
         listItems={[...listItems, <HeaderSearchButton key="search" />]}
         noStyling
         type="ul"
+        __css={{
+          li: {
+            marginBottom: "0 !important",
+          },
+        }}
       />
     </Box>
   );
