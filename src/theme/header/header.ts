@@ -21,6 +21,19 @@ const Header = {
   parts: ["container", "horizontalRule", "logo"],
   baseStyle: {
     fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    fontSize: "text.default",
+    fontWeight: "text.default",
+    lineHeight: "1.5",
+    "& *, & ::before, & ::after": {
+      borderWidth: "0px",
+      borderStyle: "solid",
+      boxSizing: "border-box",
+    },
+    "& > nav li": { marginBottom: "0 !important" },
+    "& svg": { verticalAlign: "baseline !important" },
+    button: {
+      cursor: "pointer",
+    },
     container: {
       marginX: { md: "20px", xl: "auto" },
       maxWidth: "1300px",

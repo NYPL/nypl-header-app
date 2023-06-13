@@ -95,7 +95,7 @@ const HeaderSearchForm = chakra(
                     ...styles.textInput,
                     label: {
                       ...(styles.textInput as any).label,
-                      marginBottom: { base: "s", md: "m" },
+                      marginBottom: { base: "s" },
                     },
                     input: {
                       ...(styles.textInput as any).input,

@@ -18,6 +18,7 @@ const SitewideAlerts = {
       },
       p: {
         marginBottom: "0",
+        marginTop: "0",
       },
       _dark: {
         color: "dark.ui.typography.heading",
