@@ -39,7 +39,14 @@ const HeaderSearchButton = chakra(
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            __css={{ ...styles, border: "none !important", letterSpacing: 0 }}
+            __css={{
+              ...styles,
+              color: isOpen
+                ? "var(--nypl-colors-ui-white) !important"
+                : "#1B7FA7",
+              border: "none !important",
+              letterSpacing: 0,
+            }}
           >
             <span>
               {buttonText}

@@ -5,7 +5,13 @@ import {
   Spacer,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import { Link, Logo, List, SimpleGrid, Icon } from "@nypl/design-system-react-components";
+import {
+  Link,
+  Logo,
+  List,
+  SimpleGrid,
+  Icon,
+} from "@nypl/design-system-react-components";
 
 import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 
@@ -16,10 +22,7 @@ import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
   const listItems = siteNavLinks.map(({ href, text }) => (
-    <Link
-      href={href}
-      key={text}
-    >
+    <Link href={href} key={text}>
       {text}
     </Link>
   ));
@@ -44,7 +47,10 @@ const HeaderMobileNav = chakra(() => {
             listItems={listItems}
             noStyling
             type="ul"
-            __css={styles.sideNav}
+            __css={{
+              ...styles.sideNav,
+              li: { marginBottom: "unset !important" },
+            }}
           />
         </nav>
       </Flex>
@@ -89,10 +95,7 @@ const HeaderMobileNav = chakra(() => {
           />
           {upperNavLinks.shop.text} NYPL
         </Link>
-        <Link
-          href={upperNavLinks.donate.href}
-          gridColumn="1 / span 2"
-        >
+        <Link href={upperNavLinks.donate.href} gridColumn="1 / span 2">
           {upperNavLinks.donate.text.toUpperCase()}
         </Link>
       </SimpleGrid>
