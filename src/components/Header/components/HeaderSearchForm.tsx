@@ -94,11 +94,11 @@ const HeaderSearchForm = chakra(
                   __css={{
                     ...styles.textInput,
                     label: {
-                      ...styles.textInput.label,
+                      ...(styles.textInput as any).label,
                       marginBottom: { base: "s", md: "m" },
                     },
                     input: {
-                      ...styles.textInput.input,
+                      ...(styles.textInput as any).input,
                       _placeholder: {
                         fontSize: { base: "18px", md: "20px" },
                         fontStyle: "normal",
