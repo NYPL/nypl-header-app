@@ -25,6 +25,11 @@ const footerGray = "#54514A";
 const Footer = {
   baseStyle: {
     backgroundColor: footerGray,
+    boxSizing: "border-box",
+    fontFamily: "system-ui, sans-serif",
+    fontSize: "text.default",
+    fontWeight: "text.default",
+    lineHeight: "1.5",
     minHeight: { base: "360px", lg: "420px" },
     padding: { base: "15px 20px 100px", md: "15px 0", lg: "30px 0" },
     position: "relative",
