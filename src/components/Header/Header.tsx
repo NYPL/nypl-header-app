@@ -71,6 +71,7 @@ export const Header = chakra(
           __css={{
             ...styles,
             "& > nav li": { marginBottom: "0 !important" },
+            "& svg": { verticalAlign: "baseline !important" },
           }}
         >
           <SkipNavigation />
