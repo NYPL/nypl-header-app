@@ -1,5 +1,5 @@
 /*eslint no-useless-escape: 0 */
-import * as Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 export interface Alert {
   id: string;
@@ -182,7 +182,9 @@ export const getNYPLSearchURL = (searchString) => {
 
   if (searchString) {
     return (
-      catalogUrl + encodeURIComponent(searchString) + generateQueriesForTracking()
+      catalogUrl +
+      encodeURIComponent(searchString) +
+      generateQueriesForTracking()
     );
   }
   return null;

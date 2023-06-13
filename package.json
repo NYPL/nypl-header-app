@@ -10,7 +10,8 @@
     "build:app:watch": "vite build --config vite.config.ts --mode=production --watch",
     "build": "tsc && npm run build:header && npm run build:footer && npm run build:app",
     "build:watch": "tsc && vite build --watch",
-    "preview": "vite preview --port 3001",
+    "preview": "vite preview",
+    "preview:watch": "vite preview --port 3001",
     "prod": "npm run build && vite preview --port 3001",
     "test": "jest",
     "test:watch": "jest --watch"

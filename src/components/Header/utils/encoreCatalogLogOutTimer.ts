@@ -1,4 +1,4 @@
-import * as Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 export const encoreLogOutURL =
   "https://browse.nypl.org/iii/encore/logoutFilterRedirect?suite=def";
@@ -9,6 +9,28 @@ function EncoreCatalogLogOutTimer(
   currentTime = Date.now(),
   isTestMode = false
 ) {
+  /**
+   * If the patron is not logged in, forcibly log the patron out by deleting
+   * the "nyplIdentityPatron" cookie and the "VALID_DOMAIN_LAST_VISITED" cookie.
+   */
+  this.removeLoggedInCookie = () => {
+    const isLoggedIn = Cookies.get("PAT_LOGGED_IN");
+
+    if (!isLoggedIn) {
+      // The cookie "PAT_LOGGED_IN" does not exist, delete the
+      // "nyplIdentityPatron" cookie to log the patron out.
+      if (Cookies.get("nyplIdentityPatron")) {
+        Cookies.remove("nyplIdentityPatron");
+      }
+
+      // Delete cookie "VALID_DOMAIN_LAST_VISITED" which holds the last time
+      // the patron visited the valid domain.
+      if (Cookies.get("VALID_DOMAIN_LAST_VISITED")) {
+        Cookies.remove("VALID_DOMAIN_LAST_VISITED");
+      }
+    }
+  };
+
   /**
    * This method is to set a timer to delete related cookies and completely log
    * out a patron from Encore after its expiration time. This is to keep the
@@ -35,19 +57,9 @@ function EncoreCatalogLogOutTimer(
     );
     const isLoggedIn = Cookies.get("PAT_LOGGED_IN");
 
-    if (!isLoggedIn) {
-      // The cookie "PAT_LOGGED_IN" does not exist, delete the
-      // "nyplIdentityPatron" cookie to log the patron out.
-      if (Cookies.get("nyplIdentityPatron")) {
-        Cookies.remove("nyplIdentityPatron");
-      }
+    this.removeLoggedInCookie();
 
-      // Delete cookie "VALID_DOMAIN_LAST_VISITED" which holds the last time
-      // the patron visited the valid domain.
-      if (Cookies.get("VALID_DOMAIN_LAST_VISITED")) {
-        Cookies.remove("VALID_DOMAIN_LAST_VISITED");
-      }
-    } else {
+    if (isLoggedIn) {
       // Update the "VALID_DOMAIN_LAST_VISITED" cookie in two scenarios:
       //  1. The patron is on a Sierra (Encore) hosted page, actively
       //     refresh their session.

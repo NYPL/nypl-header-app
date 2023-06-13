@@ -83,12 +83,12 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
            * we need to use call to iterate with forEach.
            */
           [].forEach.call(allScriptTags, (value: HTMLScriptElement) => {
-            console.log("each", value);
+            // console.log("each", value);
             if (value.src.indexOf("footer.min") !== -1) {
               scriptTag = value;
 
               containerId = getQueryParam(scriptTag.src, "containerId");
-              console.log("containerId", containerId);
+              // console.log("containerId", containerId);
               // If an element id is passed in, append the footer to that
               // element. This assumes the element is already on the page.
               // Otherwise, append the footer to the body on the element
