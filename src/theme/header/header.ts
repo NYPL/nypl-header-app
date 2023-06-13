@@ -18,6 +18,7 @@ export const headerFocus = {
 };
 
 const Header = {
+  parts: ["container", "horizontalRule", "logo"],
   baseStyle: {
     fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     container: {
@@ -25,23 +26,23 @@ const Header = {
       maxWidth: "1300px",
       minHeight: { base: "60px", md: "160px", lg: "205px" },
     },
-  },
-  horizontalRule: {
-    bg: headerRed,
-    marginTop: "0",
-    marginBottom: "0",
-    _dark: {
-      backgroundColor: "dark.brand.primary",
+    horizontalRule: {
+      bg: headerRed,
+      marginTop: "0",
+      marginBottom: "0",
+      _dark: {
+        backgroundColor: "dark.brand.primary",
+      },
     },
-  },
-  logo: {
-    padding: { base: "0 10px", md: "0" },
-    svg: {
-      height: { base: "40px", md: "auto" },
-      width: { md: "80px", lg: "220px" },
-      marginTop: { base: "10px", md: "-30px" },
+    logo: {
+      padding: { base: "0 10px", md: "0" },
+      svg: {
+        height: { base: "40px", md: "auto" },
+        width: { md: "80px", lg: "220px" },
+        marginTop: { base: "10px", md: "-30px" },
+      },
+      _focus: headerFocus,
     },
-    _focus: headerFocus,
   },
 };
 
