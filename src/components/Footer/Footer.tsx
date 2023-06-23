@@ -1,5 +1,12 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import { Image, List, Link, Icon, IconNames, Logo } from "@nypl/design-system-react-components";
+import {
+  Image,
+  List,
+  Link,
+  Icon,
+  IconNames,
+  Logo,
+} from "@nypl/design-system-react-components";
 import { forwardRef } from "react";
 
 import linkData from "./footerLinks";
