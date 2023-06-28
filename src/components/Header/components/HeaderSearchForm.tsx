@@ -6,7 +6,18 @@ import {
   getNYPLSearchURL,
   getResearchCatalogURL,
 } from "../utils/headerUtils";
-import { Form, FormRow, FormField, Fieldset, TextInput, ButtonGroup, Button, Icon, RadioGroup, Radio } from "@nypl/design-system-react-components";
+import {
+  Form,
+  FormRow,
+  FormField,
+  Fieldset,
+  TextInput,
+  ButtonGroup,
+  Button,
+  Icon,
+  RadioGroup,
+  Radio,
+} from "@nypl/design-system-react-components";
 
 export interface HeaderSearchFormProps {
   isMobile?: boolean;
@@ -80,7 +91,20 @@ const HeaderSearchForm = chakra(
                   placeholder={placeholder}
                   showRequiredLabel={false}
                   value={searchInput}
-                  __css={styles.textInput}
+                  __css={{
+                    ...styles.textInput,
+                    label: {
+                      ...(styles.textInput as any)?.label,
+                      marginBottom: { base: "s" },
+                    },
+                    input: {
+                      ...(styles.textInput as any)?.input,
+                      _placeholder: {
+                        fontSize: { base: "18px", md: "20px" },
+                        fontStyle: "normal",
+                      },
+                    },
+                  }}
                 />
               </Fieldset>
             </FormField>
@@ -108,6 +132,11 @@ const HeaderSearchForm = chakra(
                 name="catalogWebsiteSearch"
                 onChange={(val: SearchOptionType) => setSearchOption(val)}
                 showLabel={false}
+                __css={{
+                  label: {
+                    marginBottom: "0",
+                  },
+                }}
               >
                 <Radio
                   id="circulatingCatalogSearch"

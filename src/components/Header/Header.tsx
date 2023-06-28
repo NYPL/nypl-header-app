@@ -70,7 +70,18 @@ export const Header = chakra(
         <Box
           __css={{
             ...styles,
+            // For Vega override, this is the browser's default.
             "& > nav li": { marginBottom: "0 !important" },
+            "& svg": { verticalAlign: "baseline !important" },
+            "& button": {
+              padding: "1px 6px !important",
+            },
+            "& fieldset": {
+              marginBottom: "0px !important",
+            },
+            "& input": {
+              marginBottom: "0px !important",
+            },
           }}
         >
           <SkipNavigation />

@@ -7,14 +7,16 @@
     "build:header": "vite build --config vite.config.header.ts --mode=production",
     "build:footer": "vite build --config vite.config.footer.ts --mode=production",
     "build:app": "vite build --config vite.config.ts --mode=production",
+    "build:app:watch": "vite build --config vite.config.ts --mode=production --watch",
     "build": "tsc && npm run build:header && npm run build:footer && npm run build:app",
     "preview": "vite preview",
+    "preview:watch": "vite preview --port 3001",
     "prod": "npm run build && vite preview --port 3001",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@nypl/design-system-react-components": "1.5.2",
+    "@nypl/design-system-react-components": "1.6.1",
     "js-cookie": "3.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
