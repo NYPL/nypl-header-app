@@ -42,7 +42,7 @@ When adding the embed code snippets above, the `Header` and `Footer` will load a
 ```HTML
 <style>
    #Header-Placeholder {
-      minheight: 70px;
+      min-height: 70px;
    }
    @media screen and (min-width: 1024px) {
       #Header-Placeholder {
@@ -67,7 +67,7 @@ For Next.js apps, it is recommended to add the script to the `_document.tsx` fil
 ```jsx
 <style>{`
    #Header-Placeholder {
-      minheight: 70px;
+      min-height: 70px;
    }
    @media screen and (min-width: 1024px) {
       #Header-Placeholder {
