@@ -1,6 +1,10 @@
 import FocusLock from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import { Button, Icon, useCloseDropDown } from "@nypl/design-system-react-components";
+import {
+  Button,
+  Icon,
+  useCloseDropDown,
+} from "@nypl/design-system-react-components";
 import { useState, useRef } from "react";
 
 import HeaderMobileNav from "./HeaderMobileNav";
@@ -28,7 +32,7 @@ const HeaderMobileNavButton = chakra(() => {
           onClick={() => {
             setIsOpen(!isOpen);
           }}
-          __css={styles}
+          __css={{ ...styles, padding: "1px 6px !important" }}
         >
           <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
