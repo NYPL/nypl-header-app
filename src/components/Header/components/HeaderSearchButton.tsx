@@ -46,6 +46,7 @@ const HeaderSearchButton = chakra(
                 : "#1B7FA7",
               border: "none !important",
               letterSpacing: 0,
+              padding: "1px 6px !important",
             }}
           >
             <span>

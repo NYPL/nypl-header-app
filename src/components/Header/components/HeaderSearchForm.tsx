@@ -115,7 +115,7 @@ const HeaderSearchForm = chakra(
                   buttonType="pill"
                   id="search-btn"
                   onClick={onSubmit}
-                  __css={styles.searchBtn}
+                  __css={{ ...styles.searchBtn, padding: "1px 6px !important" }}
                 >
                   <Icon name="search" size="large" />
                 </Button>
