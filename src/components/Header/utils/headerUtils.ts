@@ -63,7 +63,7 @@ export const upperNavLinks = {
     text: "Get A Library Card",
   },
   emailUpdates: {
-    href: "https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7",
+    href: "https://pub.email.nypl.org/subscriptioncenter",
     text: "Get Email Updates",
   },
   donate: {
