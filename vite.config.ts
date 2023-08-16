@@ -4,9 +4,9 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
 const root = resolve(__dirname, "src");
-const outDir = resolve(__dirname, "dist");
+const outDir = resolve(__dirname, "dist/client");
 
-module.exports = defineConfig({
+export default defineConfig({
   server: {
     host: true, // for Docker Container port mapping
   },
@@ -23,9 +23,9 @@ module.exports = defineConfig({
     outDir,
     rollupOptions: {
       input: {
-        ".": resolve(root, "index.html"),
         header: resolve(root, "header", "index.html"),
         footer: resolve(root, "footer", "index.html"),
+        ".": resolve(root, "index.html"),
       },
       output: {
         entryFileNames: "[name].js",

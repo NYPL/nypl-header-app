@@ -4,12 +4,12 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
 const root = resolve(__dirname, "src");
-const outDir = resolve(__dirname, "dist");
+const outDir = resolve(__dirname, "dist/client");
 
 // This is a separate Vite config file for the Footer. This is done because
 // we want the /footer.min.js endpoint to contain all the code for the Footer
 // and Vite does not allow a single file when multiple entry points are set.
-module.exports = defineConfig({
+export default defineConfig({
   server: {
     host: true, // for Docker Container port mapping
   },
