@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 7/19
+
+### Fixes
+
+- Adds explicit focus styles for the skip nav links. They were inadvertently
+  removed when the global styles were disabled.
+
 ## 6/13
 
 ### Adds
