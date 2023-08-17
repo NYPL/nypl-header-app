@@ -43,7 +43,7 @@ const HeaderSearchButton = chakra(
               ...styles,
               color: isOpen
                 ? "var(--nypl-colors-ui-white) !important"
-                : "#1B7FA7",
+                : "var(--nypl-colors-ui-link-primary)",
               border: "none !important",
               letterSpacing: 0,
               padding: "1px 6px !important",

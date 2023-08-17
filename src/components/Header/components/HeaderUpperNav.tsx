@@ -26,20 +26,13 @@ const HeaderUpperNav = chakra(() => {
           <Link href={upperNavLinks.libraryCard.href} key="libraryCardLink">
             {upperNavLinks.libraryCard.text}
           </Link>,
-          <Link
-            href={upperNavLinks.emailUpdates.href}
-            key="emailUpdatesLink"
-            __css={styles.emailUpdatesLink}
-          >
-            <>
-              {upperNavLinks.emailUpdates.text}
-              <Icon name="arrow" align="right" size="small" />
-            </>
+          <Link href={upperNavLinks.emailUpdates.href} key="emailUpdatesLink">
+            {upperNavLinks.emailUpdates.text}
           </Link>,
           <Link
             href={upperNavLinks.donate.href}
             key="donateLink"
-            type="button"
+            type="buttonCallout"
             __css={styles.donateLink}
           >
             {upperNavLinks.donate.text}

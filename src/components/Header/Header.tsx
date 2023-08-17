@@ -14,6 +14,7 @@ import {
   Logo,
   HorizontalRule,
 } from "@nypl/design-system-react-components";
+import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect } from "react";
 
 /** Internal Header-only components */
@@ -39,7 +40,11 @@ export interface HeaderProps {
  */
 export const Header = chakra(
   ({ fetchSitewideAlerts = true, isProduction = true }: HeaderProps) => {
-    const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
+    // isLargerThanLarge is greater than 960px
+    const { isLargerThanLarge } = useNYPLBreakpoints();
+    // The Header's "mobile" is 832px and below.
+    const [isLargerThanMobile] = useMediaQuery(["(min-width: 832px)"]);
+
     const styles = useMultiStyleConfig("Header", {});
     // Create a new instance of the EncoreCatalogLogOutTimer. The timer will
     // start when the component is mounted. Even though the patron's information
@@ -105,7 +110,7 @@ export const Header = chakra(
               {isLargerThanMobile ? (
                 <VStack
                   alignItems="end"
-                  spacing={isLargerThanLarge ? "85px" : "40px"}
+                  // spacing={isLargerThanLarge ? "85px" : "40px"}
                 >
                   <HeaderUpperNav />
                   <HeaderLowerNav />

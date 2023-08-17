@@ -3,11 +3,11 @@ import { headerYellow } from "./header";
 const SitewideAlerts = {
   baseStyle: {
     backgroundColor: headerYellow,
-    borderBottom: { base: "1px solid", md: "none" },
+    borderBottom: { base: "1px solid", mb: "none" },
     fontSize: "text.default",
     fontWeight: "regular",
     lineHeight: "1.1rem",
-    minHeight: { base: "85px", md: "65px" },
+    minHeight: { base: "85px", mb: "65px" },
     paddingX: "s",
     ul: {
       marginBottom: "0",

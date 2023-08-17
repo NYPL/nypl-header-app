@@ -47,9 +47,9 @@ const Header = {
       cursor: "pointer",
     },
     container: {
-      marginX: { md: "20px", xl: "auto" },
-      maxWidth: "1300px",
-      minHeight: { base: "60px", md: "160px", lg: "205px" },
+      marginX: { mb: "20px", xl: "auto" },
+      maxWidth: "1280px",
+      minHeight: { mb: "122x" },
     },
     horizontalRule: {
       bg: headerRed,
@@ -60,11 +60,11 @@ const Header = {
       },
     },
     logo: {
-      padding: { base: "0 10px", md: "0" },
+      padding: { base: "0 10px", mb: "0" },
       svg: {
-        height: { base: "40px", md: "auto" },
-        width: { md: "80px", lg: "220px" },
-        marginTop: { base: "10px", md: "-30px" },
+        height: { base: "40px", mb: "90px" },
+        width: { mb: "74px", lg: "220px" },
+        // marginTop: { base: "10px", mb: "0" },
       },
       _focus: headerFocus,
     },

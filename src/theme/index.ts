@@ -10,8 +10,17 @@ import HeaderSearchButton from "./headerSearchButton";
 import HeaderSearchForm from "./headerSearchForm";
 import HeaderSitewideAlerts from "./headerSitewideAlerts";
 import HeaderUpperNav from "./headerUpperNav";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 const theme: any = {
+  breakpoints: createBreakpoints({
+    sm: "20em",
+    md: "37.5em",
+    mb: "52em", // "832px",
+    lg: "60em",
+    xl: "80em",
+    "2xl": "96em",
+  }),
   components: {
     Footer,
     Header,

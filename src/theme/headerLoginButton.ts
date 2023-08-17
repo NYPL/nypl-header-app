@@ -5,17 +5,17 @@ const HeaderLoginButton = {
     alignItems: { base: "center" },
     bg: {
       base: isOpen ? headerBlack : "ui.white",
-      md: isOpen ? headerDarkBlue : "ui.white",
+      mb: isOpen ? headerDarkBlue : "ui.white",
     },
     borderRadius: "none",
     color: isOpen ? "ui.white" : "ui.black",
-    fontSize: "13px",
-    fontWeight: 700,
-    minHeight: { md: "auto" },
-    padding: { md: "10px 12px" },
+    fontSize: "desktop.body.body2",
+    fontWeight: "medium",
+    minHeight: { mb: "auto" },
+    padding: { mb: "12px 6px" },
     svg: {
       fill: isOpen ? "ui.white" : null,
-      marginLeft: { base: "0px", md: "5px" },
+      marginLeft: { base: "0px", mb: "5px" },
       marginTop: { base: "0" },
     },
     textDecoration: "none",
@@ -23,7 +23,7 @@ const HeaderLoginButton = {
     _hover: {
       backgroundColor: {
         base: isOpen ? headerBlack : "transparent",
-        md: isOpen ? headerDarkBlue : "transparent",
+        mb: isOpen ? headerDarkBlue : "transparent",
       },
       color: isOpen ? "ui.white" : "initial",
       svg: {
@@ -32,11 +32,10 @@ const HeaderLoginButton = {
       textDecoration: "none",
     },
     _focus: headerFocus,
-
     _dark: {
       bg: {
         base: isOpen ? headerBlack : "transparent",
-        md: isOpen ? headerDarkBlue : "transparent",
+        mb: isOpen ? headerDarkBlue : "transparent",
       },
       color: "dark.ui.typography.heading",
       svg: {

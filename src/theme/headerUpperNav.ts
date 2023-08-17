@@ -10,16 +10,13 @@ const HeaderUpperNav = {
       whiteSpace: "nowrap",
     },
     li: {
-      fontSize: "13px",
-      fontWeight: 700,
-      letterSpacing: ".02em",
-      marginRight: "10px",
+      fontSize: "desktop.body.body2",
+      fontWeight: "medium",
       position: "relative",
-      textTransform: "uppercase",
     },
     a: {
       color: "ui.black",
-      padding: "12px",
+      margin: "0 6px",
       position: "relative",
       textDecoration: "none",
       _hover: {
@@ -40,21 +37,9 @@ const HeaderUpperNav = {
         fill: "white",
       },
     },
-    emailUpdatesLink: {
-      display: "flex",
-      alignItems: "center",
-    },
     donateLink: {
-      alignItems: "center",
-      bg: headerRed,
-      borderRadius: "headerDonate",
-      color: "var(--nypl-colors-ui-white) !important",
-      fontWeight: "bold",
-      maxHeight: "2rem",
-      paddingX: "5px",
-      width: "85px",
       _hover: {
-        bg: headerRed,
+        color: "var(--nypl-colors-ui-white) !important",
       },
       _dark: {
         bgColor: "brand.secondary",

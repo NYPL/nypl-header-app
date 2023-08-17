@@ -6,13 +6,13 @@
  */
 const screenreaderOnly = (isMobileOnly = false) => ({
   clip: "rect(1px, 1px, 1px, 1px)",
-  height: { base: "1px", md: isMobileOnly ? "auto" : undefined },
+  height: { base: "1px", mb: isMobileOnly ? "auto" : undefined },
   overflow: "hidden",
   position: {
     base: "absolute !important",
-    md: isMobileOnly ? "relative !important" : undefined,
+    mb: isMobileOnly ? "relative !important" : undefined,
   },
-  width: { base: "1px", md: isMobileOnly ? "100%" : undefined },
+  width: { base: "1px", mb: isMobileOnly ? "100%" : undefined },
   wordWrap: "normal",
 });
 const displayScreenreaderOnly = {
@@ -31,7 +31,7 @@ const Footer = {
     fontWeight: "text.default",
     lineHeight: "1.5",
     minHeight: { base: "360px", lg: "420px" },
-    padding: { base: "15px 20px 100px", md: "15px 0", lg: "30px 0" },
+    padding: { base: "15px 20px 100px", mb: "15px 0", lg: "30px 0" },
     position: "relative",
     _dark: {
       backgroundColor: "dark.ui.bg.default",
@@ -42,25 +42,25 @@ const Footer = {
       flexDirection: { base: "column", xl: "row-reverse" },
       alignItems: { base: "flex-end", xl: "flex-start" },
       marginTop: "75px",
-      margin: { md: "0" },
-      right: { md: "6%" },
-      position: { md: "absolute" },
+      margin: { mb: "0" },
+      right: { mb: "6%" },
+      position: { mb: "absolute" },
     },
     // The first list which contains the three lists of text links.
     footerLinksList: {
-      fontSize: { base: "14px", md: "13px", lg: "14px" },
+      fontSize: { base: "14px", mb: "13px", lg: "14px" },
       fontWeight: { lg: "400" },
-      lineHeight: { base: "18px", md: "23px", lg: "30px" },
+      lineHeight: { base: "18px", mb: "23px", lg: "30px" },
       marginRight: { xl: "100px" },
-      order: { base: "2", md: "1", xl: "2" },
-      textAlign: { base: "right", md: "left" },
-      width: { base: "100%", md: "auto" },
+      order: { base: "2", mb: "1", xl: "2" },
+      textAlign: { base: "right", mb: "left" },
+      width: { base: "100%", mb: "auto" },
       li: {
-        float: { md: "left" },
+        float: { mb: "left" },
         marginTop: "0 !important",
-        width: { md: "135px", lg: "155px" },
+        width: { mb: "135px", lg: "155px" },
         _first: {
-          width: { md: "110px" },
+          width: { mb: "110px" },
           marginRight: { lg: "110px", xl: "50px" },
         },
         ":nth-child(2)": {
@@ -81,7 +81,7 @@ const Footer = {
     socialMediaList: {
       order: "1",
       margin: "20px 0 15px 0",
-      marginTop: { md: "30px", xl: "0" },
+      marginTop: { mb: "30px", xl: "0" },
       textAlign: { xl: "right" },
       width: { xl: "280px" },
       li: {
@@ -90,7 +90,7 @@ const Footer = {
         a: {
           display: "block",
           color: "ui.white",
-          fontSize: { base: "40px", md: "50px" },
+          fontSize: { base: "40px", mb: "50px" },
           lineHeight: "45px",
           textDecoration: "none",
           svg: {
@@ -139,19 +139,19 @@ const Footer = {
         base: "20px",
         lg: "35px",
       },
-      left: { md: "6%" },
+      left: { mb: "6%" },
       svg: {
-        height: { base: "80px", md: "94px" },
-        width: { base: "95px", md: "115px" },
+        height: { base: "80px", mb: "94px" },
+        width: { base: "95px", mb: "115px" },
       },
     },
     // For the facade image and copyright text.
     nyplInfoContainer: {
       color: "ui.white",
-      position: { md: "absolute" },
-      left: { md: "6%" },
-      top: { md: "140px", lg: "170px", xl: "140px" },
-      width: { md: "400px" },
+      position: { mb: "absolute" },
+      left: { mb: "6%" },
+      top: { mb: "140px", lg: "170px", xl: "140px" },
+      width: { mb: "400px" },
       _dark: {
         color: "dark.ui.typography.body",
       },
@@ -166,7 +166,7 @@ const Footer = {
     },
     copyright: {
       margin: "35px 0 0 0",
-      fontSize: { base: "12px", md: "11px", lg: "13px" },
+      fontSize: { base: "12px", mb: "11px", lg: "13px" },
       fontWeight: "regular",
       textAlign: "right",
       p: {
