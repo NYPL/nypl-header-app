@@ -14,12 +14,15 @@ const HeaderLowerNav = {
   baseStyle: {
     ul: {
       alignItems: "center",
-      marginBottom: "xxs",
+      marginBottom: "0",
       marginLeft: "auto",
       whiteSpace: "nowrap",
     },
     li: {
-      marginLeft: "xxs",
+      marginEnd: { lg: "s", xl: "m" },
+      _last: {
+        marginRight: "0",
+      },
     },
     "li > a": {
       color: "ui.black",

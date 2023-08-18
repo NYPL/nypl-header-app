@@ -19,7 +19,6 @@ const HeaderSearchButton = {
       alignItems: "center",
       borderBottom: { mb: "1px solid var(--nypl-colors-ui-link-primary)" },
       display: "inline-flex",
-      lineHeight: "1.3",
       _dark: {
         borderBottom: isOpen ? "0" : { mb: "3px solid" },
         borderColor: { mb: "dark.ui.link.primary" },

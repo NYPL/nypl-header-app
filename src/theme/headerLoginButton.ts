@@ -12,7 +12,7 @@ const HeaderLoginButton = {
     fontSize: "desktop.body.body2",
     fontWeight: "medium",
     minHeight: { mb: "auto" },
-    padding: { mb: "12px 6px" },
+    paddingY: { mb: "10px" },
     svg: {
       fill: isOpen ? "ui.white" : null,
       marginLeft: { base: "0px", mb: "5px" },

@@ -45,8 +45,8 @@ const HeaderSearchButton = chakra(
                 ? "var(--nypl-colors-ui-white) !important"
                 : "var(--nypl-colors-ui-link-primary)",
               border: "none !important",
-              letterSpacing: 0,
-              padding: "1px 6px !important",
+              padding: "0px",
+              paddingInlineEnd: "0px",
             }}
           >
             <span>

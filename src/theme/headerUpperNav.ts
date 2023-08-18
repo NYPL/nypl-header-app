@@ -1,22 +1,25 @@
 import { headerFocus, headerRed } from "./header";
 
 const HeaderUpperNav = {
-  parts: ["donateLink", "emailUpdatesLink"],
+  parts: ["donateLink"],
   baseStyle: {
+    height: "37px",
     ul: {
       alignItems: "center",
       display: "flex",
-      marginTop: "s",
+      margin: "0",
       whiteSpace: "nowrap",
     },
     li: {
       fontSize: "desktop.body.body2",
       fontWeight: "medium",
-      position: "relative",
+      marginRight: "s",
+      _last: {
+        marginRight: "0",
+      },
     },
     a: {
       color: "ui.black",
-      margin: "0 6px",
       position: "relative",
       textDecoration: "none",
       _hover: {
@@ -32,7 +35,6 @@ const HeaderUpperNav = {
       },
     },
     svg: {
-      marginTop: "0",
       _dark: {
         fill: "white",
       },

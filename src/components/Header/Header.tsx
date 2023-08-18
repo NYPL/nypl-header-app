@@ -108,10 +108,7 @@ export const Header = chakra(
               </Link>
               <Spacer />
               {isLargerThanMobile ? (
-                <VStack
-                  alignItems="end"
-                  // spacing={isLargerThanLarge ? "85px" : "40px"}
-                >
+                <VStack alignItems="end" __css={styles.navContainer}>
                   <HeaderUpperNav />
                   <HeaderLowerNav />
                 </VStack>

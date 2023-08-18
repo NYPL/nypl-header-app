@@ -18,12 +18,11 @@ export const headerFocus = {
 };
 
 const Header = {
-  parts: ["container", "horizontalRule", "logo"],
+  parts: ["container", "horizontalRule", "logo", "navContainer"],
   baseStyle: {
     fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     fontSize: "text.default",
     fontWeight: "text.default",
-    lineHeight: "1.5",
     "& *, & ::before, & ::after": {
       borderWidth: "0px",
       borderStyle: "solid",
@@ -42,17 +41,22 @@ const Header = {
         },
       },
     },
-    "& svg": { verticalAlign: "baseline !important" },
     button: {
       cursor: "pointer",
     },
     container: {
-      marginX: { mb: "20px", xl: "auto" },
+      paddingX: "16px",
+      paddingY: { base: "8px", mb: "16px" },
       maxWidth: "1280px",
       minHeight: { mb: "122x" },
+      margin: "0 auto",
+    },
+    navContainer: {
+      height: { mb: "90px", lg: "97px" },
+      gap: { mb: "s", lg: "m" },
     },
     horizontalRule: {
-      bg: headerRed,
+      bg: "brand.primary",
       marginTop: "0",
       marginBottom: "0",
       _dark: {
@@ -60,11 +64,9 @@ const Header = {
       },
     },
     logo: {
-      padding: { base: "0 10px", mb: "0" },
+      lineHeight: "0",
       svg: {
-        height: { base: "40px", mb: "90px" },
-        width: { mb: "74px", lg: "220px" },
-        // marginTop: { base: "10px", mb: "0" },
+        height: { base: "40px", mb: "74px", lg: "97px" },
       },
       _focus: headerFocus,
     },
