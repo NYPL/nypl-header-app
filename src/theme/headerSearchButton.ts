@@ -8,8 +8,8 @@ const HeaderSearchButton = {
     color: isOpen ? "ui.white" : "ui.link.primary",
     fontSize: "inherit",
     fontWeight: "medium",
-    minHeight: { mb: "40px" },
-    minWidth: { mb: "80px" },
+    minHeight: { mh: "40px" },
+    minWidth: { mh: "80px" },
     textDecoration: "none",
     _dark: {
       bgColor: isOpen ? "section.research.secondary" : "transparent",
@@ -17,23 +17,23 @@ const HeaderSearchButton = {
     },
     span: {
       alignItems: "center",
-      borderBottom: { mb: "1px solid var(--nypl-colors-ui-link-primary)" },
+      borderBottom: { mh: "1px solid var(--nypl-colors-ui-link-primary)" },
       display: "inline-flex",
       _dark: {
-        borderBottom: isOpen ? "0" : { mb: "3px solid" },
-        borderColor: { mb: "dark.ui.link.primary" },
+        borderBottom: isOpen ? "0" : { mh: "3px solid" },
+        borderColor: { mh: "dark.ui.link.primary" },
       },
     },
     svg: {
-      marginLeft: { base: "0", mb: "xxs" },
+      marginLeft: { base: "0", mh: "xxs" },
       fill: {
         base: isOpen ? "ui.white" : "ui.black",
-        mb: isOpen ? "ui.white" : "ui.link.primary",
+        mh: isOpen ? "ui.white" : "ui.link.primary",
       },
       _dark: {
         fill: {
           base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-          mb: isOpen ? "ui.white" : "dark.ui.link.primary",
+          mh: isOpen ? "ui.white" : "dark.ui.link.primary",
         },
       },
     },
@@ -44,7 +44,7 @@ const HeaderSearchButton = {
       svg: {
         fill: {
           base: isOpen ? "ui.white" : "ui.black",
-          mb: isOpen ? "ui.white" : "ui.link.primary",
+          mh: isOpen ? "ui.white" : "ui.link.primary",
         },
       },
       _dark: {
@@ -52,7 +52,7 @@ const HeaderSearchButton = {
         svg: {
           fill: {
             base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-            mb: isOpen ? "ui.white" : "dark.ui.link.primary",
+            mh: isOpen ? "ui.white" : "dark.ui.link.primary",
           },
         },
       },

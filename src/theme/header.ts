@@ -45,15 +45,15 @@ const Header = {
       cursor: "pointer",
     },
     container: {
-      paddingX: "16px",
-      paddingY: { base: "8px", mb: "16px" },
+      paddingX: { base: "8px", mh: "16px" },
+      paddingY: { mh: "16px" },
       maxWidth: "1280px",
-      minHeight: { mb: "122x" },
+      minHeight: { mh: "122x" },
       margin: "0 auto",
     },
     navContainer: {
-      height: { mb: "90px", lg: "97px" },
-      gap: { mb: "s", lg: "m" },
+      height: { mh: "90px", lh: "97px" },
+      gap: { mh: "s", lh: "m" },
     },
     horizontalRule: {
       bg: "brand.primary",
@@ -66,7 +66,7 @@ const Header = {
     logo: {
       lineHeight: "0",
       svg: {
-        height: { base: "40px", mb: "74px", lg: "97px" },
+        height: { base: "40px", mh: "74px", lh: "97px" },
       },
       _focus: headerFocus,
     },

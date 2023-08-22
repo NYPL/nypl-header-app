@@ -39,7 +39,7 @@ const HeaderLoginButton = chakra(
     }, [isOpen]);
 
     return (
-      <Box ref={wrapperRef}>
+      <Box ref={wrapperRef} position={{ mh: "relative" }}>
         <FocusLock isDisabled={!isOpen}>
           <Button
             aria-label={desktopButtonLabel}

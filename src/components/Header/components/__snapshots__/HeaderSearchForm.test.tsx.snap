@@ -30,7 +30,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-1ubs1ls"
+              className="css-1annanu"
               id="searchInput-wrapper"
             >
               <label
@@ -63,7 +63,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
           </fieldset>
         </div>
         <div
-          className="css-1m2mefi"
+          className="css-1akhhia"
           id="search-header-child0-grandchild1"
         >
           <div
@@ -337,7 +337,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-1ubs1ls"
+              className="css-1annanu"
               id="searchInput-wrapper"
             >
               <label
@@ -370,7 +370,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
           </fieldset>
         </div>
         <div
-          className="css-1m2mefi"
+          className="css-1akhhia"
           id="search-header-child0-grandchild1"
         >
           <div
