@@ -26,7 +26,10 @@ const HeaderLowerNav = {
     },
     "li > a": {
       color: "ui.black",
-      fontSize: "desktop.subtitle.subtitle2",
+      fontSize: {
+        base: "desktop.subtitle.subtitle2",
+        lh: "desktop.subtitle.subtTitle1",
+      },
       fontWeight: "medium",
       textDecoration: "none",
       _hover: linkFocusHoverStyles,
