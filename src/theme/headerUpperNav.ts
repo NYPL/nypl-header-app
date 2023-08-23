@@ -40,6 +40,7 @@ const HeaderUpperNav = {
       },
     },
     donateLink: {
+      color: "var(--nypl-colors-ui-white) !important",
       _hover: {
         color: "var(--nypl-colors-ui-white) !important",
       },

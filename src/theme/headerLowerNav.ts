@@ -19,7 +19,7 @@ const HeaderLowerNav = {
       whiteSpace: "nowrap",
     },
     li: {
-      marginEnd: { lh: "s", xl: "m" },
+      marginEnd: { mh: "s", xl: "m" },
       _last: {
         marginRight: "0",
       },
