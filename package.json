@@ -2,13 +2,15 @@
   "name": "nypl-header-app",
   "version": "0.0.0",
   "description": "NYPL Header App",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
     "build:header": "vite build --config vite.config.header.ts --mode=production",
     "build:footer": "vite build --config vite.config.footer.ts --mode=production",
     "build:app": "vite build --config vite.config.ts --mode=production",
     "build:app:watch": "vite build --config vite.config.ts --mode=production --watch",
-    "build": "tsc && npm run build:header && npm run build:footer && npm run build:app",
     "preview": "vite preview",
     "preview:watch": "vite preview --port 3001",
     "prod": "npm run build && vite preview --port 3001",
@@ -18,6 +20,7 @@
   "dependencies": {
     "@nypl/design-system-react-components": "1.6.1",
     "js-cookie": "3.0.1",
+    "next": "^12.3.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "vite-plugin-svgr": "2.4.0"
