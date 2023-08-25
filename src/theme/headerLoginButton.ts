@@ -9,6 +9,7 @@ const HeaderLoginButton = {
     },
     borderRadius: "none",
     color: isOpen ? "ui.white" : "ui.black",
+    fontFamily: "body",
     fontSize: "desktop.body.body2",
     fontWeight: "medium",
     minHeight: { mh: "auto" },

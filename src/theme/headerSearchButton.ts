@@ -6,9 +6,10 @@ const HeaderSearchButton = {
     borderRadius: "0",
     backgroundColor: isOpen ? headerBlue : "transparent",
     color: isOpen ? "ui.white" : "ui.link.primary",
+    fontFamily: "body",
     fontSize: "inherit",
     fontWeight: "medium",
-    minHeight: { mh: "40px" },
+    minHeight: { mh: "30px" },
     minWidth: { mh: "80px" },
     textDecoration: "none",
     _dark: {

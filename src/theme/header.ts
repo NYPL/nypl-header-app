@@ -20,7 +20,7 @@ export const headerFocus = {
 const Header = {
   parts: ["container", "horizontalRule", "logo", "navContainer"],
   baseStyle: {
-    fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    fontFamily: "body",
     fontSize: "text.default",
     fontWeight: "text.default",
     "& *, & ::before, & ::after": {
@@ -52,8 +52,8 @@ const Header = {
       margin: "0 auto",
     },
     navContainer: {
-      height: { mh: "90px", lh: "97px" },
-      gap: { mh: "s", lh: "m" },
+      height: { mh: "80px", lh: "97px" },
+      gap: { mh: "s", lh: "35px" },
     },
     horizontalRule: {
       bg: "brand.primary",
