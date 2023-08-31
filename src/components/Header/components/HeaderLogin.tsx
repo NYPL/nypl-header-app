@@ -35,8 +35,8 @@ const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
             <Icon
               align="left"
               color="ui.white"
-              name="utilityAccountUnfilled"
-              size={isMobile ? "xlarge" : "medium"}
+              name="actionIdentity"
+              size={isMobile ? "xlarge" : "large"}
               title="Go to the Catalog"
               sx={isMobile ? { height: "1.6rem", width: "1.6rem" } : {}}
             />

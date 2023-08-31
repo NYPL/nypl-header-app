@@ -53,8 +53,8 @@ const HeaderSearchButton = chakra(
               {buttonText}
               <Icon
                 align={isMobile ? "none" : "right"}
-                name={isOpen ? "close" : "search"}
-                size={isMobile ? "large" : isOpen ? "medium" : "small"}
+                name={isOpen ? "close" : "actionSearch"}
+                size={isMobile ? "large" : "medium"}
                 title={labelText}
               />
             </span>

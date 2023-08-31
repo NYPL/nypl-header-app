@@ -27,7 +27,7 @@ const HeaderLoginButton = chakra(
       isOpen,
     });
     const desktopIcon = isOpen ? "close" : "arrow";
-    const mobileIcon = isOpen ? "close" : "utilityAccountFilled";
+    const mobileIcon = isOpen ? "close" : "actionIdentityFilled";
     const desktopButtonLabel = isOpen ? "Close" : "My Account";
 
     useCloseDropDown(setIsOpen, wrapperRef);
