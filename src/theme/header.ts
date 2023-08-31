@@ -30,6 +30,18 @@ const Header = {
       boxSizing: "border-box",
     },
     "& > nav li": { marginBottom: "0 !important" },
+    "& > nav a": {
+      _focus: {
+        boxShadow: "none",
+        outline: "2px solid",
+        outlineOffset: "2px",
+        outlineColor: "ui.focus",
+        zIndex: "9999",
+        _dark: {
+          outlineColor: "dark.ui.focus",
+        },
+      },
+    },
     "& svg": { verticalAlign: "baseline !important" },
     button: {
       cursor: "pointer",
