@@ -9,9 +9,11 @@ const HeaderLoginButton = {
     },
     borderRadius: "none",
     color: isOpen ? "ui.white" : "ui.black",
+    display: "flex",
     fontFamily: "body",
     fontSize: "desktop.body.body2",
     fontWeight: "medium",
+    justifyContent: "center",
     minHeight: { mh: "auto" },
     paddingY: { mh: "10px" },
     svg: {
