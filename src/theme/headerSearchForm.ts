@@ -6,7 +6,7 @@ const HeaderSearchForm = {
     color: "ui.white",
     backgroundColor: headerBlue,
     left: "0px",
-    minHeight: { base: "180px", md: "235px" },
+    minHeight: { base: "180px", mh: "235px" },
     position: "absolute",
     whiteSpace: "initial",
     width: "100%",
@@ -17,30 +17,30 @@ const HeaderSearchForm = {
       marginTop: "0",
     },
     form: {
-      margin: { md: "45px auto 40px auto" },
-      maxWidth: { md: "1312px" },
+      margin: { mh: "45px auto 40px auto" },
+      maxWidth: { mh: "1312px" },
       whiteSpace: "initial",
       "> div": {
-        margin: "20px 15px 0",
-        marginLeft: { md: "m", lg: "140px" },
-        marginRight: { md: "m" },
+        margin: "20px 15px",
+        marginLeft: { mh: "m", lh: "140px" },
+        marginRight: { mh: "m" },
       },
     },
     "#radio-group-search-type": {
-      margin: { base: "0 20px 20px", md: "0" },
+      margin: { base: "0 20px 20px", mh: "0" },
     },
     textInput: {
       label: {
         fontSize: {
           base: "heading.callout",
-          md: "heading.secondary",
+          mh: "heading.secondary",
         },
       },
       input: {
-        borderRadius: { md: "5px" },
+        borderRadius: { mh: "5px" },
         color: "ui.black",
-        minHeight: { base: "65px", md: "60px" },
-        paddingLeft: { base: "25px", md: "15px" },
+        minHeight: { base: "65px", mh: "60px" },
+        paddingLeft: { base: "25px", mh: "15px" },
         _placeholder: {
           fontSize: { base: "20px" },
           fontStyle: "normal",
@@ -58,14 +58,14 @@ const HeaderSearchForm = {
       borderColor: "ui.white",
       borderRadius: "100px",
       borderWidth: "2px",
-      height: { base: "65px", md: "60px" },
+      height: { base: "65px", mh: "60px" },
       marginTop: "40px",
       marginEnd: "0",
       maxHeight: "65px",
       svg: {
         marginTop: "xs",
       },
-      width: { base: "65px", md: "60px" },
+      width: { base: "65px", mh: "60px" },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",
