@@ -27,7 +27,7 @@ const HeaderLoginButton = chakra(
       isOpen,
     });
     const desktopIcon = isOpen ? "close" : "arrow";
-    const mobileIcon = isOpen ? "close" : "legacyAccountFilled";
+    const mobileIcon = isOpen ? "close" : "actionIdentityFilled";
     const desktopButtonLabel = isOpen ? "Close" : "My Account";
 
     useCloseDropDown(setIsOpen, wrapperRef);
@@ -39,7 +39,7 @@ const HeaderLoginButton = chakra(
     }, [isOpen]);
 
     return (
-      <Box ref={wrapperRef}>
+      <Box ref={wrapperRef} position={{ mh: "relative" }}>
         <FocusLock isDisabled={!isOpen}>
           <Button
             aria-label={desktopButtonLabel}
@@ -48,7 +48,7 @@ const HeaderLoginButton = chakra(
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            __css={{ ...styles, border: "none !important", letterSpacing: 0 }}
+            __css={{ ...styles, border: "none !important" }}
           >
             {isMobile ? null : desktopButtonLabel}
             <Icon

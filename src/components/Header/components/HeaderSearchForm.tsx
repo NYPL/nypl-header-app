@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import {
   getEncoreCatalogURL,
@@ -100,7 +100,7 @@ const HeaderSearchForm = chakra(
                     input: {
                       ...(styles.textInput as any)?.input,
                       _placeholder: {
-                        fontSize: { base: "18px", md: "20px" },
+                        fontSize: { base: "18px", mh: "20px" },
                         fontStyle: "normal",
                       },
                     },
@@ -108,7 +108,7 @@ const HeaderSearchForm = chakra(
                 />
               </Fieldset>
             </FormField>
-            <FormField gridColumn={{ base: "3", md: "4" }}>
+            <FormField gridColumn={{ base: "3", mh: "4" }}>
               <ButtonGroup>
                 <Button
                   aria-label="Search"

@@ -1,3 +1,4 @@
+import breakpoints from "./foundation/breakpoints";
 import Footer from "./footer";
 import Header from "./header";
 import HeaderLogin from "./headerLogin";
@@ -12,6 +13,7 @@ import HeaderSitewideAlerts from "./headerSitewideAlerts";
 import HeaderUpperNav from "./headerUpperNav";
 
 const theme: any = {
+  breakpoints,
   components: {
     Footer,
     Header,

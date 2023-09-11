@@ -19,7 +19,7 @@ const HeaderMobileIconNav = chakra(() => {
         aria-label="NYPL Locations Near Me"
         href="https://nypl.org/locations"
       >
-        <Icon name="locator" size="large" title="NYPL Locator" />
+        <Icon name="mapsPlace" size="large" title="NYPL Locator" />
       </Link>
       <HeaderSearchButton isMobile />
       <HeaderMobileNavButton />

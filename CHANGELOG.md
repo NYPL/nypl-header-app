@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 8/22
+
+### Updates
+
+- Updates to DS version 1.7.1.
+- Updates the spacing between elements in the `Header` component for mobile and
+  desktop. This does not include any of the popup menus.
+
 ## 7/19
 
 ### Fixes

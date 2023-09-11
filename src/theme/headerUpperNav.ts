@@ -1,25 +1,25 @@
 import { headerFocus, headerRed } from "./header";
 
 const HeaderUpperNav = {
-  parts: ["donateLink", "emailUpdatesLink"],
+  parts: ["donateLink"],
   baseStyle: {
+    height: "37px",
     ul: {
       alignItems: "center",
       display: "flex",
-      marginTop: "s",
+      margin: "0",
       whiteSpace: "nowrap",
     },
     li: {
-      fontSize: "13px",
-      fontWeight: 700,
-      letterSpacing: ".02em",
-      marginRight: "10px",
-      position: "relative",
-      textTransform: "uppercase",
+      fontSize: "desktop.body.body2",
+      fontWeight: "medium",
+      marginRight: "s",
+      _last: {
+        marginRight: "0",
+      },
     },
     a: {
       color: "ui.black",
-      padding: "12px",
       position: "relative",
       textDecoration: "none",
       _hover: {
@@ -35,26 +35,14 @@ const HeaderUpperNav = {
       },
     },
     svg: {
-      marginTop: "0",
       _dark: {
         fill: "white",
       },
     },
-    emailUpdatesLink: {
-      display: "flex",
-      alignItems: "center",
-    },
     donateLink: {
-      alignItems: "center",
-      bg: headerRed,
-      borderRadius: "headerDonate",
       color: "var(--nypl-colors-ui-white) !important",
-      fontWeight: "bold",
-      maxHeight: "2rem",
-      paddingX: "5px",
-      width: "85px",
       _hover: {
-        bg: headerRed,
+        color: "var(--nypl-colors-ui-white) !important",
       },
       _dark: {
         bgColor: "brand.secondary",

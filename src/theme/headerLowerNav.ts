@@ -14,17 +14,22 @@ const HeaderLowerNav = {
   baseStyle: {
     ul: {
       alignItems: "center",
-      fontSize: "1",
-      marginBottom: "xxs",
+      marginBottom: "0",
       marginLeft: "auto",
       whiteSpace: "nowrap",
     },
     li: {
-      letterSpacing: ".02em",
-      marginLeft: "xs",
+      marginEnd: { mh: "s", xl: "m" },
+      _last: {
+        marginRight: "0",
+      },
     },
     "li > a": {
       color: "ui.black",
+      fontSize: {
+        base: "desktop.subtitle.subtitle2",
+        lh: "desktop.subtitle.subtTitle1",
+      },
       fontWeight: "medium",
       textDecoration: "none",
       _hover: linkFocusHoverStyles,

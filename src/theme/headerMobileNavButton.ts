@@ -6,6 +6,8 @@ const HeaderMobileNavButton = {
     backgroundColor: isOpen ? headerBlack : "transparent",
     border: "none",
     borderRadius: "0",
+    display: "flex",
+    justifyContent: "center",
     svg: {
       fill: isOpen ? "ui.white" : "ui.black",
       marginLeft: "0",

@@ -39,14 +39,16 @@ For Next.js apps, it is recommended for the script to be added to the `_document
 
 When adding the embed code snippets above, the `Header` and `Footer` will load and render in place. This means that the content below it (specifically for the `Header` since it is more visible) will be pushed down. This can be annoying but is not a bug. The app needs to call the URL, fetch the Javascript, and then render the component and how long it takes depends on the user machine's network. To help alleviate this, the app can add placeholder styles to the `Header` container to prevent the content from jumping around. The code snippet above can be updated to:
 
+// @TODO
+
 ```HTML
 <style>
    #Header-Placeholder {
-      min-height: 70px;
+      min-height: 62px;
    }
-   @media screen and (min-width: 1024px) {
+   @media screen and (min-width: 832px) {
       #Header-Placeholder {
-         min-height: 230px;
+         min-height: 130px;
       }
    }
 </style>
@@ -67,11 +69,11 @@ For Next.js apps, it is recommended to add the script to the `_document.tsx` fil
 ```jsx
 <style>{`
    #Header-Placeholder {
-      min-height: 70px;
+      min-height: 62px;
    }
-   @media screen and (min-width: 1024px) {
+   @media screen and (min-width: 832px) {
       #Header-Placeholder {
-         min-height: 230px;
+         min-height: 130px;
       }
    }
 `}</style>

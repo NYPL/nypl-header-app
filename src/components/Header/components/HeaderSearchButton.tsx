@@ -43,18 +43,18 @@ const HeaderSearchButton = chakra(
               ...styles,
               color: isOpen
                 ? "var(--nypl-colors-ui-white) !important"
-                : "#1B7FA7",
+                : "ui.link.primary",
               border: "none !important",
-              letterSpacing: 0,
-              padding: "1px 6px !important",
+              padding: "0px",
+              paddingInlineEnd: "0px",
             }}
           >
             <span>
               {buttonText}
               <Icon
                 align={isMobile ? "none" : "right"}
-                name={isOpen ? "close" : "search"}
-                size={isMobile ? "large" : isOpen ? "medium" : "small"}
+                name={isOpen ? "close" : "actionSearch"}
+                size={isMobile ? "large" : "medium"}
                 title={labelText}
               />
             </span>
