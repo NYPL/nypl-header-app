@@ -48,7 +48,12 @@ const HeaderLoginButton = chakra(
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            __css={{ ...styles, border: "none !important" }}
+            __css={{
+              ...styles,
+              border: "none !important",
+              letterSpacing: 0,
+              padding: 0,
+            }}
           >
             {isMobile ? null : desktopButtonLabel}
             <Icon
