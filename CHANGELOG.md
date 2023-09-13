@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 9/14
+
+### Updates
+
+- Updates the DS version to `1.7.3`.
+- Updates the breakpoints, spacing, font size, icons, and colors to the mobile and desktop header. This is a general UI update for minor visual improvements.
+
 ## 8/22
 
 ### Updates
