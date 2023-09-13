@@ -52,7 +52,8 @@ const HeaderLoginButton = chakra(
               ...styles,
               border: "none !important",
               letterSpacing: 0,
-              padding: 0,
+              px: "xs",
+              py: "0",
             }}
           >
             {isMobile ? null : desktopButtonLabel}
