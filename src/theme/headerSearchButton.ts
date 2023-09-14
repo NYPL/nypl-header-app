@@ -5,11 +5,14 @@ const HeaderSearchButton = {
     alignItems: "center",
     borderRadius: "0",
     backgroundColor: isOpen ? headerBlue : "transparent",
-    color: isOpen ? "ui.white" : "#1B7FA7",
+    color: isOpen ? "ui.white" : "ui.link.primary",
+    display: "flex",
+    fontFamily: "body",
     fontSize: "inherit",
     fontWeight: "medium",
-    minHeight: { md: "40px" },
-    minWidth: { md: "80px" },
+    justifyContent: "center",
+    minHeight: { mh: "30px" },
+    minWidth: { mh: "80px" },
     textDecoration: "none",
     _dark: {
       bgColor: isOpen ? "section.research.secondary" : "transparent",
@@ -17,24 +20,23 @@ const HeaderSearchButton = {
     },
     span: {
       alignItems: "center",
-      borderBottom: { md: "3px solid #1B7FA7" },
+      borderBottom: { mh: "1px solid var(--nypl-colors-ui-link-primary)" },
       display: "inline-flex",
-      lineHeight: "1.3",
       _dark: {
-        borderBottom: isOpen ? "0" : { md: "3px solid" },
-        borderColor: { md: "dark.ui.link.primary" },
+        borderBottom: isOpen ? "0" : { mh: "3px solid" },
+        borderColor: { mh: "dark.ui.link.primary" },
       },
     },
     svg: {
-      marginLeft: { base: "0", md: "xxs" },
+      marginLeft: { base: "0", mh: "xxs" },
       fill: {
         base: isOpen ? "ui.white" : "ui.black",
-        md: isOpen ? "ui.white" : "ui.link.primary",
+        mh: isOpen ? "ui.white" : "ui.link.primary",
       },
       _dark: {
         fill: {
           base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-          md: isOpen ? "ui.white" : "dark.ui.link.primary",
+          mh: isOpen ? "ui.white" : "dark.ui.link.primary",
         },
       },
     },
@@ -45,7 +47,7 @@ const HeaderSearchButton = {
       svg: {
         fill: {
           base: isOpen ? "ui.white" : "ui.black",
-          md: isOpen ? "ui.white" : "ui.link.primary",
+          mh: isOpen ? "ui.white" : "ui.link.primary",
         },
       },
       _dark: {
@@ -53,7 +55,7 @@ const HeaderSearchButton = {
         svg: {
           fill: {
             base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-            md: isOpen ? "ui.white" : "dark.ui.link.primary",
+            mh: isOpen ? "ui.white" : "dark.ui.link.primary",
           },
         },
       },

@@ -18,29 +18,45 @@ export const headerFocus = {
 };
 
 const Header = {
-  parts: ["container", "horizontalRule", "logo"],
+  parts: ["container", "horizontalRule", "logo", "navContainer"],
   baseStyle: {
-    fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    fontFamily: "body",
     fontSize: "text.default",
     fontWeight: "text.default",
-    lineHeight: "1.5",
     "& *, & ::before, & ::after": {
       borderWidth: "0px",
       borderStyle: "solid",
       boxSizing: "border-box",
     },
     "& > nav li": { marginBottom: "0 !important" },
-    "& svg": { verticalAlign: "baseline !important" },
+    "& > nav a": {
+      _focus: {
+        boxShadow: "none",
+        outline: "2px solid",
+        outlineOffset: "2px",
+        outlineColor: "ui.focus",
+        zIndex: "9999",
+        _dark: {
+          outlineColor: "dark.ui.focus",
+        },
+      },
+    },
     button: {
       cursor: "pointer",
     },
     container: {
-      marginX: { md: "20px", xl: "auto" },
-      maxWidth: "1300px",
-      minHeight: { base: "60px", md: "160px", lg: "205px" },
+      paddingX: { base: "8px", mh: "16px" },
+      paddingY: { mh: "16px" },
+      maxWidth: "1280px",
+      minHeight: { mh: "122x" },
+      margin: "0 auto",
+    },
+    navContainer: {
+      height: { mh: "80px", lh: "97px" },
+      gap: { mh: "s", lh: "35px" },
     },
     horizontalRule: {
-      bg: headerRed,
+      bg: "brand.primary",
       marginTop: "0",
       marginBottom: "0",
       _dark: {
@@ -48,11 +64,9 @@ const Header = {
       },
     },
     logo: {
-      padding: { base: "0 10px", md: "0" },
+      lineHeight: "0",
       svg: {
-        height: { base: "40px", md: "auto" },
-        width: { md: "80px", lg: "220px" },
-        marginTop: { base: "10px", md: "-30px" },
+        height: { base: "40px", mh: "74px", lh: "97px" },
       },
       _focus: headerFocus,
     },

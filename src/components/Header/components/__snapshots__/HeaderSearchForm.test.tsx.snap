@@ -30,7 +30,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-pe817p"
+              className="css-1annanu"
               id="searchInput-wrapper"
             >
               <label
@@ -59,18 +59,11 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                   value=""
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="searchInput-helperText"
-              />
             </div>
           </fieldset>
         </div>
         <div
-          className="css-u8wr3o"
+          className="css-1akhhia"
           id="search-header-child0-grandchild1"
         >
           <div
@@ -184,13 +177,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="circulatingCatalogSearch-helperText"
-                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -247,13 +233,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="researchcatalogSearch-helperText"
-                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -310,13 +289,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="websiteSearch-helperText"
-                  />
                 </div>
               </div>
             </div>
@@ -365,7 +337,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-pe817p"
+              className="css-1annanu"
               id="searchInput-wrapper"
             >
               <label
@@ -394,18 +366,11 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                   value=""
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="searchInput-helperText"
-              />
             </div>
           </fieldset>
         </div>
         <div
-          className="css-u8wr3o"
+          className="css-1akhhia"
           id="search-header-child0-grandchild1"
         >
           <div
@@ -519,13 +484,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="circulatingCatalogSearch-helperText"
-                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -582,13 +540,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="researchcatalogSearch-helperText"
-                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -645,13 +596,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
-                  <div
-                    aria-atomic={true}
-                    aria-live="polite"
-                    className="css-1xdhyk6"
-                    data-isinvalid={false}
-                    id="websiteSearch-helperText"
-                  />
                 </div>
               </div>
             </div>
