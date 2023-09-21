@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Pre-release
+
+### Updates
+
+- Updates the Donate button URL.
+
 ## 9/14
 
 ### Updates
