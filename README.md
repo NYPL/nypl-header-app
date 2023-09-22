@@ -179,6 +179,12 @@ $ git pull
 $ git merge main
 ```
 
+4. Push the merged changes.
+
+```sh
+$ git push
+```
+
 This will automatically launch a Travis job for QA deployment.
 
 Similarly, to deploy to production by following the above steps and checking out the `production` branch instead of `qa`.
