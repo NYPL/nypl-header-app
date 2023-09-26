@@ -67,7 +67,7 @@ export const upperNavLinks = {
     text: "Get Email Updates",
   },
   donate: {
-    href: "https://qa-www.nypl.org/donate-redirect-j87rh4n",
+    href: "https://qa-www.nypl.org/donate-button",
     text: "Donate",
   },
   shop: {
