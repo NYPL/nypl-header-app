@@ -157,3 +157,34 @@ If you want to run tests on only one specific file, run:
 ```sh
 $ npm test -- src/[path/to/file]
 ```
+
+## Deploying to QA/Production
+
+1. Pull latest changes from `main` branch.
+
+```sh
+$ git pull
+```
+
+2. Checkout `qa` branch and pull any changes.
+
+```sh
+$ git checkout qa 
+$ git pull
+```
+
+3. Merge `main` into the branch.
+
+```sh
+$ git merge main
+```
+
+4. Push the merged changes.
+
+```sh
+$ git push
+```
+
+This will automatically launch a Travis job for QA deployment.
+
+Similarly, to deploy to production by following the above steps and checking out the `production` branch instead of `qa`.
