@@ -1,10 +1,17 @@
 # CHANGELOG
 
-## Pre-release
+## 10/5
 
 ### Updates
 
 - Updates the Donate button URL.
+
+### Updates
+
+## 9/21
+
+- Adds commands to copy the latest Docker image on ECR to a previous image before pushing the latest image
+- Adds commands for Travis to initiate changes to the fallback stack
 
 ## 9/14
 

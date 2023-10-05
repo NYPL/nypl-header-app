@@ -288,7 +288,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     </a>
     <a
       className="css-847rpw"
-      href="https://qa-www.nypl.org/donate-button"
+      href="https://www.nypl.org/donate-button"
       rel={null}
       target={null}
     >
