@@ -118,6 +118,9 @@ const Footer = {
         outline: "solid 2px",
         outlineColor: "ui.white",
       },
+      _visited: {
+        color: "ui.white",
+      },
       _dark: {
         color: "dark.ui.typography.body",
         _hover: {
