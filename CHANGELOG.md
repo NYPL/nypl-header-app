@@ -1,10 +1,10 @@
 # CHANGELOG
 
-## 10/30
+## 1/3
 
 ### Updates
 
-- Updates the DS version to 2.1.1.
+- Updates the DS version to 2.1.3.
 
 ## 10/5
 
