@@ -41,6 +41,11 @@ const Header = {
         },
       },
     },
+    a: {
+      _visited: {
+        color: "ui.typography.body",
+      },
+    },
     button: {
       cursor: "pointer",
     },
