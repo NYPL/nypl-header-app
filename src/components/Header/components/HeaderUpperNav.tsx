@@ -3,7 +3,14 @@ import React from "react";
 
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
-import { List, Link, Icon } from "@nypl/design-system-react-components";
+import {
+  List,
+  Link,
+  Icon,
+  ModalTrigger,
+  Heading,
+  Button,
+} from "@nypl/design-system-react-components";
 
 /**
  * This renders the navigational list of links for logging in, subscribing
@@ -40,6 +47,18 @@ const HeaderUpperNav = chakra(() => {
           <Link href={upperNavLinks.shop.href} key="shopLink">
             {upperNavLinks.shop.text}
           </Link>,
+          <ModalTrigger
+            buttonText="Open"
+            modalProps={{
+              bodyContent: (
+                <>
+                  <p>Do you want to log out?</p>
+                  <Button id="logout-btn">Log out</Button>
+                </>
+              ),
+              headingText: "Log out",
+            }}
+          />,
         ]}
         noStyling
         type="ul"
