@@ -88,6 +88,9 @@ const HeaderLogin = {
           color: { base: "ui.white", mh: "ui.gray.xx-dark" },
         },
       },
+      _visited: {
+        color: "ui.white",
+      },
     },
     patronGreeting: {
       alignSelf: "flex-start",

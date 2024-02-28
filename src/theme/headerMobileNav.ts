@@ -38,6 +38,9 @@ const HeaderMobileNav = {
           textDecoration: "none",
         },
         _focus: mobileLinkFocus,
+        _visited: {
+          color: "ui.white",
+        },
       },
     },
     bottomLinks: {
@@ -45,7 +48,7 @@ const HeaderMobileNav = {
       gridTemplateColumns: "1fr 1fr",
       a: {
         alignItems: "center",
-        color: "white",
+        color: "ui.white",
         display: "flex",
         fontWeight: "medium",
         justifyContent: "center",
@@ -61,6 +64,9 @@ const HeaderMobileNav = {
           textDecoration: "none",
         },
         _focus: mobileLinkFocus,
+        _visited: {
+          color: "ui.white",
+        },
         _last: {
           backgroundColor: headerRedDonate,
           _hover: {

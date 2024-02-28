@@ -31,6 +31,7 @@ const HeaderSearchForm = {
     },
     textInput: {
       label: {
+        color: "ui.white",
         fontSize: {
           base: "heading.callout",
           mh: "heading.secondary",
