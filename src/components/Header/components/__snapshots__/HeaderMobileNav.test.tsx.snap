@@ -207,7 +207,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     </nav>
   </div>
   <div
-    className="css-wcncoc"
+    className="css-1e1g00i"
     data-testid="bottomLinks"
   >
     <a

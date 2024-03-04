@@ -54,7 +54,11 @@ const HeaderMobileNav = chakra(() => {
           />
         </nav>
       </Flex>
-      <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
+      <SimpleGrid
+        gap="grid.s"
+        data-testid="bottomLinks"
+        __css={styles.bottomLinks}
+      >
         <Link
           href={upperNavLinks.libraryCard.href}
           borderTop="1px solid rgb(54, 54, 54)"
