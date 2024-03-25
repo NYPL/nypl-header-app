@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import Cookies from "js-cookie";
 import * as renderer from "react-test-renderer";
-
 import Header from "./Header";
 import {
   patronApiUrlWithToken,

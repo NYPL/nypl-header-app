@@ -135,7 +135,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       >
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/books-music-movies"
             rel={null}
             target={null}
@@ -145,7 +145,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/research"
             rel={null}
             target={null}
@@ -155,7 +155,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/education"
             rel={null}
             target={null}
@@ -165,7 +165,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/events"
             rel={null}
             target={null}
@@ -175,7 +175,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/connect"
             rel={null}
             target={null}
@@ -185,7 +185,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/give"
             rel={null}
             target={null}
@@ -195,7 +195,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
             href="https://www.nypl.org/get-help"
             rel={null}
             target={null}
@@ -207,11 +207,11 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     </nav>
   </div>
   <div
-    className="css-wcncoc"
+    className="css-1xdhyk6"
     data-testid="bottomLinks"
   >
     <a
-      className="css-g8syzw"
+      className="chakra-link css-a4nb38"
       href="https://www.nypl.org/library-card/new"
       rel={null}
       target={null}
@@ -237,7 +237,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       Get A Library Card
     </a>
     <a
-      className="css-1i5qkun"
+      className="chakra-link css-ucg3r3"
       href="https://pub.email.nypl.org/subscriptioncenter"
       rel={null}
       target={null}
@@ -263,7 +263,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       Get Email Updates
     </a>
     <a
-      className="css-1hbu0qa"
+      className="chakra-link css-xnpdth"
       href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
       rel={null}
       target={null}
@@ -287,7 +287,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
        NYPL
     </a>
     <a
-      className="css-847rpw"
+      className="chakra-link css-tlhajk"
       href="https://www.nypl.org/donate-button"
       rel={null}
       target={null}

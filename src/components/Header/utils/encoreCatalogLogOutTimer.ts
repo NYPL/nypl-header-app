@@ -76,7 +76,7 @@ function EncoreCatalogLogOutTimer(
         );
         const timeUntilLogOut = lastVisitedValidDomainTime
           ? patLoggedInCookieExpiredTime -
-            (currentTime - lastVisitedValidDomainTime)
+            (currentTime - parseInt(lastVisitedValidDomainTime, 10))
           : undefined;
 
         this.logOutFromEncoreAndCatalogIn(timeUntilLogOut);
