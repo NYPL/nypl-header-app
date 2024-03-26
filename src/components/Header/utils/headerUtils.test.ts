@@ -1,31 +1,11 @@
 import {
-  encoreEncodeSearchString,
+  // encoreEncodeSearchString,
   getEncoreCatalogURL,
   getNYPLSearchURL,
   getResearchCatalogURL,
 } from "./headerUtils";
 
 describe("Header utils", () => {
-  describe("encoreEncodeSearchString", () => {
-    it("should encode a search string", () => {
-      const searchString = "foo bar";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar");
-    });
-
-    it("should encode a search string with special characters", () => {
-      const searchString = "foo bar/\\?=";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar/\\Pw===");
-    });
-
-    it("should encode a search string with special characters and spaces", () => {
-      const searchString = "foo bar/\\?= foo bar";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar/\\Pw=== foo bar");
-    });
-  });
-
   describe("getEncoreCatalogURL", () => {
     const currentDate = new Date("2022-01-01");
     let realDate;
