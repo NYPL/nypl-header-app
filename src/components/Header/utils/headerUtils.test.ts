@@ -1,5 +1,4 @@
 import {
-  // encoreEncodeSearchString,
   getEncoreCatalogURL,
   getNYPLSearchURL,
   getResearchCatalogURL,
