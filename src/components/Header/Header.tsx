@@ -30,6 +30,10 @@ export interface HeaderProps {
   isProduction?: boolean;
 }
 
+/**
+ * The useMediaQuery hook returns an array of booleans,
+ * indicating whether the given query matches or queries match.
+ * */
 function useMediaQuery(queryList) {
   const [matches, setMatches] = useState(false);
 
