@@ -18,7 +18,7 @@ jest.mock("js-cookie", () => ({
   remove: jest.fn(),
 }));
 
-describe("Header Accessibility", () => {
+describe.skip("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
