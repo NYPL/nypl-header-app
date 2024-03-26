@@ -27,7 +27,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getEncoreCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://browse.nypl.org/iii/encore/search/C__Sfoo bar__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://browse.nypl.org/iii/encore/search/C__Sfoo%20bar__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -35,7 +35,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getEncoreCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://browse.nypl.org/iii/encore/search/C__Sfoo bar/\\Pw===__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://browse.nypl.org/iii/encore/search/C__Sfoo%20bar%2F%5C%3F%3D__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
   });
