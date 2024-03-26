@@ -45,9 +45,9 @@ describe("EncoreCatalogLogOutTimer", () => {
         // The "PAT_LOGGED_IN" cookie does not exist.
         .mockReturnValueOnce(null)
         // The "nyplIdentityPatron" cookie mock value.
-        .mockReturnValueOnce({0: "someIdentityValue"})
+        .mockReturnValueOnce({"nyplIdentityPatron": "someIdentityValue"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValueOnce({0: 1000});
+        .mockReturnValueOnce({"VALID_DOMAIN_LAST_VISITED": "1000"});
       const cookiesRemove = jest.spyOn(Cookies, "remove");
 
       // Start the timer on a valid domain.
@@ -75,9 +75,9 @@ describe("EncoreCatalogLogOutTimer", () => {
         .mockReturnValueOnce(null)
         .mockReturnValueOnce(null)
         // The "nyplIdentityPatron" cookie mock value.
-        .mockReturnValueOnce({0: "someIdentityValue"})
+        .mockReturnValueOnce({"nyplIdentityPatron": "someIdentityValue"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValueOnce({0: "1000"});
+        .mockReturnValueOnce({"VALID_DOMAIN_LAST_VISITED": "1000"});
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -115,7 +115,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0: "loggedIn!"});
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"});
       cookiesSet = jest.spyOn(Cookies, "set");
       // cookiesRemove = jest.spyOn(Cookies, "remove");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
@@ -136,7 +136,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       expect(cookiesGet).toHaveBeenNthCalledWith(1, "PAT_LOGGED_IN");
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime.toString()
       );
     });
 
@@ -157,7 +157,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0: "loggedIn!"});
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"});
       cookiesSet = jest.spyOn(Cookies, "set");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -177,7 +177,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       expect(cookiesGet).toHaveBeenNthCalledWith(1, "PAT_LOGGED_IN");
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime.toString()
       );
     });
 
@@ -195,11 +195,11 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0: "loggedIn!"})
-        .mockReturnValueOnce({1: "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         // This gets called twice.
-        .mockReturnValue({0: mockedLastVisitTime.toString()});
+        .mockReturnValue({"VALID_DOMAIN_LAST_VISITED": mockedLastVisitTime.toString()});
       const cookiesSet = jest.spyOn(Cookies, "set");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -240,8 +240,8 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0: "loggedIn!"})
-        .mockReturnValueOnce({1: "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         .mockReturnValue(null);
       const cookiesSet = jest.spyOn(Cookies, "set");
@@ -265,7 +265,7 @@ describe("EncoreCatalogLogOutTimer", () => {
 
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime.toString()
       );
 
       // The `logOutFromEncoreAndCatalogIn` method is called with
@@ -286,8 +286,8 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0: "loggedIn!"})
-        .mockReturnValueOnce({1: "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN": "loggedIn!"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         .mockReturnValue({0: mockLastVisitedTime.toString()});
       const cookiesRemove = jest.spyOn(Cookies, "remove");
@@ -331,9 +331,9 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0:"loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN":"loggedIn!"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue({0: mockLastVisitedTime});
+        .mockReturnValue({"VALID_DOMAIN_LAST_VISITED": mockLastVisitedTime.toString()});
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -381,9 +381,9 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({0:"loggedIn!"})
+        .mockReturnValueOnce({"PAT_LOGGED_IN":"loggedIn!"})
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue({0: mockLastVisitedTime.toString()});
+        .mockReturnValue({"VALID_DOMAIN_LAST_VISITED": mockLastVisitedTime.toString()});
       const loadLogOutIframe = jest.spyOn(
         encoreCatalogLogOutTimer,
         "loadLogOutIframe"
