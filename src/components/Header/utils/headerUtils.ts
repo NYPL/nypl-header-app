@@ -1,5 +1,6 @@
 /*eslint no-useless-escape: 0 */
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export interface Alert {
   id: string;
@@ -341,3 +342,26 @@ export const extractPatronName = (data: any) => {
     return "";
   }
 };
+
+/**
+ * The useMediaQuery hook returns an array of booleans,
+ * indicating whether the given query matches or queries match.
+ * TODO: This should be exported from the DS.
+ * */
+export function useMediaQuery(queryList) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(queryList);
+    const handleChange = (event) => {
+      setMatches(event.matches);
+    };
+    setMatches(mediaQueryList.matches);
+    mediaQueryList.addEventListener("change", handleChange);
+    return () => {
+      mediaQueryList.removeEventListener("change", handleChange);
+    };
+  }, [queryList]);
+
+  return [matches];
+}

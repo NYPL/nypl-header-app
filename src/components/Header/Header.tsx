@@ -22,34 +22,13 @@ import HeaderUpperNav from "./components/HeaderUpperNav";
 import { HeaderProvider } from "./context/headerContext";
 import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 import { headerBreakpoints } from "../../theme/foundation/breakpoints";
+import { useMediaQuery } from "./utils/headerUtils";
 
 export interface HeaderProps {
   /** Whether to render sitewide alerts or not. True by default. */
   fetchSitewideAlerts?: boolean;
   /** Whether or not the `Header` is in production mode. True by default. */
   isProduction?: boolean;
-}
-
-/**
- * The useMediaQuery hook returns an array of booleans,
- * indicating whether the given query matches or queries match.
- * */
-function useMediaQuery(queryList) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const mediaQueryList = window.matchMedia(queryList);
-    const handleChange = (event) => {
-      setMatches(event.matches);
-    };
-    setMatches(mediaQueryList.matches);
-    mediaQueryList.addEventListener("change", handleChange);
-    return () => {
-      mediaQueryList.removeEventListener("change", handleChange);
-    };
-  }, [queryList]);
-
-  return [matches];
 }
 
 /**
