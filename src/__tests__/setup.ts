@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 // expect(...).toHaveNoViolations();
 import "jest-axe/extend-expect";
 
-import { MatchMedia } from '@nypl/design-system-react-components'
+import { MatchMedia } from "@nypl/design-system-react-components"
 new MatchMedia()
 
 
