@@ -11,12 +11,12 @@ module.exports = defineConfig({
     host: true, // for Docker Container port mapping
   },
   plugins: [
-    react(),
     svgr({
       svgrOptions: {
         titleProp: true,
       },
     }),
+    react(),
   ],
   root,
   build: {
