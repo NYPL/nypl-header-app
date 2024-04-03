@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import {
-  getEncoreCatalogURL,
+  getCatalogURL,
   getNYPLSearchURL,
   getResearchCatalogURL,
 } from "../utils/headerUtils";
@@ -51,7 +51,7 @@ const HeaderSearchForm = ({ isMobile = false }: HeaderSearchFormProps) => {
     // If there is a search input, make the request.
     if (searchInput) {
       if (searchOption === "circulatingCatalog") {
-        requestUrl = getEncoreCatalogURL(searchInput);
+        requestUrl = getCatalogURL(searchInput);
       }
       if (searchOption === "researchCatalog") {
         requestUrl = getResearchCatalogURL(searchInput);

@@ -52,7 +52,7 @@ The `Header` component is a complete and complex component that
 - fetches data from different APIs,
 - uses the DS' `SkipNavigation` component for webpage accessibility,
 - has static NYPL.org navigational links,
-- a log in form for patrons to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/)
+- a log in form for patrons to log into NYPL's [Catalog](https://borrow.nypl.org/)
   and [Research Catalog](https://www.nypl.org/research/research-catalog/),
 - a search form for patrons to search the Catalog and across [NYPL.org](https://www.nypl.org/).
 
@@ -185,7 +185,7 @@ When using the search form, a patron can choose which location to search.
 
 When looking for an item, such as book, ebook, DVD, etc, the best search location
 is the Library Catalog. For example, please see the
-[Catalog search](https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?lang=eng&suite=def)
+[Catalog search](https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10)
 for items about cats. This returns books, microform format items, and DVDs
 about cats.
 
@@ -253,6 +253,8 @@ In the desktop view, the first set of links (1) appears horizontally at the top
 while the second set of links (2) appears at the bottom of the `Header`.
 
 ## Header Log In Timeout
+
+**NOTE**: The following is based on the legacy Encore Catalog.
 
 There are occassions when a patron may log out directly from either the Catalog
 or the Research Catalog, or log out by using the log out link in the `Header`

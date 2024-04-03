@@ -6,6 +6,8 @@
 
 - Updates DS to v3.0.0
 - Updates React to v18
+- Updates base nodejs image to v18
+- Updates old "browse" and Encore links to new "borrow.nypl.org" links.
 
 ### Fixes
 
