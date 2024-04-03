@@ -23,9 +23,6 @@ const Header = {
     fontFamily: "body",
     fontSize: "text.default",
     fontWeight: "text.default",
-    html: {
-      fontSize: "1rem !important",
-    },
     "& *, & ::before, & ::after": {
       borderWidth: "0px",
       borderStyle: "solid",
