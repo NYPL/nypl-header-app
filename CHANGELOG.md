@@ -6,6 +6,7 @@
 
 - Updates DS to v3.0.0
 - Updates React to v18
+- Updates "Press" link in the footer to point to `/press`.
 
 ### Fixes
 
