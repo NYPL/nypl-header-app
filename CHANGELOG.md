@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Prerelease
+## 1.0.0 - 4/11/2024
 
 ### Updates
 
