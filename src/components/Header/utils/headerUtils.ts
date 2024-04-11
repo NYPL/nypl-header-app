@@ -1,5 +1,6 @@
 /*eslint no-useless-escape: 0 */
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export interface Alert {
   id: string;
@@ -107,33 +108,6 @@ export const siteNavLinks = [
 ];
 
 /**
- * Replaces the search string's special characters that need to be encoded
- * using base64. These characters are "=","/", "\", "?".
- */
-export const encoreEncodeSearchString = (searchString) => {
-  const base64EncodeMap = {
-    "=": "PQ==",
-    "/": "Lw==",
-    "\\": "XA==",
-    "?": "Pw==",
-  };
-  let encodedSearchString = searchString;
-  Object.keys(base64EncodeMap).forEach((specialChar) => {
-    const charRegExString = specialChar.replace(
-      /([\.\*\+\?\^\=\!\:\$\{\}\(\)\|\[\]\/\\])/g,
-      "\\$1"
-    );
-    const base64Regex = new RegExp(charRegExString, "g");
-    encodedSearchString = searchString.replace(
-      base64Regex,
-      base64EncodeMap[specialChar]
-    );
-  });
-
-  return encodedSearchString;
-};
-
-/**
  * Generates the queries to be added to the URL of the search pages.
  */
 const generateQueriesForTracking = () => {
@@ -146,7 +120,7 @@ const generateQueriesForTracking = () => {
  * Returns the final URL for the NYPL Encore search.
  */
 export const getEncoreCatalogURL = (searchValue) => {
-  const encodedSearchInput = encoreEncodeSearchString(searchValue);
+  const encodedSearchInput = encodeURIComponent(searchValue);
   const rootUrl = "https://browse.nypl.org/iii/encore/search/";
   let finalEncoreUrl;
 
@@ -341,3 +315,26 @@ export const extractPatronName = (data: any) => {
     return "";
   }
 };
+
+/**
+ * The useMediaQuery hook returns an array of booleans,
+ * indicating whether the given query matches or queries match.
+ * TODO: This should be exported from the DS.
+ * */
+export function useMediaQuery(queryList) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(queryList);
+    const handleChange = (event) => {
+      setMatches(event.matches);
+    };
+    setMatches(mediaQueryList.matches);
+    mediaQueryList.addEventListener("change", handleChange);
+    return () => {
+      mediaQueryList.removeEventListener("change", handleChange);
+    };
+  }, [queryList]);
+
+  return [matches];
+}

@@ -67,7 +67,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
           id="search-header-child0-grandchild1"
         >
           <div
-            className="chakra-stack css-6dfzd0"
+            className="chakra-stack css-9yqc00"
           >
             <button
               aria-label="Search"
@@ -117,14 +117,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               role="radiogroup"
             >
               <div
-                className="chakra-stack css-1objuxj"
+                className="chakra-stack css-1478f2b"
               >
                 <div
                   className="css-1xdhyk6"
                   id="circulatingCatalogSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                     data-checked=""
                   >
                     <input
@@ -141,12 +141,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -168,7 +168,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       className="chakra-radio__label css-1y8kf23"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"
@@ -183,7 +182,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                   id="researchcatalogSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                   >
                     <input
                       checked={false}
@@ -199,12 +198,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -224,7 +223,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     <span
                       className="chakra-radio__label css-1y8kf23"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"
@@ -239,7 +237,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                   id="websiteSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                   >
                     <input
                       checked={false}
@@ -255,12 +253,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -280,7 +278,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     <span
                       className="chakra-radio__label css-1y8kf23"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"
@@ -374,7 +371,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
           id="search-header-child0-grandchild1"
         >
           <div
-            className="chakra-stack css-6dfzd0"
+            className="chakra-stack css-sg7sn5"
           >
             <button
               aria-label="Search"
@@ -424,14 +421,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               role="radiogroup"
             >
               <div
-                className="chakra-stack css-1wdv1uh"
+                className="chakra-stack css-19s3t1h"
               >
                 <div
                   className="css-1xdhyk6"
                   id="circulatingCatalogSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                     data-checked=""
                   >
                     <input
@@ -448,12 +445,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -475,7 +472,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       className="chakra-radio__label css-1y8kf23"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"
@@ -490,7 +486,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                   id="researchcatalogSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                   >
                     <input
                       checked={false}
@@ -506,12 +502,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -531,7 +527,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     <span
                       className="chakra-radio__label css-1y8kf23"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"
@@ -546,7 +541,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                   id="websiteSearch-wrapper"
                 >
                   <label
-                    className="chakra-radio css-13p0l12"
+                    className="chakra-radio css-rfs4w5"
                   >
                     <input
                       checked={false}
@@ -562,12 +557,12 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -587,7 +582,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     <span
                       className="chakra-radio__label css-1y8kf23"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       <span
                         className="css-0"

@@ -67,16 +67,16 @@ function EncoreCatalogLogOutTimer(
       //     only happen if the patron logged in through a redirect, without
       //     running JS on a "valid domain".
       if (isOnValidDomain || !Cookies.get("VALID_DOMAIN_LAST_VISITED")) {
-        Cookies.set("VALID_DOMAIN_LAST_VISITED", currentTime);
+        Cookies.set("VALID_DOMAIN_LAST_VISITED", currentTime.toString());
         this.logOutFromEncoreAndCatalogIn(patLoggedInCookieExpiredTime);
       } else {
         // The time in ms since the patron has been on the valid domain.
         const lastVisitedValidDomainTime = Cookies.get(
           "VALID_DOMAIN_LAST_VISITED"
         );
-        const timeUntilLogOut = lastVisitedValidDomainTime
+        const timeUntilLogOut = lastVisitedValidDomainTime["VALID_DOMAIN_LAST_VISITED"]
           ? patLoggedInCookieExpiredTime -
-            (currentTime - lastVisitedValidDomainTime)
+            (currentTime - lastVisitedValidDomainTime["VALID_DOMAIN_LAST_VISITED"])
           : undefined;
 
         this.logOutFromEncoreAndCatalogIn(timeUntilLogOut);
