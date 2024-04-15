@@ -59,7 +59,6 @@ const Header = {
     navContainer: {
       height: { mh: "80px", lh: "97px" },
       gap: { mh: "s", lh: "35px" },
-      justifyContent: "space-between",
     },
     horizontalRule: {
       bg: "brand.primary",

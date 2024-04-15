@@ -1,13 +1,16 @@
 import {
+  Box,
+  chakra,
+  Flex,
+  Spacer,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import {
   Link,
   Logo,
   List,
   SimpleGrid,
   Icon,
-  Box,
-  Flex,
-  Spacer,
-  useMultiStyleConfig,
 } from "@nypl/design-system-react-components";
 
 import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
@@ -16,7 +19,7 @@ import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
  * This component renders the navigational list of links used to navigate
  * NYPL.org for mobile devices.
  */
-const HeaderMobileNav = () => {
+const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
   const listItems = siteNavLinks.map(({ href, text }) => (
     <Link href={href} key={text}>
@@ -51,7 +54,7 @@ const HeaderMobileNav = () => {
           />
         </nav>
       </Flex>
-      <SimpleGrid data-testid="bottomLinks" __css={styles.bottomLinks}>
+      <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
         <Link
           href={upperNavLinks.libraryCard.href}
           borderTop="1px solid rgb(54, 54, 54)"
@@ -98,6 +101,6 @@ const HeaderMobileNav = () => {
       </SimpleGrid>
     </Box>
   );
-};
+});
 
 export default HeaderMobileNav;

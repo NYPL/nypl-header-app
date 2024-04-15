@@ -1,14 +1,9 @@
 import React, { useContext } from "react";
+import { chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 
 import { getLoginLinks } from "../utils/headerUtils";
 import { HeaderContext } from "../context/headerContext";
-import {
-  List,
-  Link,
-  Icon,
-  useMultiStyleConfig,
-  VStack,
-} from "@nypl/design-system-react-components";
+import { List, Link, Icon } from "@nypl/design-system-react-components";
 
 export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLDivElement & HTMLAnchorElement>;
@@ -20,7 +15,7 @@ export interface HeaderLoginProps {
  * in and log out. When the patron is logged in, it will also display the patron's
  * name, links to the catalogs, and a log out link.
  */
-const HeaderLogin = ({ catalogRef, isMobile }: HeaderLoginProps) => {
+const HeaderLogin = chakra(({ catalogRef, isMobile }: HeaderLoginProps) => {
   const { isProduction } = useContext(HeaderContext);
   const { catalogLink, researchLink } = getLoginLinks("", isProduction);
   const styles = useMultiStyleConfig("HeaderLogin", {
@@ -64,6 +59,6 @@ const HeaderLogin = ({ catalogRef, isMobile }: HeaderLoginProps) => {
       />
     </VStack>
   );
-};
+});
 
 export default HeaderLogin;

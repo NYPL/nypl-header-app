@@ -1,18 +1,15 @@
+import { chakra, Flex, useStyleConfig } from "@chakra-ui/react";
+
 import HeaderLoginButton from "./HeaderLoginButton";
 import HeaderMobileNavButton from "./HeaderMobileNavButton";
 import HeaderSearchButton from "./HeaderSearchButton";
-import {
-  Link,
-  Icon,
-  Flex,
-  useStyleConfig,
-} from "@nypl/design-system-react-components";
+import { Link, Icon } from "@nypl/design-system-react-components";
 
 /**
  * This component renders the mobile list of icon buttons for
  * logging in, searching, and navigating on NYPL.org.
  */
-const HeaderMobileIconNav = () => {
+const HeaderMobileIconNav = chakra(() => {
   const styles = useStyleConfig("HeaderMobileIconNav");
 
   return (
@@ -28,6 +25,6 @@ const HeaderMobileIconNav = () => {
       <HeaderMobileNavButton />
     </Flex>
   );
-};
+});
 
 export default HeaderMobileIconNav;

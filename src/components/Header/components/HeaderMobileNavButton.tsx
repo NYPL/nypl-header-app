@@ -1,10 +1,9 @@
+import FocusLock from "@chakra-ui/focus-lock";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import {
   Button,
   Icon,
   useCloseDropDown,
-  Box,
-  useStyleConfig,
-  FocusLock,
 } from "@nypl/design-system-react-components";
 import { useState, useRef } from "react";
 
@@ -14,7 +13,7 @@ import HeaderMobileNav from "./HeaderMobileNav";
  * This is the button that will render the navigational list of links
  * when it is clicked and keep focus trapped within the menu.
  */
-const HeaderMobileNavButton = () => {
+const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
@@ -41,6 +40,6 @@ const HeaderMobileNavButton = () => {
       </FocusLock>
     </Box>
   );
-};
+});
 
 export default HeaderMobileNavButton;
