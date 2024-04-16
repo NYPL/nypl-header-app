@@ -1,5 +1,9 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import { List, Notification } from "@nypl/design-system-react-components";
+import {
+  List,
+  Notification,
+  Box,
+  useStyleConfig,
+} from "@nypl/design-system-react-components";
 import React, { useState, useEffect } from "react";
 
 import { Alert, alertsApiUrl, parseAlertsData } from "../utils/headerUtils";
@@ -9,7 +13,7 @@ import { Alert, alertsApiUrl, parseAlertsData } from "../utils/headerUtils";
  * endpoint to fetch NYPL sitewide alerts. While this component can be used in
  * isolation, it is already rendered in the DS Header component.
  */
-export const HeaderSitewideAlerts = chakra(() => {
+export const HeaderSitewideAlerts = () => {
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const styles = useStyleConfig("HeaderSitewideAlerts");
   const fetchErrorMessage =
@@ -65,6 +69,6 @@ export const HeaderSitewideAlerts = chakra(() => {
       __css={styles}
     />
   ) : null;
-});
+};
 
 export default HeaderSitewideAlerts;
