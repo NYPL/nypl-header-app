@@ -2,9 +2,11 @@
 
 ## Unreleased
 
+## 4/16/24
+
 ### Fixes
 
-- Fixes search term encoding so that vega can properly consume the query
+- Fixes search term encoding so that ega can properly consume the query
 
 ## 1/10/24
 
