@@ -1,31 +1,10 @@
 import {
-  encoreEncodeSearchString,
   getEncoreCatalogURL,
   getNYPLSearchURL,
   getResearchCatalogURL,
 } from "./headerUtils";
 
 describe("Header utils", () => {
-  describe("encoreEncodeSearchString", () => {
-    it("should encode a search string", () => {
-      const searchString = "foo bar";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar");
-    });
-
-    it("should encode a search string with special characters", () => {
-      const searchString = "foo bar/\\?=";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar/\\Pw===");
-    });
-
-    it("should encode a search string with special characters and spaces", () => {
-      const searchString = "foo bar/\\?= foo bar";
-      const encodedSearchString = encoreEncodeSearchString(searchString);
-      expect(encodedSearchString).toEqual("foo bar/\\Pw=== foo bar");
-    });
-  });
-
   describe("getEncoreCatalogURL", () => {
     const currentDate = new Date("2022-01-01");
     let realDate;
@@ -48,7 +27,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getEncoreCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://browse.nypl.org/iii/encore/search/C__Sfoo bar__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://browse.nypl.org/iii/encore/search/C__Sfoo%20bar__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -56,7 +35,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getEncoreCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://browse.nypl.org/iii/encore/search/C__Sfoo bar/\\Pw===__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://browse.nypl.org/iii/encore/search/C__Sfoo%20bar%2F%5C%3F%3D__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
   });
