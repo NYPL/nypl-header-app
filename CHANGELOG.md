@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Prerelease
+
+### Updates
+
+- Updates Node version to 18.
+
 ## 1/10/24
 
 ### Updates
