@@ -1,10 +1,14 @@
 # CHANGELOG
 
-## Prerelease
+## Unreleased
 
 ### Updates
 
 - Updates Node version to 18.
+
+### Fixes
+
+- Fixes search term encoding so that vega can properly consume the query
 
 ## 1/10/24
 
@@ -22,7 +26,8 @@
 
 ## 9/21
 
-- Adds commands to copy the latest Docker image on ECR to a previous image before pushing the latest image
+- Adds commands to copy the latest Docker image on ECR to a previous image
+  before pushing the latest image
 - Adds commands for Travis to initiate changes to the fallback stack
 
 ## 9/14
@@ -30,7 +35,8 @@
 ### Updates
 
 - Updates the DS version to `1.7.3`.
-- Updates the breakpoints, spacing, font size, icons, and colors to the mobile and desktop header. This is a general UI update for minor visual improvements.
+- Updates the breakpoints, spacing, font size, icons, and colors to the mobile
+  and desktop header. This is a general UI update for minor visual improvements.
 
 ## 8/22
 
@@ -51,8 +57,8 @@
 
 ### Adds
 
-- Adds style files for the `Header` and `Footer` component. A new theme file
-  is created and passed to the `DSProvider` component.
+- Adds style files for the `Header` and `Footer` component. A new theme file is
+  created and passed to the `DSProvider` component.
 
 ### Updates
 
