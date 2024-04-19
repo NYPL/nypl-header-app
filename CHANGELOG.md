@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Updates
+
+- Updates old "browse" and Encore links to new "borrow.nypl.org" links.
+
+## 4/16/24
+
 ### Fixes
 
 - Fixes search term encoding so that vega can properly consume the query
