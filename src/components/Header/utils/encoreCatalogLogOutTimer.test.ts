@@ -115,7 +115,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" });
+        .mockReturnValueOnce("loggedIn!");
       cookiesSet = jest.spyOn(Cookies, "set");
       // cookiesRemove = jest.spyOn(Cookies, "remove");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
@@ -157,7 +157,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" });
+        .mockReturnValueOnce("loggedIn!");
       cookiesSet = jest.spyOn(Cookies, "set");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -195,13 +195,11 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
+        .mockReturnValueOnce("loggedIn!")
+        .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         // This gets called twice.
-        .mockReturnValue({
-          VALID_DOMAIN_LAST_VISITED: mockedLastVisitTime.toString()
-        });
+        .mockReturnValue(mockedLastVisitTime.toString());
       const cookiesSet = jest.spyOn(Cookies, "set");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -242,8 +240,8 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
+        .mockReturnValueOnce("loggedIn!")
+        .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         .mockReturnValue(null);
       const cookiesSet = jest.spyOn(Cookies, "set");
@@ -288,10 +286,10 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
+        .mockReturnValueOnce("loggedIn!")
+        .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue({ 0: mockLastVisitedTime.toString() });
+        .mockReturnValue(mockLastVisitedTime.toString());
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -333,9 +331,9 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
+        .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue({ VALID_DOMAIN_LAST_VISITEDL: mockLastVisitedTime });
+        .mockReturnValue(mockLastVisitedTime);
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -384,9 +382,9 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesGet = jest
         .spyOn(Cookies, "get")
         // The "PAT_LOGGED_IN" cookie exists.
-        .mockReturnValueOnce({ PAT_LOGGED_IN: "loggedIn!" })
+        .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue({ VALID_DOMAIN_LAST_VISITED: mockLastVisitedTime });
+        .mockReturnValue(mockLastVisitedTime);
       const loadLogOutIframe = jest.spyOn(
         encoreCatalogLogOutTimer,
         "loadLogOutIframe"
