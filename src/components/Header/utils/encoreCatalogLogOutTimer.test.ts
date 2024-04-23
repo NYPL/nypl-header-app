@@ -45,9 +45,9 @@ describe("EncoreCatalogLogOutTimer", () => {
         // The "PAT_LOGGED_IN" cookie does not exist.
         .mockReturnValueOnce(null)
         // The "nyplIdentityPatron" cookie mock value.
-        .mockReturnValueOnce({ nyplIdentityPatron: "someIdentityValue" })
+        .mockReturnValueOnce("someIdentityValue")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValueOnce({ VALID_DOMAIN_LAST_VISITED: 1000 });
+        .mockReturnValueOnce(1000);
       const cookiesRemove = jest.spyOn(Cookies, "remove");
 
       // Start the timer on a valid domain.
@@ -75,9 +75,9 @@ describe("EncoreCatalogLogOutTimer", () => {
         .mockReturnValueOnce(null)
         .mockReturnValueOnce(null)
         // The "nyplIdentityPatron" cookie mock value.
-        .mockReturnValueOnce({ nyplIdentityPatron: "someIdentityValue" })
+        .mockReturnValueOnce("someIdentityValue")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValueOnce({ VALID_DOMAIN_LAST_VISITED: 1000 });
+        .mockReturnValueOnce(1000);
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -199,7 +199,7 @@ describe("EncoreCatalogLogOutTimer", () => {
         .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
         // This gets called twice.
-        .mockReturnValue(mockedLastVisitTime.toString());
+        .mockReturnValue(mockedLastVisitTime);
       const cookiesSet = jest.spyOn(Cookies, "set");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
@@ -289,7 +289,7 @@ describe("EncoreCatalogLogOutTimer", () => {
         .mockReturnValueOnce("loggedIn!")
         .mockReturnValueOnce("loggedIn!")
         // The "VALID_DOMAIN_LAST_VISITED" cookie mock value.
-        .mockReturnValue(mockLastVisitedTime.toString());
+        .mockReturnValue(mockLastVisitedTime);
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
