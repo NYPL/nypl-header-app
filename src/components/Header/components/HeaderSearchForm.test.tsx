@@ -71,7 +71,7 @@ describe("HeaderSearchForm", () => {
       expect(searchBtn).toHaveAttribute("aria-label", "Search");
     });
 
-    it("makes a request to the Encore catalog", async () => {
+    it("makes a request to the catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
@@ -83,7 +83,7 @@ describe("HeaderSearchForm", () => {
       // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
-        "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -100,7 +100,7 @@ describe("HeaderSearchForm", () => {
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -149,7 +149,7 @@ describe("HeaderSearchForm", () => {
       ).toBeInTheDocument();
     });
 
-    it("makes a request to the Encore catalog", () => {
+    it("makes a request to the catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
@@ -159,7 +159,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
-        "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -173,7 +173,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 

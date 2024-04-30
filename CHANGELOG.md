@@ -5,6 +5,7 @@
 ### Updates
 
 - Updates "Press" link in the footer to point to `/press`.
+- Updates old "browse" and Encore links to new "borrow.nypl.org" links.
 
 ## 4/16/24
 
