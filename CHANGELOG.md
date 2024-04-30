@@ -4,7 +4,11 @@
 
 ### Updates
 
-- Updates Node version to 18.
+- Updates "Press" link in the footer to point to `/press`.
+- Updates old "browse" and Encore links to new "borrow.nypl.org" links.
+- Updates Node version to 18 for Docker and Github Actions.
+
+## 4/16/24
 
 ### Fixes
 
