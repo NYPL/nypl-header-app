@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Updates
+
+- Updates "Press" link in the footer to point to `/press`.
+
+## 4/16/24
+
 ### Fixes
 
 - Fixes search term encoding so that vega can properly consume the query
