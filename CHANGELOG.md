@@ -2,11 +2,18 @@
 
 ## Unreleased
 
+## 5/16/24
+
+### Updates
+
+- Updates "Press" link in the footer to point to `/press`.
+- Updates old "browse" and Encore links to the new "borrow.nypl.org" domain.
+
 ## 4/16/24
 
 ### Fixes
 
-- Fixes search term encoding so that ega can properly consume the query
+- Fixes search term encoding so that Vega can properly consume the query.
 
 ## 1/10/24
 

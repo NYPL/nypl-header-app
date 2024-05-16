@@ -7,7 +7,7 @@ const link = {
       },
       {
         text: "Press",
-        href: "http://www.nypl.org/help/about-nypl/media-center",
+        href: "http://www.nypl.org/press",
       },
       {
         text: "Careers",

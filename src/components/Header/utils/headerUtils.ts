@@ -19,8 +19,9 @@ const authServerBase = {
 };
 const baseLoginLinks = {
   catalog: {
-    production: "https://browse.nypl.org/iii/encore/myaccount",
-    development: "https://nypl-encore-test.nypl.org/iii/encore/myaccount",
+    production: "https://borrow.nypl.org/?openAccount=checkouts",
+    // no dev env yet
+    development: "https://borrow.nypl.org/?openAccount=checkouts",
   },
   research: {
     production: "https://catalog.nypl.org/patroninfo/top",
@@ -33,7 +34,7 @@ export const tokenRefreshLink = (isProduction = true) => {
   return `${authServerBase[type]}/refresh`;
 };
 // Return the proper links when logged in or not. These are for the NYPL
-// "Log in" or "Go to" links for Encore and the Research Catalog. This is
+// "Log in" or "Go to" links for the Catalog and the Research Catalog. This is
 // based on the environment and logged in status.
 export const getLoginLinks = (patronName = "", isProduction = true) => {
   const type = isProduction ? "production" : "development";
@@ -112,23 +113,23 @@ export const siteNavLinks = [
 const generateQueriesForTracking = () => {
   // the time stamp here is for the purpose of telling when this search query is made.
   const currentTimeStamp = new Date().getTime();
-  return `?searched_from=header_search&timestamp=${currentTimeStamp}`;
+  return `searched_from=header_search&timestamp=${currentTimeStamp}`;
 };
 
 /**
- * Returns the final URL for the NYPL Encore search.
+ * Returns the final URL for the NYPL Catalog search.
  */
-export const getEncoreCatalogURL = (searchValue) => {
+export const getCatalogURL = (searchValue) => {
   const encodedSearchInput = encodeURIComponent(searchValue);
-  const rootUrl = "https://browse.nypl.org/iii/encore/search/";
-  let finalEncoreUrl;
+  const rootUrl = "https://borrow.nypl.org/search";
+  let finalUrl;
 
   if (encodedSearchInput) {
-    finalEncoreUrl =
-      `${rootUrl}C__S${encodedSearchInput}__Orightresult__U` +
+    finalUrl =
+      `${rootUrl}?query=${encodedSearchInput}&searchType=everything&pageSize=10&` +
       generateQueriesForTracking() +
       `&lang=eng`;
-    return finalEncoreUrl;
+    return finalUrl;
   }
   return null;
 };
@@ -157,6 +158,7 @@ export const getNYPLSearchURL = (searchString) => {
     return (
       catalogUrl +
       encodeURIComponent(searchString) +
+      "?" +
       generateQueriesForTracking()
     );
   }
