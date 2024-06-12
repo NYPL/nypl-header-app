@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Updates
+
+- Removes fallback font options so footer inherits from the DS.
+
 ## 5/16/24
 
 ### Updates
