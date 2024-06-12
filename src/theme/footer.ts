@@ -26,7 +26,7 @@ const Footer = {
   baseStyle: {
     backgroundColor: footerGray,
     boxSizing: "border-box",
-    fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    fontFamily: "body",
     fontSize: "text.default",
     fontWeight: "text.default",
     lineHeight: "1.5",
