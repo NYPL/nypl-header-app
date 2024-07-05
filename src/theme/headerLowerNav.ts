@@ -27,7 +27,7 @@ const HeaderLowerNav = {
     "li > a": {
       color: "ui.black",
       fontSize: {
-        base: "desktop.subtitle.subtitle2",
+        base: "var(--nypl-fontSizes-desktop-subtitle-subtitle2) !important",
         lh: "desktop.subtitle.subtTitle1",
       },
       fontWeight: "medium",

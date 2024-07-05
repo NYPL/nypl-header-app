@@ -1,4 +1,4 @@
-import { headerFocus, headerRed } from "./header";
+import { headerFocus } from "./header";
 
 const HeaderUpperNav = {
   parts: ["donateLink"],
@@ -11,7 +11,7 @@ const HeaderUpperNav = {
       whiteSpace: "nowrap",
     },
     li: {
-      fontSize: "desktop.body.body2",
+      fontSize: "var(--nypl-fontSizes-desktop-body-body2) !important",
       fontWeight: "medium",
       marginRight: "s",
       _last: {

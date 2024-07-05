@@ -5,6 +5,8 @@
 ### Updates
 
 - Removes fallback font options so footer inherits from the DS.
+- Adds `!important` designation to header font sizes so consuming app styles
+  don't override it.
 
 ## 5/16/24
 
