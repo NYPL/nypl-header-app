@@ -7,6 +7,7 @@
 - Removes fallback font options so footer inherits from the DS.
 - Adds `!important` designation to header font sizes so consuming app styles
   don't override it.
+- Ensures libguides base font is 16px so header appears correctly.
 
 ## 5/16/24
 

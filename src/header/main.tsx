@@ -34,10 +34,11 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
     } else {
       document.addEventListener("DOMContentLoaded", fn);
     }
-    // This is to set the font size to 1em on the HTML element for sites
-    // that may have a different base font size, such as "62.5%".
-    if (window.location.origin.includes("vega")) {
-      document.getElementsByTagName("html")[0].style.fontSize = "1em";
+    // Sets the base font size to 16px for libguides.nypl.org;
+    // (it's currently set to 10px which interferes with how the header
+    // is meant to look)
+    if (window.location.origin.includes("libguides")) {
+      document.getElementsByTagName("html")[0].style.fontSize = "16px";
     }
   }
   function header() {
