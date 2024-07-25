@@ -1,7 +1,8 @@
 import Cookies from "js-cookie";
 
-export const encoreLogOutURL =
-  "https://browse.nypl.org/iii/encore/logoutFilterRedirect?suite=def";
+// QA url is "https://dev-login.nypl.org/auth/logout?redirect_uri="
+export const catalogLogOutURL =
+  "https:/login.nypl.org/auth/logout?redirect_uri="
 // Expiration time is 30 minutes set in milliseconds.
 export const patLoggedInCookieExpiredTime = 1800000;
 
@@ -51,6 +52,8 @@ function EncoreCatalogLogOutTimer(
       "catalog.nypl.org",
       // the domain of Test Research Catalog's pages
       "nypl-sierra-test.nypl.org",
+       // new domain
+       "borrow.nypl.org",
     ];
     const isOnValidDomain = domainsForExtendingLogIn.some(
       (domain) => domain === currentLocationHost
@@ -122,7 +125,7 @@ function EncoreCatalogLogOutTimer(
     const iframeExistingTime = 10000;
 
     // Set the `iframe`'s src to the endpoint URL for logging out from Encore.
-    logoutIframe.setAttribute("src", encoreLogOutURL);
+    logoutIframe.setAttribute("src", catalogLogOutURL);
     // Assign an ID for CSS usage.
     logoutIframe.setAttribute("id", "logoutIframe");
     logoutIframe.style.display = "none";

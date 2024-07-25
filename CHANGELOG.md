@@ -7,9 +7,24 @@
 - Updates DS to v3.0.0
 - Updates React to v18
 
+### Updates
+
+- Removes fallback font options so footer inherits from the DS.
+- Adds `!important` designation to header font sizes so consuming app styles
+  don't override it.
+
+## 5/16/24
+
+### Updates
+
+- Updates "Press" link in the footer to point to `/press`.
+- Updates old "browse" and Encore links to the new "borrow.nypl.org" domain.
+
+## 4/16/24
+
 ### Fixes
 
-- Fixes search term encoding so that vega can properly consume the query
+- Fixes search term encoding so that Vega can properly consume the query.
 
 ## 10/30/23
 

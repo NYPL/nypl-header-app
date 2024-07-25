@@ -8,7 +8,7 @@ const HeaderSearchButton = {
     color: isOpen ? "ui.white" : "ui.link.primary",
     display: "flex",
     fontFamily: "body",
-    fontSize: "inherit",
+    fontSize: "inherit !important",
     fontWeight: "medium",
     justifyContent: "center",
     minHeight: { mh: "30px" },
