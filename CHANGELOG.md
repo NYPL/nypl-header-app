@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 8/7/24
+## 8/6/24
 
 ### Updates
 
