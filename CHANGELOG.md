@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 8/6/24
 
 ### Updates
 
