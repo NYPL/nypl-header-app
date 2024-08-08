@@ -10,7 +10,7 @@
 
 - Updates to Node 20 in Dockerfile and Github Actions.
 
-## v1.0.1
+## v1.0.1 - 8/6/24
 
 ### Updates
 
