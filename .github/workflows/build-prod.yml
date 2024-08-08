@@ -2,7 +2,7 @@
 # This is on `nypl` account.
 name: Publish production
 on:
-  pull_request:
+  push:
     branches: [production]
 
 permissions:

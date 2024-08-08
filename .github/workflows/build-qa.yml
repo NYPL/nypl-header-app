@@ -2,7 +2,7 @@
 # This is on `nypl-dev` account.
 name: Publish qa
 on:
-  pull_request:
+  push:
     branches: [qa]
 
 permissions:
