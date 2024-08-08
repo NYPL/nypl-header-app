@@ -89,17 +89,43 @@ For Next.js apps, it is recommended to add the script to the `_document.tsx` fil
 
 ## Running the app locally
 
-Install all dependencies
+Install all dependencies:
 
 ```sh
 $ npm install
 ```
 
-Builds the app into `./dist` and preview the app at `localhost:3001`
+### In Production Mode
+
+Build the app:
+
+```sh
+$ npm run build
+```
+
+Run the app:
 
 ```sh
 $ npm run prod
 ```
+
+View the app on `localhost:3001`.
+
+### In Development Mode
+
+Build the app in one terminal window:
+
+```sh
+$ npm run build:app:watch
+```
+
+Run the app in another terminal window:
+
+```sh
+$ npm run preview:watch
+```
+
+View the app on `localhost:3001`.
 
 ### Running the app locally with Docker
 
