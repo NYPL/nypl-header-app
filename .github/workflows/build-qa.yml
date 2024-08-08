@@ -2,7 +2,7 @@
 # This is on `nypl-dev` account.
 name: Publish qa
 on:
-  push:
+  pull_request:
     branches: [qa]
 
 permissions:
@@ -12,7 +12,6 @@ permissions:
 jobs:
   publish_qa:
     name: Publish image to ECR and update ECS stack
-    # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
       - name: checkout
