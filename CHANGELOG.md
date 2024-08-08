@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased v0.1.0 - 7/x/24
+## Unreleased v1.2.0 - 8/x/24
 
 ### Adds
 
@@ -8,9 +8,15 @@
 
 ### Updates
 
+- Updates to Node 20 in Dockerfile and Github Actions.
+
+## v1.0.1
+
+### Updates
+
 - Adds `!important` designation to header font sizes so consuming app styles
   don't override it.
-- Updates to Node 20 in Dockerfile and Github Actions.
+- Ensures consuming app, libguides, has base font of 16px so header appears correctly.
 
 ### Removes
 
