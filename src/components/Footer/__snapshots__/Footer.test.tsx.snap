@@ -29,13 +29,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-<<<<<<< HEAD
               className="chakra-link css-1xdhyk6"
-              href="http://www.nypl.org/help/about-nypl/media-center"
-=======
-              className="css-1xdhyk6"
               href="http://www.nypl.org/press"
->>>>>>> main
               rel={null}
               target={null}
             >

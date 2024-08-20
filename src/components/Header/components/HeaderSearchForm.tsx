@@ -48,20 +48,16 @@ const HeaderSearchForm = ({ isMobile = false }: HeaderSearchFormProps) => {
     e.preventDefault();
     let requestUrl;
 
-      // If there is a search input, make the request.
-      if (searchInput) {
-        if (searchOption === "circulatingCatalog") {
-          requestUrl = getCatalogURL(searchInput);
-        }
-        if (searchOption === "researchCatalog") {
-          requestUrl = getResearchCatalogURL(searchInput);
-        }
-        if (searchOption === "website") {
-          requestUrl = getNYPLSearchURL(searchInput);
-        }
-
-        window.location.assign(requestUrl);
-        return true;
+    // If there is a search input, make the request.
+    if (searchInput) {
+      if (searchOption === "circulatingCatalog") {
+        requestUrl = getCatalogURL(searchInput);
+      }
+      if (searchOption === "researchCatalog") {
+        requestUrl = getResearchCatalogURL(searchInput);
+      }
+      if (searchOption === "website") {
+        requestUrl = getNYPLSearchURL(searchInput);
       }
 
       window.location.assign(requestUrl);
