@@ -13,7 +13,7 @@
 - Updates to Node 20 in Dockerfile and Github Actions.
 - Updates `vite` to `4.5.3`.
 
-## v1.0.1 - 8/6/24
+## v1.1.0 - 8/6/24
 
 ### Updates
 
