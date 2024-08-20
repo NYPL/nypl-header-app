@@ -1,0 +1,50 @@
+# On merge into the `qa` branch, build the image and deploy to ECR.
+# This is on `nypl-dev` account.
+name: Publish qa
+on:
+  push:
+    branches: [qa]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish_qa:
+    name: Publish image to ECR and update ECS stack
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::491147561046:role/GithubActionsDeployerRole
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: nyplglobalheader
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          MANIFEST=$(aws ecr batch-get-image --repository-name $ECR_REPOSITORY --image-ids imageTag="qa-latest" --output json | jq --raw-output --join-output '.images[0].imageManifest')
+          aws ecr batch-delete-image --repository-name $ECR_REPOSITORY --image-ids imageTag="qa-previous" || true
+          aws ecr put-image --repository-name $ECR_REPOSITORY --image-tag "qa-previous" --image-manifest "$MANIFEST"
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:qa-latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:qa-latest
+
+      - name: Force ECS Update
+          # In addition to the current live version, the Global Header also
+          # deploys to a "previous" cluster. This is just in case the new
+          # version fails and teams require a working URL of the previous
+          # working version.
+        run: |
+          aws ecs update-service --cluster nyplorg-globalheader-previous-qa --service nyplorg-globalheader-previous-qa --force-new-deployment
+          aws ecs update-service --cluster nyplorg-globalheader-qa --service nyplorg-globalheader-qa --force-new-deployment

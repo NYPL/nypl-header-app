@@ -7,11 +7,28 @@
 - Updates DS to v3.0.0
 - Updates React to v18
 
+## Unreleased v1.2.0 - 8/x/24
+
+### Adds
+
+- Adds `.nvmrc` file for Node 20.
+
 ### Updates
 
-- Removes fallback font options so footer inherits from the DS.
+- Updates to Node 20 in Dockerfile and Github Actions.
+- Updates `vite` to `4.5.3`.
+
+## v1.0.1 - 8/6/24
+
+### Updates
+
 - Adds `!important` designation to header font sizes so consuming app styles
   don't override it.
+- Ensures consuming app, libguides, has base font of 16px so header appears correctly.
+
+### Removes
+
+- Removes fallback font options so footer inherits from the DS.
 
 ## 5/16/24
 
