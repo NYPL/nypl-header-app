@@ -1,16 +1,19 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React from "react";
-
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
-import { List, Link, Icon } from "@nypl/design-system-react-components";
+import {
+  List,
+  Link,
+  Box,
+  useMultiStyleConfig,
+} from "@nypl/design-system-react-components";
+import React from "react";
 
 /**
  * This renders the navigational list of links for logging in, subscribing
  * to the email service, going to the Locations page, getting a Library card,
  * donating, and shopping at NYPL.
  */
-const HeaderUpperNav = chakra(() => {
+const HeaderUpperNav = () => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
   return (
@@ -46,6 +49,6 @@ const HeaderUpperNav = chakra(() => {
       />
     </Box>
   );
-});
+};
 
 export default HeaderUpperNav;

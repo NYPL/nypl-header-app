@@ -2,7 +2,7 @@
 
 exports[`Footer renders the UI snapshot correctly 1`] = `
 <footer
-  className="css-1xdhyk6"
+  className="css-0"
   id="footer"
   role="contentinfo"
 >
@@ -19,7 +19,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/accessibility"
               rel={null}
               target={null}
@@ -29,7 +29,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/press"
               rel={null}
               target={null}
@@ -39,7 +39,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/careers"
               rel={null}
               target={null}
@@ -49,7 +49,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/spacerental"
               rel={null}
               target={null}
@@ -65,7 +65,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
               rel={null}
               target={null}
@@ -75,7 +75,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/policies"
               rel={null}
               target={null}
@@ -85,7 +85,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/terms-conditions"
               rel={null}
               target={null}
@@ -95,7 +95,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/help/about-nypl/leadership/board-trustees"
               rel={null}
               target={null}
@@ -111,7 +111,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/help/about-nypl/legal-notices/rules-and-regulations"
               rel={null}
               target={null}
@@ -121,7 +121,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/help/about-nypl"
               rel={null}
               target={null}
@@ -131,7 +131,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
               href="http://www.nypl.org/language"
               rel={null}
               target={null}
@@ -149,7 +149,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Facebook"
-          className="css-1xdhyk6"
+          className="chakra-link css-1xdhyk6"
           href="https://www.facebook.com/nypl"
           rel={null}
           target={null}
@@ -175,7 +175,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Twitter"
-          className="css-1xdhyk6"
+          className="chakra-link css-1xdhyk6"
           href="https://twitter.com/nypl"
           rel={null}
           target={null}
@@ -201,7 +201,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Instagram"
-          className="css-1xdhyk6"
+          className="chakra-link css-1xdhyk6"
           href="https://instagram.com/nypl"
           rel={null}
           target={null}
@@ -227,7 +227,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Youtube"
-          className="css-1xdhyk6"
+          className="chakra-link css-1xdhyk6"
           href="https://www.youtube.com/user/NewYorkPublicLibrary"
           rel={null}
           target={null}

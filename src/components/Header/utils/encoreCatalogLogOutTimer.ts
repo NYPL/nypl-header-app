@@ -52,8 +52,8 @@ function EncoreCatalogLogOutTimer(
       "catalog.nypl.org",
       // the domain of Test Research Catalog's pages
       "nypl-sierra-test.nypl.org",
-       // new domain
-       "borrow.nypl.org",
+      // new domain
+      "borrow.nypl.org",
     ];
     const isOnValidDomain = domainsForExtendingLogIn.some(
       (domain) => domain === currentLocationHost
@@ -70,11 +70,11 @@ function EncoreCatalogLogOutTimer(
       //     only happen if the patron logged in through a redirect, without
       //     running JS on a "valid domain".
       if (isOnValidDomain || !Cookies.get("VALID_DOMAIN_LAST_VISITED")) {
-        Cookies.set("VALID_DOMAIN_LAST_VISITED", currentTime);
+        Cookies.set("VALID_DOMAIN_LAST_VISITED", currentTime.toString());
         this.logOutFromEncoreAndCatalogIn(patLoggedInCookieExpiredTime);
       } else {
         // The time in ms since the patron has been on the valid domain.
-        const lastVisitedValidDomainTime = Cookies.get(
+        const lastVisitedValidDomainTime: any = Cookies.get(
           "VALID_DOMAIN_LAST_VISITED"
         );
         const timeUntilLogOut = lastVisitedValidDomainTime

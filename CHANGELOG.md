@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Prerelease
+
+### Updates
+
+- Updates DS to v3.0.0
+- Updates React to v18
+
 ## Unreleased v1.2.0 - 8/x/24
 
 ### Adds
@@ -36,7 +43,7 @@
 
 - Fixes search term encoding so that Vega can properly consume the query.
 
-## 1/10/24
+## 10/30/23
 
 ### Updates
 
