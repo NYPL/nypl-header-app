@@ -1,6 +1,8 @@
 # CHANGELOG
 
-## Unreleased v1.2.0 - 8/x/24
+## Unreleased
+
+## v1.2.0 - 8/20/24
 
 ### Adds
 
