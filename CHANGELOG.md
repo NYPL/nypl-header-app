@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Removals
+
+- Removes code that called the `/auth/patrons/tokens/{token}` Platform API. The code supported the feature that displayed a logged in patron's name but this has long been removed. The API endpoint itself has also been removed and is deprecated.
+
 ## v1.2.0 - 8/20/24
 
 ### Adds
@@ -13,7 +17,7 @@
 - Updates to Node 20 in Dockerfile and Github Actions.
 - Updates `vite` to `4.5.3`.
 
-## v1.0.1 - 8/6/24
+## v1.1.0 - 8/6/24
 
 ### Updates
 

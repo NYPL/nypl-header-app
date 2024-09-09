@@ -134,49 +134,6 @@ renders. When using both the `Header` and the `TemplateAppContainer` components,
 set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
 `false`. This will prevent two `SkipNavigation` components from being rendered.
 
-## Catalogs Log In
-
-While the `Header` doesn't perform authentication, it does determine whether a user is
-logged in and, if they are, renders a logged in UI, which includes the patron's name.
-
-This process begins after the `Header` mounts. At that time, it looks for the
-`nyplIdentityPatron` cookie. If it exists, an `accessToken` is extracted from the cookie
-and sent via fetch request to the `patronApiUrl`. If the request is successful, the
-patron's name is returned. The name is then stored in a React Context variable called
-`HeaderContext`, which is available to all children of the `Header`. The existence of the
-patron's name in `HeaderContext` causes the `HeaderLoginButton` and `HeaderLogin` to
-render their "logged in" view.
-
-There is the possibility that the call to the `patronApiUrl` returns a response with a
-`statusCode` of 401 and an `expired` key set to true. This means the `accessToken` is
-expired. If this is the case, the `Header` will attempt to refresh the `accessToken` by
-sending a fetch request to the `tokenRefreshLink`. If successful, the `Header` will retry
-the request to the `patronApiUrl` with the new `accessToken`.
-
-### Mobile
-
-In the mobile view, the "log in" feature can be seen when the user SVG icon
-dropdown button is clicked. The user unfilled SVG icon signifies that the patron
-is not logged in while the user filled SVG icon signifies that the patron is
-logged in.
-
-When opened, the dropdown menu will contain two red buttons that will direct the
-user to the Catalog or the Research Catalog login pages.
-
-When logged in, the dropdown menu will also display the patron's name and an
-additional "logout" link.
-
-### Desktop
-
-In the desktop view, the "log in" feature is the first dropdown button in the top
-navigation of the `Header`. When opened, the dropdown menu will display two
-rounded blue buttons that will direct the user to the Catalog or the Research
-Catalog login pages.
-
-When logged in, the dropdown button's text will turn from "Log In" to
-"My Account". The dropdown menu will display the patron's name and an additional
-"logout" link.
-
 ## Search
 
 There is a single search form in the `Header` component that can be used to
