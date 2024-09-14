@@ -40,17 +40,15 @@ describe("Footer", () => {
     );
   });
 
-  it("renders a list of four social media icons", () => {
+  it("renders a list of three four social media icons", () => {
     const list = screen.getByTestId("social-media-links");
     const icons = within(list).getAllByRole("img");
 
-    expect(icons).toHaveLength(4);
+    expect(icons).toHaveLength(3);
     const facebookIcon = screen.getByTitle("NYPL on Facebook");
-    const twitterIcon = screen.getByTitle("NYPL on Twitter");
     const instagramIcon = screen.getByTitle("NYPL on Instagram");
     const youtubeIcon = screen.getByTitle("NYPL on Youtube");
     expect(facebookIcon).toBeInTheDocument();
-    expect(twitterIcon).toBeInTheDocument();
     expect(instagramIcon).toBeInTheDocument();
     expect(youtubeIcon).toBeInTheDocument();
   });
