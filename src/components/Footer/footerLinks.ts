@@ -58,6 +58,11 @@ const link = {
       title: "NYPL on Facebook",
     },
     {
+      href: "https://twitter.com/nypl",
+      iconName: "legacySocialTwitter",
+      title: "NYPL on Twitter",
+    },
+    {
       href: "https://instagram.com/nypl",
       iconName: "legacySocialInstagram",
       title: "NYPL on Instagram",

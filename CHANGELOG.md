@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.2.2 - 10/16/24
+
+### Adds
+
+- Adds the Twitter/X icon back in the Footer.
+
 ## v1.2.1 - 9/13/24
 
 ### Removals
