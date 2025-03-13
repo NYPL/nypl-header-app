@@ -1,6 +1,6 @@
 {
   "name": "nypl-header-app",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "NYPL Header App",
   "scripts": {
     "dev": "vite",
