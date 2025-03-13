@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.2.3 - 3/13/25
+
+### Updates
+
+- Updates the `actions/cache` Github Action to v4.
+
 ## v1.2.2 - 10/17/24
 
 ### Adds
