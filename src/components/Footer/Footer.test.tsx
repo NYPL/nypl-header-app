@@ -5,7 +5,19 @@ import * as renderer from "react-test-renderer";
 
 import Footer from "./Footer";
 
+import * as envUtils from "../../utils";
+
+jest.mock("../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("Footer Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility", async () => {
     const { container } = render(<Footer />);
     expect(await axe(container)).toHaveNoViolations();
@@ -13,6 +25,12 @@ describe("Footer Accessibility", () => {
 });
 
 describe("Footer", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   beforeEach(() => {
     render(<Footer />);
   });

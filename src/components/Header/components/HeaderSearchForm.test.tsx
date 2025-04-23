@@ -5,7 +5,19 @@ import * as renderer from "react-test-renderer";
 
 import HeaderSearchForm from "./HeaderSearchForm";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("HeaderSearchForm Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchForm />);
     expect(await axe(container)).toHaveNoViolations();
@@ -18,6 +30,12 @@ describe("HeaderSearchForm Accessibility", () => {
 });
 
 describe("HeaderSearchForm", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   // We want to spy on the `window.location.assign` method so we can know
   // that the correct search URL was called. Save the real
   // `window.location.assign` method.
@@ -100,7 +118,7 @@ describe("HeaderSearchForm", () => {
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "https://www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -173,7 +191,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "https://www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 

@@ -26,6 +26,7 @@ import HeaderUpperNav from "./components/HeaderUpperNav";
 import { HeaderProvider } from "./context/headerContext";
 import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 import { headerBreakpoints } from "../../theme/foundation/breakpoints";
+import { getEnvVar } from "../../utils";
 
 export interface HeaderProps {
   /** Whether to render sitewide alerts or not. True by default. */
@@ -41,6 +42,7 @@ export interface HeaderProps {
  */
 export const Header = chakra(
   ({ fetchSitewideAlerts = true, isProduction = true }: HeaderProps) => {
+    const envPrefix = getEnvVar("VITE_APP_ENV") === "qa" ? "qa-" : "";
     // isLargerThanLarge is greater than 960px
     const { isLargerThanLarge } = useNYPLBreakpoints();
     // The Header's "mobile" is 832px and below.
@@ -95,7 +97,7 @@ export const Header = chakra(
             <HStack __css={styles.container}>
               <Link
                 aria-label="The New York Public Library"
-                href="https://nypl.org"
+                href={`//${envPrefix}www.nypl.org`}
                 __css={styles.logo}
               >
                 <Logo
@@ -116,7 +118,7 @@ export const Header = chakra(
                   <HeaderLowerNav />
                 </VStack>
               ) : (
-                <HeaderMobileIconNav />
+                <HeaderMobileIconNav envPrefix={envPrefix} />
               )}
             </HStack>
             <HorizontalRule __css={styles.horizontalRule} />

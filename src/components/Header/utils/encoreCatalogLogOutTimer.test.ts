@@ -5,6 +5,12 @@ import EncoreCatalogLogOutTimer, {
   patLoggedInCookieExpiredTime,
 } from "./encoreCatalogLogOutTimer";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("EncoreCatalogLogOutTimer", () => {
   const validCatalogDomain = "borrow.nypl.org";
   const validResearchCatalogDomain = "catalog.nypl.org";
@@ -30,6 +36,9 @@ describe("EncoreCatalogLogOutTimer", () => {
     encoreCatalogLogOutTimer = new EncoreCatalogLogOutTimer(
       mockCurrentTime,
       isTestMode
+    );
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
     );
   });
 
@@ -165,7 +174,9 @@ describe("EncoreCatalogLogOutTimer", () => {
       );
 
       // Start the timer on a valid domain.
-      encoreCatalogLogOutTimer.setEncoreLoggedInTimer(validResearchCatalogDomain);
+      encoreCatalogLogOutTimer.setEncoreLoggedInTimer(
+        validResearchCatalogDomain
+      );
     });
 
     afterEach(() => {

@@ -9,7 +9,19 @@ import {
   refineryResponse,
 } from "../utils/sitewideAlertsMocks";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("HeaderSitewideAlerts Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility test", async () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
@@ -24,6 +36,12 @@ describe("HeaderSitewideAlerts Accessibility", () => {
 });
 
 describe("HeaderSitewideAlerts", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   describe("Successful API request", () => {
     beforeEach(async () => {
       (global as any).fetch = jest.fn(() =>

@@ -4,9 +4,19 @@ import { axe } from "jest-axe";
 import * as renderer from "react-test-renderer";
 
 import HeaderMobileNav from "./HeaderMobileNav";
+import * as envUtils from "../../../utils";
 
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
 
 describe("HeaderMobileNav Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderMobileNav />);
     expect(await axe(container)).toHaveNoViolations();
@@ -14,6 +24,12 @@ describe("HeaderMobileNav Accessibility", () => {
 });
 
 describe("HeaderMobileNav", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   beforeEach(() => {
     render(<HeaderMobileNav />);
   });
