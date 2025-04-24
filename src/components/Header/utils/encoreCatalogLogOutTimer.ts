@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { getEnvVar } from "../../../utils";
 
-const isQA = !!getEnvVar("VITE_APP_ENV");
+const isQA = getEnvVar("VITE_APP_ENV") === "qa";
 
 export const catalogLogOutPrefix = isQA ? "https://dev-login" : "https://login";
 export const catalogLogOutURL = `${catalogLogOutPrefix}.nypl.org/auth/logout?redirect_uri=`;

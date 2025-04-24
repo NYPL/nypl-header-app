@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.2.4 - TBD
+
+### Adds
+
+- Adds the ability to render static links with the `qa-` prefix to point the `qa-ds-header` link to the QA environment (mostly used by QA). [RENO-4570](https://newyorkpubliclibrary.atlassian.net/browse/RENO-4570)
+
 ## v1.2.3 - 3/13/25
 
 ### Updates
