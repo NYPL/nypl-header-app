@@ -1,6 +1,8 @@
 # Setup node environment
 FROM node:20-alpine
 
+ARG VITE_APP_ENV
+
 # Create app directory
 WORKDIR /app
 
@@ -15,8 +17,10 @@ RUN npm rebuild esbuild
 # Copy source code to /app directory
 COPY . ./
 
+ENV VITE_APP_ENV=${VITE_APP_ENV}
+
 # Build app
-RUN npm run build
+RUN VITE_APP_ENV=$VITE_APP_ENV npm run build
 
 # Symlink old header
 RUN ln -s /app/dist/header.min.js /app/dist/dgx-header.min.js

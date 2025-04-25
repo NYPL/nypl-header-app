@@ -9,7 +9,7 @@ import { Link, Icon } from "@nypl/design-system-react-components";
  * This component renders the mobile list of icon buttons for
  * logging in, searching, and navigating on NYPL.org.
  */
-const HeaderMobileIconNav = chakra(() => {
+const HeaderMobileIconNav = chakra(({ envPrefix }) => {
   const styles = useStyleConfig("HeaderMobileIconNav");
 
   return (
@@ -17,7 +17,7 @@ const HeaderMobileIconNav = chakra(() => {
       <HeaderLoginButton isMobile />
       <Link
         aria-label="NYPL Locations Near Me"
-        href="https://nypl.org/locations"
+        href={`//${envPrefix}www.nypl.org/locations`}
       >
         <Icon name="mapsPlace" size="large" title="NYPL Locator" />
       </Link>

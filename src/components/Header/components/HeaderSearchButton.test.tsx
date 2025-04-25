@@ -5,7 +5,18 @@ import * as renderer from "react-test-renderer";
 
 import HeaderSearchButton from "./HeaderSearchButton";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("HeaderSearchButton Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchButton />);
     expect(await axe(container)).toHaveNoViolations();
@@ -18,6 +29,11 @@ describe("HeaderSearchButton Accessibility", () => {
 });
 
 describe("HeaderSearchButton", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
   describe("Desktop", () => {
     beforeEach(() => {
       render(<HeaderSearchButton />);

@@ -6,13 +6,24 @@ import * as renderer from "react-test-renderer";
 import Header from "./Header";
 import { mockLoginCookie } from "./utils/authApiMockResponse";
 import { refineryResponse } from "./utils/sitewideAlertsMocks";
+import * as envUtils from "../../utils";
 
 jest.mock("js-cookie", () => ({
   get: () => mockLoginCookie,
   remove: jest.fn(),
 }));
 
+jest.mock("../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("Header Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility test", async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
