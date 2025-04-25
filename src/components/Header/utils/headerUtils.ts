@@ -1,5 +1,8 @@
 /*eslint no-useless-escape: 0 */
 import Cookies from "js-cookie";
+import { getEnvVar } from "../../../utils";
+
+const envPrefix = getEnvVar("VITE_APP_ENV") === "qa" ? "qa-" : "";
 
 export interface Alert {
   id: string;
@@ -9,8 +12,7 @@ export interface Alert {
   endDate: string;
 }
 
-export const alertsApiUrl =
-  "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
+export const alertsApiUrl = `//${envPrefix}refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all`;
 const authServerBase = {
   production: "https://login.nypl.org/auth",
   development: "https://dev-login.nypl.org/auth",
@@ -49,11 +51,11 @@ export const getLoginLinks = (patronName = "", isProduction = true) => {
 };
 export const upperNavLinks = {
   locations: {
-    href: "https://www.nypl.org/locations",
+    href: `//${envPrefix}www.nypl.org/locations`,
     text: "Locations",
   },
   libraryCard: {
-    href: "https://www.nypl.org/library-card/new",
+    href: `//${envPrefix}www.nypl.org/library-card/new`,
     text: "Get A Library Card",
   },
   emailUpdates: {
@@ -61,7 +63,7 @@ export const upperNavLinks = {
     text: "Get Email Updates",
   },
   donate: {
-    href: "https://www.nypl.org/donate-button",
+    href: `//${envPrefix}www.nypl.org/donate-button`,
     text: "Donate",
   },
   shop: {
@@ -71,31 +73,31 @@ export const upperNavLinks = {
 };
 export const siteNavLinks = [
   {
-    href: "https://www.nypl.org/books-music-movies",
+    href: `//${envPrefix}www.nypl.org/books-music-movies`,
     text: "Books/Music/Movies",
   },
   {
-    href: "https://www.nypl.org/research",
+    href: `//${envPrefix}www.nypl.org/research`,
     text: "Research",
   },
   {
-    href: "https://www.nypl.org/education",
+    href: `//${envPrefix}www.nypl.org/education`,
     text: "Education",
   },
   {
-    href: "https://www.nypl.org/events",
+    href: `//${envPrefix}www.nypl.org/events`,
     text: "Events",
   },
   {
-    href: "https://www.nypl.org/connect",
+    href: `//${envPrefix}www.nypl.org/connect`,
     text: "Connect",
   },
   {
-    href: "https://www.nypl.org/give",
+    href: `//${envPrefix}www.nypl.org/give`,
     text: "Give",
   },
   {
-    href: "https://www.nypl.org/get-help",
+    href: `//${envPrefix}www.nypl.org/get-help`,
     text: "Get Help",
   },
 ];
@@ -131,7 +133,7 @@ export const getCatalogURL = (searchValue) => {
  * Returns the final URL for the NYPL Research Catalog search.
  */
 export const getResearchCatalogURL = (searchValue) => {
-  const catalogUrl = "https://www.nypl.org/research/research-catalog/search?q=";
+  const catalogUrl = `//${envPrefix}www.nypl.org/research/research-catalog/search?q=`;
 
   if (searchValue) {
     return `${catalogUrl}${encodeURIComponent(
@@ -145,7 +147,7 @@ export const getResearchCatalogURL = (searchValue) => {
  * Returns the final URL for the NYPL catalog search.
  */
 export const getNYPLSearchURL = (searchString) => {
-  const catalogUrl = "//www.nypl.org/search/";
+  const catalogUrl = `//${envPrefix}www.nypl.org/search/`;
 
   if (searchString) {
     return (

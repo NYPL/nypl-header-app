@@ -1,8 +1,10 @@
 import Cookies from "js-cookie";
+import { getEnvVar } from "../../../utils";
 
-// QA url is "https://dev-login.nypl.org/auth/logout?redirect_uri="
-export const catalogLogOutURL =
-  "https:/login.nypl.org/auth/logout?redirect_uri="
+const isQA = getEnvVar("VITE_APP_ENV") === "qa";
+
+export const catalogLogOutPrefix = isQA ? "https://dev-login" : "https://login";
+export const catalogLogOutURL = `${catalogLogOutPrefix}.nypl.org/auth/logout?redirect_uri=`;
 // Expiration time is 30 minutes set in milliseconds.
 export const patLoggedInCookieExpiredTime = 1800000;
 
@@ -52,8 +54,8 @@ function EncoreCatalogLogOutTimer(
       "catalog.nypl.org",
       // the domain of Test Research Catalog's pages
       "nypl-sierra-test.nypl.org",
-       // new domain
-       "borrow.nypl.org",
+      // new domain
+      "borrow.nypl.org",
     ];
     const isOnValidDomain = domainsForExtendingLogIn.some(
       (domain) => domain === currentLocationHost

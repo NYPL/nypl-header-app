@@ -33,14 +33,15 @@ jobs:
           ECR_REPOSITORY: nyplglobalheader
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build --build-arg VITE_APP_ENV=qa -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           MANIFEST=$(aws ecr batch-get-image --repository-name $ECR_REPOSITORY --image-ids imageTag="qa-latest" --output json | jq --raw-output --join-output '.images[0].imageManifest')
           aws ecr batch-delete-image --repository-name $ECR_REPOSITORY --image-ids imageTag="qa-previous" || true
           aws ecr put-image --repository-name $ECR_REPOSITORY --image-tag "qa-previous" --image-manifest "$MANIFEST"
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:qa-latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:qa-latest
 
-      - name: Force ECS Update
+      - name:
+          Force ECS Update
           # In addition to the current live version, the Global Header also
           # deploys to a "previous" cluster. This is just in case the new
           # version fails and teams require a working URL of the previous

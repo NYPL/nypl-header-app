@@ -4,6 +4,12 @@ import {
   getResearchCatalogURL,
 } from "./headerUtils";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("Header utils", () => {
   describe("getCatalogURL", () => {
     const currentDate = new Date("2022-01-01");
@@ -17,6 +23,9 @@ describe("Header utils", () => {
           return currentDate;
         }
       };
+      (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+        key === "VITE_APP_ENV" ? "qa" : ""
+      );
     });
     afterAll(() => {
       // Restore the `Date` class.
@@ -62,7 +71,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getResearchCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://www.nypl.org/research/research-catalog/search?q=foo%20bar&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=foo%20bar&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -70,7 +79,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getResearchCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://www.nypl.org/research/research-catalog/search?q=foo%20bar%2F%5C%3F%3D&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=foo%20bar%2F%5C%3F%3D&searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
   });

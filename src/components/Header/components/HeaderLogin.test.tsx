@@ -4,7 +4,19 @@ import { axe } from "jest-axe";
 import HeaderLogin from "./HeaderLogin";
 import { HeaderProvider } from "../context/headerContext";
 
+import * as envUtils from "../../../utils";
+
+jest.mock("../../../utils", () => ({
+  getEnvVar: jest.fn(),
+}));
+
 describe("HeaderLogin Accessibility", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <HeaderProvider>
@@ -25,6 +37,12 @@ describe("HeaderLogin Accessibility", () => {
 });
 
 describe("HeaderLogin", () => {
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : ""
+    );
+  });
+
   describe("Desktop", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(

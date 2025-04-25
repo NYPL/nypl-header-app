@@ -111,6 +111,22 @@ $ npm run prod
 
 View the app on `localhost:3001`.
 
+### In QA Mode
+
+This is used only to have links point to the QA server on qa-www.
+
+Build the app:
+
+```sh
+$ VITE_APP_ENV=qa npm run build
+```
+
+Run the app:
+
+```sh
+$ npm run prod
+```
+
 ### In Development Mode
 
 Build the app in one terminal window:
@@ -157,8 +173,8 @@ This command runs the Docker container with port mapping on 3001 ([Port access f
 There are three separate Vite config files that are used for building the app:
 
 - `vite.config.js` - used for building the `/`, `/header`, and `/footer` routes.
-- `vite.config.footer.js` - used for building the minified footer embed script code on the `/footer.min.js` route.
-- `vite.config.header.js` - used for building the minified header embed script code on the `/header.min.js` route.
+- `vite.config.footer.ts` - used for building the minified footer embed script code on the `/footer.min.js` route.
+- `vite.config.header.ts` - used for building the minified header embed script code on the `/header.min.js` route.
 
 Vite can build the app using ESM output format. This is generally recommended but there are systems in place where using ESM-based `Header` and `Footer` embed scripts fail and it is out of our control. In Vite, it is not easy to build multiple dist files with multiple entry points in CJS format. To get around this, the `Header` and `Footer` builds are separate files that build a single file from a single entry point.
 
@@ -195,7 +211,7 @@ $ git pull
 2. Checkout `qa` branch and pull any changes.
 
 ```sh
-$ git checkout qa 
+$ git checkout qa
 $ git pull
 ```
 
@@ -211,6 +227,6 @@ $ git merge main
 $ git push
 ```
 
-This will automatically launch a Travis job for QA deployment.
+This will automatically launch a Github Actions job for QA deployment.
 
 Similarly, to deploy to production by following the above steps and checking out the `production` branch instead of `qa`.
