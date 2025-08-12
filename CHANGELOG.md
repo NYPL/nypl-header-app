@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Unreleased
+
+### Updates
+
+- Updates node version to 22
+
 ## v1.2.4 - 4/28/25
 
 ### Adds
