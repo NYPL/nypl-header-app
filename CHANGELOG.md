@@ -5,6 +5,7 @@
 ### Updates
 
 - Updates node version to 22
+- Add docker image build step to ci
 
 ## v1.2.4 - 4/28/25
 
