@@ -1,5 +1,5 @@
 # Setup node environment
-FROM node:20-alpine
+FROM node:22-alpine
 
 ARG VITE_APP_ENV
 
