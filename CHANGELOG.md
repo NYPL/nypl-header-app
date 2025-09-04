@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## v1.2.5 - 9/4/25
 
 ### Updates
 
