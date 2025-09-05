@@ -3,7 +3,7 @@
 name: Publish qa
 on:
   push:
-    branches: [qa]
+    branches: [qa, ISW-4928/remove-refinery-endpoint]
 
 permissions:
   id-token: write
