@@ -162,7 +162,7 @@ export const getNYPLSearchURL = (searchString) => {
 };
 
 /**
- * The `alertsApiUrl` fetches NYPL alerts from the Refinery API. This API
+ * The `alertsApiUrl` fetches NYPL alerts from the Drupal 10 API. This API
  * returns JSONAPI-formatted data. We could use a better JSONAPI parser, but
  * this is the only endpoint we will use that is JSONAPI. Eventually, this
  * endpoint will be replaced. This function parses the JSONAPI data in a very
@@ -182,8 +182,8 @@ export const parseAlertsData = (data: any): Alert[] => {
     return {
       id: alert?.id,
       description: alert?.message_html,
-      startDate: alert?.display_date_start,
-      endDate: alert?.display_date_end,
+      startDate: alert?.alert_date_start,
+      endDate: alert?.alert_date_end,
     };
   });
 
