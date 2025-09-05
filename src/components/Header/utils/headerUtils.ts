@@ -12,7 +12,8 @@ export interface Alert {
   endDate: string;
 }
 
-export const alertsApiUrl = `//${envPrefix}refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all`;
+export const alertsApiUrl = `//${envPrefix}drupal.nypl.org/api/alerts/all`;
+
 const authServerBase = {
   production: "https://login.nypl.org/auth",
   development: "https://dev-login.nypl.org/auth",
@@ -170,6 +171,7 @@ export const getNYPLSearchURL = (searchString) => {
  */
 export const parseAlertsData = (data: any): Alert[] => {
   const today = new Date();
+
   if (!data?.data.length) {
     return [];
   }
@@ -179,10 +181,9 @@ export const parseAlertsData = (data: any): Alert[] => {
   const alerts = data.data.map((alert) => {
     return {
       id: alert?.id,
-      link: alert.links?.self,
-      description: alert?.attributes["alert-text"]?.en?.text,
-      startDate: alert?.attributes["display-date-start"],
-      endDate: alert?.attributes["display-date-end"],
+      description: alert?.message_html,
+      startDate: alert?.display_date_start,
+      endDate: alert?.display_date_end,
     };
   });
 

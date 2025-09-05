@@ -5,7 +5,7 @@ import * as renderer from "react-test-renderer";
 
 import Header from "./Header";
 import { mockLoginCookie } from "./utils/authApiMockResponse";
-import { refineryResponse } from "./utils/sitewideAlertsMocks";
+import { drupalResponse } from "./utils/sitewideAlertsMocks";
 import * as envUtils from "../../utils";
 
 jest.mock("js-cookie", () => ({
@@ -29,7 +29,7 @@ describe("Header Accessibility", () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(refineryResponse),
+        json: () => Promise.resolve(drupalResponse),
       })
     ) as jest.Mock;
 
@@ -53,7 +53,7 @@ describe.skip("Header", () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(refineryResponse),
+        json: () => Promise.resolve(drupalResponse),
       })
     ) as jest.Mock;
 
