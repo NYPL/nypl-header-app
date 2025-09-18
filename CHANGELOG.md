@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.3.0 - TBD
+
+### Updates
+
+- Replaces the Refinery API endpoint for alerts with the Drupal 10 API endpoint [ISW-4928](https://newyorkpubliclibrary.atlassian.net/browse/ISW-4928)
+
 ## v1.2.5 - 9/4/25
 
 ### Updates
