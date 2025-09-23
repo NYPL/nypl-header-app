@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v1.3.0 - TBD
+## v1.3.0 - 9/24/25
 
 ### Updates
 
