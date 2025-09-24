@@ -5,8 +5,8 @@ import * as renderer from "react-test-renderer";
 
 import HeaderSitewideAlerts from "./HeaderSitewideAlerts";
 import {
-  expiredAlertsReponse,
-  refineryResponse,
+  expiredAlertsResponse,
+  drupalResponse,
 } from "../utils/sitewideAlertsMocks";
 
 import * as envUtils from "../../../utils";
@@ -26,7 +26,7 @@ describe("HeaderSitewideAlerts Accessibility", () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(refineryResponse),
+        json: () => Promise.resolve(drupalResponse),
       })
     ) as jest.Mock;
 
@@ -47,7 +47,7 @@ describe("HeaderSitewideAlerts", () => {
       (global as any).fetch = jest.fn(() =>
         Promise.resolve({
           status: 200,
-          json: () => Promise.resolve(refineryResponse),
+          json: () => Promise.resolve(drupalResponse),
         })
       ) as jest.Mock;
 
@@ -85,7 +85,7 @@ describe("HeaderSitewideAlerts", () => {
       (global as any).fetch = jest.fn(() =>
         Promise.resolve({
           status: 200,
-          json: () => Promise.resolve(expiredAlertsReponse),
+          json: () => Promise.resolve(expiredAlertsResponse),
         })
       ) as jest.Mock;
       await waitFor(() => render(<HeaderSitewideAlerts />));
