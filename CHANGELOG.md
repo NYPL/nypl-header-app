@@ -2,7 +2,7 @@
 
 ## 2/13/26
 
-- adds Playwright. With a single placeholder test.
+- Adds Playwright with a single placeholder test.
 
 ## v1.3.0 - 9/24/25
 

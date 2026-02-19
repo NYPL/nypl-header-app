@@ -13,7 +13,10 @@
     "preview:watch": "vite preview --port 3001",
     "prod": "vite preview --port 3001",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "pw": "playwright test --reporter=list",
+    "pw:ui": "playwright test --ui",
+    "pw:headed": "playwright test --headed"
   },
   "dependencies": {
     "@nypl/design-system-react-components": "2.1.1",
@@ -26,7 +29,7 @@
     "@babel/preset-env": "7.21.4",
     "@babel/preset-react": "7.18.6",
     "@babel/preset-typescript": "7.21.4",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "1.58.2",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.0.0",
     "@testing-library/user-event": "13.2.1",

@@ -1,6 +1,6 @@
 # Playwright Setup Documentation
 
-This document outlines the steps taken to add Playwright testing to the nypl-header-app repository.
+This document outlines the steps taken to add Playwright testing to the `nypl-header-app` repository.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ This document outlines the steps taken to add Playwright testing to the nypl-hea
 
 ## Installation Steps
 
-### 1. Install Playwright
+### 1. Install Playwright - NOTE: This procedure was used when first setting this up. Develops who install this repo won't have to do these steps, as Playwright will be installed for them with `npm install`.
 
 Install Playwright as a dev dependency:
 
@@ -76,8 +76,8 @@ Created `.github/workflows/playwright.yml` to run tests on CI:
 
 **Trigger Events**:
 
-- Push to `main` or `master` branches
-- Pull requests to `main` or `master` branches
+- Push to `main` or `production` branches
+- Pull requests to `main` or `production` branches
 
 **Workflow Steps**:
 
