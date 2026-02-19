@@ -12,7 +12,7 @@ module.exports = {
     "/dist",
     "<rootDir>/src/__tests__/setup.ts",
     "<rootDir>/src/__tests__/fileMock.ts",
-    "*.spec.ts",
+    "\\.spec\\.ts$", // ignores Playwright tests
   ],
   transformIgnorePatterns: [
     "./node_modules/",
