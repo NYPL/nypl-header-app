@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2/13/26
+
+- Adds Playwright with a single placeholder test.
+
 ## v1.3.0 - 9/24/25
 
 ### Updates
