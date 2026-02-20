@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2/20/26
+
+- replaces Playwright placehold test with real tests.
+
 ## 2/13/26
 
 - Adds Playwright with a single placeholder test.
