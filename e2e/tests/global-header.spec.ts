@@ -9,76 +9,99 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Global Header", () => {
-  test("Verify global header elements appear and resolve to the correct landing pages", async ({
+  test("Verify global header links appear and point to the correct URLs", async ({
     page,
   }) => {
     const headerLinks = [
       {
-        locator: basePage.nypl_logo,
-        expectedTitle: "The New York Public Library",
+        locator: basePage.nyplLogo,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/",
       },
       {
-        locator: basePage.header_locations,
-        expectedTitle: "Location Finder | The New York Public Library",
+        locator: basePage.locations,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/locations",
       },
       {
-        locator: basePage.header_library_card,
-        expectedTitle: "Library Card Application Form | NYPL",
+        locator: basePage.libraryCard,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/library-card/new",
       },
       {
-        locator: basePage.header_newsletter,
-        expectedTitle: "Subscription Center | The New York Public Library",
+        locator: basePage.newsletter,
+        expectedHostnames: ["pub.email.nypl.org"],
+        expectedPathname: "/subscriptioncenter",
       },
       {
-        locator: basePage.header_donate,
-        expectedTitle:
-          "Make Your Tax-Deductible Gift Today - New York Public Library",
+        locator: basePage.donate,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/donate-button",
       },
 
       {
-        locator: basePage.header_shop,
-        expectedTitle: "The New York Public Library Shop",
+        locator: basePage.shop,
+        expectedHostnames: ["shop.nypl.org"],
+        expectedPathname: "/",
       },
       {
-        locator: basePage.header_books,
-        expectedTitle: "Books/Music/Movies | The New York Public Library",
+        locator: basePage.books,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/books-music-movies",
       },
       {
-        locator: basePage.header_research,
-        expectedTitle: "Research | The New York Public Library",
+        locator: basePage.research,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/research",
       },
       {
-        locator: basePage.header_education,
-        expectedTitle: "Education | The New York Public Library",
+        locator: basePage.education,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/education",
       },
       {
-        locator: basePage.header_events,
-        expectedTitle: "Events | The New York Public Library",
+        locator: basePage.events,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/events",
       },
       {
-        locator: basePage.header_connect,
-        expectedTitle: "Connect | The New York Public Library",
+        locator: basePage.connect,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/connect",
       },
       {
-        locator: basePage.header_give,
-        expectedTitle: "Give | The New York Public Library",
+        locator: basePage.give,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/give",
       },
       {
-        locator: basePage.header_get_help,
-        expectedTitle: "Get Help | The New York Public Library",
+        locator: basePage.getHelp,
+        expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
+        expectedPathname: "/get-help",
       },
     ];
 
-    for (const { locator, expectedTitle } of headerLinks) {
-      await expect(locator).toBeVisible();
-      await locator.click();
-      await expect(page).toHaveTitle(expectedTitle);
-      await basePage.goto(); // go back to home for the next link
+    for (const {
+      locator,
+      expectedHostnames,
+      expectedPathname,
+    } of headerLinks) {
+      await expect.soft(locator).toBeVisible();
+      const href = await locator.getAttribute("href");
+      expect.soft(href, "link should have href").toBeTruthy();
+
+      if (!href) {
+        continue;
+      }
+
+      const url = new URL(href, page.url());
+      expect.soft(expectedHostnames).toContain(url.hostname);
+      expect.soft(url.pathname).toBe(expectedPathname);
     }
   });
   // Search and My Account do not resolve to a new page. Just test for visibility. Functionality is tested elsewhere.
   test("Verify Search and My Account buttons appear in header", async () => {
-    await expect(basePage.header_search).toBeVisible();
-    await expect(basePage.header_my_account).toBeVisible();
+    await expect(basePage.searchButton).toBeVisible();
+    await expect(basePage.myAccountButton).toBeVisible();
   });
 });

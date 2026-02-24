@@ -2,7 +2,7 @@
 
 ## 2/20/26
 
-- replaces Playwright placehold test with real tests.
+- Replaces Playwright placehold test with real tests.
 
 ## 2/13/26
 
