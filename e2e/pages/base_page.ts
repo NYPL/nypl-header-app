@@ -25,8 +25,6 @@ export class BasePage {
     this.nyplLogo = page.getByRole("link", {
       name: "The New York Public Library",
     });
-    // nyplLogoImg is no longer used
-    // this.nyplLogoImg = this.nyplLogo.locator("svg");
     this.myAccountButton = page.getByRole("button", { name: "My Account" });
     this.locations = page.getByRole("link", { name: "Locations" });
     this.libraryCard = page.getByRole("link", {
