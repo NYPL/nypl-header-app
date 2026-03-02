@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 2/20/26
+
+- Replaces Playwright placehold test with real tests. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
+
 ## 2/13/26
 
-- Adds Playwright with a single placeholder test.
+- Adds Playwright with a single placeholder test. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
 
 ## v1.3.0 - 9/24/25
 
