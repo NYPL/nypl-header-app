@@ -19,6 +19,12 @@ export class BasePage {
   readonly give: Locator;
   readonly getHelp: Locator;
   readonly searchButton: Locator;
+  readonly closeSearchButton: Locator;
+  readonly searchInput: Locator;
+  readonly searchSubmitButton: Locator;
+  readonly searchCatalogRadio: Locator;
+  readonly searchResearchRadio: Locator;
+  readonly searchWebRadio: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -54,7 +60,22 @@ export class BasePage {
     this.getHelp = page
       .getByLabel("Header bottom links")
       .getByRole("link", { name: "Get Help" });
-    this.searchButton = page.locator("#searchButton");
+    this.searchButton = page.getByRole("button", { name: "Open Search" });
+    this.closeSearchButton = page.getByRole("button", { name: "Close Search" });
+    this.searchInput = page.getByRole("textbox", {
+      name: "Enter Search Keyword",
+    });
+    this.searchSubmitButton = page.getByRole("button", {
+      name: "Search",
+      exact: true,
+    });
+    this.searchCatalogRadio = page.getByLabel(
+      "Search books, music, and movies",
+    );
+    this.searchResearchRadio = page.getByLabel(
+      "Search the Research Catalog",
+    );
+    this.searchWebRadio = page.getByLabel("Search the library website");
   }
 
   async goto() {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 3/4/26
+
+-Added new Search interaction tests in global-header.spec.ts.
+Added focus-trap checks for Search and My Account dropdowns that are stable across browsers.
+Added Search destination checks for all 3 search types (catalog, research catalog, website).
+Updated URL assertions to verify hostname, pathname, and searched_from=header_search.
+Centralized/reused Search locators through base_page.ts.
+Updated radio-option interaction in tests to click visible label text so styled controls work reliably in E2E.
+
 ## 2/20/26
 
 - Replaces Playwright placehold test with real tests. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
