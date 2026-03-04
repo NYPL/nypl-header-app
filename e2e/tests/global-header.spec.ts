@@ -246,22 +246,23 @@ test.describe("Search interactions", () => {
       await expect
         .poll(() => {
           const currentUrl = new URL(basePage.page.url());
-
-          return {
-            hostname: currentUrl.hostname,
-            pathname: currentUrl.pathname,
-            searchedFrom: currentUrl.searchParams.get("searched_from"),
-          };
+          return expectedHostnames.includes(currentUrl.hostname);
         })
-        .toEqual(
-          expect.objectContaining({
-            hostname: expect.stringMatching(
-              new RegExp(`^(${expectedHostnames.join("|")})$`),
-            ),
-            pathname: expectedPathname,
-            searchedFrom: "header_search",
-          }),
-        );
+        .toBe(true);
+
+      await expect
+        .poll(() => {
+          const currentUrl = new URL(basePage.page.url());
+          return currentUrl.pathname;
+        })
+        .toBe(expectedPathname);
+
+      await expect
+        .poll(() => {
+          const currentUrl = new URL(basePage.page.url());
+          return currentUrl.searchParams.get("searched_from");
+        })
+        .toBe("header_search");
     });
   }
 });
