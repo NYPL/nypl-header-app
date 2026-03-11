@@ -105,46 +105,44 @@ test.describe("Global Header", () => {
   });
 });
 test.describe("Header drop down interactions", () => {
-  test("Verify Account functionality", async () => {
+  test("Verify Account buttons attributes", async () => {
+    await expect(basePage.goToCatalogLink).not.toBeVisible();
+    await expect(basePage.researchCatalogLink).not.toBeVisible();
     await basePage.myAccountButton.click();
-    const goToCatalogLink = basePage.page.getByRole("link", {
-      name: "Go To The Catalog",
-    });
-    await expect(goToCatalogLink).toBeVisible();
-    const href = await goToCatalogLink.getAttribute("href");
+
+    await expect(basePage.goToCatalogLink).toBeVisible();
+    const href = await basePage.goToCatalogLink.getAttribute("href");
     expect(href).toContain("borrow.nypl.org/?openAccount");
-    const researchCatalogLink = basePage.page.getByRole("link", {
-      name: "Go To The Research Catalog",
-    });
-    await expect(researchCatalogLink).toBeVisible();
-    const researchHref = await researchCatalogLink.getAttribute("href");
+
+    await expect(basePage.researchCatalogLink).toBeVisible();
+    const researchHref =
+      await basePage.researchCatalogLink.getAttribute("href");
     expect(researchHref).toContain("catalog.nypl.org/patroninfo/top");
-    await basePage.page.getByRole("button", { name: "Close" }).click();
+    await basePage.closeAccountButton.click();
+    await expect(basePage.goToCatalogLink).not.toBeVisible();
+    await expect(basePage.researchCatalogLink).not.toBeVisible();
   });
   test('should trap focus within the dropdown when "My Account" is clicked', async () => {
     await basePage.myAccountButton.click();
-
-    const catalog = basePage.page.getByRole("link", {
-      name: "Go To The Catalog",
-    });
-    const research = basePage.page.getByRole("link", {
-      name: "Go To The Research Catalog",
-    });
-    const close = basePage.page.getByRole("button", { name: "Close" });
-
     const isAllowedFocused = async () => {
       const [catalogFocused, researchFocused, closeFocused] = await Promise.all(
         [
-          catalog.evaluate((el) => el === document.activeElement),
-          research.evaluate((el) => el === document.activeElement),
-          close.evaluate((el) => el === document.activeElement),
+          basePage.goToCatalogLink.evaluate(
+            (el) => el === document.activeElement,
+          ),
+          basePage.researchCatalogLink.evaluate(
+            (el) => el === document.activeElement,
+          ),
+          basePage.closeAccountButton.evaluate(
+            (el) => el === document.activeElement,
+          ),
         ],
       );
       return catalogFocused || researchFocused || closeFocused;
     };
 
     // Initial focus set by component logic
-    await expect(catalog).toBeFocused();
+    await expect(basePage.goToCatalogLink).toBeFocused();
 
     await basePage.page.keyboard.press("Tab");
     await expect.poll(isAllowedFocused).toBe(true);

@@ -6,6 +6,10 @@ export class BasePage {
   readonly nyplLogo: Locator;
   //readonly nyplLogoImg: Locator;
   readonly myAccountButton: Locator;
+  readonly goToCatalogLink: Locator;
+  readonly researchCatalogLink: Locator;
+  readonly closeAccountButton: Locator;
+
   readonly locations: Locator;
   readonly libraryCard: Locator;
   readonly newsletter: Locator;
@@ -32,6 +36,13 @@ export class BasePage {
       name: "The New York Public Library",
     });
     this.myAccountButton = page.getByRole("button", { name: "My Account" });
+    this.goToCatalogLink = page.getByRole("link", {
+      name: "Go To The Catalog",
+    });
+    this.researchCatalogLink = page.getByRole("link", {
+      name: "Go To The Research Catalog",
+    });
+    this.closeAccountButton = page.getByRole("button", { name: "Close" });
     this.locations = page.getByRole("link", { name: "Locations" });
     this.libraryCard = page.getByRole("link", {
       name: "Get A Library Card",
@@ -72,9 +83,7 @@ export class BasePage {
     this.searchCatalogRadio = page.getByLabel(
       "Search books, music, and movies",
     );
-    this.searchResearchRadio = page.getByLabel(
-      "Search the Research Catalog",
-    );
+    this.searchResearchRadio = page.getByLabel("Search the Research Catalog");
     this.searchWebRadio = page.getByLabel("Search the library website");
   }
 
