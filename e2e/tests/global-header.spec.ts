@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { BasePage } from "../pages/base_page";
+import exp from "constants";
 
 let basePage: BasePage;
 
@@ -141,17 +142,26 @@ test.describe("Header drop down interactions", () => {
       return catalogFocused || researchFocused || closeFocused;
     };
 
-    // Initial focus set by component logic
+    // assert that focus starts on catalog link when dropdown opens
     await expect(basePage.goToCatalogLink).toBeFocused();
 
     await basePage.page.keyboard.press("Tab");
     await expect.poll(isAllowedFocused).toBe(true);
+    await expect(basePage.researchCatalogLink).toBeFocused();
 
     await basePage.page.keyboard.press("Tab");
     await expect.poll(isAllowedFocused).toBe(true);
+    await expect(basePage.closeAccountButton).toBeFocused();
 
+    // tab again and assert that focus returns to the the catalog link (focus is trapped within the dropdown)
+    await basePage.page.keyboard.press("Tab");
+    await expect.poll(isAllowedFocused).toBe(true);
+    await expect(basePage.goToCatalogLink).toBeFocused();
+
+    // assert that reverse tab also keeps focus within the dropdown
     await basePage.page.keyboard.press("Shift+Tab");
     await expect.poll(isAllowedFocused).toBe(true);
+    await expect(basePage.closeAccountButton).toBeFocused();
   });
 });
 
