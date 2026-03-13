@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 3/4/26
+
+- Added new Search interaction tests in global-header.spec.ts.
+- Added focus-trap checks for Search and My Account dropdowns that are stable across browsers.
+- Updated radio-option interaction in tests to click visible label text so styled controls work reliably in E2E.
+
+## 2/20/26
+
+- Replaces Playwright placehold test with real tests. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
+
+## 2/13/26
+
+- Adds Playwright with a single placeholder test. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
+
 ## v1.3.0 - 9/24/25
 
 ### Updates
