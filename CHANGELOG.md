@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Prerelease
+
+- Adding dependabot.yml file for security scanning.
+
 ## 3/4/26
 
 - Added new Search interaction tests in global-header.spec.ts.
