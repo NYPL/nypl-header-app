@@ -67,7 +67,7 @@ test.describe("Global Header", () => {
       {
         locator: basePage.visit,
         expectedHostnames: ["www.nypl.org", "qa-www.nypl.org"],
-        expectedPathname: "/connect/visit",
+        expectedPathname: "/visit",
       },
       {
         locator: basePage.give,

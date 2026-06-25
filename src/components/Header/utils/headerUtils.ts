@@ -90,7 +90,7 @@ export const siteNavLinks = [
     text: "Events",
   },
   {
-    href: `//${envPrefix}www.nypl.org/connect/visit`,
+    href: `//${envPrefix}www.nypl.org/visit`,
     text: "Visit",
   },
   {
