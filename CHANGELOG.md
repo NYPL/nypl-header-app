@@ -3,7 +3,7 @@
 ## Prerelease
 
 - Adds dependabot.yml file for security scanning.
-- Replaces`Connect` link with `Visit` and updates tests.[ISW-5300]
+- Replaces `Connect` link with `Visit` and updates tests.[ISW-5300]
   (https://newyorkpubliclibrary.atlassian.net/browse/ISW-5300)
 
 ## 3/4/26
