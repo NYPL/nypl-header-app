@@ -42,19 +42,21 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={Header} />
 
-The `Header` component is meant to replicate (and eventually replace) the current
-[NYPL Header package](https://github.com/NYPL/dgx-header-component/) which is used
-across various NYPL digital products, with Reservoir Design System technologies
-and components.
+The `Header` component is meant to replicate (and eventually replace) the
+current [NYPL Header package](https://github.com/NYPL/dgx-header-component/)
+which is used across various NYPL digital products, with Reservoir Design System
+technologies and components.
 
 The `Header` component is a complete and complex component that
 
 - fetches data from different APIs,
 - uses the DS' `SkipNavigation` component for webpage accessibility,
 - has static NYPL.org navigational links,
-- has a log in form for patrons to log into NYPL's [Catalog](https://borrow.nypl.org)
-  and [Research Catalog](https://www.nypl.org/research/research-catalog/),
-- has a search form for patrons to search the Catalog and across [NYPL.org](https://www.nypl.org/).
+- has a log in form for patrons to log into NYPL's
+  [Catalog](https://borrow.nypl.org) and
+  [Research Catalog](https://www.nypl.org/research/research-catalog/),
+- has a search form for patrons to search the Catalog and across
+  [NYPL.org](https://www.nypl.org/).
 
 ## Component Props
 
@@ -71,35 +73,37 @@ The `Header` component is a complete and complex component that
 The `Header` component contains multiple native HTML elements that work together
 to make the component accessible. It contains:
 
-- Skip navigation - More information about this feature in the following section.
+- Skip navigation - More information about this feature in the following
+  section.
 - Notification `<aside>` HTML element - This landmark element renders NYPL alert
   messages. Per accessibility guidelines, this element cannot be nested within
   the `<header>` element, so it is rendered above. More information can be found
-  in the [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
+  in the
+  [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
   section.
-- `<header>` HTML element - This landmark element denotes the top content section
-  of the page. There should only be one main `<header>` element on the page as a
-  child of the `<body>` element.
+- `<header>` HTML element - This landmark element denotes the top content
+  section of the page. There should only be one main `<header>` element on the
+  page as a child of the `<body>` element.
 - `<nav>` HTML elements - The `Header` component renders one (1) `<nav>` element
-  in the mobile view and two (2) `<nav>` elements in the desktop view. Each `<nav>`
-  element appropriately contains its own `aria-label` attribute to differentiate
-  it from one another.
+  in the mobile view and two (2) `<nav>` elements in the desktop view. Each
+  `<nav>` element appropriately contains its own `aria-label` attribute to
+  differentiate it from one another.
 - `<form>` HTML element - The `<form>` element is used in the search feature.
-- Dropdowns buttons with focus-trap feature - The `Header` uses `react-focus-lock`
-  to trap (or loop) focus within its various dropdowns: the login submenu, the
-  search form, and the mobile navigation submenu. This is to make keyboard
-  navigation easier for users. Trapping focus means that when a parent element is
-  clicked and its dropdown becomes visible, focus remains among its children
-  while the user tabs. The user may close the dropdown and escape the focus trap
-  by clicking on the parent element once again, or by using the escape key.
-  Note: This is how the original NYPL `Header` was implemented and its Reservoir
-  counterpart replicates this behavior. However, this is not the
-  _currently recommended_ way to implement focus management in dropdowns.
-  According to the [W3C](https://www.w3.org/wiki/MenuButton), up and down arrow
-  keys, rather than tab, should loop focus over child elements. Tabbing should
-  instead close the dropdown and move focus to the following parent. In the
-  future, we hope to change the Reservoir Header to align with current best
-  practices.
+- Dropdowns buttons with focus-trap feature - The `Header` uses
+  `react-focus-lock` to trap (or loop) focus within its various dropdowns: the
+  login submenu, the search form, and the mobile navigation submenu. This is to
+  make keyboard navigation easier for users. Trapping focus means that when a
+  parent element is clicked and its dropdown becomes visible, focus remains
+  among its children while the user tabs. The user may close the dropdown and
+  escape the focus trap by clicking on the parent element once again, or by
+  using the escape key. Note: This is how the original NYPL `Header` was
+  implemented and its Reservoir counterpart replicates this behavior. However,
+  this is not the _currently recommended_ way to implement focus management in
+  dropdowns. According to the [W3C](https://www.w3.org/wiki/MenuButton), up and
+  down arrow keys, rather than tab, should loop focus over child elements.
+  Tabbing should instead close the dropdown and move focus to the following
+  parent. In the future, we hope to change the Reservoir Header to align with
+  current best practices.
 
 Resources:
 
@@ -119,20 +123,22 @@ information about the component can be found in the
 and why we should use it in its
 [accessibility guideline](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/accessibility-guide-skip-navigation--page).
 
-It is important to note that the `SkipNavigation` component expects that the page
-it is on has a `main` HTML element with an `id` of `mainContent`. This allows
-the first link in the skip navigation to function correctly.
+It is important to note that the `SkipNavigation` component expects that the
+page it is on has a `main` HTML element with an `id` of `mainContent`. This
+allows the first link in the skip navigation to function correctly.
 
 The second link in the skip navigation points to
 [NYPL's accessibility resource](https://www.nypl.org/accessibility).
 
 ### TemplateAppContainer
 
-The DS [`TemplateAppContainer`](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-template--template-app-container-component)
-component renders the same `SkipNavigation` component that the `Header` component
-renders. When using both the `Header` and the `TemplateAppContainer` components,
-set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
-`false`. This will prevent two `SkipNavigation` components from being rendered.
+The DS
+[`TemplateAppContainer`](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-template--template-app-container-component)
+component renders the same `SkipNavigation` component that the `Header`
+component renders. When using both the `Header` and the `TemplateAppContainer`
+components, set the `renderSkipNavigation` prop in the `TemplateAppContainer`
+component to `false`. This will prevent two `SkipNavigation` components from
+being rendered.
 
 ## Search
 
@@ -140,11 +146,11 @@ There is a single search form in the `Header` component that can be used to
 search in two separate locations: the Library Catalog or the NYPL.org website.
 When using the search form, a patron can choose which location to search.
 
-When looking for an item, such as book, ebook, DVD, etc, the best search location
-is the Library Catalog. For example, please see the
+When looking for an item, such as book, ebook, DVD, etc, the best search
+location is the Library Catalog. For example, please see the
 [Catalog search](https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10)
-for items about cats. This returns books, microform format items, and DVDs
-about cats.
+for items about cats. This returns books, microform format items, and DVDs about
+cats.
 
 When searching for general information about the Library, events, or locations,
 the NYPL.org website is the best search location. For example, please see the
@@ -156,9 +162,9 @@ from the NYPL Shop.
 
 In the mobile view, the patron needs to click on the search icon button for the
 search form dropdown to appear. The search form will contain a single search
-input field and two buttons, one for the Catalog and one for the NYPL.org website.
-The expected behavior is for the user to fill out the form and click on a button
-to search the appropriate location.
+input field and two buttons, one for the Catalog and one for the NYPL.org
+website. The expected behavior is for the user to fill out the form and click on
+a button to search the appropriate location.
 
 ### Desktop
 
@@ -176,18 +182,20 @@ contains:
 
 - the log in dropdown button
 - a link to the NYPL [Locations page](https://www.nypl.org/locations)
-- a link to the NYPL [Library card](https://www.nypl.org/library-card) information
+- a link to the NYPL [Library card](https://www.nypl.org/library-card)
+  information
 - a link to NYPL's email subscription service
 - a link to donate to NYPL
 - a link to NYPL's Shop
 
 The (2) second navigational list contains:
 
-- a link to NYPL's [Books/Music/Movies](https://www.nypl.org/books-music-movies) page
+- a link to NYPL's [Books/Music/Movies](https://www.nypl.org/books-music-movies)
+  page
 - a link to NYPL's [Research](https://www.nypl.org/research) page
 - a link to NYPL's [Education](https://www.nypl.org/education) page
 - a link to NYPL's [Events](https://www.nypl.org/events) page
-- a link to NYPL's [Connect](https://www.nypl.org/connect) page
+- a link to NYPL's [Visit](https://www.nypl.org/visit) page
 - a link to NYPL's [Give](https://www.nypl.org/give) page
 - a link to NYPL's [Get Help](https://www.nypl.org/get-help) page
 - the search dropdown button
@@ -196,8 +204,8 @@ The (2) second navigational list contains:
 
 In the mobile view, the patron needs to click on the hamburger menu icon button
 for the navigation dropdown to appear. This dropdown contains the (2) NYPL
-website navigation links, and the first list of links (1) are now rendered
-as buttons in a grid.
+website navigation links, and the first list of links (1) are now rendered as
+buttons in a grid.
 
 The location link, the log in dropdown button, and the search dropdown button,
 are rendered differently in the mobile view and not in the navigational list.
@@ -216,8 +224,8 @@ while the second set of links (2) appears at the bottom of the `Header`.
 There are occassions when a patron may log out directly from either the Catalog
 or the Research Catalog, or log out by using the log out link in the `Header`
 component. Because of this, there is a mismatch where one or more service
-_thinks_ the patron is still logged in. In order to avoid confusion, the `Header`
-component performs an extra step to log the patron out completely.
+_thinks_ the patron is still logged in. In order to avoid confusion, the
+`Header` component performs an extra step to log the patron out completely.
 
 NYPL's Encore Catalog does not provide a way to programmatically log out a
 patron, such as through an API endpoint. Due to this limitation, there is a

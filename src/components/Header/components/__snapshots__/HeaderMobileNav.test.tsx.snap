@@ -176,11 +176,11 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="//www.nypl.org/connect"
+            href="//www.nypl.org/visit"
             rel={null}
             target={null}
           >
-            Connect
+            Visit
           </a>
         </li>
         <li>
