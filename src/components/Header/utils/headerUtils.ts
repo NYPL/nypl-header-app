@@ -90,8 +90,8 @@ export const siteNavLinks = [
     text: "Events",
   },
   {
-    href: `//${envPrefix}www.nypl.org/connect`,
-    text: "Connect",
+    href: `//${envPrefix}www.nypl.org/visit`,
+    text: "Visit",
   },
   {
     href: `//${envPrefix}www.nypl.org/give`,
@@ -138,7 +138,7 @@ export const getResearchCatalogURL = (searchValue) => {
 
   if (searchValue) {
     return `${catalogUrl}${encodeURIComponent(
-      searchValue
+      searchValue,
     )}&${generateQueriesForTracking()}&lang=eng`;
   }
   return null;

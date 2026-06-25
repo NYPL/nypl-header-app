@@ -19,7 +19,7 @@ export class BasePage {
   readonly research: Locator;
   readonly education: Locator;
   readonly events: Locator;
-  readonly connect: Locator;
+  readonly visit: Locator;
   readonly give: Locator;
   readonly getHelp: Locator;
   readonly searchButton: Locator;
@@ -62,9 +62,9 @@ export class BasePage {
     this.events = page.getByLabel("Header bottom links").getByRole("link", {
       name: "Events",
     });
-    this.connect = page
+    this.visit = page
       .getByLabel("Header bottom links")
-      .getByRole("link", { name: "Connect" });
+      .getByRole("link", { name: "Visit" });
     this.give = page
       .getByLabel("Header bottom links")
       .getByRole("link", { name: "Give" });
