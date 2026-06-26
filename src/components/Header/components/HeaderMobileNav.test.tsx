@@ -13,7 +13,7 @@ jest.mock("../../../utils", () => ({
 describe("HeaderMobileNav Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -26,7 +26,7 @@ describe("HeaderMobileNav Accessibility", () => {
 describe("HeaderMobileNav", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -48,7 +48,7 @@ describe("HeaderMobileNav", () => {
     expect(links[1]).toHaveTextContent("Research");
     expect(links[2]).toHaveTextContent("Education");
     expect(links[3]).toHaveTextContent("Events");
-    expect(links[4]).toHaveTextContent("Connect");
+    expect(links[4]).toHaveTextContent("Visit");
     expect(links[5]).toHaveTextContent("Give");
     expect(links[6]).toHaveTextContent("Get Help");
 
