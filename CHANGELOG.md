@@ -1,24 +1,35 @@
 # CHANGELOG
 
+## 6/30/26
+
+- Adds dependabot.yml file for security scanning.
+- Replaces `Connect` link with `Visit` and updates tests.[ISW-5300]
+  (https://newyorkpubliclibrary.atlassian.net/browse/ISW-5300)
+
 ## 3/4/26
 
 - Added new Search interaction tests in global-header.spec.ts.
-- Added focus-trap checks for Search and My Account dropdowns that are stable across browsers.
-- Updated radio-option interaction in tests to click visible label text so styled controls work reliably in E2E.
+- Added focus-trap checks for Search and My Account dropdowns that are stable
+  across browsers.
+- Updated radio-option interaction in tests to click visible label text so
+  styled controls work reliably in E2E.
 
 ## 2/20/26
 
-- Replaces Playwright placehold test with real tests. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
+- Replaces Playwright placehold test with real tests. [ISW-4779]
+  (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
 
 ## 2/13/26
 
-- Adds Playwright with a single placeholder test. [ISW-4779] (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
+- Adds Playwright with a single placeholder test. [ISW-4779]
+  (https://newyorkpubliclibrary.atlassian.net/browse/ISW-4779)
 
 ## v1.3.0 - 9/24/25
 
 ### Updates
 
-- Replaces the Refinery API endpoint for alerts with the Drupal 10 API endpoint [ISW-4928](https://newyorkpubliclibrary.atlassian.net/browse/ISW-4928)
+- Replaces the Refinery API endpoint for alerts with the Drupal 10 API endpoint
+  [ISW-4928](https://newyorkpubliclibrary.atlassian.net/browse/ISW-4928)
 
 ## v1.2.5 - 9/4/25
 
@@ -30,7 +41,9 @@
 
 ### Adds
 
-- Adds the ability to render static links with the `qa-` prefix to point the `qa-ds-header` link to the QA environment (mostly used by QA). [RENO-4570](https://newyorkpubliclibrary.atlassian.net/browse/RENO-4570)
+- Adds the ability to render static links with the `qa-` prefix to point the
+  `qa-ds-header` link to the QA environment (mostly used by QA).
+  [RENO-4570](https://newyorkpubliclibrary.atlassian.net/browse/RENO-4570)
 
 ## v1.2.3 - 3/13/25
 
@@ -48,7 +61,10 @@
 
 ### Removals
 
-- Removes code that called the `/auth/patrons/tokens/{token}` Platform API. The code supported the feature that displayed a logged in patron's name but this has long been removed. The API endpoint itself has also been removed and is deprecated.
+- Removes code that called the `/auth/patrons/tokens/{token}` Platform API. The
+  code supported the feature that displayed a logged in patron's name but this
+  has long been removed. The API endpoint itself has also been removed and is
+  deprecated.
 - Removes Twitter/X icon from the Footer.
 
 ## v1.2.0 - 8/20/24
@@ -68,7 +84,8 @@
 
 - Adds `!important` designation to header font sizes so consuming app styles
   don't override it.
-- Ensures consuming app, libguides, has base font of 16px so header appears correctly.
+- Ensures consuming app, libguides, has base font of 16px so header appears
+  correctly.
 
 ### Removes
 
