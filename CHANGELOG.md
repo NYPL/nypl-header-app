@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 6/30/26
+## v1.4.0 - 6/30/26
 
 - Adds dependabot.yml file for security scanning.
 - Replaces `Connect` link with `Visit` and updates tests.[ISW-5300]
