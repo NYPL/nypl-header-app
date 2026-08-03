@@ -1,4 +1,4 @@
-import { Link, Icon } from "@nypl/design-system-react-components";
+import { Link } from "@nypl/design-system-react-components";
 // Utils
 import { sendAnalyticsNavClickEvent } from "../../utils";
 
@@ -21,7 +21,6 @@ const ListLink =({ linkItem, isDonateLink, additionalStyles, icon } :ListLinkPro
     const { href, text, key, ga4clickText } = linkItem;
     return (<Link 
       href={href} 
-      key={key ? key : text}
       // Clicks from the Donate button are already tracked seperately
       onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: ga4clickText || text, clickUrl: href})}
       {...(isDonateLink && {type: "buttonCallout"})}

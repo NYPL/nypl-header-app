@@ -23,8 +23,8 @@ export const sendAnalyticsNavClickEvent = ({clickText, clickUrl}: NavClickCustom
       // `element_placement` is always "header" until we add the footer
       element_placement: "header",
     });
+    // @TODO: Remove both lines after testing.
+    const currentDataLayer = window.dataLayer;
+    console.log("event sent!", ...currentDataLayer);
   }
-  const currentDataLayer = window.dataLayer;
-  // @TODO: Remove console log after testing.
-  console.log("event sent!", ...currentDataLayer);
 };

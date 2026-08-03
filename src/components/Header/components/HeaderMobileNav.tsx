@@ -22,7 +22,7 @@ import { siteNavLinks, upperNavMobileLinks } from "../utils/headerUtils";
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
   const listItems = siteNavLinks.map((item) => (
-    <ListLink linkItem={item}/>
+    <ListLink key={item.text} linkItem={item}/>
   ));
 
   return (
