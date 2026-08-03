@@ -18,7 +18,7 @@ export const sendAnalyticsNavClickEvent = ({clickText, clickUrl}: NavClickCustom
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "nav_click",
-      click_text: clickText.toLocaleLowerCase(),
+      click_text: clickText.toLowerCase(),
       click_url: clickUrl,
       // `element_placement` is always "header" until we add the footer
       element_placement: "header",

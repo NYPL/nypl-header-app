@@ -13,7 +13,7 @@ import ListLink from "../../shared/ListLink";
 const HeaderUpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
-  const listItems = upperNavLinks.map((item) => <ListLink key={item.key} linkItem={item} {...(/donate/i.test(item.text) && {isDonateLink: true, additionalStyles: styles.donateLink})}/>);
+  const listItems = upperNavLinks.map((item) => <ListLink key={item.key} linkItem={item} {...(/donate/i.test(item.text) ? {isDonateLink: true, additionalStyles: styles.donateLink} : {})}/>);
 
   return (
     <Box as="nav" aria-label="Header top links" __css={styles}>
