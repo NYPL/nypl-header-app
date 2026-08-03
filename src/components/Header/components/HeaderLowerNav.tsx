@@ -2,18 +2,18 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
 import HeaderSearchButton from "./HeaderSearchButton";
 import { siteNavLinks } from "../utils/headerUtils";
-import { Link, List } from "@nypl/design-system-react-components";
-
+import { List } from "@nypl/design-system-react-components";
+import ListLink from "../../shared/ListLink";
+// Type
+import type { LinkItem } from "../../shared/ListLink";
 /**
  * This component renders the navigational list of links used to
  * navigate to different landing pages on NYPL.org.
  */
 const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
-  const listItems = siteNavLinks.map(({ href, text }) => (
-    <Link href={href} key={text}>
-      {text}
-    </Link>
+  const listItems = siteNavLinks.map((item: LinkItem) => (
+    ListLink({linkItem: item})
   ));
 
   return (

@@ -1,0 +1,33 @@
+import { Link, Icon } from "@nypl/design-system-react-components";
+// Utils
+import { sendAnalyticsNavClickEvent } from "../../utils";
+
+export type LinkItem = {
+  href: string;
+  text: string;
+  key?: string;
+};
+
+interface ListLinkProps {
+ linkItem: LinkItem;
+ isDonateLink?: boolean;
+ additionalStyles?: object;
+ icon?: React.ReactNode;
+}
+
+
+const ListLink =({ linkItem, isDonateLink, additionalStyles, icon } :ListLinkProps) =>{
+    const { href, text, key } = linkItem;
+    return (<Link 
+      href={href} 
+      key={key ? key : text}
+      // Clicks from the Donate button are already tracked seperately
+      onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: text, clickUrl: href})}
+      {...(isDonateLink && {type: "buttonCallout"})}
+      {...(additionalStyles && { __css: additionalStyles })}>
+        {icon}
+        {text}
+      </Link>);
+};
+
+export default ListLink;
