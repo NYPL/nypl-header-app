@@ -6,6 +6,7 @@ export type LinkItem = {
   href: string;
   text: string;
   key?: string;
+  ga4clickText?: string;
 };
 
 interface ListLinkProps {
@@ -17,12 +18,12 @@ interface ListLinkProps {
 
 
 const ListLink =({ linkItem, isDonateLink, additionalStyles, icon } :ListLinkProps) =>{
-    const { href, text, key } = linkItem;
+    const { href, text, key, ga4clickText } = linkItem;
     return (<Link 
       href={href} 
       key={key ? key : text}
       // Clicks from the Donate button are already tracked seperately
-      onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: text, clickUrl: href})}
+      onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: ga4clickText || text, clickUrl: href})}
       {...(isDonateLink && {type: "buttonCallout"})}
       {...(additionalStyles && { __css: additionalStyles })}>
         {icon}

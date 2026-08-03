@@ -67,6 +67,9 @@ export const upperNavMobileLinks = {
   shop: {
     href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
     text: "Shop NYPL",
+    // Send same value to GA4 as for desktop.
+    // Confirmed value with analytics team.
+    ga4clickText: "shop",
   },
 };
 
