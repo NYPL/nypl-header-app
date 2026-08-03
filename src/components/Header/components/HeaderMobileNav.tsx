@@ -12,19 +12,17 @@ import {
   SimpleGrid,
   Icon,
 } from "@nypl/design-system-react-components";
+import ListLink from "../../shared/ListLink";
 
-import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
-
+import { siteNavLinks, upperNavMobileLinks } from "../utils/headerUtils";
 /**
  * This component renders the navigational list of links used to navigate
  * NYPL.org for mobile devices.
  */
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
-  const listItems = siteNavLinks.map(({ href, text }) => (
-    <Link href={href} key={text}>
-      {text}
-    </Link>
+  const listItems = siteNavLinks.map((item) => (
+    <ListLink linkItem={item}/>
   ));
 
   return (
@@ -55,49 +53,48 @@ const HeaderMobileNav = chakra(() => {
         </nav>
       </Flex>
       <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
-        <Link
-          href={upperNavLinks.libraryCard.href}
-          borderTop="1px solid rgb(54, 54, 54)"
-          borderRight="1px solid rgb(54, 54, 54)"
-          gridColumn="1 / span 1"
-        >
-          <Icon
+        <ListLink 
+          linkItem={upperNavMobileLinks.libraryCard}
+          additionalStyles={{ 
+            borderTop: "1px solid rgb(54, 54, 54)",
+            borderRight: "1px solid rgb(54, 54, 54)",
+            gridColumn: "1 / span 1"}}
+          icon={<Icon
             align="left"
             color="ui.white"
             name="decorativeLibraryCard"
             size="large"
-          />
-          {upperNavLinks.libraryCard.text}
-        </Link>
-        <Link
-          href={upperNavLinks.emailUpdates.href}
-          borderTop="1px solid rgb(54, 54, 54)"
-          gridColumn="2 / span 1"
-        >
-          <Icon
+          />}
+        />
+        <ListLink
+          linkItem={upperNavMobileLinks.emailUpdates}
+          additionalStyles={{ 
+            borderTop: "1px solid rgb(54, 54, 54)",
+            gridColumn: "2 / span 1"}}
+         icon={ <Icon
             align="left"
             color="ui.white"
             name="decorativeEnvelope"
             size="large"
-          />
-          {upperNavLinks.emailUpdates.text}
-        </Link>
-        <Link
-          href={upperNavLinks.shop.href}
-          borderTop="1px solid rgb(54, 54, 54)"
-          gridColumn="1 / span 2"
-        >
-          <Icon
+          />}
+        />
+      <ListLink
+          linkItem={upperNavMobileLinks.shop}
+          additionalStyles={{
+            borderTop: "1px solid rgb(54, 54, 54)",
+            gridColumn: "1 / span 2"
+          }}
+          icon={ <Icon
             align="left"
             color="ui.white"
             name="decorativeShoppingBag"
             size="large"
-          />
-          {upperNavLinks.shop.text} NYPL
-        </Link>
-        <Link href={upperNavLinks.donate.href} gridColumn="1 / span 2">
-          {upperNavLinks.donate.text.toUpperCase()}
-        </Link>
+          />}
+       />
+        <ListLink
+        linkItem={upperNavMobileLinks.donate}
+        isDonateLink={true}
+        additionalStyles={{gridColumn: "1 / span 2"}}/>
       </SimpleGrid>
     </Box>
   );
