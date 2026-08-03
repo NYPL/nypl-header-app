@@ -21,7 +21,7 @@ const ListLink =({ linkItem, isDonateLink, additionalStyles, icon } :ListLinkPro
     const { href, text, key, ga4clickText } = linkItem;
     return (<Link 
       href={href} 
-      // Clicks from the Donate button are already tracked seperately
+      // Clicks from the Donate button are already tracked separately
       onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: ga4clickText || text, clickUrl: href})}
       {...(isDonateLink && {type: "buttonCallout"})}
       {...(additionalStyles && { __css: additionalStyles })}>
