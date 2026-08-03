@@ -25,5 +25,6 @@ export const sendAnalyticsNavClickEvent = ({clickText, clickUrl}: NavClickCustom
     });
   }
   const currentDataLayer = window.dataLayer;
+  // @TODO: Remove console log after testing.
   console.log("event sent!", ...currentDataLayer);
 };
