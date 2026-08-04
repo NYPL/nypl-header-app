@@ -7,74 +7,72 @@ import HeaderMobileNav from "./HeaderMobileNav";
 import * as envUtils from "../../../utils";
 
 jest.mock("../../../utils", () => ({
-	getEnvVar: jest.fn(),
-	sendAnalyticsNavClickEvent: jest.fn(),
+  getEnvVar: jest.fn(),
+  sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderMobileNav Accessibility", () => {
-	beforeAll(() => {
-		(envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-			key === "VITE_APP_ENV" ? "qa" : "",
-		);
-		(envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
-			() => {},
-		);
-	});
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : "",
+    );
+    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(() => {});
+  });
 
-	it("passes axe accessibility test", async () => {
-		const { container } = render(<HeaderMobileNav />);
-		expect(await axe(container)).toHaveNoViolations();
-	});
+  it("passes axe accessibility test", async () => {
+    const { container } = render(<HeaderMobileNav />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("HeaderMobileNav", () => {
-	beforeAll(() => {
-		(envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-			key === "VITE_APP_ENV" ? "qa" : "",
-		);
-	});
+  beforeAll(() => {
+    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+      key === "VITE_APP_ENV" ? "qa" : "",
+    );
+  });
 
-	beforeEach(() => {
-		render(<HeaderMobileNav />);
-	});
+  beforeEach(() => {
+    render(<HeaderMobileNav />);
+  });
 
-	it("renders the NYPL logo", () => {
-		const logo = screen.getByTitle("NYPL Header Logo");
-		expect(logo).toBeInTheDocument();
-	});
+  it("renders the NYPL logo", () => {
+    const logo = screen.getByTitle("NYPL Header Logo");
+    expect(logo).toBeInTheDocument();
+  });
 
-	it("renders a nav list", () => {
-		const navList = screen.getByRole("navigation");
-		const links = within(navList).getAllByRole("link");
+  it("renders a nav list", () => {
+    const navList = screen.getByRole("navigation");
+    const links = within(navList).getAllByRole("link");
 
-		expect(links).toHaveLength(7);
-		expect(links[0]).toHaveTextContent("Books/Music/Movies");
-		expect(links[1]).toHaveTextContent("Research");
-		expect(links[2]).toHaveTextContent("Education");
-		expect(links[3]).toHaveTextContent("Events");
-		expect(links[4]).toHaveTextContent("Visit");
-		expect(links[5]).toHaveTextContent("Give");
-		expect(links[6]).toHaveTextContent("Get Help");
+    expect(links).toHaveLength(7);
+    expect(links[0]).toHaveTextContent("Books/Music/Movies");
+    expect(links[1]).toHaveTextContent("Research");
+    expect(links[2]).toHaveTextContent("Education");
+    expect(links[3]).toHaveTextContent("Events");
+    expect(links[4]).toHaveTextContent("Visit");
+    expect(links[5]).toHaveTextContent("Give");
+    expect(links[6]).toHaveTextContent("Get Help");
 
-		links.forEach((link) => link.click());
-	});
+    links.forEach((link) => link.click());
+  });
 
-	it("renders the bottom links", () => {
-		const bottomGrid = screen.getByTestId("bottomLinks");
-		const links = within(bottomGrid).getAllByRole("link");
+  it("renders the bottom links", () => {
+    const bottomGrid = screen.getByTestId("bottomLinks");
+    const links = within(bottomGrid).getAllByRole("link");
 
-		expect(links).toHaveLength(4);
-		expect(links[0]).toHaveTextContent("Get A Library Card");
-		expect(links[1]).toHaveTextContent("Get Email Updates");
-		expect(links[2]).toHaveTextContent("Shop NYPL");
-		expect(links[3]).toHaveTextContent("DONATE");
+    expect(links).toHaveLength(4);
+    expect(links[0]).toHaveTextContent("Get A Library Card");
+    expect(links[1]).toHaveTextContent("Get Email Updates");
+    expect(links[2]).toHaveTextContent("Shop NYPL");
+    expect(links[3]).toHaveTextContent("DONATE");
 
-		links.forEach((link) => link.click());
-	});
+    links.forEach((link) => link.click());
+  });
 
-	it("renders the UI snapshot correctly", () => {
-		const headerMobileNav = renderer.create(<HeaderMobileNav />).toJSON();
+  it("renders the UI snapshot correctly", () => {
+    const headerMobileNav = renderer.create(<HeaderMobileNav />).toJSON();
 
-		expect(headerMobileNav).toMatchSnapshot();
-	});
+    expect(headerMobileNav).toMatchSnapshot();
+  });
 });
