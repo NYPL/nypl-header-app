@@ -5,188 +5,189 @@ import { getEnvVar } from "../../../utils";
 const envPrefix = getEnvVar("VITE_APP_ENV") === "qa" ? "qa-" : "";
 
 export interface Alert {
-  id: string;
-  link: string;
-  description: string;
-  startDate: string;
-  endDate: string;
+	id: string;
+	link: string;
+	description: string;
+	startDate: string;
+	endDate: string;
 }
 
 export const alertsApiUrl = `//${envPrefix}drupal.nypl.org/api/alerts/all`;
 
 const authServerBase = {
-  production: "https://login.nypl.org/auth",
-  development: "https://dev-login.nypl.org/auth",
+	production: "https://login.nypl.org/auth",
+	development: "https://dev-login.nypl.org/auth",
 };
 const baseLoginLinks = {
-  catalog: {
-    production: "https://borrow.nypl.org/?openAccount=checkouts",
-    // no dev env yet
-    development: "https://borrow.nypl.org/?openAccount=checkouts",
-  },
-  research: {
-    production: "https://catalog.nypl.org/patroninfo/top",
-    development: "https://nypl-sierra-test.nypl.org/patroninfo/top",
-  },
+	catalog: {
+		production: "https://borrow.nypl.org/?openAccount=checkouts",
+		// no dev env yet
+		development: "https://borrow.nypl.org/?openAccount=checkouts",
+	},
+	research: {
+		production: "https://catalog.nypl.org/patroninfo/top",
+		development: "https://nypl-sierra-test.nypl.org/patroninfo/top",
+	},
 };
 // Return the proper links when logged in or not. These are for the NYPL
 // "Log in" or "Go to" links for the Catalog and the Research Catalog. This is
 // based on the environment and logged in status.
 export const getLoginLinks = (patronName = "", isProduction = true) => {
-  const type = isProduction ? "production" : "development";
-  const authServerDomain = authServerBase[type];
-  const baseCatalogLink = baseLoginLinks.catalog[type];
-  const baseResearchLink = baseLoginLinks.research[type];
+	const type = isProduction ? "production" : "development";
+	const authServerDomain = authServerBase[type];
+	const baseCatalogLink = baseLoginLinks.catalog[type];
+	const baseResearchLink = baseLoginLinks.research[type];
 
-  return patronName
-    ? {
-        catalogLink: `${authServerDomain}/login?redirect_uri=${baseCatalogLink}`,
-        researchLink: `${authServerDomain}/login?redirect_uri=${baseResearchLink}`,
-        logOutLink: `${authServerDomain}/logout`,
-      }
-    : {
-        catalogLink: baseCatalogLink,
-        researchLink: baseResearchLink,
-        logOutLink: "",
-      };
+	return patronName
+		? {
+				catalogLink: `${authServerDomain}/login?redirect_uri=${baseCatalogLink}`,
+				researchLink: `${authServerDomain}/login?redirect_uri=${baseResearchLink}`,
+				logOutLink: `${authServerDomain}/logout`,
+			}
+		: {
+				catalogLink: baseCatalogLink,
+				researchLink: baseResearchLink,
+				logOutLink: "",
+			};
 };
 
 export const upperNavMobileLinks = {
-  libraryCard: {
-    href: `//${envPrefix}www.nypl.org/library-card/new`,
-    text: "Get A Library Card",
-  },
-  emailUpdates: {
-    href: "https://pub.email.nypl.org/subscriptioncenter",
-    text: "Get Email Updates",
-  },
-  donate: {
-    href: `//${envPrefix}www.nypl.org/donate-button`,
-    text: "DONATE",
-  },
-  shop: {
-    href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
-    text: "Shop NYPL",
-    // Send same value to GA4 as for desktop.
-    // Confirmed value with analytics team.
-    ga4clickText: "shop",
-  },
+	libraryCard: {
+		href: `//${envPrefix}www.nypl.org/library-card/new`,
+		text: "Get A Library Card",
+	},
+	emailUpdates: {
+		href: "https://pub.email.nypl.org/subscriptioncenter",
+		text: "Get Email Updates",
+	},
+	donate: {
+		href: `//${envPrefix}www.nypl.org/donate-button`,
+		text: "DONATE",
+	},
+	shop: {
+		href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+		text: "Shop NYPL",
+		// Send same value to GA4 as for desktop.
+		// Confirmed value with analytics team.
+		ga4clickText: "shop",
+	},
 };
 
 export const upperNavLinks = [
-  {
-    href: `//${envPrefix}www.nypl.org/locations`,
-    text: "Locations",
-    key: "locationsLink"
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/library-card/new`,
-    text: "Get A Library Card",
-    key: "libraryCardLink"
-  },
-  {
-    href: "https://pub.email.nypl.org/subscriptioncenter",
-    text: "Get Email Updates",
-    key: "emailUpdatesLink"
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/donate-button`,
-    text: "Donate",
-    key: "donateLink"
-  }, {
-    href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
-    text: "Shop",
-    key: "shopLink"
-  }
+	{
+		href: `//${envPrefix}www.nypl.org/locations`,
+		text: "Locations",
+		key: "locationsLink",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/library-card/new`,
+		text: "Get A Library Card",
+		key: "libraryCardLink",
+	},
+	{
+		href: "https://pub.email.nypl.org/subscriptioncenter",
+		text: "Get Email Updates",
+		key: "emailUpdatesLink",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/donate-button`,
+		text: "Donate",
+		key: "donateLink",
+	},
+	{
+		href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+		text: "Shop",
+		key: "shopLink",
+	},
 ];
 
 export const siteNavLinks = [
-  {
-    href: `//${envPrefix}www.nypl.org/books-music-movies`,
-    text: "Books/Music/Movies",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/research`,
-    text: "Research",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/education`,
-    text: "Education",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/events`,
-    text: "Events",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/visit`,
-    text: "Visit",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/give`,
-    text: "Give",
-  },
-  {
-    href: `//${envPrefix}www.nypl.org/get-help`,
-    text: "Get Help",
-  },
+	{
+		href: `//${envPrefix}www.nypl.org/books-music-movies`,
+		text: "Books/Music/Movies",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/research`,
+		text: "Research",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/education`,
+		text: "Education",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/events`,
+		text: "Events",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/visit`,
+		text: "Visit",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/give`,
+		text: "Give",
+	},
+	{
+		href: `//${envPrefix}www.nypl.org/get-help`,
+		text: "Get Help",
+	},
 ];
 
 /**
  * Generates the queries to be added to the URL of the search pages.
  */
 const generateQueriesForTracking = () => {
-  // the time stamp here is for the purpose of telling when this search query is made.
-  const currentTimeStamp = new Date().getTime();
-  return `searched_from=header_search&timestamp=${currentTimeStamp}`;
+	// the time stamp here is for the purpose of telling when this search query is made.
+	const currentTimeStamp = new Date().getTime();
+	return `searched_from=header_search&timestamp=${currentTimeStamp}`;
 };
 
 /**
  * Returns the final URL for the NYPL Catalog search.
  */
 export const getCatalogURL = (searchValue) => {
-  const encodedSearchInput = encodeURIComponent(searchValue);
-  const rootUrl = "https://borrow.nypl.org/search";
-  let finalUrl;
+	const encodedSearchInput = encodeURIComponent(searchValue);
+	const rootUrl = "https://borrow.nypl.org/search";
+	let finalUrl;
 
-  if (encodedSearchInput) {
-    finalUrl =
-      `${rootUrl}?query=${encodedSearchInput}&searchType=everything&pageSize=10&` +
-      generateQueriesForTracking() +
-      `&lang=eng`;
-    return finalUrl;
-  }
-  return null;
+	if (encodedSearchInput) {
+		finalUrl =
+			`${rootUrl}?query=${encodedSearchInput}&searchType=everything&pageSize=10&` +
+			generateQueriesForTracking() +
+			`&lang=eng`;
+		return finalUrl;
+	}
+	return null;
 };
 
 /**
  * Returns the final URL for the NYPL Research Catalog search.
  */
 export const getResearchCatalogURL = (searchValue) => {
-  const catalogUrl = `//${envPrefix}www.nypl.org/research/research-catalog/search?q=`;
+	const catalogUrl = `//${envPrefix}www.nypl.org/research/research-catalog/search?q=`;
 
-  if (searchValue) {
-    return `${catalogUrl}${encodeURIComponent(
-      searchValue,
-    )}&${generateQueriesForTracking()}&lang=eng`;
-  }
-  return null;
+	if (searchValue) {
+		return `${catalogUrl}${encodeURIComponent(
+			searchValue,
+		)}&${generateQueriesForTracking()}&lang=eng`;
+	}
+	return null;
 };
 
 /**
  * Returns the final URL for the NYPL catalog search.
  */
 export const getNYPLSearchURL = (searchString) => {
-  const catalogUrl = `//${envPrefix}www.nypl.org/search/`;
+	const catalogUrl = `//${envPrefix}www.nypl.org/search/`;
 
-  if (searchString) {
-    return (
-      catalogUrl +
-      encodeURIComponent(searchString) +
-      "?" +
-      generateQueriesForTracking()
-    );
-  }
-  return null;
+	if (searchString) {
+		return (
+			catalogUrl +
+			encodeURIComponent(searchString) +
+			"?" +
+			generateQueriesForTracking()
+		);
+	}
+	return null;
 };
 
 /**
@@ -196,35 +197,35 @@ export const getNYPLSearchURL = (searchString) => {
  * filtered to include active alerts.
  */
 export const parseAlertsData = (data: any): Alert[] => {
-  const today = new Date();
+	const today = new Date();
 
-  if (!data?.data.length) {
-    return [];
-  }
-  // There is an assumption in the JSONAPI data that the description text will
-  // be translated into many languages. Only the English description is
-  // available so we will use that.
-  const alerts = data.data.map((alert) => {
-    return {
-      id: alert?.id,
-      description: alert?.message_html,
-      startDate: alert?.alert_date_start,
-      endDate: alert?.alert_date_end,
-    };
-  });
+	if (!data?.data.length) {
+		return [];
+	}
+	// There is an assumption in the JSONAPI data that the description text will
+	// be translated into many languages. Only the English description is
+	// available so we will use that.
+	const alerts = data.data.map((alert) => {
+		return {
+			id: alert?.id,
+			description: alert?.message_html,
+			startDate: alert?.alert_date_start,
+			endDate: alert?.alert_date_end,
+		};
+	});
 
-  // Filter alerts based on their timestamps so they are rendered
-  // appropriately, no "expired" alert should be rendered.
-  const filteredAlerts = alerts.filter((alert) => {
-    const startDate = new Date(alert.startDate);
-    const endDate = new Date(alert.endDate);
-    return (
-      startDate.getTime() <= today.getTime() &&
-      today.getTime() <= endDate.getTime()
-    );
-  });
+	// Filter alerts based on their timestamps so they are rendered
+	// appropriately, no "expired" alert should be rendered.
+	const filteredAlerts = alerts.filter((alert) => {
+		const startDate = new Date(alert.startDate);
+		const endDate = new Date(alert.endDate);
+		return (
+			startDate.getTime() <= today.getTime() &&
+			today.getTime() <= endDate.getTime()
+		);
+	});
 
-  return filteredAlerts;
+	return filteredAlerts;
 };
 
 /**
@@ -233,12 +234,12 @@ export const parseAlertsData = (data: any): Alert[] => {
  * the cookie's `access_token`.
  */
 export const getCookieValue = () => {
-  const cookieValue = Cookies.get("nyplIdentityPatron");
-  const accessToken = cookieValue ? JSON.parse(cookieValue).access_token : "";
+	const cookieValue = Cookies.get("nyplIdentityPatron");
+	const accessToken = cookieValue ? JSON.parse(cookieValue).access_token : "";
 
-  return { cookieValue, accessToken };
+	return { cookieValue, accessToken };
 };
 
 export const deleteCookieValue = () => {
-  Cookies.remove("nyplIdentityPatron");
+	Cookies.remove("nyplIdentityPatron");
 };
