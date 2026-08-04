@@ -12,22 +12,27 @@ import { sendAnalyticsNavClickEvent } from "../../../utils";
  * logging in, searching, and navigating on NYPL.org.
  */
 const HeaderMobileIconNav = chakra(({ envPrefix }) => {
-  const styles = useStyleConfig("HeaderMobileIconNav");
+	const styles = useStyleConfig("HeaderMobileIconNav");
 
-  return (
-    <Flex sx={styles}>
-      <HeaderLoginButton isMobile />
-      <Link
-        aria-label="NYPL Locations Near Me"
-        href={`//${envPrefix}www.nypl.org/locations`}
-        onClick={() => sendAnalyticsNavClickEvent({clickText: "locations", clickUrl: `//${envPrefix}www.nypl.org/locations`})}
-      >
-        <Icon name="mapsPlace" size="large" title="NYPL Locator" />
-      </Link>
-      <HeaderSearchButton isMobile />
-      <HeaderMobileNavButton />
-    </Flex>
-  );
+	return (
+		<Flex sx={styles}>
+			<HeaderLoginButton isMobile />
+			<Link
+				aria-label="NYPL Locations Near Me"
+				href={`//${envPrefix}www.nypl.org/locations`}
+				onClick={() =>
+					sendAnalyticsNavClickEvent({
+						clickText: "locations",
+						clickUrl: `//${envPrefix}www.nypl.org/locations`,
+					})
+				}
+			>
+				<Icon name="mapsPlace" size="large" title="NYPL Locator" />
+			</Link>
+			<HeaderSearchButton isMobile />
+			<HeaderMobileNavButton />
+		</Flex>
+	);
 });
 
 export default HeaderMobileIconNav;

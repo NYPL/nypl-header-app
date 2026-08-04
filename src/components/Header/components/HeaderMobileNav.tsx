@@ -22,7 +22,7 @@ import { siteNavLinks, upperNavMobileLinks } from "../utils/headerUtils";
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
   const listItems = siteNavLinks.map((item) => (
-    <ListLink key={item.text} linkItem={item}/>
+    <ListLink key={item.text} linkItem={item} />
   ));
 
   return (
@@ -53,12 +53,13 @@ const HeaderMobileNav = chakra(() => {
         </nav>
       </Flex>
       <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
-        <ListLink 
+        <ListLink
           linkItem={upperNavMobileLinks.libraryCard}
-          additionalStyles={{ 
+          additionalStyles={{
             borderTop: "1px solid rgb(54, 54, 54)",
             borderRight: "1px solid rgb(54, 54, 54)",
-            gridColumn: "1 / span 1"}}
+            gridColumn: "1 / span 1"
+          }}
           icon={<Icon
             align="left"
             color="ui.white"
@@ -68,33 +69,34 @@ const HeaderMobileNav = chakra(() => {
         />
         <ListLink
           linkItem={upperNavMobileLinks.emailUpdates}
-          additionalStyles={{ 
+          additionalStyles={{
             borderTop: "1px solid rgb(54, 54, 54)",
-            gridColumn: "2 / span 1"}}
-         icon={ <Icon
+            gridColumn: "2 / span 1"
+          }}
+          icon={<Icon
             align="left"
             color="ui.white"
             name="decorativeEnvelope"
             size="large"
           />}
         />
-      <ListLink
+        <ListLink
           linkItem={upperNavMobileLinks.shop}
           additionalStyles={{
             borderTop: "1px solid rgb(54, 54, 54)",
             gridColumn: "1 / span 2"
           }}
-          icon={ <Icon
+          icon={<Icon
             align="left"
             color="ui.white"
             name="decorativeShoppingBag"
             size="large"
           />}
-       />
+        />
         <ListLink
-        linkItem={upperNavMobileLinks.donate}
-        isDonateLink={true}
-        additionalStyles={{gridColumn: "1 / span 2"}}/>
+          linkItem={upperNavMobileLinks.donate}
+          isDonateLink={true}
+          additionalStyles={{ gridColumn: "1 / span 2" }} />
       </SimpleGrid>
     </Box>
   );
