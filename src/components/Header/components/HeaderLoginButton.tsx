@@ -9,6 +9,8 @@ import {
 } from "@nypl/design-system-react-components";
 import HeaderLogin from "./HeaderLogin";
 
+import { sendAnalyticsNavClickEvent } from "../../../utils";
+
 export interface HeaderLoginButtonProps {
   isMobile?: boolean;
 }
@@ -46,6 +48,10 @@ const HeaderLoginButton = chakra(
             buttonType="text"
             id="loginButton"
             onClick={() => {
+              !isOpen &&
+                sendAnalyticsNavClickEvent({
+                  clickText: "my account",
+                });
               setIsOpen(!isOpen);
             }}
             __css={{
@@ -70,7 +76,7 @@ const HeaderLoginButton = chakra(
         </FocusLock>
       </Box>
     );
-  }
+  },
 );
 
 export default HeaderLoginButton;

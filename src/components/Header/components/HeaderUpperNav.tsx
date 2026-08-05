@@ -1,9 +1,9 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React from "react";
 
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
-import { List, Link, Icon } from "@nypl/design-system-react-components";
+import { List } from "@nypl/design-system-react-components";
+import ListLink from "../../shared/ListLink";
 
 /**
  * This renders the navigational list of links for logging in, subscribing
@@ -13,34 +13,22 @@ import { List, Link, Icon } from "@nypl/design-system-react-components";
 const HeaderUpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
+  const listItems = upperNavLinks.map((item) => (
+    <ListLink
+      key={item.key}
+      linkItem={item}
+      {...(/donate/i.test(item.text)
+        ? { isDonateLink: true, additionalStyles: styles.donateLink }
+        : {})}
+    />
+  ));
+
   return (
     <Box as="nav" aria-label="Header top links" __css={styles}>
       <List
         id="header-nav-upper"
         inline
-        listItems={[
-          <HeaderLoginButton key="login" />,
-          <Link href={upperNavLinks.locations.href} key="locationsLink">
-            {upperNavLinks.locations.text}
-          </Link>,
-          <Link href={upperNavLinks.libraryCard.href} key="libraryCardLink">
-            {upperNavLinks.libraryCard.text}
-          </Link>,
-          <Link href={upperNavLinks.emailUpdates.href} key="emailUpdatesLink">
-            {upperNavLinks.emailUpdates.text}
-          </Link>,
-          <Link
-            href={upperNavLinks.donate.href}
-            key="donateLink"
-            type="buttonCallout"
-            __css={styles.donateLink}
-          >
-            {upperNavLinks.donate.text}
-          </Link>,
-          <Link href={upperNavLinks.shop.href} key="shopLink">
-            {upperNavLinks.shop.text}
-          </Link>,
-        ]}
+        listItems={[<HeaderLoginButton key="login" />, ...listItems]}
         noStyling
         type="ul"
       />

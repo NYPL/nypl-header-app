@@ -9,12 +9,16 @@ import * as envUtils from "../../../utils";
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
+  sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderLoginButton Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
+    );
+    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
+      () => {},
     );
   });
 
@@ -22,7 +26,7 @@ describe("HeaderLoginButton Accessibility", () => {
     const { container } = render(
       <HeaderProvider>
         <HeaderLoginButton />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -31,7 +35,7 @@ describe("HeaderLoginButton Accessibility", () => {
     const { container } = render(
       <HeaderProvider>
         <HeaderLoginButton isMobile />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -40,7 +44,7 @@ describe("HeaderLoginButton Accessibility", () => {
 describe("HeaderLoginButton", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -49,7 +53,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       let dropDownButton = screen.getByRole("button");
@@ -71,7 +75,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const dropDownButton = screen.getByRole("button");
@@ -89,7 +93,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       let dropDownButton = screen.getByRole("button");
@@ -106,10 +110,10 @@ describe("HeaderLoginButton", () => {
       expect(dropDownButton).toHaveTextContent(/close/i);
       expect(greetingContainer).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/you are logged in/i)
+        within(greetingContainer).getByText(/you are logged in/i),
       ).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/patron, jane a/i)
+        within(greetingContainer).getByText(/patron, jane a/i),
       ).toBeInTheDocument();
       expect(links.length).toEqual(3);
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
@@ -122,7 +126,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const dropDownButton = screen.getByRole("button");
@@ -139,7 +143,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       let dropDownButton = screen.getByRole("button");
@@ -161,7 +165,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
       const dropDownButton = screen.getByRole("button");
 
@@ -178,7 +182,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       let dropDownButton = screen.getByRole("button");
@@ -194,10 +198,10 @@ describe("HeaderLoginButton", () => {
       expect(dropDownButton).toHaveAttribute("aria-label", "Close");
       expect(greetingContainer).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/you are logged in/i)
+        within(greetingContainer).getByText(/you are logged in/i),
       ).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/patron, jane a/i)
+        within(greetingContainer).getByText(/patron, jane a/i),
       ).toBeInTheDocument();
       expect(links.length).toEqual(3);
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
@@ -210,7 +214,7 @@ describe("HeaderLoginButton", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
       const dropDownButton = screen.getByRole("button");
 

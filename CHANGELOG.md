@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## TBD
+
+- Adds GA4 `nav_click` event [ISW-5944](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5944)
+
 ## v1.4.0 - 6/30/26
 
 - Adds dependabot.yml file for security scanning.

@@ -8,12 +8,16 @@ import * as envUtils from "../../../utils";
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
+  sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderMobileNav Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
+    );
+    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
+      () => {},
     );
   });
 
