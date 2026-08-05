@@ -9,7 +9,7 @@ import {
 } from "@nypl/design-system-react-components";
 import HeaderLogin from "./HeaderLogin";
 
-import { DEFAULT_CLICK_URL, sendAnalyticsNavClickEvent } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../utils";
 
 export interface HeaderLoginButtonProps {
 	isMobile?: boolean;
@@ -51,7 +51,6 @@ const HeaderLoginButton = chakra(
 							!isOpen &&
 								sendAnalyticsNavClickEvent({
 									clickText: "my account",
-									clickUrl: DEFAULT_CLICK_URL,
 								});
 							setIsOpen(!isOpen);
 						}}

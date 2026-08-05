@@ -11,29 +11,29 @@ import ListLink from "../../shared/ListLink";
  * donating, and shopping at NYPL.
  */
 const HeaderUpperNav = chakra(() => {
-	const styles = useMultiStyleConfig("HeaderUpperNav", {});
+  const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
-	const listItems = upperNavLinks.map((item) => (
-		<ListLink
-			key={item.key}
-			linkItem={item}
-			{...(/donate/i.test(item.text)
-				? { isDonateLink: true, additionalStyles: styles.donateLink }
-				: {})}
-		/>
-	));
+  const listItems = upperNavLinks.map((item) => (
+    <ListLink
+      key={item.key}
+      linkItem={item}
+      {...(/donate/i.test(item.text)
+        ? { isDonateLink: true, additionalStyles: styles.donateLink }
+        : {})}
+    />
+  ));
 
-	return (
-		<Box as="nav" aria-label="Header top links" __css={styles}>
-			<List
-				id="header-nav-upper"
-				inline
-				listItems={[<HeaderLoginButton key="login" />, ...listItems]}
-				noStyling
-				type="ul"
-			/>
-		</Box>
-	);
+  return (
+    <Box as="nav" aria-label="Header top links" __css={styles}>
+      <List
+        id="header-nav-upper"
+        inline
+        listItems={[<HeaderLoginButton key="login" />, ...listItems]}
+        noStyling
+        type="ul"
+      />
+    </Box>
+  );
 });
 
 export default HeaderUpperNav;

@@ -7,11 +7,11 @@ export const getEnvVar = (key: string) => {
 };
 
 // GA4 custom `nav_click` event
-export const DEFAULT_CLICK_URL = "(not set)";
+const DEFAULT_CLICK_URL = "(not set)";
 
 type NavClickCustomParameters = {
 	clickText: string;
-	clickUrl: string;
+	clickUrl?: string;
 };
 export const sendAnalyticsNavClickEvent = ({
 	clickText,
@@ -22,12 +22,9 @@ export const sendAnalyticsNavClickEvent = ({
 		window.dataLayer.push({
 			event: "nav_click",
 			click_text: clickText.toLowerCase(),
-			click_url: clickUrl,
+			click_url: clickUrl || DEFAULT_CLICK_URL,
 			// `element_placement` is always "header" until we add the footer
 			element_placement: "header",
 		});
-		// @TODO: Remove both lines after testing.
-		const currentDataLayer = window.dataLayer;
-		console.log("event sent!", ...currentDataLayer);
 	}
 };
