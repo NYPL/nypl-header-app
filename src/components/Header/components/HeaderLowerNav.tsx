@@ -13,7 +13,7 @@ import type { LinkItem } from "../../shared/ListLink";
 const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
   const listItems = siteNavLinks.map((item: LinkItem) => (
-    <ListLink key={item.text } linkItem={item}/>
+    <ListLink key={item.text} linkItem={item} />
   ));
 
   return (

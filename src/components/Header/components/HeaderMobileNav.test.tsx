@@ -17,7 +17,7 @@ describe("HeaderMobileNav Accessibility", () => {
       key === "VITE_APP_ENV" ? "qa" : "",
     );
     (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
-      () => { },
+      () => {},
     );
   });
 

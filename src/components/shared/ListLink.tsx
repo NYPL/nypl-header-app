@@ -10,24 +10,37 @@ export type LinkItem = {
 };
 
 interface ListLinkProps {
- linkItem: LinkItem;
- isDonateLink?: boolean;
- additionalStyles?: object;
- icon?: React.ReactNode;
+  linkItem: LinkItem;
+  isDonateLink?: boolean;
+  additionalStyles?: object;
+  icon?: React.ReactNode;
 }
 
-
-const ListLink =({ linkItem, isDonateLink, additionalStyles, icon } :ListLinkProps) =>{
-    const { href, text, key, ga4clickText } = linkItem;
-    return (<Link 
-      href={href} 
+const ListLink = ({
+  linkItem,
+  isDonateLink,
+  additionalStyles,
+  icon,
+}: ListLinkProps) => {
+  const { href, text, key, ga4clickText } = linkItem;
+  return (
+    <Link
+      href={href}
       // Clicks from the Donate button are already tracked separately
-      onClick={() => !isDonateLink && sendAnalyticsNavClickEvent({clickText: ga4clickText || text, clickUrl: href})}
-      {...(isDonateLink && {type: "buttonCallout"})}
-      {...(additionalStyles && { __css: additionalStyles })}>
-        {icon}
-        {text}
-      </Link>);
+      onClick={() =>
+        !isDonateLink &&
+        sendAnalyticsNavClickEvent({
+          clickText: ga4clickText || text,
+          clickUrl: href,
+        })
+      }
+      {...(isDonateLink && { type: "buttonCallout" })}
+      {...(additionalStyles && { __css: additionalStyles })}
+    >
+      {icon}
+      {text}
+    </Link>
+  );
 };
 
 export default ListLink;

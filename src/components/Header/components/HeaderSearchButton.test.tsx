@@ -15,9 +15,11 @@ jest.mock("../../../utils", () => ({
 describe("HeaderSearchButton Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
-    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(() => {});
+    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
+      () => {},
+    );
   });
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchButton />);
@@ -33,7 +35,7 @@ describe("HeaderSearchButton Accessibility", () => {
 describe("HeaderSearchButton", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
   describe("Desktop", () => {
