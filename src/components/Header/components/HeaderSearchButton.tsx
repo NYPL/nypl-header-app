@@ -9,6 +9,8 @@ import {
   useCloseDropDown,
 } from "@nypl/design-system-react-components";
 
+import { sendAnalyticsNavClickEvent } from "../../../utils";
+
 export interface HeaderSearchButtonProps {
   isMobile?: boolean;
 }
@@ -37,6 +39,7 @@ const HeaderSearchButton = chakra(
             buttonType="text"
             id="searchButton"
             onClick={() => {
+              !isOpen && sendAnalyticsNavClickEvent({ clickText: "search" });
               setIsOpen(!isOpen);
             }}
             __css={{
@@ -64,7 +67,7 @@ const HeaderSearchButton = chakra(
         </FocusLock>
       </Box>
     );
-  }
+  },
 );
 
 export default HeaderSearchButton;
