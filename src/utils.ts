@@ -8,9 +8,9 @@ export const getEnvVar = (key: string) => {
 
 // GA4 custom `nav_click` event
 const DEFAULT_CLICK_URL = "(not set)";
-const HTTP_URL_PREFIX = "https:";
-const isHttpUrl = (url: string) =>
-  new RegExp(`^${HTTP_URL_PREFIX}`, "i").test(url);
+const HTTPS_URL_PREFIX = "https:";
+const isHttpsUrl = (url: string) =>
+  new RegExp(`^${HTTPS_URL_PREFIX}`, "i").test(url);
 
 type NavClickCustomParameters = {
   clickText: string;
@@ -24,9 +24,9 @@ export const sendAnalyticsNavClickEvent = ({
     window.dataLayer = window.dataLayer || [];
     // Update clickUrl to include the https prefix
     const finalClickUrl = clickUrl
-      ? isHttpUrl(clickUrl)
+      ? isHttpsUrl(clickUrl)
         ? clickUrl
-        : HTTP_URL_PREFIX + clickUrl
+        : HTTPS_URL_PREFIX + clickUrl
       : DEFAULT_CLICK_URL;
 
     window.dataLayer.push({
