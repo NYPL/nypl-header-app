@@ -26,7 +26,7 @@ import HeaderUpperNav from "./components/HeaderUpperNav";
 import { HeaderProvider } from "./context/headerContext";
 import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 import { headerBreakpoints } from "../../theme/foundation/breakpoints";
-import { getEnvVar } from "../../utils";
+import { getEnvVar, sendAnalyticsNavClickEvent } from "../../utils";
 
 export interface HeaderProps {
   /** Whether to render sitewide alerts or not. True by default. */
@@ -57,7 +57,7 @@ export const Header = chakra(
     // they are logged out in various NYPL sites.
     const encoreCatalogLogOutTimer = new EncoreCatalogLogOutTimer(
       Date.now(),
-      false
+      false,
     );
 
     // Once the `Header` component is mounted, start a timer that will
@@ -99,6 +99,12 @@ export const Header = chakra(
                 aria-label="The New York Public Library"
                 href={`//${envPrefix}www.nypl.org`}
                 __css={styles.logo}
+                onClick={() =>
+                  sendAnalyticsNavClickEvent({
+                    clickText: "Logo",
+                    clickUrl: `//${envPrefix}www.nypl.org`,
+                  })
+                }
               >
                 <Logo
                   aria-label="NYPL Header Logo"
@@ -126,7 +132,7 @@ export const Header = chakra(
         </Box>
       </HeaderProvider>
     );
-  }
+  },
 );
 
 export default Header;
