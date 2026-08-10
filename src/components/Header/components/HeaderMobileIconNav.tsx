@@ -5,6 +5,8 @@ import HeaderMobileNavButton from "./HeaderMobileNavButton";
 import HeaderSearchButton from "./HeaderSearchButton";
 import { Link, Icon } from "@nypl/design-system-react-components";
 
+import { sendAnalyticsNavClickEvent } from "../../../utils";
+
 /**
  * This component renders the mobile list of icon buttons for
  * logging in, searching, and navigating on NYPL.org.
@@ -18,6 +20,12 @@ const HeaderMobileIconNav = chakra(({ envPrefix }) => {
       <Link
         aria-label="NYPL Locations Near Me"
         href={`//${envPrefix}www.nypl.org/locations`}
+        onClick={() =>
+          sendAnalyticsNavClickEvent({
+            clickText: "locations",
+            clickUrl: `//${envPrefix}www.nypl.org/locations`,
+          })
+        }
       >
         <Icon name="mapsPlace" size="large" title="NYPL Locator" />
       </Link>

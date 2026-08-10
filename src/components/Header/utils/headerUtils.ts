@@ -50,11 +50,8 @@ export const getLoginLinks = (patronName = "", isProduction = true) => {
         logOutLink: "",
       };
 };
-export const upperNavLinks = {
-  locations: {
-    href: `//${envPrefix}www.nypl.org/locations`,
-    text: "Locations",
-  },
+
+export const upperNavMobileLinks = {
   libraryCard: {
     href: `//${envPrefix}www.nypl.org/library-card/new`,
     text: "Get A Library Card",
@@ -65,13 +62,45 @@ export const upperNavLinks = {
   },
   donate: {
     href: `//${envPrefix}www.nypl.org/donate-button`,
-    text: "Donate",
+    text: "DONATE",
   },
   shop: {
     href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
-    text: "Shop",
+    text: "Shop NYPL",
+    // Send same value to GA4 as for desktop.
+    // Confirmed value with analytics team.
+    ga4clickText: "shop",
   },
 };
+
+export const upperNavLinks = [
+  {
+    href: `//${envPrefix}www.nypl.org/locations`,
+    text: "Locations",
+    key: "locationsLink",
+  },
+  {
+    href: `//${envPrefix}www.nypl.org/library-card/new`,
+    text: "Get A Library Card",
+    key: "libraryCardLink",
+  },
+  {
+    href: "https://pub.email.nypl.org/subscriptioncenter",
+    text: "Get Email Updates",
+    key: "emailUpdatesLink",
+  },
+  {
+    href: `//${envPrefix}www.nypl.org/donate-button`,
+    text: "Donate",
+    key: "donateLink",
+  },
+  {
+    href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+    text: "Shop",
+    key: "shopLink",
+  },
+];
+
 export const siteNavLinks = [
   {
     href: `//${envPrefix}www.nypl.org/books-music-movies`,

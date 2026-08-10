@@ -5,3 +5,36 @@
 export const getEnvVar = (key: string) => {
   return import.meta.env[key];
 };
+
+// GA4 custom `nav_click` event
+const DEFAULT_CLICK_URL = "(not set)";
+const HTTPS_URL_PREFIX = "https:";
+const isHttpsUrl = (url: string) =>
+  new RegExp(`^${HTTPS_URL_PREFIX}`, "i").test(url);
+
+type NavClickCustomParameters = {
+  clickText: string;
+  clickUrl?: string;
+};
+export const sendAnalyticsNavClickEvent = ({
+  clickText,
+  clickUrl,
+}: NavClickCustomParameters) => {
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+    // Update clickUrl to include the https prefix
+    const finalClickUrl = clickUrl
+      ? isHttpsUrl(clickUrl)
+        ? clickUrl
+        : HTTPS_URL_PREFIX + clickUrl
+      : DEFAULT_CLICK_URL;
+
+    window.dataLayer.push({
+      event: "nav_click",
+      click_text: clickText.toLowerCase(),
+      click_url: finalClickUrl,
+      // `element_placement` is always "header" until we add the footer
+      element_placement: "header",
+    });
+  }
+};
