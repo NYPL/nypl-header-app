@@ -1,8 +1,9 @@
 # CHANGELOG
 
-## TBD
+## v1.4.1 - 8/10/26
 
-- Adds GA4 `nav_click` event [ISW-5944](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5944)
+- Adds GA4 `nav_click` event
+  [ISW-5944](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5944)
 
 ## v1.4.0 - 6/30/26
 
