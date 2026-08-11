@@ -37,7 +37,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
   }
   function footer() {
     if (typeof window !== "undefined") {
-      let isRenderedByServer = false;
+      const isRenderedByServer = false;
 
       // Render Client Side Only
       if (!isRenderedByServer) {
@@ -112,7 +112,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
               <FooterApp />,
               containerId
                 ? (document.getElementById(containerId) as any)
-                : htmlElement
+                : htmlElement,
             );
             console.log("footer rendered via client");
           }, 500);

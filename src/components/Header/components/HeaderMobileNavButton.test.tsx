@@ -14,7 +14,7 @@ jest.mock("../../../utils", () => ({
 describe("HeaderMobileNavButton Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
   it("passes axe accessibility test", async () => {
@@ -26,7 +26,7 @@ describe("HeaderMobileNavButton Accessibility", () => {
 describe("HeaderMobileNavButton", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 

@@ -13,7 +13,7 @@ jest.mock("../../../utils", () => ({
 describe("HeaderLogin Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -21,7 +21,7 @@ describe("HeaderLogin Accessibility", () => {
     const { container } = render(
       <HeaderProvider>
         <HeaderLogin />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -30,7 +30,7 @@ describe("HeaderLogin Accessibility", () => {
     const { container } = render(
       <HeaderProvider>
         <HeaderLogin isMobile />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -39,7 +39,7 @@ describe("HeaderLogin Accessibility", () => {
 describe("HeaderLogin", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -48,7 +48,7 @@ describe("HeaderLogin", () => {
       render(
         <HeaderProvider>
           <HeaderLogin />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const links = screen.getAllByRole("link");
@@ -63,7 +63,7 @@ describe("HeaderLogin", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLogin />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const greetingContainer = screen.getByTestId("patronGreeting");
@@ -71,10 +71,10 @@ describe("HeaderLogin", () => {
 
       expect(greetingContainer).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/you are logged in/i)
+        within(greetingContainer).getByText(/you are logged in/i),
       ).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/patron, jane a/i)
+        within(greetingContainer).getByText(/patron, jane a/i),
       ).toBeInTheDocument();
       expect(links.length).toEqual(3);
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
@@ -88,7 +88,7 @@ describe("HeaderLogin", () => {
       render(
         <HeaderProvider>
           <HeaderLogin isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const links = screen.getAllByRole("link");
@@ -103,7 +103,7 @@ describe("HeaderLogin", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLogin isMobile />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       const greetingContainer = screen.getByTestId("patronGreeting");
@@ -111,10 +111,10 @@ describe("HeaderLogin", () => {
 
       expect(greetingContainer).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/you are logged in/i)
+        within(greetingContainer).getByText(/you are logged in/i),
       ).toBeInTheDocument();
       expect(
-        within(greetingContainer).getByText(/patron, jane a/i)
+        within(greetingContainer).getByText(/patron, jane a/i),
       ).toBeInTheDocument();
       expect(links.length).toEqual(3);
       expect(links[0]).toHaveTextContent(/go to the catalog/i);

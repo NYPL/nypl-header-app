@@ -10,7 +10,7 @@ export const patLoggedInCookieExpiredTime = 1800000;
 
 function EncoreCatalogLogOutTimer(
   currentTime = Date.now(),
-  isTestMode = false
+  isTestMode = false,
 ) {
   /**
    * If the patron is not logged in, forcibly log the patron out by deleting
@@ -58,7 +58,7 @@ function EncoreCatalogLogOutTimer(
       "borrow.nypl.org",
     ];
     const isOnValidDomain = domainsForExtendingLogIn.some(
-      (domain) => domain === currentLocationHost
+      (domain) => domain === currentLocationHost,
     );
     const isLoggedIn = Cookies.get("PAT_LOGGED_IN");
 
@@ -77,7 +77,7 @@ function EncoreCatalogLogOutTimer(
       } else {
         // The time in ms since the patron has been on the valid domain.
         const lastVisitedValidDomainTime = Cookies.get(
-          "VALID_DOMAIN_LAST_VISITED"
+          "VALID_DOMAIN_LAST_VISITED",
         );
         const timeUntilLogOut = lastVisitedValidDomainTime
           ? patLoggedInCookieExpiredTime -
