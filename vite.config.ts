@@ -21,6 +21,9 @@ module.exports = defineConfig({
   root,
   build: {
     outDir,
+    // dist is outside of `root` (src); don't empty it here so the header and
+    // footer builds' output isn't wiped out by this later step in the chain.
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         ".": resolve(root, "index.html"),
