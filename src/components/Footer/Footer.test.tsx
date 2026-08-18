@@ -14,7 +14,7 @@ jest.mock("../../utils", () => ({
 describe("Footer Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -27,7 +27,7 @@ describe("Footer Accessibility", () => {
 describe("Footer", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -46,15 +46,15 @@ describe("Footer", () => {
     expect(innerLists).toHaveLength(3);
     expect(within(innerLists[0]).getAllByRole("link")).toHaveLength(4);
     expect(within(innerLists[0]).getAllByRole("link")[0]).toHaveTextContent(
-      "Accessibility"
+      "Accessibility",
     );
     expect(within(innerLists[1]).getAllByRole("link")).toHaveLength(4);
     expect(within(innerLists[1]).getAllByRole("link")[0]).toHaveTextContent(
-      "Privacy Policy"
+      "Privacy Policy",
     );
     expect(within(innerLists[2]).getAllByRole("link")).toHaveLength(3);
     expect(within(innerLists[2]).getAllByRole("link")[0]).toHaveTextContent(
-      "Rules & Regulations"
+      "Rules & Regulations",
     );
   });
 
@@ -79,13 +79,13 @@ describe("Footer", () => {
     expect(nyplBuildingImage).toBeInTheDocument();
     expect(nyplBuildingImage).toHaveAttribute(
       "src",
-      "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
+      "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
     );
   });
 
   it("renders the NYPL logo", () => {
     expect(
-      screen.getByTitle("The New York Public Library")
+      screen.getByTitle("The New York Public Library"),
     ).toBeInTheDocument();
   });
 

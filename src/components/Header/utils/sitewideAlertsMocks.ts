@@ -1,7 +1,7 @@
 // This is based on the Drupal 10 API endpoint response.
 const getApiResponse = (
   startDate = "2025-09-01T14:46:00-04:00",
-  endDate = "2030-12-31T23:59:00-05:00"
+  endDate = "2030-12-31T23:59:00-05:00",
 ) => ({
   meta: {
     arguments: [],
@@ -60,5 +60,5 @@ const getApiResponse = (
 export const drupalResponse = getApiResponse();
 export const expiredAlertsResponse = getApiResponse(
   "2020-03-14T00:00:00-04:00",
-  "2020-12-31T23:59:00-05:00"
+  "2020-12-31T23:59:00-05:00",
 );

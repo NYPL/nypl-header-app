@@ -35,10 +35,10 @@ describe("EncoreCatalogLogOutTimer", () => {
     };
     encoreCatalogLogOutTimer = new EncoreCatalogLogOutTimer(
       mockCurrentTime,
-      isTestMode
+      isTestMode,
     );
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -90,7 +90,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
 
       // Start the timer on a valid domain.
@@ -129,7 +129,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       // cookiesRemove = jest.spyOn(Cookies, "remove");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
 
       // Start the timer on a valid domain.
@@ -145,14 +145,14 @@ describe("EncoreCatalogLogOutTimer", () => {
       expect(cookiesGet).toHaveBeenNthCalledWith(1, "PAT_LOGGED_IN");
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime,
       );
     });
 
     it("should call the `logOutFromEncoreAndCatalogIn` with 30 minutes timeout time", () => {
       expect(logOutFromEncoreAndCatalogIn).toHaveBeenCalledWith(
         // This is 30 minutes set as 1800000 ms.
-        patLoggedInCookieExpiredTime
+        patLoggedInCookieExpiredTime,
       );
     });
   });
@@ -170,12 +170,12 @@ describe("EncoreCatalogLogOutTimer", () => {
       cookiesSet = jest.spyOn(Cookies, "set");
       logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
 
       // Start the timer on a valid domain.
       encoreCatalogLogOutTimer.setEncoreLoggedInTimer(
-        validResearchCatalogDomain
+        validResearchCatalogDomain,
       );
     });
 
@@ -188,14 +188,14 @@ describe("EncoreCatalogLogOutTimer", () => {
       expect(cookiesGet).toHaveBeenNthCalledWith(1, "PAT_LOGGED_IN");
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime,
       );
     });
 
     it("should call the `logOutFromEncoreAndCatalogIn` with 30 minutes timeout time", () => {
       expect(logOutFromEncoreAndCatalogIn).toHaveBeenCalledWith(
         // This is 30 minutes set as 1800000 ms.
-        patLoggedInCookieExpiredTime
+        patLoggedInCookieExpiredTime,
       );
     });
   });
@@ -214,7 +214,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesSet = jest.spyOn(Cookies, "set");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
 
       // Start the timer on a valid domain.
@@ -226,11 +226,11 @@ describe("EncoreCatalogLogOutTimer", () => {
       // It then checks for the "VALID_DOMAIN_LAST_VISITED" cookie twice.
       expect(cookiesGet).toHaveBeenNthCalledWith(
         3,
-        "VALID_DOMAIN_LAST_VISITED"
+        "VALID_DOMAIN_LAST_VISITED",
       );
       expect(cookiesGet).toHaveBeenNthCalledWith(
         4,
-        "VALID_DOMAIN_LAST_VISITED"
+        "VALID_DOMAIN_LAST_VISITED",
       );
 
       // No cookies are set.
@@ -239,7 +239,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       // The `logOutFromEncoreAndCatalogIn` method is called with a
       // new timeout time.
       expect(logOutFromEncoreAndCatalogIn).toHaveBeenCalledWith(
-        patLoggedInCookieExpiredTime - (mockCurrentTime - mockedLastVisitTime)
+        patLoggedInCookieExpiredTime - (mockCurrentTime - mockedLastVisitTime),
       );
 
       jest.clearAllMocks();
@@ -258,7 +258,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesSet = jest.spyOn(Cookies, "set");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
 
       // Start the timer on a valid domain.
@@ -271,18 +271,18 @@ describe("EncoreCatalogLogOutTimer", () => {
       // there is no value.
       expect(cookiesGet).toHaveBeenNthCalledWith(
         3,
-        "VALID_DOMAIN_LAST_VISITED"
+        "VALID_DOMAIN_LAST_VISITED",
       );
 
       expect(cookiesSet).toHaveBeenCalledWith(
         "VALID_DOMAIN_LAST_VISITED",
-        mockCurrentTime
+        mockCurrentTime,
       );
 
       // The `logOutFromEncoreAndCatalogIn` method is called with
       // the default timeout time.
       expect(logOutFromEncoreAndCatalogIn).toHaveBeenCalledWith(
-        patLoggedInCookieExpiredTime
+        patLoggedInCookieExpiredTime,
       );
 
       jest.clearAllMocks();
@@ -304,11 +304,11 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
       const loadLogOutIframe = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "loadLogOutIframe"
+        "loadLogOutIframe",
       );
 
       // Start the timer on a valid domain.
@@ -323,7 +323,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       // But in this case the timeout has not been reached.
       expect(cookiesRemove).not.toHaveBeenCalledWith("PAT_LOGGED_IN");
       expect(cookiesRemove).not.toHaveBeenCalledWith(
-        "VALID_DOMAIN_LAST_VISITED"
+        "VALID_DOMAIN_LAST_VISITED",
       );
       expect(loadLogOutIframe).not.toHaveBeenCalledWith("nyplIdentityPatron");
       // The iframe is not loaded.
@@ -348,11 +348,11 @@ describe("EncoreCatalogLogOutTimer", () => {
       const cookiesRemove = jest.spyOn(Cookies, "remove");
       const logOutFromEncoreAndCatalogIn = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "logOutFromEncoreAndCatalogIn"
+        "logOutFromEncoreAndCatalogIn",
       );
       const loadLogOutIframe = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "loadLogOutIframe"
+        "loadLogOutIframe",
       );
 
       // Start the timer on a valid domain.
@@ -369,7 +369,7 @@ describe("EncoreCatalogLogOutTimer", () => {
       expect(cookiesRemove).toHaveBeenNthCalledWith(1, "PAT_LOGGED_IN");
       expect(cookiesRemove).toHaveBeenNthCalledWith(
         2,
-        "VALID_DOMAIN_LAST_VISITED"
+        "VALID_DOMAIN_LAST_VISITED",
       );
       expect(cookiesRemove).toHaveBeenNthCalledWith(3, "nyplIdentityPatron");
       // The iframe is not loaded.
@@ -398,7 +398,7 @@ describe("EncoreCatalogLogOutTimer", () => {
         .mockReturnValue(mockLastVisitedTime);
       const loadLogOutIframe = jest.spyOn(
         encoreCatalogLogOutTimer,
-        "loadLogOutIframe"
+        "loadLogOutIframe",
       );
 
       // Start the timer on a valid domain.

@@ -43,7 +43,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
   }
   function header() {
     if (typeof window !== "undefined") {
-      let isRenderedByServer = false;
+      const isRenderedByServer = false;
 
       // Render Client Side Only
       if (!isRenderedByServer) {
@@ -111,7 +111,7 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
               <HeaderApp />,
               containerId
                 ? (document.getElementById(containerId) as any)
-                : htmlElement
+                : htmlElement,
             );
             console.log("header rendered via client");
           }, 500);

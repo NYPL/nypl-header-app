@@ -18,7 +18,7 @@ jest.mock("../../../utils", () => ({
 describe("HeaderSitewideAlerts Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -27,7 +27,7 @@ describe("HeaderSitewideAlerts Accessibility", () => {
       Promise.resolve({
         status: 200,
         json: () => Promise.resolve(drupalResponse),
-      })
+      }),
     ) as jest.Mock;
 
     const { container } = await waitFor(() => render(<HeaderSitewideAlerts />));
@@ -38,7 +38,7 @@ describe("HeaderSitewideAlerts Accessibility", () => {
 describe("HeaderSitewideAlerts", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -48,7 +48,7 @@ describe("HeaderSitewideAlerts", () => {
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(drupalResponse),
-        })
+        }),
       ) as jest.Mock;
 
       await waitFor(() => render(<HeaderSitewideAlerts />));
@@ -86,7 +86,7 @@ describe("HeaderSitewideAlerts", () => {
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(expiredAlertsResponse),
-        })
+        }),
       ) as jest.Mock;
       await waitFor(() => render(<HeaderSitewideAlerts />));
 
@@ -99,13 +99,13 @@ describe("HeaderSitewideAlerts", () => {
     it("does not render HTML", async () => {
       const warn = jest.spyOn(console, "warn");
       (global as any).fetch = jest.fn(() =>
-        Promise.reject(new Error("API request failed"))
+        Promise.reject(new Error("API request failed")),
       ) as jest.Mock;
       await waitFor(() => render(<HeaderSitewideAlerts />));
 
       expect(screen.queryByRole("complementary")).not.toBeInTheDocument();
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir HeaderSitewideAlerts: There was an error fetching NYPL sitewide alerts."
+        "NYPL Reservoir HeaderSitewideAlerts: There was an error fetching NYPL sitewide alerts.",
       );
     });
   });
