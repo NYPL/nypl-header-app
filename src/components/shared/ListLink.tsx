@@ -22,7 +22,7 @@ const ListLink = ({
   additionalStyles,
   icon,
 }: ListLinkProps) => {
-  const { href, text, key, ga4clickText } = linkItem;
+  const { href, text, ga4clickText } = linkItem;
   return (
     <Link
       href={href}

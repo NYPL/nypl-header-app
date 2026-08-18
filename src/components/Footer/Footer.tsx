@@ -102,8 +102,8 @@ export const Footer = chakra(
           </Box>
         </Box>
       );
-    }
-  )
+    },
+  ),
 );
 
 export default Footer;

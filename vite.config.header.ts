@@ -24,6 +24,9 @@ module.exports = defineConfig({
   root,
   build: {
     outDir,
+    // dist is outside of `root` (src), so empty it here at the start of the
+    // header -> footer -> app build chain and leave it alone afterwards.
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         "header.min": resolve(root, "header", "main.tsx"),

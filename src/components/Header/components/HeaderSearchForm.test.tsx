@@ -14,7 +14,7 @@ jest.mock("../../../utils", () => ({
 describe("HeaderSearchForm Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -32,7 +32,7 @@ describe("HeaderSearchForm Accessibility", () => {
 describe("HeaderSearchForm", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -101,7 +101,7 @@ describe("HeaderSearchForm", () => {
       // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
-        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -118,7 +118,7 @@ describe("HeaderSearchForm", () => {
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -138,7 +138,7 @@ describe("HeaderSearchForm", () => {
       // The third call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         3,
-        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
+        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000",
       );
     });
   });
@@ -157,13 +157,13 @@ describe("HeaderSearchForm", () => {
       expect(searchInput).toBeInTheDocument();
       expect(radios).toHaveLength(3);
       expect(
-        screen.getByLabelText("Search books, music, and movies")
+        screen.getByLabelText("Search books, music, and movies"),
       ).toBeInTheDocument();
       expect(
-        screen.getByLabelText("Search the Research Catalog")
+        screen.getByLabelText("Search the Research Catalog"),
       ).toBeInTheDocument();
       expect(
-        screen.getByLabelText("Search the library website")
+        screen.getByLabelText("Search the library website"),
       ).toBeInTheDocument();
     });
 
@@ -177,7 +177,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
-        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=cats&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -191,7 +191,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
-        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=cats&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -205,7 +205,7 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         3,
-        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
+        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000",
       );
     });
   });

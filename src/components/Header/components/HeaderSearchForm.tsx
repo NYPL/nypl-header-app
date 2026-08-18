@@ -24,9 +24,7 @@ export interface HeaderSearchFormProps {
 }
 
 export type SearchOptionType =
-  | "circulatingCatalog"
-  | "researchCatalog"
-  | "website";
+  "circulatingCatalog" | "researchCatalog" | "website";
 
 /**
  * Displays the search form for the Header's search interface. On mobile, two
@@ -36,11 +34,11 @@ const HeaderSearchForm = chakra(
   ({ isMobile = false }: HeaderSearchFormProps) => {
     const defaultSearchRadioValue: SearchOptionType = "circulatingCatalog";
     const [placeholder, setPlaceholder] = useState<string>(
-      "What would you like to find?"
+      "What would you like to find?",
     );
     const [searchInput, setSearchInput] = useState<string>("");
     const [searchOption, setSearchOption] = useState<SearchOptionType>(
-      defaultSearchRadioValue
+      defaultSearchRadioValue,
     );
     const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
 
@@ -162,7 +160,7 @@ const HeaderSearchForm = chakra(
         </Form>
       </Box>
     );
-  }
+  },
 );
 
 export default HeaderSearchForm;

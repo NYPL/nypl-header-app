@@ -24,7 +24,7 @@ describe("Header utils", () => {
         }
       };
       (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-        key === "VITE_APP_ENV" ? "qa" : ""
+        key === "VITE_APP_ENV" ? "qa" : "",
       );
     });
     afterAll(() => {
@@ -36,7 +36,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://borrow.nypl.org/search?query=foo%20bar&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=foo%20bar&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -44,7 +44,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getCatalogURL(searchValue);
       expect(url).toEqual(
-        "https://borrow.nypl.org/search?query=foo%20bar%2F%5C%3F%3D&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "https://borrow.nypl.org/search?query=foo%20bar%2F%5C%3F%3D&searchType=everything&pageSize=10&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
   });
@@ -71,7 +71,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getResearchCatalogURL(searchValue);
       expect(url).toEqual(
-        "//www.nypl.org/research/research-catalog/search?q=foo%20bar&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=foo%20bar&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
 
@@ -79,7 +79,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getResearchCatalogURL(searchValue);
       expect(url).toEqual(
-        "//www.nypl.org/research/research-catalog/search?q=foo%20bar%2F%5C%3F%3D&searched_from=header_search&timestamp=1640995200000&lang=eng"
+        "//www.nypl.org/research/research-catalog/search?q=foo%20bar%2F%5C%3F%3D&searched_from=header_search&timestamp=1640995200000&lang=eng",
       );
     });
   });
@@ -106,7 +106,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar";
       const url = getNYPLSearchURL(searchValue);
       expect(url).toEqual(
-        "//www.nypl.org/search/foo%20bar?searched_from=header_search&timestamp=1640995200000"
+        "//www.nypl.org/search/foo%20bar?searched_from=header_search&timestamp=1640995200000",
       );
     });
 
@@ -114,7 +114,7 @@ describe("Header utils", () => {
       const searchValue = "foo bar/\\?=";
       const url = getNYPLSearchURL(searchValue);
       expect(url).toEqual(
-        "//www.nypl.org/search/foo%20bar%2F%5C%3F%3D?searched_from=header_search&timestamp=1640995200000"
+        "//www.nypl.org/search/foo%20bar%2F%5C%3F%3D?searched_from=header_search&timestamp=1640995200000",
       );
     });
   });

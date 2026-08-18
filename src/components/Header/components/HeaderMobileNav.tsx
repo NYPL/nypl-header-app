@@ -6,7 +6,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import {
-  Link,
   Logo,
   List,
   SimpleGrid,
