@@ -20,7 +20,7 @@ jest.mock("../../utils", () => ({
 describe("Header Accessibility", () => {
   beforeAll(() => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
-      key === "VITE_APP_ENV" ? "qa" : ""
+      key === "VITE_APP_ENV" ? "qa" : "",
     );
   });
 
@@ -30,11 +30,11 @@ describe("Header Accessibility", () => {
       Promise.resolve({
         status: 200,
         json: () => Promise.resolve(drupalResponse),
-      })
+      }),
     ) as jest.Mock;
 
     const { container } = await waitFor(() =>
-      render(<Header isProduction={false} />)
+      render(<Header isProduction={false} />),
     );
     expect(await axe(container)).toHaveNoViolations();
 
@@ -46,15 +46,13 @@ describe("Header Accessibility", () => {
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
 describe.skip("Header", () => {
-  let container;
-
   beforeEach(async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
         status: 200,
         json: () => Promise.resolve(drupalResponse),
-      })
+      }),
     ) as jest.Mock;
 
     // Mocks matchMedia so that the desktop view renders rather than mobile.
@@ -64,10 +62,9 @@ describe.skip("Header", () => {
       matches: true,
     })) as jest.Mock;
 
-    await waitFor(() => {
-      const utils = render(<Header isProduction={false} />);
-      container = utils.container;
-    });
+    // await waitFor(() => {
+    //   const utils = render(<Header isProduction={false} />);
+    // });
   });
 
   afterAll(() => {

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Prerelease
+
+## v1.4.2 - 8/18/26
+
+- Updates eslint and other packages [ISW-5965](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5965)
+
 ## v1.4.1 - 8/10/26
 
 - Adds GA4 `nav_click` event

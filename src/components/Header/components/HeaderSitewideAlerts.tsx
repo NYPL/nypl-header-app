@@ -30,7 +30,7 @@ export const HeaderSitewideAlerts = chakra(() => {
         const parsedData: Alert[] = parseAlertsData(data);
         setAlerts(parsedData);
       })
-      .catch((_error) => {
+      .catch(() => {
         // Override any error message with our own.
         console.warn(fetchErrorMessage);
       });

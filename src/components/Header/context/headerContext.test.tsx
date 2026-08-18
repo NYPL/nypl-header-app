@@ -23,11 +23,11 @@ describe("HeaderContext", () => {
     render(
       <HeaderProvider>
         <PatronTestComponent />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
 
     expect(
-      screen.queryByText(/The patron name is: Tom Nook/i)
+      screen.queryByText(/The patron name is: Tom Nook/i),
     ).not.toBeInTheDocument();
   });
 
@@ -35,11 +35,11 @@ describe("HeaderContext", () => {
     render(
       <HeaderProvider>
         <PatronTestComponent />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
 
     expect(
-      screen.queryByText(/The environment is: production/i)
+      screen.queryByText(/The environment is: production/i),
     ).not.toBeInTheDocument();
   });
 
@@ -47,11 +47,11 @@ describe("HeaderContext", () => {
     render(
       <HeaderProvider patronName="Tom Nook">
         <PatronTestComponent />
-      </HeaderProvider>
+      </HeaderProvider>,
     );
 
     expect(
-      screen.getByText(/The patron name is: Tom Nook/i)
+      screen.getByText(/The patron name is: Tom Nook/i),
     ).toBeInTheDocument();
   });
 });
