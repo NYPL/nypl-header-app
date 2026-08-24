@@ -15,7 +15,7 @@ jobs:
     env:
       CI: true
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Use Node.js version from .nvmrc
         uses: actions/setup-node@v3
