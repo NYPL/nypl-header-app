@@ -1,6 +1,6 @@
 import FocusLock from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import HeaderSearchForm from "./HeaderSearchForm";
 import {
@@ -28,6 +28,15 @@ const HeaderSearchButton = chakra(
     const ref = useRef<HTMLDivElement>(null);
 
     useCloseDropDown(setIsOpen, ref);
+
+    useEffect(() => {
+      if (!isOpen) return;
+      // Re-trigger Google Translate on newly mounted dropdown content
+      const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+      if (combo?.value && combo.value !== "en") {
+        setTimeout(() => combo.dispatchEvent(new Event("change")), 0);
+      }
+    }, [isOpen]);
 
     return (
       <Box ref={ref}>
