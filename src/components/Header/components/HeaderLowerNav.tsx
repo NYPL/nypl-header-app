@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
 import HeaderSearchButton from "./HeaderSearchButton";
 import { siteNavLinks } from "../utils/headerUtils";
-import { List, Select } from "@nypl/design-system-react-components";
+import { Icon, List } from "@nypl/design-system-react-components";
 import ListLink from "../../shared/ListLink";
 // Type
 import type { LinkItem } from "../../shared/ListLink";
@@ -17,8 +17,6 @@ const HeaderLowerNav = chakra(() => {
     const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
     return match ? match[1] : "en";
   };
-
-  const [language, setLanguage] = useState(getInitialLanguage);
 
   const listItems = siteNavLinks.map((item: LinkItem) => (
     <ListLink key={item.text} linkItem={item} />
@@ -43,20 +41,33 @@ const HeaderLowerNav = chakra(() => {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Removes Google Translate banner
+    if (!document.getElementById("google-translate-styles")) {
+      const style = document.createElement("style");
+      style.id = "google-translate-styles";
+      style.textContent = `
+        .goog-te-banner-frame, .skiptranslate > iframe, .VIpgJd-yDvfNd-ORT-KO { display: none !important; }
+        body { top: 0px !important; position: static !important; }
+      `;
+      document.head.appendChild(style);
+    }
   }, []);
 
   // Triggers Google Translate by selecting the language in its hidden widget select
-  const handleTranslate = (e) => {
-    console.log(e.target.value);
+  const handleTranslate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lang = e.target.value;
-    setLanguage(lang);
     if (!lang) return;
 
     const googleSelect =
       document.querySelector<HTMLSelectElement>(".goog-te-combo");
     if (googleSelect) {
       googleSelect.value = lang;
-      googleSelect.dispatchEvent(new Event("change"));
+      googleSelect.dispatchEvent(new Event("change", { bubbles: true }));
+
+      if (typeof (googleSelect as any).onchange === "function") {
+        (googleSelect as any).onchange();
+      }
     }
   };
 
@@ -70,34 +81,30 @@ const HeaderLowerNav = chakra(() => {
         listItems={[
           ...listItems,
           <HeaderSearchButton key="search" />,
-          <Box
-            key="translate"
-            className="notranslate"
-            translate="no"
-            minWidth="130px"
-          >
-            <Select
+          <Box key="translate" className="notranslate">
+            <chakra.select
+              appearance="none"
               id="google-translate-select"
               onChange={handleTranslate}
-              labelText="Translate Page"
               name="language"
-              showLabel={false}
-              value={language}
+              defaultValue={getInitialLanguage()}
+              aria-label="Translate Page"
+              fontSize="md"
             >
               <option value="" disabled>
                 Translate
               </option>
               <option value="en">English</option>
-              <option value="es">Spanish</option>
-              <option value="zh-CN">Chinese (Simplified)</option>
-              <option value="zh-TW">Chinese (Traditional)</option>
-              <option value="ru">Russian</option>
-              <option value="ar">Arabic</option>
-              <option value="fr">French</option>
-              <option value="ht">Haitian Creole</option>
-              <option value="ko">Korean</option>
-              <option value="ur">Urdu</option>
-            </Select>
+              <option value="es">Español</option>
+              <option value="zh-CN">中文（简体）</option>
+              <option value="zh-TW">中文（繁體）</option>
+              <option value="ru">Русский</option>
+              <option value="ar">العربية</option>
+              <option value="fr">Français</option>
+              <option value="ht">Kreyòl Ayisyen</option>
+              <option value="ko">한국어</option>
+              <option value="ur">اردو</option>
+            </chakra.select>
           </Box>,
         ]}
         noStyling

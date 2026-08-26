@@ -38,7 +38,8 @@ const HeaderLoginButton = chakra(
       if (isOpen) {
         catalogRef.current.focus();
         // Re-trigger Google Translate on newly mounted dropdown content
-        const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+        const combo =
+          document.querySelector<HTMLSelectElement>(".goog-te-combo");
         if (combo?.value && combo.value !== "en") {
           setTimeout(() => combo.dispatchEvent(new Event("change")), 0);
         }
