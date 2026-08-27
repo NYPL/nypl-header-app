@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  publish_qa:
+  publish_prod:
     name: Publish image to ECR and update ECS stack
     runs-on: ubuntu-latest
     steps:
@@ -28,8 +28,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-        with:
-          mask-password: "false"
 
       - name: Build, tag, and push image to Amazon ECR
         env:
