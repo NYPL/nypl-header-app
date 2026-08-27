@@ -6,6 +6,7 @@ import { List } from "@nypl/design-system-react-components";
 import ListLink from "../../shared/ListLink";
 // Type
 import type { LinkItem } from "../../shared/ListLink";
+import GTranslate from "./GTranlate";
 /**
  * This component renders the navigational list of links used to
  * navigate to different landing pages on NYPL.org.
@@ -21,7 +22,11 @@ const HeaderLowerNav = chakra(() => {
       <List
         id="header-nav-lower"
         inline
-        listItems={[...listItems, <HeaderSearchButton key="search" />]}
+        listItems={[
+          ...listItems,
+          <HeaderSearchButton key="search" />,
+          <GTranslate />,
+        ]}
         noStyling
         type="ul"
       />

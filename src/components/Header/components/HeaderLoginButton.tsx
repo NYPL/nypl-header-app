@@ -70,9 +70,11 @@ const HeaderLoginButton = chakra(
               title="Log in to your account"
             />
           </Button>
-          {isOpen && (
-            <HeaderLogin catalogRef={catalogRef} isMobile={isMobile} />
-          )}
+          <HeaderLogin
+            catalogRef={catalogRef}
+            isOpen={isOpen}
+            isMobile={isMobile}
+          />
         </FocusLock>
       </Box>
     );
