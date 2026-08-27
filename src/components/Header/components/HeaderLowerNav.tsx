@@ -25,7 +25,7 @@ const HeaderLowerNav = chakra(() => {
         listItems={[
           ...listItems,
           <HeaderSearchButton key="search" />,
-          <GTranslate />,
+          <GTranslate key="gtranslate" />,
         ]}
         noStyling
         type="ul"

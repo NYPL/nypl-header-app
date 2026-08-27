@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 
 import { getLoginLinks } from "../utils/headerUtils";

@@ -1,16 +1,5 @@
 import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    gtranslateSettings?: {
-      default_language: string;
-      languages: string[];
-      native_language_names: boolean;
-      wrapper_selector: string;
-    };
-  }
-}
-
 export default function GTranslate() {
   useEffect(() => {
     window.gtranslateSettings = {
