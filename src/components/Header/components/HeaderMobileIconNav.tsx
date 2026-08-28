@@ -6,6 +6,7 @@ import HeaderSearchButton from "./HeaderSearchButton";
 import { Link, Icon } from "@nypl/design-system-react-components";
 
 import { sendAnalyticsNavClickEvent } from "../../../utils";
+import GTranslate from "./GTranlate";
 
 /**
  * This component renders the mobile list of icon buttons for
@@ -30,6 +31,7 @@ const HeaderMobileIconNav = chakra(({ envPrefix }) => {
         <Icon name="mapsPlace" size="large" title="NYPL Locator" />
       </Link>
       <HeaderSearchButton isMobile />
+      <GTranslate isMobile />
       <HeaderMobileNavButton />
     </Flex>
   );

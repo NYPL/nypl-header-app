@@ -12,7 +12,6 @@ const HeaderLogin = {
   baseStyle: ({ patronName }) => ({
     bg: { base: headerBlack, mh: headerBlue },
     boxShadow: { base: "2px 2px 3px 4px rgb(100 100 100 / 25%)", mh: "none" },
-    // display: { base: "block", mh: "flex" },
     flexDirection: "column",
     left: { base: "0", mh: null },
     marginTop: { mh: "1px" },
