@@ -4,6 +4,8 @@ import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
 import { List } from "@nypl/design-system-react-components";
 import ListLink from "../../shared/ListLink";
+import GTranslate from "./GTranlate";
+import { useEffect } from "react";
 
 /**
  * This renders the navigational list of links for logging in, subscribing
@@ -24,11 +26,15 @@ const HeaderUpperNav = chakra(() => {
   ));
 
   return (
-    <Box as="nav" aria-label="Header top links" __css={styles}>
+    <Box as="nav" aria-label="Header top links" __css={styles} data-test="test">
       <List
         id="header-nav-upper"
         inline
-        listItems={[<HeaderLoginButton key="login" />, ...listItems]}
+        listItems={[
+          <HeaderLoginButton key="login" />,
+          ...listItems,
+          <GTranslate key="gtranslate" />,
+        ]}
         noStyling
         type="ul"
       />

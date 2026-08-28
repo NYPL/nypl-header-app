@@ -34,11 +34,11 @@ const HeaderLoginButton = chakra(
 
     useCloseDropDown(setIsOpen, wrapperRef);
 
-    useEffect(() => {
-      if (isOpen) {
-        catalogRef.current.focus();
-      }
-    }, [isOpen]);
+    // useEffect(() => {
+    //   if (isOpen) {
+    //     catalogRef.current.focus();
+    //   }
+    // }, [isOpen]);
 
     return (
       <Box ref={wrapperRef} position={{ mh: "relative" }}>
@@ -70,9 +70,11 @@ const HeaderLoginButton = chakra(
               title="Log in to your account"
             />
           </Button>
-          {isOpen && (
-            <HeaderLogin catalogRef={catalogRef} isMobile={isMobile} />
-          )}
+          <HeaderLogin
+            catalogRef={catalogRef}
+            isMobile={isMobile}
+            isOpen={isOpen}
+          />
         </FocusLock>
       </Box>
     );
