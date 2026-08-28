@@ -21,17 +21,20 @@ import {
 
 export interface HeaderSearchFormProps {
   isMobile?: boolean;
+  isOpen: boolean;
 }
 
 export type SearchOptionType =
-  "circulatingCatalog" | "researchCatalog" | "website";
+  | "circulatingCatalog"
+  | "researchCatalog"
+  | "website";
 
 /**
  * Displays the search form for the Header's search interface. On mobile, two
  * buttons are displayed and on desktop, two radio inputs are displayed.
  */
 const HeaderSearchForm = chakra(
-  ({ isMobile = false }: HeaderSearchFormProps) => {
+  ({ isMobile = false, isOpen }: HeaderSearchFormProps) => {
     const defaultSearchRadioValue: SearchOptionType = "circulatingCatalog";
     const [placeholder, setPlaceholder] = useState<string>(
       "What would you like to find?",
@@ -67,7 +70,7 @@ const HeaderSearchForm = chakra(
     };
 
     return (
-      <Box __css={styles}>
+      <Box __css={styles} sx={{ display: isOpen ? "block" : "none" }}>
         <Form
           id="search-header"
           gap="grid.m"

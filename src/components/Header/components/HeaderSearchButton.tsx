@@ -63,7 +63,7 @@ const HeaderSearchButton = chakra(
               />
             </span>
           </Button>
-          {isOpen && <HeaderSearchForm isMobile={isMobile} />}
+          <HeaderSearchForm isMobile={isMobile} isOpen={isOpen} />
         </FocusLock>
       </Box>
     );
