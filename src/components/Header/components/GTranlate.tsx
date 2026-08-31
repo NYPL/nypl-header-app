@@ -22,7 +22,6 @@ const GTranslate = () => {
     };
 
     const scriptUrl = "https://cdn.gtranslate.net/widgets/latest/dropdown.js";
-
     const existingScript = document.querySelector<HTMLScriptElement>(
       `script[src="${scriptUrl}"]`,
     );
@@ -30,8 +29,9 @@ const GTranslate = () => {
     // If GTranslate already initialized successfully, we're done.
     if (document.querySelector(".gt_selector")) return;
 
-    // Script exists but initialization failed.
-    // Remove it so we can execute it again now that the wrapper exists.
+    // Script was added but the widget didn't initialize — likely because
+    // .gtranslate_wrapper wasn't in the DOM yet when the script ran. Remove and
+    // re-add/run the script now that the wrapper exists.
     if (existingScript) {
       existingScript.remove();
     }

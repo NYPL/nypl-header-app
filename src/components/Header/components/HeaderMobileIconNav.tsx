@@ -31,7 +31,7 @@ const HeaderMobileIconNav = chakra(({ envPrefix }) => {
         <Icon name="mapsPlace" size="large" title="NYPL Locator" />
       </Link>
       <HeaderSearchButton isMobile />
-      <GTranslate isMobile />
+      <GTranslate />
       <HeaderMobileNavButton />
     </Flex>
   );
