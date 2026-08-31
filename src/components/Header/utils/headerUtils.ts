@@ -162,11 +162,15 @@ export const GTRANSLATE_CUSTOM_CSS = `
     background-position: right center;
     width: 105px;
   }
-  @media (max-width: 51.9375em) {
+  @media (max-width: 960px) {
     .gt_selector {
-      appearance: none;
-      background-image: none;
       color: transparent;
+      width: 15px;
+    }
+  }
+  @media (max-width: 832px) {
+    .gt_selector {
+      background-image: none;
       position: absolute;
       top: 0;
       left: 0;
