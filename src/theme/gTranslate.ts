@@ -4,6 +4,7 @@ import { headerFocus } from "./header";
 const GTranslate = {
   baseStyle: {
     backgroundColor: { lg: "var(--nypl-colors-ui-bg-default)" },
+    borderRadius: { lg: "var(--nypl-radii-sm)" },
     display: "flex",
     alignItems: "center",
     gap: "xxxs",
