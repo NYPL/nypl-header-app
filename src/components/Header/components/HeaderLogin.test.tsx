@@ -47,7 +47,7 @@ describe("HeaderLogin", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(
         <HeaderProvider>
-          <HeaderLogin />
+          <HeaderLogin isOpen />
         </HeaderProvider>,
       );
 
@@ -87,7 +87,7 @@ describe("HeaderLogin", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(
         <HeaderProvider>
-          <HeaderLogin isMobile />
+          <HeaderLogin isMobile isOpen />
         </HeaderProvider>,
       );
 
