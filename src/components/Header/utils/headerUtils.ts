@@ -172,6 +172,8 @@ export const GTRANSLATE_CUSTOM_CSS = `
       position: absolute;
       opacity: 0;
       cursor: pointer;
+      width: 100%;
+      max-width: 100%;
     }
   }
 `;
