@@ -8,7 +8,6 @@ const HeaderUpperNav = {
       alignItems: "center",
       display: "flex",
       margin: "0",
-      whiteSpace: "nowrap",
     },
     li: {
       fontSize: "var(--nypl-fontSizes-desktop-body-body2) !important",
@@ -20,6 +19,9 @@ const HeaderUpperNav = {
     },
     a: {
       color: "ui.black",
+      display: "inline-block !important",
+      maxWidth: "150px",
+      overflowWrap: "break-word",
       position: "relative",
       textDecoration: "none",
       _hover: {
