@@ -1,11 +1,10 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
+import GTranslate from "./GTranlate";
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
 import { List } from "@nypl/design-system-react-components";
 import ListLink from "../../shared/ListLink";
-import GTranslate from "./GTranlate";
-import { useEffect } from "react";
 
 /**
  * This renders the navigational list of links for logging in, subscribing
@@ -26,7 +25,7 @@ const HeaderUpperNav = chakra(() => {
   ));
 
   return (
-    <Box as="nav" aria-label="Header top links" __css={styles} data-test="test">
+    <Box as="nav" aria-label="Header top links" __css={styles}>
       <List
         id="header-nav-upper"
         inline

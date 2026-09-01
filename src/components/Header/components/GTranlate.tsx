@@ -1,15 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 import {
   supportedLanguages,
   GTRANSLATE_CUSTOM_CSS,
 } from "../utils/headerUtils";
 
-export interface GTranslateProps {}
-
 const GTranslate = () => {
-  const gtranslateRef = useRef<HTMLDivElement>(null);
-
   const styles = useStyleConfig("GTranslate");
 
   useEffect(() => {
@@ -43,9 +39,7 @@ const GTranslate = () => {
     document.body.appendChild(script);
   }, []);
 
-  return (
-    <Box ref={gtranslateRef} className="gtranslate_wrapper" __css={styles} />
-  );
+  return <Box className="gtranslate_wrapper" __css={styles} />;
 };
 
 export default GTranslate;
