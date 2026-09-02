@@ -43,7 +43,9 @@ const HeaderSearchForm = chakra(
     const [searchOption, setSearchOption] = useState<SearchOptionType>(
       defaultSearchRadioValue,
     );
-    const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
+    const styles = useMultiStyleConfig("HeaderSearchForm", {
+      isOpen,
+    });
 
     const onSubmit = (e: any) => {
       e.preventDefault();
@@ -70,7 +72,7 @@ const HeaderSearchForm = chakra(
     };
 
     return (
-      <Box __css={styles} sx={{ display: isOpen ? "block" : "none" }}>
+      <Box __css={styles}>
         <Form
           id="search-header"
           gap="grid.m"

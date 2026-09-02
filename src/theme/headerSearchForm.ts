@@ -2,7 +2,8 @@ import { headerLightBlue, headerBlue, headerFocus } from "./header";
 
 const HeaderSearchForm = {
   parts: ["searchBtn", "form", "radio", "textInput"],
-  baseStyle: {
+  baseStyle: ({ isOpen }) => ({
+    display: isOpen ? "block" : "none",
     color: "ui.white",
     backgroundColor: headerBlue,
     left: "0px",
@@ -113,7 +114,7 @@ const HeaderSearchForm = {
         color: "ui.white",
       },
     },
-  },
+  }),
 };
 
 export default HeaderSearchForm;
