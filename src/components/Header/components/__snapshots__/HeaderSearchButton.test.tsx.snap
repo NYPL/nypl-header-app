@@ -71,7 +71,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
       </span>
     </button>
     <div
-      className="css-1hyfx7x"
+      className="css-0"
     >
       <form
         aria-label="form"
@@ -463,7 +463,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
       </span>
     </button>
     <div
-      className="css-1hyfx7x"
+      className="css-0"
     >
       <form
         aria-label="form"
