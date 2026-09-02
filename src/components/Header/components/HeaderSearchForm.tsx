@@ -21,17 +21,20 @@ import {
 
 export interface HeaderSearchFormProps {
   isMobile?: boolean;
+  isOpen: boolean;
 }
 
 export type SearchOptionType =
-  "circulatingCatalog" | "researchCatalog" | "website";
+  | "circulatingCatalog"
+  | "researchCatalog"
+  | "website";
 
 /**
  * Displays the search form for the Header's search interface. On mobile, two
  * buttons are displayed and on desktop, two radio inputs are displayed.
  */
 const HeaderSearchForm = chakra(
-  ({ isMobile = false }: HeaderSearchFormProps) => {
+  ({ isMobile = false, isOpen }: HeaderSearchFormProps) => {
     const defaultSearchRadioValue: SearchOptionType = "circulatingCatalog";
     const [placeholder, setPlaceholder] = useState<string>(
       "What would you like to find?",
@@ -40,7 +43,9 @@ const HeaderSearchForm = chakra(
     const [searchOption, setSearchOption] = useState<SearchOptionType>(
       defaultSearchRadioValue,
     );
-    const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
+    const styles = useMultiStyleConfig("HeaderSearchForm", {
+      isOpen,
+    });
 
     const onSubmit = (e: any) => {
       e.preventDefault();
@@ -98,7 +103,7 @@ const HeaderSearchForm = chakra(
                     input: {
                       ...(styles.textInput as any)?.input,
                       _placeholder: {
-                        fontSize: { base: "18px", mh: "20px" },
+                        fontSize: { base: "18px", lh: "20px" },
                         fontStyle: "normal",
                       },
                     },
@@ -106,7 +111,7 @@ const HeaderSearchForm = chakra(
                 />
               </Fieldset>
             </FormField>
-            <FormField gridColumn={{ base: "3", mh: "4" }}>
+            <FormField gridColumn={{ base: "3", lh: "4" }}>
               <ButtonGroup>
                 <Button
                   aria-label="Search"

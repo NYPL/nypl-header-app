@@ -41,7 +41,7 @@ const HeaderLoginButton = chakra(
     }, [isOpen]);
 
     return (
-      <Box ref={wrapperRef} position={{ mh: "relative" }}>
+      <Box ref={wrapperRef} position={{ lh: "relative" }}>
         <FocusLock isDisabled={!isOpen}>
           <Button
             aria-label={desktopButtonLabel}
@@ -70,9 +70,11 @@ const HeaderLoginButton = chakra(
               title="Log in to your account"
             />
           </Button>
-          {isOpen && (
-            <HeaderLogin catalogRef={catalogRef} isMobile={isMobile} />
-          )}
+          <HeaderLogin
+            catalogRef={catalogRef}
+            isMobile={isMobile}
+            isOpen={isOpen}
+          />
         </FocusLock>
       </Box>
     );

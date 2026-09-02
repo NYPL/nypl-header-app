@@ -11,8 +11,8 @@ const HeaderSearchButton = {
     fontSize: "inherit !important",
     fontWeight: "medium",
     justifyContent: "center",
-    minHeight: { mh: "30px" },
-    minWidth: { mh: "80px" },
+    minHeight: { lh: "30px" },
+    minWidth: { lh: "80px" },
     textDecoration: "none",
     _dark: {
       bgColor: isOpen ? "section.research.secondary" : "transparent",
@@ -20,23 +20,23 @@ const HeaderSearchButton = {
     },
     span: {
       alignItems: "center",
-      borderBottom: { mh: "1px solid var(--nypl-colors-ui-link-primary)" },
+      borderBottom: { lh: "1px solid var(--nypl-colors-ui-link-primary)" },
       display: "inline-flex",
       _dark: {
-        borderBottom: isOpen ? "0" : { mh: "3px solid" },
-        borderColor: { mh: "dark.ui.link.primary" },
+        borderBottom: isOpen ? "0" : { lh: "3px solid" },
+        borderColor: { lh: "dark.ui.link.primary" },
       },
     },
     svg: {
-      marginLeft: { base: "0", mh: "xxs" },
+      marginLeft: { base: "0", lh: "xxs" },
       fill: {
         base: isOpen ? "ui.white" : "ui.black",
-        mh: isOpen ? "ui.white" : "ui.link.primary",
+        lh: isOpen ? "ui.white" : "ui.link.primary",
       },
       _dark: {
         fill: {
           base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-          mh: isOpen ? "ui.white" : "dark.ui.link.primary",
+          lh: isOpen ? "ui.white" : "dark.ui.link.primary",
         },
       },
     },
@@ -47,7 +47,7 @@ const HeaderSearchButton = {
       svg: {
         fill: {
           base: isOpen ? "ui.white" : "ui.black",
-          mh: isOpen ? "ui.white" : "ui.link.primary",
+          lh: isOpen ? "ui.white" : "ui.link.primary",
         },
       },
       _dark: {
@@ -55,7 +55,7 @@ const HeaderSearchButton = {
         svg: {
           fill: {
             base: isOpen ? "ui.white" : "dark.ui.typography.heading",
-            mh: isOpen ? "ui.white" : "dark.ui.link.primary",
+            lh: isOpen ? "ui.white" : "dark.ui.link.primary",
           },
         },
       },
