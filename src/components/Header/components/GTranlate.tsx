@@ -16,6 +16,7 @@ const GTranslate = () => {
       native_language_names: true,
       wrapper_selector: ".gtranslate_wrapper",
       custom_css: GTRANSLATE_CUSTOM_CSS,
+      detect_browser_language: true,
     };
 
     const scriptUrl = GTRANSLATE_CDN_URL;
