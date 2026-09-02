@@ -2,6 +2,8 @@
 
 ## Prerelease
 
+## v1.4.3 - 9/2/26
+
 - Updates github workflows
   [ISW-5970](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5970)
 
