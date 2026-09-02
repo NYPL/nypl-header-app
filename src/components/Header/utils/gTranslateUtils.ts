@@ -24,7 +24,7 @@ export const GTRANSLATE_CUSTOM_CSS = `
   }
   .gt_selector:focus,
   .gt_selector:focus-visible {
-    outline: none;
+    outline: none !important;
   }
   @media (min-width: 64em) {
     .gt_selector {

@@ -21,6 +21,8 @@ const GTranslate = {
       flexShrink: 0,
     },
     _focusWithin: headerFocus,
+    _focus: { outline: "none" },
+    _focusVisible: { outline: "none" },
   },
 };
 
