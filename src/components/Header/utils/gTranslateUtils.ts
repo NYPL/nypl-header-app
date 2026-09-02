@@ -38,6 +38,9 @@ export const GTRANSLATE_CUSTOM_CSS = `
       background-image: none;
       padding: unset;
       position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
       opacity: 0;
       cursor: pointer;
       width: 100%;
