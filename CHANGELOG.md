@@ -6,6 +6,8 @@
 
 - Updates github workflows
   [ISW-5970](https://newyorkpubliclibrary.atlassian.net/browse/ISW-5970)
+- Adds GTranslate widget
+  [ISW-6048](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6048)
 
 ## v1.4.2 - 8/18/26
 
