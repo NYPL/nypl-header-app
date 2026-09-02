@@ -21,6 +21,9 @@ const HeaderUpperNav = {
       color: "ui.black",
       display: "inline-block !important",
       maxWidth: "150px",
+      // This wraps long translated text
+      // so the header doesn't get pushed
+      // too far
       overflowWrap: "break-word",
       position: "relative",
       textDecoration: "none",

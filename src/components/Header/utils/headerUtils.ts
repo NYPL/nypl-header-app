@@ -155,15 +155,19 @@ export const GLOBE_ICON_SVG_URL = `url("data:image/svg+xml,%3Csvg xmlns='http://
 export const GTRANSLATE_CUSTOM_CSS = `
   .gt_selector {
     appearance: none;
-    background-color: var(--nypl-colors-ui-bg-default);
-    padding: var(--nypl-space-xxxs) var(--nypl-space-xxs) var(--nypl-space-xxxs) 0px;
-    width: fit-content;
   }
   .gt_selector:focus,
   .gt_selector:focus-visible {
     outline: none;
   }
-  @media (max-width: 960px) {
+  @media (min-width: 64em) {
+    .gt_selector {
+      background-color: var(--nypl-colors-ui-bg-default);
+      padding: var(--nypl-space-xxs) var(--nypl-space-xs) var(--nypl-space-xxs) 0px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 63.99em) {
     .gt_selector {
       background-image: none;
       padding: unset;

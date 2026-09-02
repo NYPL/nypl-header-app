@@ -28,7 +28,7 @@ const HeaderLogin = chakra(
       <VStack
         __css={{ ...styles }}
         sx={{
-          display: isOpen ? { base: "block", mh: "flex" } : "none",
+          display: isOpen ? { base: "block", lh: "flex" } : "none",
         }}
       >
         <List

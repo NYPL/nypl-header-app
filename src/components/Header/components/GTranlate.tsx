@@ -3,6 +3,7 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 import {
   supportedLanguages,
   GTRANSLATE_CUSTOM_CSS,
+  GTRANSLATE_CDN_URL,
 } from "../utils/headerUtils";
 
 const GTranslate = () => {
@@ -17,7 +18,7 @@ const GTranslate = () => {
       custom_css: GTRANSLATE_CUSTOM_CSS,
     };
 
-    const scriptUrl = "https://cdn.gtranslate.net/widgets/latest/dropdown.js";
+    const scriptUrl = GTRANSLATE_CDN_URL;
     const existingScript = document.querySelector<HTMLScriptElement>(
       `script[src="${scriptUrl}"]`,
     );
