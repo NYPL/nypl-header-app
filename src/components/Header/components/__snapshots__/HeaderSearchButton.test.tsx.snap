@@ -99,7 +99,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                   Enter a keyword, then choose to search either the catalog or the website
                 </legend>
                 <div
-                  className="css-1annanu"
+                  className="css-j9zsii"
                   id="searchInput-wrapper"
                 >
                   <label
@@ -132,7 +132,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
               </fieldset>
             </div>
             <div
-              className="css-1akhhia"
+              className="css-187tdu5"
               id="search-header-child0-grandchild1"
             >
               <div
@@ -491,7 +491,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                   Enter a keyword, then choose to search either the catalog or the website
                 </legend>
                 <div
-                  className="css-1annanu"
+                  className="css-j9zsii"
                   id="searchInput-wrapper"
                 >
                   <label
@@ -524,7 +524,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
               </fieldset>
             </div>
             <div
-              className="css-1akhhia"
+              className="css-187tdu5"
               id="search-header-child0-grandchild1"
             >
               <div
