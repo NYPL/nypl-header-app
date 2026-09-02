@@ -1,4 +1,4 @@
-import { GLOBE_ICON_SVG_URL } from "../components/Header/utils/headerUtils";
+import { GLOBE_ICON_SVG_URL } from "../components/Header/utils/gTranslateUtils";
 import { headerFocus } from "./header";
 
 const GTranslate = {

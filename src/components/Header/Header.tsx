@@ -8,7 +8,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
-  useNYPLBreakpoints,
   SkipNavigation,
   Link,
   Logo,
@@ -43,10 +42,8 @@ export interface HeaderProps {
 export const Header = chakra(
   ({ fetchSitewideAlerts = true, isProduction = true }: HeaderProps) => {
     const envPrefix = getEnvVar("VITE_APP_ENV") === "qa" ? "qa-" : "";
-    // isLargerThanLarge is greater than 960px
-    // const { isLargerThanLarge } = useNYPLBreakpoints();
 
-    // The Header's "large" is 1024px and below.
+    // The Header's "large" is 1024px.
     const [isLargerThanLargeHeader] = useMediaQuery([
       `(min-width: ${headerBreakpoints.lh})`,
     ]);

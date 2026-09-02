@@ -4,7 +4,7 @@ import {
   supportedLanguages,
   GTRANSLATE_CUSTOM_CSS,
   GTRANSLATE_CDN_URL,
-} from "../utils/headerUtils";
+} from "../utils/gTranslateUtils";
 
 const GTranslate = () => {
   const styles = useStyleConfig("GTranslate");
