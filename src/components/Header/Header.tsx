@@ -8,7 +8,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
-  useNYPLBreakpoints,
   SkipNavigation,
   Link,
   Logo,
@@ -43,11 +42,10 @@ export interface HeaderProps {
 export const Header = chakra(
   ({ fetchSitewideAlerts = true, isProduction = true }: HeaderProps) => {
     const envPrefix = getEnvVar("VITE_APP_ENV") === "qa" ? "qa-" : "";
-    // isLargerThanLarge is greater than 960px
-    const { isLargerThanLarge } = useNYPLBreakpoints();
-    // The Header's "mobile" is 832px and below.
-    const [isLargerThanMobile] = useMediaQuery([
-      `(min-width: ${headerBreakpoints.mh})`,
+
+    // The Header's "large" is 1024px.
+    const [isLargerThanLargeHeader] = useMediaQuery([
+      `(min-width: ${headerBreakpoints.lh})`,
     ]);
 
     const styles = useMultiStyleConfig("Header", {});
@@ -94,6 +92,8 @@ export const Header = chakra(
           <SkipNavigation />
           {fetchSitewideAlerts ? <HeaderSitewideAlerts /> : null}
           <header>
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-ignore */}
             <HStack __css={styles.container}>
               <Link
                 aria-label="The New York Public Library"
@@ -109,16 +109,16 @@ export const Header = chakra(
                 <Logo
                   aria-label="NYPL Header Logo"
                   name={
-                    isLargerThanLarge
+                    isLargerThanLargeHeader
                       ? useColorModeValue("nyplFullBlack", "nyplFullWhite")
                       : useColorModeValue("nyplLionBlack", "nyplLionWhite")
                   }
-                  size={isLargerThanMobile ? "large" : "small"}
+                  size={isLargerThanLargeHeader ? "large" : "small"}
                   title="NYPL Header Logo"
                 />
               </Link>
               <Spacer />
-              {isLargerThanMobile ? (
+              {isLargerThanLargeHeader ? (
                 <VStack alignItems="end" __css={styles.navContainer}>
                   <HeaderUpperNav />
                   <HeaderLowerNav />

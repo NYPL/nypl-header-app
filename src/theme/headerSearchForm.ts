@@ -2,11 +2,12 @@ import { headerLightBlue, headerBlue, headerFocus } from "./header";
 
 const HeaderSearchForm = {
   parts: ["searchBtn", "form", "radio", "textInput"],
-  baseStyle: {
+  baseStyle: ({ isOpen }) => ({
+    display: isOpen ? "block" : "none",
     color: "ui.white",
     backgroundColor: headerBlue,
     left: "0px",
-    minHeight: { base: "180px", mh: "235px" },
+    minHeight: { base: "180px", lh: "235px" },
     position: "absolute",
     whiteSpace: "initial",
     width: "100%",
@@ -17,31 +18,31 @@ const HeaderSearchForm = {
       marginTop: "0",
     },
     form: {
-      margin: { mh: "45px auto 40px auto" },
-      maxWidth: { mh: "1312px" },
+      margin: { lh: "45px auto 40px auto" },
+      maxWidth: { lh: "1312px" },
       whiteSpace: "initial",
       "> div": {
         margin: "20px 15px",
-        marginLeft: { mh: "m", lh: "140px" },
-        marginRight: { mh: "m" },
+        marginLeft: { lh: "m", xl: "140px" },
+        marginRight: { lh: "m" },
       },
     },
     "#radio-group-search-type": {
-      margin: { base: "0 20px 20px", mh: "0" },
+      margin: { base: "0 20px 20px", lh: "0" },
     },
     textInput: {
       label: {
         color: "ui.white",
         fontSize: {
           base: "heading.callout",
-          mh: "heading.secondary",
+          lh: "heading.secondary",
         },
       },
       input: {
-        borderRadius: { mh: "5px" },
+        borderRadius: { lh: "5px" },
         color: "ui.black",
-        minHeight: { base: "65px", mh: "60px" },
-        paddingLeft: { base: "25px", mh: "15px" },
+        minHeight: { base: "65px", lh: "60px" },
+        paddingLeft: { base: "25px", lh: "15px" },
         _placeholder: {
           fontSize: { base: "20px" },
           fontStyle: "normal",
@@ -59,14 +60,14 @@ const HeaderSearchForm = {
       borderColor: "ui.white",
       borderRadius: "100px",
       borderWidth: "2px",
-      height: { base: "65px", mh: "60px" },
+      height: { base: "65px", lh: "60px" },
       marginTop: "40px",
       marginEnd: "0",
       maxHeight: "65px",
       svg: {
         marginTop: "xs",
       },
-      width: { base: "65px", mh: "60px" },
+      width: { base: "65px", lh: "60px" },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",
@@ -113,7 +114,7 @@ const HeaderSearchForm = {
         color: "ui.white",
       },
     },
-  },
+  }),
 };
 
 export default HeaderSearchForm;
