@@ -2,6 +2,11 @@
 
 ## Prerelease
 
+## v1.5.0 - 9/8/26
+
+- Adds GTranslate widget
+  [ISW-6048](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6048)
+
 ## v1.4.3 - 9/2/26
 
 - Updates github workflows

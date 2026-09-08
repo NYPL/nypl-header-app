@@ -1,5 +1,6 @@
 import breakpoints from "./foundation/breakpoints";
 import Footer from "./footer";
+import GTranslate from "./gTranslate";
 import Header from "./header";
 import HeaderLogin from "./headerLogin";
 import HeaderLoginButton from "./headerLoginButton";
@@ -16,6 +17,7 @@ const theme: any = {
   breakpoints,
   components: {
     Footer,
+    GTranslate,
     Header,
     HeaderLogin,
     HeaderLoginButton,

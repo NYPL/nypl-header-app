@@ -6,7 +6,7 @@ const HeaderMobileIconNav = {
       minHeight: "60px",
       minWidth: "60px",
     },
-    "> a": {
+    "> a, .gtranslate_wrapper": {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

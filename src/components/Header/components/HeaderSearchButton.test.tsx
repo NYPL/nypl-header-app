@@ -2,10 +2,15 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as renderer from "react-test-renderer";
+import { DSProvider } from "@nypl/design-system-react-components";
 
 import HeaderSearchButton from "./HeaderSearchButton";
+import theme from "../../../theme";
 
 import * as envUtils from "../../../utils";
+
+const renderWithTheme = (ui: React.ReactElement) =>
+  render(<DSProvider theme={theme}>{ui}</DSProvider>);
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
@@ -40,18 +45,18 @@ describe("HeaderSearchButton", () => {
   });
   describe("Desktop", () => {
     beforeEach(() => {
-      render(<HeaderSearchButton />);
+      renderWithTheme(<HeaderSearchButton />);
     });
 
     it("renders a Search button", () => {
-      const searchBtn = screen.getByRole("button");
+      const searchBtn = screen.getByLabelText("Open Search");
 
       expect(searchBtn).toBeInTheDocument();
       expect(searchBtn).toHaveTextContent(/search/i);
     });
 
     it("renders a Close button when clicked", () => {
-      const searchBtn = screen.getByRole("button");
+      const searchBtn = screen.getByLabelText("Open Search");
 
       expect(searchBtn).toHaveTextContent(/search/i);
       expect(screen.getByTitle(/Open Search/i)).toBeInTheDocument();
@@ -65,7 +70,7 @@ describe("HeaderSearchButton", () => {
     });
 
     it("renders the search form when clicked", () => {
-      const searchBtn = screen.getByRole("button");
+      const searchBtn = screen.getByLabelText("Open Search");
 
       expect(screen.queryByRole("form")).not.toBeInTheDocument();
 
@@ -77,7 +82,7 @@ describe("HeaderSearchButton", () => {
 
   describe("Mobile", () => {
     beforeEach(() => {
-      render(<HeaderSearchButton isMobile />);
+      renderWithTheme(<HeaderSearchButton isMobile />);
     });
 
     // todo: take a look at why this is failing
@@ -91,7 +96,7 @@ describe("HeaderSearchButton", () => {
     // });
 
     it("renders a Close button when clicked", () => {
-      const searchBtn = screen.getByRole("button");
+      const searchBtn = screen.getByLabelText("Open Search");
 
       expect(searchBtn).toHaveAttribute("aria-label", "Open Search");
 
@@ -101,7 +106,7 @@ describe("HeaderSearchButton", () => {
     });
 
     it("renders the search form when clicked", () => {
-      const searchBtn = screen.getByRole("button");
+      const searchBtn = screen.getByLabelText("Open Search");
 
       expect(screen.queryByRole("form")).not.toBeInTheDocument();
 

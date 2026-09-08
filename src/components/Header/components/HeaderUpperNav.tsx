@@ -1,5 +1,6 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
+import GTranslate from "./GTranlate";
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
 import { List } from "@nypl/design-system-react-components";
@@ -28,7 +29,11 @@ const HeaderUpperNav = chakra(() => {
       <List
         id="header-nav-upper"
         inline
-        listItems={[<HeaderLoginButton key="login" />, ...listItems]}
+        listItems={[
+          <HeaderLoginButton key="login" />,
+          ...listItems,
+          <GTranslate key="gtranslate" />,
+        ]}
         noStyling
         type="ul"
       />

@@ -19,12 +19,12 @@ describe("HeaderSearchForm Accessibility", () => {
   });
 
   it("passes axe accessibility test", async () => {
-    const { container } = render(<HeaderSearchForm />);
+    const { container } = render(<HeaderSearchForm isOpen />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for mobile view", async () => {
-    const { container } = render(<HeaderSearchForm isMobile />);
+    const { container } = render(<HeaderSearchForm isMobile isOpen />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -73,7 +73,7 @@ describe("HeaderSearchForm", () => {
 
   describe("Desktop", () => {
     beforeEach(() => {
-      render(<HeaderSearchForm />);
+      render(<HeaderSearchForm isOpen />);
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
@@ -145,7 +145,7 @@ describe("HeaderSearchForm", () => {
 
   describe("Mobile", () => {
     beforeEach(() => {
-      render(<HeaderSearchForm isMobile />);
+      render(<HeaderSearchForm isMobile isOpen />);
     });
 
     it("renders a form with an input and three radios on mobile", () => {
@@ -211,9 +211,11 @@ describe("HeaderSearchForm", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const headersearchForm = renderer.create(<HeaderSearchForm />).toJSON();
+    const headersearchForm = renderer
+      .create(<HeaderSearchForm isOpen />)
+      .toJSON();
     const headersearchFormMobile = renderer
-      .create(<HeaderSearchForm isMobile />)
+      .create(<HeaderSearchForm isMobile isOpen />)
       .toJSON();
 
     expect(headersearchForm).toMatchSnapshot();
