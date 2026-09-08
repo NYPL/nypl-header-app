@@ -88,6 +88,7 @@ export const Header = chakra(
               marginBottom: "0px !important",
             },
           }}
+          dir="ltr"
         >
           <SkipNavigation />
           {fetchSitewideAlerts ? <HeaderSitewideAlerts /> : null}
