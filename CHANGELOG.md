@@ -2,6 +2,10 @@
 
 ## Prerelease
 
+- Updates docs around header placeholder given the changes made during the
+  GTranslate update
+  [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+
 ## v1.5.0 - 9/8/26
 
 - Adds GTranslate widget
