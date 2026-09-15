@@ -2,6 +2,9 @@
 
 ## Prerelease
 
+- Updates placeholder style docs after changes made by adding GTranslate
+  [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+
 ## v1.5.0 - 9/8/26
 
 - Adds GTranslate widget
