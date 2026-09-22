@@ -20,11 +20,11 @@ export const supportedLanguages = [
 ];
 
 // The localStorage key GTranslate uses to persist the user's
-// previously selected target language.
+// previously selected language.
 export const GT_TRANSLATE_LANGS_KEY = "__GT_TRANSLATE_LANGS";
 
 // Maps a lowercased `navigator.language` value to a GTranslate language code,
-// mirroring the mapping in GTranslate's dropdown.js widget script.
+// mirroring the mapping in GTranslate's script.
 const mapBrowserLanguageToGTranslateCode = (browserLanguage: string) => {
   switch (browserLanguage) {
     case "zh":
