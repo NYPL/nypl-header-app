@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
-import { sendAnalyticsPageLanguageEvent } from "../../../utils";
+import { sendAnalyticsPageLanguageEvent } from "../../../analytics";
 import {
   DEFAULT_LANGUAGE,
   getInitialPageLanguage,

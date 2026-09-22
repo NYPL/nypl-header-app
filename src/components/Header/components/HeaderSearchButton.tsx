@@ -9,7 +9,7 @@ import {
   useCloseDropDown,
 } from "@nypl/design-system-react-components";
 
-import { sendAnalyticsNavClickEvent } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../analytics";
 
 export interface HeaderSearchButtonProps {
   isMobile?: boolean;
