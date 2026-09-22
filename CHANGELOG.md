@@ -4,6 +4,8 @@
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+- Adds `page_language` GA4 event to track initial page language
+  [ISW-6076](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6076)
 
 ## v1.5.0 - 9/8/26
 

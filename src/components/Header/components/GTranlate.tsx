@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
+import { sendAnalyticsPageLanguageEvent } from "../../../utils";
 import {
-  supportedLanguages,
-  GTRANSLATE_CUSTOM_CSS,
+  DEFAULT_LANGUAGE,
+  getInitialPageLanguage,
   GTRANSLATE_CDN_URL,
+  GTRANSLATE_CUSTOM_CSS,
+  supportedLanguages,
 } from "../utils/gTranslateUtils";
 
 const GTranslate = () => {
@@ -11,13 +14,16 @@ const GTranslate = () => {
 
   useEffect(() => {
     window.gtranslateSettings = {
-      default_language: "en",
+      default_language: DEFAULT_LANGUAGE,
       languages: supportedLanguages,
       native_language_names: true,
       wrapper_selector: ".gtranslate_wrapper",
       custom_css: GTRANSLATE_CUSTOM_CSS,
       detect_browser_language: true,
     };
+
+    // Fire once per mount to capture the initial page language
+    sendAnalyticsPageLanguageEvent(getInitialPageLanguage());
 
     const scriptUrl = GTRANSLATE_CDN_URL;
     const existingScript = document.querySelector<HTMLScriptElement>(

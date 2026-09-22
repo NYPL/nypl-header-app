@@ -6,6 +6,35 @@ export const getEnvVar = (key: string) => {
   return import.meta.env[key];
 };
 
+/**
+ * Converts all string values in a parameter object to lowercase,
+ */
+const toLowerCaseParameters = (
+  parameters: Record<string, any>,
+): Record<string, any> =>
+  Object.entries(parameters).reduce(
+    (lowerCaseParameters: Record<string, any>, [key, value]) => {
+      if (typeof value !== "string") {
+        lowerCaseParameters[key] = value;
+      } else {
+        lowerCaseParameters[key] = value.toLowerCase();
+      }
+      return lowerCaseParameters;
+    },
+    {},
+  );
+
+const sendGaEvent = (event): void => {
+  const { eventType, eventParameters } = event;
+  const lowerCaseParameters = toLowerCaseParameters(eventParameters);
+  // with GTM
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventType,
+    ...lowerCaseParameters,
+  });
+};
+
 // GA4 custom `nav_click` event
 const DEFAULT_CLICK_URL = "(not set)";
 const HTTPS_URL_PREFIX = "https:";
@@ -29,12 +58,25 @@ export const sendAnalyticsNavClickEvent = ({
         : HTTPS_URL_PREFIX + clickUrl
       : DEFAULT_CLICK_URL;
 
-    window.dataLayer.push({
-      event: "nav_click",
-      click_text: clickText.toLowerCase(),
-      click_url: finalClickUrl,
-      // `element_placement` is always "header" until we add the footer
-      element_placement: "header",
+    sendGaEvent({
+      eventType: "nav_click",
+      eventParameters: {
+        click_text: clickText,
+        click_url: finalClickUrl,
+        // `element_placement` is always "header" until we add the footer
+        element_placement: "header",
+      },
+    });
+  }
+};
+
+export const sendAnalyticsPageLanguageEvent = (pageLanguage: string) => {
+  if (typeof window !== "undefined") {
+    sendGaEvent({
+      eventType: "page_language",
+      eventParameters: {
+        page_language: pageLanguage,
+      },
     });
   }
 };
