@@ -59,7 +59,6 @@ const GTranslate = () => {
 
     const handleLanguageChange = (event: Event) => {
       const target = event.target as HTMLSelectElement;
-      console.log("Language change event:", target);
       if (!target.classList?.contains(GT_SELECTOR_CLASS)) return;
 
       const language = getLanguageFromSelectValue(target.value);
