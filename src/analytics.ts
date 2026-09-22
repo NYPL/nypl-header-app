@@ -72,3 +72,14 @@ export const sendAnalyticsPageLanguageEvent = (pageLanguage: string) => {
     });
   }
 };
+
+export const sendAnalyticsLanguageChangeEvent = (language: string) => {
+  if (typeof window !== "undefined") {
+    sendGaEvent({
+      eventType: "language_change",
+      eventParameters: {
+        page_language: language,
+      },
+    });
+  }
+};

@@ -1,9 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
-import { sendAnalyticsPageLanguageEvent } from "../../../analytics";
+import {
+  sendAnalyticsLanguageChangeEvent,
+  sendAnalyticsPageLanguageEvent,
+} from "../../../analytics";
 import {
   DEFAULT_LANGUAGE,
   getInitialPageLanguage,
+  getLanguageFromSelectValue,
+  GT_SELECTOR_CLASS,
   GTRANSLATE_CDN_URL,
   GTRANSLATE_CUSTOM_CSS,
   supportedLanguages,
@@ -11,6 +16,7 @@ import {
 
 const GTranslate = () => {
   const styles = useStyleConfig("GTranslate");
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.gtranslateSettings = {
@@ -47,7 +53,26 @@ const GTranslate = () => {
     document.body.appendChild(script);
   }, []);
 
-  return <Box className="gtranslate_wrapper" __css={styles} />;
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const handleLanguageChange = (event: Event) => {
+      const target = event.target as HTMLSelectElement;
+      console.log("Language change event:", target);
+      if (!target.classList?.contains(GT_SELECTOR_CLASS)) return;
+
+      const language = getLanguageFromSelectValue(target.value);
+      if (language) {
+        sendAnalyticsLanguageChangeEvent(language);
+      }
+    };
+
+    wrapper.addEventListener("change", handleLanguageChange);
+    return () => wrapper.removeEventListener("change", handleLanguageChange);
+  }, []);
+
+  return <Box ref={wrapperRef} className="gtranslate_wrapper" __css={styles} />;
 };
 
 export default GTranslate;
