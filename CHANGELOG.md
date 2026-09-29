@@ -4,6 +4,7 @@
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+- Updates a few npm packages for security updates (no ref)
 
 ## v1.5.0 - 9/8/26
 
