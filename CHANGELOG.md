@@ -4,6 +4,8 @@
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+- Adds Italian and Yiddish support to GTranslate widget
+  [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088)
 
 ## v1.5.0 - 9/8/26
 
