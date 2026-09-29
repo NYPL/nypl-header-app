@@ -62,17 +62,6 @@ export const sendAnalyticsNavClickEvent = ({
   }
 };
 
-export const sendAnalyticsPageLanguageEvent = (pageLanguage: string) => {
-  if (typeof window !== "undefined") {
-    sendGaEvent({
-      eventType: "page_language",
-      eventParameters: {
-        page_language: pageLanguage,
-      },
-    });
-  }
-};
-
 export const sendAnalyticsLanguageChangeEvent = (language: string) => {
   if (typeof window !== "undefined") {
     sendGaEvent({

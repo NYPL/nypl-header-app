@@ -19,61 +19,8 @@ export const supportedLanguages = [
   "ur",
 ];
 
-// The localStorage key GTranslate uses to persist the user's
-// previously selected language.
-export const GT_TRANSLATE_LANGS_KEY = "__GT_TRANSLATE_LANGS";
-
 // The class GTranslate assigns to the <select> it injects into our wrapper.
 export const GT_SELECTOR_CLASS = "gt_selector";
-
-// Maps a lowercased `navigator.language` value to a GTranslate language code,
-// mirroring the mapping in GTranslate's script.
-const mapBrowserLanguageToGTranslateCode = (browserLanguage: string) => {
-  switch (browserLanguage) {
-    case "zh":
-    case "zh-cn":
-      return "zh-CN";
-    case "zh-tw":
-    case "zh-hk":
-      return "zh-TW";
-    case "he":
-      return "iw";
-    default:
-      return browserLanguage.substring(0, 2);
-  }
-};
-
-/**
- * Determines the page's initial language using the same resolution
- * order as GTranslate:
- * 1. A previously selected language, persisted in localStorage.
- * 2. The browser's language setting, if it's one of our supported languages.
- * 3. The site's default language.
- */
-export const getInitialPageLanguage = (): string => {
-  try {
-    const stored = JSON.parse(
-      window.localStorage.getItem(GT_TRANSLATE_LANGS_KEY) || "null",
-    );
-    if (stored && typeof stored.tgtLang === "string") {
-      return stored.tgtLang;
-    }
-  } catch {
-    // Ignore malformed localStorage value and fall through to browser detection.
-  }
-
-  const browserLanguage = (window.navigator.language || "").toLowerCase();
-  const preferredLanguage = mapBrowserLanguageToGTranslateCode(browserLanguage);
-
-  if (
-    preferredLanguage !== DEFAULT_LANGUAGE &&
-    supportedLanguages.includes(preferredLanguage)
-  ) {
-    return preferredLanguage;
-  }
-
-  return DEFAULT_LANGUAGE;
-};
 
 /**
  * GTranslate's <select> options are valued as `defaultLanguage|targetLanguage`

@@ -1,12 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
-import {
-  sendAnalyticsLanguageChangeEvent,
-  sendAnalyticsPageLanguageEvent,
-} from "../../../analytics";
+import { sendAnalyticsLanguageChangeEvent } from "../../../analytics";
 import {
   DEFAULT_LANGUAGE,
-  getInitialPageLanguage,
   getLanguageFromSelectValue,
   GT_SELECTOR_CLASS,
   GTRANSLATE_CDN_URL,
@@ -27,9 +23,6 @@ const GTranslate = () => {
       custom_css: GTRANSLATE_CUSTOM_CSS,
       detect_browser_language: true,
     };
-
-    // Fire once per mount to capture the initial page language
-    sendAnalyticsPageLanguageEvent(getInitialPageLanguage());
 
     const scriptUrl = GTRANSLATE_CDN_URL;
     const existingScript = document.querySelector<HTMLScriptElement>(
