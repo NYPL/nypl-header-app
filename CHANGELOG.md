@@ -6,6 +6,8 @@
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
 - Adds Italian and Yiddish support to GTranslate widget
   [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088)
+- Fixes bug where RTL languages exposed 10000px of scrollable space to the left
+  of the header (no ref)
 
 ## v1.5.0 - 9/8/26
 
