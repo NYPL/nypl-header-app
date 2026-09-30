@@ -4,6 +4,12 @@
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
+- Adds e2e test for header search open/close toggle in `global-header.spec.ts`
+  [ISW-6078](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6078)
+- Adds Italian and Yiddish support to GTranslate widget
+  [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088)
+- Fixes bug where RTL languages exposed 10000px of scrollable space to the left
+  of the header (no ref)
 
 ## v1.5.0 - 9/8/26
 
