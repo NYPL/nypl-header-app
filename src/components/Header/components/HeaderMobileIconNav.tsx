@@ -6,7 +6,7 @@ import HeaderSearchButton from "./HeaderSearchButton";
 import { Link, Icon } from "@nypl/design-system-react-components";
 
 import { sendAnalyticsNavClickEvent } from "../../../analytics";
-import GTranslate from "./GTranlate";
+import GTranslate from "./GTranslate";
 
 /**
  * This component renders the mobile list of icon buttons for
