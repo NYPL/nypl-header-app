@@ -10,6 +10,7 @@
   [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088)
 - Fixes bug where RTL languages exposed 10000px of scrollable space to the left
   of the header (no ref)
+- Updates `js-cookie` and `@vitejs/plugin-react` npm packages for security updates (no ref)
 
 ## v1.5.0 - 9/8/26
 
