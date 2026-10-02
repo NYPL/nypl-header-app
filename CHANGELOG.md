@@ -4,7 +4,6 @@
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
-  [ISW-6035](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6035)
 - Adds e2e test for header search open/close toggle in `global-header.spec.ts`
   [ISW-6078](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6078)
 - Adds Italian and Yiddish support to GTranslate widget
@@ -14,6 +13,7 @@
 - Updates `js-cookie` and `@vitejs/plugin-react` npm packages for security
   updates (no ref)
 - Adds `language_change` GA4 event to track interaction with GTranslate widget
+  [ISW-6073](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6073)
 
 ## v1.5.0 - 9/8/26
 
