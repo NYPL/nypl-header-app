@@ -7,24 +7,25 @@ import { DSProvider } from "@nypl/design-system-react-components";
 import HeaderSearchButton from "./HeaderSearchButton";
 import theme from "../../../theme";
 
-import * as envUtils from "../../../utils";
+import { getEnvVar } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../analytics";
 
 const renderWithTheme = (ui: React.ReactElement) =>
   render(<DSProvider theme={theme}>{ui}</DSProvider>);
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
+}));
+jest.mock("../../../analytics", () => ({
   sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderSearchButton Accessibility", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
-    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
-      () => {},
-    );
+    (sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(() => {});
   });
   it("passes axe accessibility test", async () => {
     const { container } = render(<HeaderSearchButton />);
@@ -39,7 +40,7 @@ describe("HeaderSearchButton Accessibility", () => {
 
 describe("HeaderSearchButton", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
   });

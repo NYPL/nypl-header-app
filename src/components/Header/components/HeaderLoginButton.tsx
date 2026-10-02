@@ -9,7 +9,7 @@ import {
 } from "@nypl/design-system-react-components";
 import HeaderLogin from "./HeaderLogin";
 
-import { sendAnalyticsNavClickEvent } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../analytics";
 
 export interface HeaderLoginButtonProps {
   isMobile?: boolean;
