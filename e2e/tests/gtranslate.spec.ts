@@ -95,18 +95,23 @@ test.describe("GTranslate", () => {
     page,
     browserName,
   }) => {
-    // Known bug (found 2026-10-02): WebKit/Safari drops the
-    // `__GT_TRANSLATE_LANGS` localStorage key on reload - confirmed via
-    // direct localStorage inspection before/after reload, reproduced twice.
-    // Likely WebKit ITP partitioning storage written by the
-    // dynamically-injected cdn.gtranslate.net script. This fails the QA
-    // doc's persistence requirement specifically on Safari (iOS), one of its
-    // two mandatory test browsers - see "GTranslate Automation Plan.md".
-    // Marked as an expected failure so this re-flags loudly (an unexpected
-    // *pass*) if it's ever fixed or regresses further.
-    test.fail(
+    // Playwright-WebKit-only discrepancy (found 2026-10-02, corrected
+    // 2026-10-02): Playwright's bundled WebKit drops the
+    // `__GT_TRANSLATE_LANGS` localStorage key on reload - reproduced against
+    // both localhost and production via Playwright. Manual testing in real
+    // Safari.app against the live production site does NOT reproduce this -
+    // persistence works fine there. Playwright's WebKit build isn't
+    // identical to Apple's shipped Safari, and the originally-suspected
+    // cause (ITP partitioning third-party storage) doesn't actually fit:
+    // GTranslate's script runs with nypl.org's own first-party privileges
+    // and writes directly to the page's own localStorage, not a separate
+    // partition - so this is most likely a Playwright-WebKit test-driver
+    // limitation, not a real Safari/product bug. See
+    // "GTranslate Automation Plan.md" for the full writeup. Skipped on
+    // WebKit rather than asserted as a known bug, since it isn't one.
+    test.skip(
       browserName === "webkit",
-      "WebKit/Safari loses GTranslate's localStorage key on reload - needs a product decision/fix, not a test workaround",
+      "Reload-persistence check is unreliable under Playwright's WebKit specifically; doesn't reproduce in real Safari on production - verify this case manually on Safari instead",
     );
 
     await basePage.gtranslateSelect.selectOption({ label: "Français" });

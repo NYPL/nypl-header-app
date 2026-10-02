@@ -65,11 +65,18 @@ DOM/text/cookie assertions, parametrized across pages/languages — same shape a
 
 The doc requires persistence "as long as it's cookied" and a privacy case for "the cookie." The real implementation (confirmed via direct inspection before/after language switch) stores the preference in **`localStorage`** under `__GT_TRANSLATE_LANGS` (plus a `gt_autoswitch` flag) — no cookie is ever set. Functionally the requirement is still met (same-tab reload and a brand-new tab both correctly retain the language), just through a different mechanism than the doc describes. Cases 8 and 24 were automated against the real mechanism. **Worth confirming with Alkim/the dev team that this wasn't a compliance assumption** (e.g. cookie-consent banner scope, privacy review language) before treating it as a non-issue.
 
-### 2. Real bug: WebKit/Safari loses the language preference on reload
+### 2. Playwright-WebKit-only discrepancy, not a real Safari bug (corrected 2026-10-02)
 
-Confirmed via direct `localStorage` inspection, reproduced twice: in WebKit, selecting a language sets `__GT_TRANSLATE_LANGS` correctly, but a same-tab `page.reload()` wipes that key out entirely (only `gt_autoswitch` survives) — the page reverts to English. **A brand-new tab in the same WebKit context persists the language correctly** — this is specifically a reload issue, not a general cross-tab one. Likely cause: WebKit's Intelligent Tracking Prevention partitioning storage written by the dynamically-injected `cdn.gtranslate.net` script.
+**Originally reported here as a confirmed Safari/production bug. That was wrong — corrected after manual verification.**
 
-This directly fails the doc's persistence requirement on **Safari (iOS)** — one of only two browsers the doc mandates testing. Marked in the test suite via `test.fail()` (WebKit only) so it documents the bug, keeps the suite green, and will loudly flag an *unexpected pass* if it's ever silently fixed or regresses further. **This should be raised with the dev team/Alkim as a real bug, not treated as resolved by the test marking.**
+Via Playwright's `webkit` project, selecting a language sets `__GT_TRANSLATE_LANGS` in `localStorage` correctly, but a same-tab `page.reload()` wipes that key out entirely (only `gt_autoswitch` survives) — reproduced against both `localhost` and production. That led to an initial conclusion that this was a real WebKit/Safari bug, with a suspected cause of ITP (Intelligent Tracking Prevention) partitioning the storage written by the dynamically-injected `cdn.gtranslate.net` script.
+
+**Manual testing in real Safari.app against the live production site does not reproduce this** — persistence works fine there. Two things point away from it being a real bug:
+
+- Playwright's bundled WebKit build is not identical to Apple's shipped Safari — this is a documented category of discrepancy between the two.
+- The originally-suspected cause doesn't actually fit the mechanism: GTranslate's script is a same-origin `<script>` tag, not a third-party iframe — it writes directly to nypl.org's own `localStorage`, not a separate cross-site partition, so classic ITP third-party-storage blocking shouldn't apply here in the first place.
+
+**Current conclusion:** most likely a Playwright-WebKit test-driver limitation, not a product bug. The test is now `test.skip()` on WebKit (not `test.fail()`) with this explanation, rather than asserting it as a known regression. If this needs verifying on a real device, that's a manual Safari/iOS check, not something to chase further in this automated suite.
 
 ### Tier 2 — Medium (needs new harness)
 
