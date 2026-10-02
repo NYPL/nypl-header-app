@@ -1,6 +1,6 @@
 import { Link } from "@nypl/design-system-react-components";
 // Utils
-import { sendAnalyticsNavClickEvent } from "../../utils";
+import { sendAnalyticsNavClickEvent } from "../../analytics";
 
 export type LinkItem = {
   href: string;

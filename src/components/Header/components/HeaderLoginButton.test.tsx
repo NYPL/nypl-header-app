@@ -5,21 +5,22 @@ import * as React from "react";
 
 import HeaderLoginButton from "./HeaderLoginButton";
 import { HeaderProvider } from "../context/headerContext";
-import * as envUtils from "../../../utils";
+import { getEnvVar } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../analytics";
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
+}));
+jest.mock("../../../analytics", () => ({
   sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderLoginButton Accessibility", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
-    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
-      () => {},
-    );
+    (sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(() => {});
   });
 
   it("passes axe accessibility test", async () => {
@@ -43,7 +44,7 @@ describe("HeaderLoginButton Accessibility", () => {
 
 describe("HeaderLoginButton", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
   });

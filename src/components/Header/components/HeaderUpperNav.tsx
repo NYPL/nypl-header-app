@@ -1,6 +1,6 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
-import GTranslate from "./GTranlate";
+import GTranslate from "./GTranslate";
 import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
 import { List } from "@nypl/design-system-react-components";
