@@ -8,6 +8,7 @@
   [ISW-6078](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6078)
 
 <!-- Temporarily reverting this change as we are not ready to release -->
+<!-- Waiting on approval from Hannah Bae -->
 <!-- - Adds Italian and Yiddish support to GTranslate widget
   [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088) -->
 
