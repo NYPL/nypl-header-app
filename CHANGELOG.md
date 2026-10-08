@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v1.5.1 - 10/7/26
+## v1.5.1 - 10/8/26
 
 - Updates placeholder style docs after changes made by adding GTranslate
   [ISW-6070](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6070)
