@@ -1,12 +1,9 @@
 import { test, expect } from "@playwright/test";
 import { BasePage } from "../pages/base_page";
+import { supportedLanguages } from "../../src/components/Header/utils/gTranslateUtils";
 
 // GTranslate stores the selected language in localStorage
-// (`__GT_TRANSLATE_LANGS`), not a cookie - confirmed against the real widget.
-// The QA test plan (Google Translation Module - QA Test Plan (Draft).docx)
-// describes the persistence requirement in terms of a cookie; that wording
-// doesn't match the shipped implementation. Flagged separately with the QA
-// owner (Alkim Cevik) - these tests assert the real mechanism.
+// (`__GT_TRANSLATE_LANGS`).
 const GT_STORAGE_KEY = "__GT_TRANSLATE_LANGS";
 
 const getStoredLanguage = (page: import("@playwright/test").Page) =>
@@ -95,23 +92,12 @@ test.describe("GTranslate", () => {
     page,
     browserName,
   }) => {
-    // Playwright-WebKit-only discrepancy (found 2026-10-02, corrected
-    // 2026-10-02): Playwright's bundled WebKit drops the
-    // `__GT_TRANSLATE_LANGS` localStorage key on reload - reproduced against
-    // both localhost and production via Playwright. Manual testing in real
-    // Safari.app against the live production site does NOT reproduce this -
-    // persistence works fine there. Playwright's WebKit build isn't
-    // identical to Apple's shipped Safari, and the originally-suspected
-    // cause (ITP partitioning third-party storage) doesn't actually fit:
-    // GTranslate's script runs with nypl.org's own first-party privileges
-    // and writes directly to the page's own localStorage, not a separate
-    // partition - so this is most likely a Playwright-WebKit test-driver
-    // limitation, not a real Safari/product bug. See
-    // "GTranslate Automation Plan.md" for the full writeup. Skipped on
-    // WebKit rather than asserted as a known bug, since it isn't one.
+    // We skip the webkit test because Playwright-WebKit behaves differently
+    // than Safari, dropping localStorage values on reload and causing this
+    // test to fail. It passes manual tests in Safari.
     test.skip(
       browserName === "webkit",
-      "Reload-persistence check is unreliable under Playwright's WebKit specifically; doesn't reproduce in real Safari on production - verify this case manually on Safari instead",
+      "Playwright-WebKit drops localStorage on reload; passes manually in Safari",
     );
 
     await basePage.gtranslateSelect.selectOption({ label: "Français" });
@@ -154,14 +140,6 @@ test.describe("GTranslate", () => {
     ).toHaveCount(0);
   });
 
-  test("page lang attribute updates on language change", async ({ page }) => {
-    await expect(page.locator("html")).toHaveAttribute("lang", "en");
-
-    await basePage.gtranslateSelect.selectOption({ label: "Español" });
-
-    await expect(page.locator("html")).toHaveAttribute("lang", "es");
-  });
-
   test("stored language preference contains no PII", async ({ page }) => {
     await basePage.gtranslateSelect.selectOption({ label: "Français" });
     await expect
@@ -170,70 +148,42 @@ test.describe("GTranslate", () => {
 
     const stored = await getStoredLanguage(page);
 
-    expect(stored).toEqual({ srcLang: "en", tgtLang: "fr" });
-    // Only language codes are stored - no identifiers, emails, or other PII.
-    const values = Object.values(stored ?? {});
-    for (const value of values) {
-      expect(String(value)).toMatch(/^[a-z]{2}(-[A-Z]{2})?$/);
+    expect(Object.keys(stored ?? {}).sort()).toEqual(["srcLang", "tgtLang"]);
+    // Only known supported language codes are stored - no identifiers,
+    // emails, or other PII.
+    for (const value of Object.values(stored ?? {})) {
+      expect(supportedLanguages).toContain(value);
     }
   });
 
-  test("widget remains usable at a narrow (mobile) viewport", async ({
-    page,
-  }) => {
-    await page.setViewportSize({ width: 375, height: 812 });
+  test.describe("at a mobile viewport", () => {
+    // Loading at mobile width from the start, rather than resizing mid-test,
+    // avoids crossing the mobile/desktop breakpoint - a known limitation for
+    // this widget (resizing across that breakpoint breaks it).
+    test.use({ viewport: { width: 375, height: 812 } });
 
-    await expect(basePage.gtranslateSelect).toBeVisible();
-    await basePage.gtranslateSelect.selectOption({ label: "Français" });
+    test("widget remains usable", async ({ page }) => {
+      // Not asserting the select is visible: it's `opacity: 0` on mobile by
+      // design (only the globe icon shows) - Playwright's visibility check
+      // doesn't treat opacity as hidden, so that assertion would pass
+      // without actually confirming anything a user can see. The real
+      // signal is that the interaction still works.
+      await basePage.gtranslateSelect.selectOption({ label: "Français" });
 
-    await expect
-      .poll(() => page.locator("html").getAttribute("lang"))
-      .toBe("fr");
+      await expect
+        .poll(() => page.locator("html").getAttribute("lang"))
+        .toBe("fr");
+    });
+
+    test("regression: mobile icon nav renders alongside GTranslate", async ({
+      page,
+    }) => {
+      // PR #103 (GTranslate) directly modified HeaderMobileIconNav, among
+      // other components; the rest of that set (HeaderLogin,
+      // HeaderLoginButton, HeaderSearchButton, HeaderSearchForm,
+      // HeaderUpperNav) already has coverage in global-header.spec.ts -
+      // this is the one with none before now.
+      await expect(basePage.searchButton).toBeVisible();
+    });
   });
-
-  test("regression: mobile icon nav renders alongside GTranslate", async ({
-    page,
-  }) => {
-    // PR #103 (GTranslate) directly modified HeaderMobileIconNav, among other
-    // components; the rest of that set (HeaderLogin, HeaderLoginButton,
-    // HeaderSearchButton, HeaderSearchForm, HeaderUpperNav) already has
-    // coverage elsewhere in this file - this is the one with none before now.
-    await page.setViewportSize({ width: 375, height: 812 });
-
-    await expect(basePage.gtranslateSelect).toBeVisible();
-    await expect(basePage.searchButton).toBeVisible();
-  });
-
-  // --- Cases confirmed NOT testable from this repo's standalone header demo ---
-  // The local e2e app renders only the Header/Footer, not real page content.
-  // These need a real consuming app (e.g. dxp-react-search against live
-  // nypl.org pages) to verify meaningfully.
-
-  test.skip(
-    "widget appears across all real page templates (homepage, location, blog, event, exhibition, basic page)",
-    () => {},
-  );
-  test.skip(
-    "widget appears correctly across all in-scope subdomains/apps (nypl.org, catalogs, LibGuides)",
-    () => {},
-  );
-  test.skip(
-    "widget is absent from out-of-scope properties (Digital Collections, Archives, non-header LibGuides, Shop)",
-    () => {},
-  );
-  test.skip(
-    "pages with existing manual translations show the manual version, not Google-translated",
-    () => {},
-  );
-  test.skip(
-    "image alt text translates when language changes",
-    () => {},
-  );
-
-  // --- Blocked: not yet implemented in code ---
-
-  test.skip(
-    "notranslate-protected elements aren't translated and don't break layout (blocked: no notranslate usage in codebase yet - final protected-element list still pending confirmation)",
-    () => {},
-  );
 });
