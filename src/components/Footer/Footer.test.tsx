@@ -64,11 +64,11 @@ describe("Footer", () => {
 
     expect(icons).toHaveLength(4);
     const facebookIcon = screen.getByTitle("NYPL on Facebook");
-    const twitterIcon = screen.getByTitle("NYPL on Twitter");
     const instagramIcon = screen.getByTitle("NYPL on Instagram");
     const youtubeIcon = screen.getByTitle("NYPL on Youtube");
+    const tiktokIcon = screen.getByTitle("NYPL on TikTok");
     expect(facebookIcon).toBeInTheDocument();
-    expect(twitterIcon).toBeInTheDocument();
+    expect(tiktokIcon).toBeInTheDocument();
     expect(instagramIcon).toBeInTheDocument();
     expect(youtubeIcon).toBeInTheDocument();
   });
