@@ -4,21 +4,22 @@ import { axe } from "jest-axe";
 import * as renderer from "react-test-renderer";
 
 import HeaderMobileNav from "./HeaderMobileNav";
-import * as envUtils from "../../../utils";
+import { getEnvVar } from "../../../utils";
+import { sendAnalyticsNavClickEvent } from "../../../analytics";
 
 jest.mock("../../../utils", () => ({
   getEnvVar: jest.fn(),
+}));
+jest.mock("../../../analytics", () => ({
   sendAnalyticsNavClickEvent: jest.fn(),
 }));
 
 describe("HeaderMobileNav Accessibility", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
-    (envUtils.sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(
-      () => {},
-    );
+    (sendAnalyticsNavClickEvent as jest.Mock).mockImplementation(() => {});
   });
 
   it("passes axe accessibility test", async () => {
@@ -29,7 +30,7 @@ describe("HeaderMobileNav Accessibility", () => {
 
 describe("HeaderMobileNav", () => {
   beforeAll(() => {
-    (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
+    (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
   });

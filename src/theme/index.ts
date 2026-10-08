@@ -12,6 +12,7 @@ import HeaderSearchButton from "./headerSearchButton";
 import HeaderSearchForm from "./headerSearchForm";
 import HeaderSitewideAlerts from "./headerSitewideAlerts";
 import HeaderUpperNav from "./headerUpperNav";
+import SkipNavigation from "./skipNavigation";
 
 const theme: any = {
   breakpoints,
@@ -29,6 +30,7 @@ const theme: any = {
     HeaderSearchForm,
     HeaderSitewideAlerts,
     HeaderUpperNav,
+    SkipNavigation,
   },
 };
 

@@ -1,6 +1,11 @@
 # NYPL Header App
 
-The NYPL Header App can be used for projects across the NYPL organization to import the Header and Footer components through embeddable Javascript scripts. The Header and Footer are built with the NYPL Reservoir Design System and are hosted in this repo as React components. Dark mode for these components is available to consuming applications that use [NYPL Reservoir DS](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page).
+The NYPL Header App can be used for projects across the NYPL organization to
+import the Header and Footer components through embeddable Javascript scripts.
+The Header and Footer are built with the NYPL Reservoir Design System and are
+hosted in this repo as React components. Dark mode for these components is
+available to consuming applications that use
+[NYPL Reservoir DS](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page).
 
 ## Available Routes
 
@@ -14,7 +19,10 @@ The NYPL Header App can be used for projects across the NYPL organization to imp
 
 ## Embeddable Scripts
 
-Any app can pull in the Header and Footer through an embeddable standalone script tag that should be used in the <body> element of the main HTML file (or any other HTML files in the app). It is suggested that the components be imported as a whole with the following markup:
+Any app can pull in the Header and Footer through an embeddable standalone
+script tag that should be used in the <body> element of the main HTML file (or
+any other HTML files in the app). It is suggested that the components be
+imported as a whole with the following markup:
 
 ```HTML
 <!-- Header -->
@@ -29,24 +37,36 @@ Any app can pull in the Header and Footer through an embeddable standalone scrip
 <script src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
 ```
 
-Note: this will render the components in place and will push the content down when it loads. To make it less noticeable, add placeholder styles defined below.
+Note: this will render the components in place and will push the content down
+when it loads. To make it less noticeable, add placeholder styles defined below.
 
 ### Next.js App Implementation
 
-For Next.js apps, it is recommended for the script to be added to the `_document.tsx` file for the Header and Footer components to render properly.
+For Next.js apps, it is recommended for the script to be added to the
+`_document.tsx` file for the Header and Footer components to render properly.
 
 ### Placeholder Styles
 
-When adding the embed code snippets above, the `Header` and `Footer` will load and render in place. This means that the content below it (specifically for the `Header` since it is more visible) will be pushed down. This can be annoying but is not a bug. The app needs to call the URL, fetch the Javascript, and then render the component and how long it takes depends on the user machine's network. To help alleviate this, the app can add placeholder styles to the `Header` container to prevent the content from jumping around. The code snippet above can be updated to:
-
-// @TODO
+When adding the embed code snippets above, the `Header` and `Footer` will load
+and render in place. This means that the content below it (specifically for the
+`Header` since it is more visible) will be pushed down. This can be annoying but
+is not a bug. The app needs to call the URL, fetch the Javascript, and then
+render the component and how long it takes depends on the user machine's
+network. To help alleviate this, the app can add placeholder styles to the
+`Header` container to prevent the content from jumping around. The code snippet
+above can be updated to:
 
 ```HTML
 <style>
    #Header-Placeholder {
       min-height: 62px;
    }
-   @media screen and (min-width: 832px) {
+   @media screen and (min-width: 1024px) {
+      #Header-Placeholder {
+         min-height: 112px;
+      }
+   }
+   @media screen and (min-width: 1280px) {
       #Header-Placeholder {
          min-height: 130px;
       }
@@ -64,14 +84,20 @@ When adding the embed code snippets above, the `Header` and `Footer` will load a
 
 #### Next.js Placement
 
-For Next.js apps, it is recommended to add the script to the `_document.tsx` file. The above `<style>` snippet will throw an error and should be updated to:
+For Next.js apps, it is recommended to add the script to the `_document.tsx`
+file. The above `<style>` snippet will throw an error and should be updated to:
 
 ```jsx
 <style>{`
    #Header-Placeholder {
       min-height: 62px;
    }
-   @media screen and (min-width: 832px) {
+   @media screen and (min-width: 1024px) {
+      #Header-Placeholder {
+         min-height: 112px;
+      }
+   }
+   @media screen and (min-width: 1280px) {
       #Header-Placeholder {
          min-height: 130px;
       }
@@ -145,7 +171,8 @@ View the app on `localhost:3001`.
 
 ### Running the app locally with Docker
 
-Note: Docker needs to be installed and running on your machine in order to build the image and run the app through Docker
+Note: Docker needs to be installed and running on your machine in order to build
+the image and run the app through Docker
 
 Build the Docker image
 
@@ -153,12 +180,13 @@ Build the Docker image
 $ docker build -t nypl-header-app .
 ```
 
-This command builds the Docker image using the Dockerfile, which does the following:
+This command builds the Docker image using the Dockerfile, which does the
+following:
 
 1. Creates an app directory
 2. Installs the app's dependencies via `npm install`
-3. Builds the app via `npm run prod`
-   The Docker image will be named `nypl-header-app`
+3. Builds the app via `npm run prod` The Docker image will be named
+   `nypl-header-app`
 
 Run the Docker instance
 
@@ -166,19 +194,29 @@ Run the Docker instance
 $ docker run -p 3001:3001 -d nypl-header-app
 ```
 
-This command runs the Docker container with port mapping on 3001 ([Port access from Browser]:[Port exposed from the container]) using the Docker image above. Access the app at `localhost:3001`.
+This command runs the Docker container with port mapping on 3001 ([Port access
+from Browser]:[Port exposed from the container]) using the Docker image above.
+Access the app at `localhost:3001`.
 
 ## Vite Build
 
 There are three separate Vite config files that are used for building the app:
 
 - `vite.config.js` - used for building the `/`, `/header`, and `/footer` routes.
-- `vite.config.footer.ts` - used for building the minified footer embed script code on the `/footer.min.js` route.
-- `vite.config.header.ts` - used for building the minified header embed script code on the `/header.min.js` route.
+- `vite.config.footer.ts` - used for building the minified footer embed script
+  code on the `/footer.min.js` route.
+- `vite.config.header.ts` - used for building the minified header embed script
+  code on the `/header.min.js` route.
 
-Vite can build the app using ESM output format. This is generally recommended but there are systems in place where using ESM-based `Header` and `Footer` embed scripts fail and it is out of our control. In Vite, it is not easy to build multiple dist files with multiple entry points in CJS format. To get around this, the `Header` and `Footer` builds are separate files that build a single file from a single entry point.
+Vite can build the app using ESM output format. This is generally recommended
+but there are systems in place where using ESM-based `Header` and `Footer` embed
+scripts fail and it is out of our control. In Vite, it is not easy to build
+multiple dist files with multiple entry points in CJS format. To get around
+this, the `Header` and `Footer` builds are separate files that build a single
+file from a single entry point.
 
-The `Header` and `Footer` components render the same regardless of the build format.
+The `Header` and `Footer` components render the same regardless of the build
+format.
 
 ## Unit Testing
 
@@ -188,7 +226,8 @@ To run all tests once:
 $ npm test
 ```
 
-If you're actively writing or updating tests, you can run the tests in watch mode. This will wait for any changes and run when a file is saved:
+If you're actively writing or updating tests, you can run the tests in watch
+mode. This will wait for any changes and run when a file is saved:
 
 ```sh
 $ npm run test:watch
@@ -229,4 +268,5 @@ $ git push
 
 This will automatically launch a Github Actions job for QA deployment.
 
-Similarly, to deploy to production by following the above steps and checking out the `production` branch instead of `qa`.
+Similarly, to deploy to production by following the above steps and checking out
+the `production` branch instead of `qa`.

@@ -163,6 +163,19 @@ test.describe("Header drop down interactions", () => {
 });
 
 test.describe("Search interactions", () => {
+  test("should open and close the search dropdown", async () => {
+    await expect(basePage.searchButton).toBeVisible();
+    await expect(basePage.closeSearchButton).toBeHidden();
+
+    await basePage.searchButton.click();
+    await expect(basePage.closeSearchButton).toBeVisible();
+    await expect(basePage.searchButton).toBeHidden();
+
+    await basePage.closeSearchButton.click();
+    await expect(basePage.searchButton).toBeVisible();
+    await expect(basePage.closeSearchButton).toBeHidden();
+  });
+
   test('should keep focus within search dropdown controls when "Search" is opened', async () => {
     await basePage.searchButton.click();
 

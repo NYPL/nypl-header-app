@@ -25,7 +25,8 @@ import HeaderUpperNav from "./components/HeaderUpperNav";
 import { HeaderProvider } from "./context/headerContext";
 import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 import { headerBreakpoints } from "../../theme/foundation/breakpoints";
-import { getEnvVar, sendAnalyticsNavClickEvent } from "../../utils";
+import { getEnvVar } from "../../utils";
+import { sendAnalyticsNavClickEvent } from "../../analytics";
 
 export interface HeaderProps {
   /** Whether to render sitewide alerts or not. True by default. */
