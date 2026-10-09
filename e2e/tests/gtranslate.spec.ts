@@ -128,10 +128,24 @@ test.describe("GTranslate", () => {
   });
 
   test("Google's native widget UI stays hidden", async ({ page }) => {
+    // `lang` flips as soon as translation starts, not once it's finished -
+    // asserting absence right after that would pass even if native UI
+    // hadn't had a chance to appear yet. Waiting for the page text to
+    // actually change is a stronger completion signal (same approach used
+    // in "selecting a language translates the page" above), giving any
+    // native UI real time to show up before we assert it never did.
+    const beforeText = await page.evaluate(() => document.body.innerText);
+
     await basePage.gtranslateSelect.selectOption({ label: "Français" });
+
     await expect
       .poll(() => page.locator("html").getAttribute("lang"))
       .toBe("fr");
+    await expect
+      .poll(() => page.evaluate(() => document.body.innerText), {
+        timeout: 15000,
+      })
+      .not.toBe(beforeText);
 
     await expect(
       page.locator(
@@ -166,8 +180,24 @@ test.describe("GTranslate", () => {
       // Not asserting the select is visible: it's `opacity: 0` on mobile by
       // design (only the globe icon shows) - Playwright's visibility check
       // doesn't treat opacity as hidden, so that assertion would pass
-      // without actually confirming anything a user can see. The real
-      // signal is that the interaction still works.
+      // without actually confirming anything a user can see.
+      //
+      // selectOption() alone doesn't prove the control is actually reachable
+      // by touch - the main mobile failure mode this test should catch is
+      // the transparent overlay being covered by something else. A real
+      // click()/trial-click interferes with the widget's own state here, so
+      // this checks hit-testing directly via elementFromPoint: confirms
+      // nothing else sits on top of the select at its own coordinates,
+      // without dispatching any events.
+      const isHit = await basePage.gtranslateSelect.evaluate((el) => {
+        const rect = el.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const hit = document.elementFromPoint(x, y);
+        return hit === el || el.contains(hit);
+      });
+      expect(isHit).toBe(true);
+
       await basePage.gtranslateSelect.selectOption({ label: "Français" });
 
       await expect
