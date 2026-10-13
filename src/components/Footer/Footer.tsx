@@ -9,6 +9,8 @@ import {
 } from "@nypl/design-system-react-components";
 import { forwardRef } from "react";
 
+import TiktokSvg from "./TiktokIcon";
+
 import linkData from "./footerLinks";
 
 interface FooterProps {
@@ -42,14 +44,32 @@ export const Footer = chakra(
         />
       ));
       const socialLinks = linkData.socialMedia.map((link, index) => (
-        <Link aria-label={link.title} href={link.href} key={index}>
-          <Icon
-            aria-label={link.title}
-            decorative={false}
-            name={link.iconName as IconNames}
-            size="small"
-            title={link.title}
-          />
+        <Link
+          aria-label={link.title}
+          href={link.href}
+          key={index}
+
+          __css={{ ">div": { display: "inline" } }}
+        >
+          {link.title.includes("TikTok") ? (
+            <Icon
+              aria-label={link.title}
+              decorative={false}
+              size="small"
+              title={link.title}
+              color="ui.white"
+            >
+              {TiktokSvg}
+            </Icon>
+          ) : (
+            <Icon
+              aria-label={link.title}
+              decorative={false}
+              name={link.iconName as IconNames}
+              size="small"
+              title={link.title}
+            />
+          )}
         </Link>
       ));
 
