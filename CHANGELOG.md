@@ -1,10 +1,5 @@
 # CHANGELOG
 
-## Prerelease
-
-- Updates social media links in footer
-  [ISW-6159](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6159)
-
 ## v1.5.1 - 10/8/26
 
 - Updates placeholder style docs after changes made by adding GTranslate

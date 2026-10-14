@@ -62,6 +62,11 @@ const link = {
       title: "NYPL on Facebook",
     },
     {
+      href: "https://twitter.com/nypl",
+      iconName: "legacySocialTwitter",
+      title: "NYPL on Twitter",
+    },
+    {
       href: "https://instagram.com/nypl",
       iconName: "legacySocialInstagram",
       title: "NYPL on Instagram",
@@ -70,11 +75,6 @@ const link = {
       href: "https://www.youtube.com/user/NewYorkPublicLibrary",
       iconName: "legacySocialYoutube",
       title: "NYPL on Youtube",
-    },
-    {
-      href: "https://www.tiktok.com/@nypl",
-      iconName: "socialTikTok",
-      title: "NYPL on TikTok",
     },
   ],
 };
