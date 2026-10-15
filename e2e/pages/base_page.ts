@@ -28,6 +28,7 @@ export class BasePage {
   readonly searchSubmitButton: Locator;
   readonly searchCatalogRadio: Locator;
   readonly searchResearchRadio: Locator;
+  readonly gtranslateSelect: Locator;
   readonly searchWebRadio: Locator;
 
   constructor(page: Page) {
@@ -85,6 +86,7 @@ export class BasePage {
     );
     this.searchResearchRadio = page.getByLabel("Search the Research Catalog");
     this.searchWebRadio = page.getByLabel("Search the library website");
+    this.gtranslateSelect = page.locator("select.gt_selector");
   }
 
   async goto() {

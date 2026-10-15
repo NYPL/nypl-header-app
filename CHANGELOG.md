@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## Prerelease
+
+## v1.5.2 - 10/15/26
+
+- Updates social media links in footer
+  [ISW-6159](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6159)
+- Adds Playwright automated tests for GTranslate tier 1 test cases
+  [ISw-6079](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6079)
+
 ## v1.5.1 - 10/8/26
 
 - Updates placeholder style docs after changes made by adding GTranslate
