@@ -69,7 +69,7 @@ const link = {
     {
       href: "https://www.youtube.com/user/NewYorkPublicLibrary",
       iconName: "legacySocialYoutube",
-      title: "NYPL on Youtube",
+      title: "NYPL on YouTube",
     },
     {
       href: "https://www.tiktok.com/@nypl",
