@@ -239,6 +239,35 @@ If you want to run tests on only one specific file, run:
 $ npm test -- src/[path/to/file]
 ```
 
+## Playwright (e2e) Testing
+
+Playwright tests live in `e2e/tests/` and run against a live `npm run dev`
+server (`http://localhost:5173`), started automatically via `playwright.config.ts`.
+
+To run all Playwright tests once:
+
+```sh
+$ npm run pw
+```
+
+To run a single spec file:
+
+```sh
+$ npm run pw -- e2e/tests/[file].spec.ts
+```
+
+To debug visually with Playwright's UI mode:
+
+```sh
+$ npm run pw:ui
+```
+
+To run headed (a visible browser window instead of headless):
+
+```sh
+$ npm run pw:headed
+```
+
 ## Deploying to QA/Production
 
 1. Pull latest changes from `main` branch.
