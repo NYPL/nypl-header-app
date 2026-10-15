@@ -20,7 +20,7 @@
     "lint": "npx eslint src --ext .ts,.tsx"
   },
   "dependencies": {
-    "@nypl/design-system-react-components": "2.1.1",
+    "@nypl/design-system-react-components": "4.5.1",
     "js-cookie": "3.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
