@@ -12,13 +12,13 @@ export const supportedLanguages = [
   "zh-TW",
   "fr",
   "ht",
-  // "it", temporarily removing, waiting on HB approval
+  "it",
   "ko",
   "pl",
   "ru",
   "es",
   "ur",
-  // "yi", temporarily removing, waiting on HB approval
+  "yi",
 ];
 
 // The class GTranslate assigns to the <select> it injects into our wrapper.
