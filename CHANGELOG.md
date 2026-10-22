@@ -2,6 +2,11 @@
 
 ## Prerelease
 
+## v1.5.3 - 10/22/26
+
+- Adds Yiddish and Italian to GTranslate widget
+  [ISW-6088](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6088)
+
 ## v1.5.2 - 10/15/26
 
 - Updates social media links in footer
