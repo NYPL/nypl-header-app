@@ -2,6 +2,10 @@
 
 ## Prerelease
 
+## v1.5.4 - 10/23/26
+
+- Rebuilding to get the latest Node 22 patch version.
+
 ## v1.5.3 - 10/22/26
 
 - Adds Yiddish and Italian to GTranslate widget
