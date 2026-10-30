@@ -25,18 +25,18 @@ const GTranslate = () => {
     };
 
     const scriptUrl = GTRANSLATE_CDN_URL;
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      `script[src="${scriptUrl}"]`,
-    );
 
-    // If GTranslate already initialized successfully, we're done.
-    if (document.querySelector(".gt_selector")) return;
-
-    // Script was added but the widget didn't initialize — likely because
-    // .gtranslate_wrapper wasn't in the DOM yet when the script ran. Remove and
-    // re-add/run the script now that the wrapper exists.
-    if (existingScript) {
-      existingScript.remove();
+    // Bail if the script is already in the DOM or the widget already
+    // initialized. I ran into the issue where I had two select elements.
+    // AI told me that removing and re-adding a previously-inserted script tag
+    // doesn't cancel its execution once loading has started, so doing that
+    // caused GTranslate to run twice and inject a duplicate
+    // dropdown into the wrapper.
+    if (
+      document.querySelector(`script[src="${scriptUrl}"]`) ||
+      document.querySelector(".gt_selector")
+    ) {
+      return;
     }
 
     const script = document.createElement("script");
