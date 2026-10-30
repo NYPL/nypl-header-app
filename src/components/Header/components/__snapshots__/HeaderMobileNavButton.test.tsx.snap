@@ -20,21 +20,6 @@ exports[`HeaderMobileNavButton renders the UI snapshot correctly 1`] = `
     tabIndex={-1}
   />
   <div
-    data-focus-guard={true}
-    style={
-      {
-        "height": "0px",
-        "left": "1px",
-        "overflow": "hidden",
-        "padding": 0,
-        "position": "fixed",
-        "top": "1px",
-        "width": "1px",
-      }
-    }
-    tabIndex={-1}
-  />
-  <div
     data-focus-lock-disabled="disabled"
     onBlur={[Function]}
     onFocus={[Function]}
@@ -43,7 +28,8 @@ exports[`HeaderMobileNavButton renders the UI snapshot correctly 1`] = `
       aria-expanded={null}
       aria-haspopup="true"
       aria-label="Open Navigation"
-      className="chakra-button css-l47gnk"
+      className="chakra-button css-5ltkhz"
+      data-testid="ds-button"
       id="mobileNav-btn"
       onClick={[Function]}
       type="button"

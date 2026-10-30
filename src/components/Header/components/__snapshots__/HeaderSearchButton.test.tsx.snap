@@ -20,21 +20,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
     tabIndex={-1}
   />
   <div
-    data-focus-guard={true}
-    style={
-      {
-        "height": "0px",
-        "left": "1px",
-        "overflow": "hidden",
-        "padding": 0,
-        "position": "fixed",
-        "top": "1px",
-        "width": "1px",
-      }
-    }
-    tabIndex={-1}
-  />
-  <div
     data-focus-lock-disabled="disabled"
     onBlur={[Function]}
     onFocus={[Function]}
@@ -44,6 +29,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
       aria-haspopup="true"
       aria-label="Open Search"
       className="chakra-button css-hhw5ar"
+      data-testid="ds-button"
       id="searchButton"
       onClick={[Function]}
       type="button"
@@ -65,7 +51,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
             clipRule="evenodd"
             d="M14.9659 14.2549H15.7559L20.7459 19.2549L19.2559 20.7449L14.2559 15.7549V14.9649L13.9859 14.6849C12.8459 15.6649 11.3659 16.2549 9.75586 16.2549C6.16586 16.2549 3.25586 13.3449 3.25586 9.75488C3.25586 6.16488 6.16586 3.25488 9.75586 3.25488C13.3459 3.25488 16.2559 6.16488 16.2559 9.75488C16.2559 11.3649 15.6659 12.8449 14.6859 13.9849L14.9659 14.2549ZM5.25586 9.75488C5.25586 12.2449 7.26586 14.2549 9.75586 14.2549C12.2459 14.2549 14.2559 12.2449 14.2559 9.75488C14.2559 7.26488 12.2459 5.25488 9.75586 5.25488C7.26586 5.25488 5.25586 7.26488 5.25586 9.75488Z"
             fillRule="evenodd"
-            id="icon/action/search_24px"
           />
         </svg>
       </span>
@@ -74,25 +59,29 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <form
-        aria-label="form"
         className="css-16sv398"
+        data-testid="ds-form"
         id="search-header"
         onSubmit={[Function]}
       >
         <div
           className="css-uo6vru"
+          data-testid="ds-simpleGrid"
           id="search-header-parent"
         >
           <div
             className="css-10aw3py"
+            data-testid="ds-simpleGrid"
             id="search-header-child0"
           >
             <div
               className="css-18yyq8w"
+              data-testid="ds-simpleGrid"
               id="search-header-child0-grandchild0"
             >
               <fieldset
                 className="css-1xdhyk6"
+                data-testid="ds-fieldset"
                 id="fieldset-search"
               >
                 <legend>
@@ -100,10 +89,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                 </legend>
                 <div
                   className="css-j9zsii"
-                  id="searchInput-wrapper"
+                  data-testid="ds-textInput"
+                  id="searchInput-componentWrapper"
                 >
                   <label
                     className="css-1xdhyk6"
+                    data-testid="ds-label"
                     htmlFor="searchInput"
                     id="searchInput-label"
                   >
@@ -128,19 +119,32 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                       value=""
                     />
                   </div>
+                  <div
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="ds-helperErrorText"
+                    id="searchInput-helperErrorText"
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>
             <div
               className="css-187tdu5"
+              data-testid="ds-simpleGrid"
               id="search-header-child0-grandchild1"
             >
               <div
-                className="chakra-stack css-6dfzd0"
+                className="chakra-stack css-11okbqf"
+                data-testid="ds-buttonGroup"
               >
                 <button
                   aria-label="Search"
-                  className="chakra-button css-l47gnk"
+                  className="chakra-button css-5ltkhz"
+                  data-testid="ds-button"
                   id="search-btn"
                   onClick={[Function]}
                   type="button"
@@ -168,32 +172,40 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
           </div>
           <div
             className="css-1jiq10l"
+            data-testid="ds-simpleGrid"
             id="search-header-child1"
           >
             <div
               className="css-7ajbp2"
+              data-testid="ds-simpleGrid"
               id="search-header-child1-grandchild0"
             >
-              <fieldset
-                className="css-anp9yh"
-                id="radio-group-search-type"
+              <div
+                className="css-1piljje"
+                data-testid="ds-radioGroup"
+                id="search-type"
               >
-                <legend>
+                <span
+                  className="css-0"
+                  id="search-type-span-title"
+                >
                   Type of search
-                </legend>
+                </span>
                 <div
+                  aria-labelledby="search-type-span-title"
                   className="chakra-radio-group css-0"
                   role="radiogroup"
                 >
                   <div
-                    className="chakra-stack css-1objuxj"
+                    className="chakra-stack ds-radioGroup-stack css-1478f2b"
                   >
                     <div
-                      className="css-1xdhyk6"
-                      id="circulatingCatalogSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="circulatingCatalogSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                         data-checked=""
                       >
                         <input
@@ -210,12 +222,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -226,7 +238,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           data-checked=""
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
@@ -237,7 +249,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           className="chakra-radio__label css-1y8kf23"
                           data-checked=""
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -246,13 +257,24 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="circulatingCatalogSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                     <div
-                      className="css-1xdhyk6"
-                      id="researchcatalogSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="researchcatalogSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                       >
                         <input
                           checked={false}
@@ -268,12 +290,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -284,7 +306,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
@@ -293,7 +315,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                         <span
                           className="chakra-radio__label css-1y8kf23"
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -302,13 +323,24 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="researchcatalogSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                     <div
-                      className="css-1xdhyk6"
-                      id="websiteSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="websiteSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                       >
                         <input
                           checked={false}
@@ -324,12 +356,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -340,7 +372,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
@@ -349,7 +381,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                         <span
                           className="chakra-radio__label css-1y8kf23"
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -358,17 +389,30 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="websiteSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div
-                  aria-atomic={true}
-                  aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
+                  data-testid="ds-helperErrorText"
                   id="search-type-helperErrorText"
-                />
-              </fieldset>
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -413,21 +457,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
     tabIndex={-1}
   />
   <div
-    data-focus-guard={true}
-    style={
-      {
-        "height": "0px",
-        "left": "1px",
-        "overflow": "hidden",
-        "padding": 0,
-        "position": "fixed",
-        "top": "1px",
-        "width": "1px",
-      }
-    }
-    tabIndex={-1}
-  />
-  <div
     data-focus-lock-disabled="disabled"
     onBlur={[Function]}
     onFocus={[Function]}
@@ -437,6 +466,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
       aria-haspopup="true"
       aria-label="Open Search"
       className="chakra-button css-hhw5ar"
+      data-testid="ds-button"
       id="searchButton"
       onClick={[Function]}
       type="button"
@@ -457,7 +487,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
             clipRule="evenodd"
             d="M14.9659 14.2549H15.7559L20.7459 19.2549L19.2559 20.7449L14.2559 15.7549V14.9649L13.9859 14.6849C12.8459 15.6649 11.3659 16.2549 9.75586 16.2549C6.16586 16.2549 3.25586 13.3449 3.25586 9.75488C3.25586 6.16488 6.16586 3.25488 9.75586 3.25488C13.3459 3.25488 16.2559 6.16488 16.2559 9.75488C16.2559 11.3649 15.6659 12.8449 14.6859 13.9849L14.9659 14.2549ZM5.25586 9.75488C5.25586 12.2449 7.26586 14.2549 9.75586 14.2549C12.2459 14.2549 14.2559 12.2449 14.2559 9.75488C14.2559 7.26488 12.2459 5.25488 9.75586 5.25488C7.26586 5.25488 5.25586 7.26488 5.25586 9.75488Z"
             fillRule="evenodd"
-            id="icon/action/search_24px"
           />
         </svg>
       </span>
@@ -466,25 +495,29 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <form
-        aria-label="form"
         className="css-16sv398"
+        data-testid="ds-form"
         id="search-header"
         onSubmit={[Function]}
       >
         <div
           className="css-uo6vru"
+          data-testid="ds-simpleGrid"
           id="search-header-parent"
         >
           <div
             className="css-10aw3py"
+            data-testid="ds-simpleGrid"
             id="search-header-child0"
           >
             <div
               className="css-18yyq8w"
+              data-testid="ds-simpleGrid"
               id="search-header-child0-grandchild0"
             >
               <fieldset
                 className="css-1xdhyk6"
+                data-testid="ds-fieldset"
                 id="fieldset-search"
               >
                 <legend>
@@ -492,10 +525,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                 </legend>
                 <div
                   className="css-j9zsii"
-                  id="searchInput-wrapper"
+                  data-testid="ds-textInput"
+                  id="searchInput-componentWrapper"
                 >
                   <label
                     className="css-1xdhyk6"
+                    data-testid="ds-label"
                     htmlFor="searchInput"
                     id="searchInput-label"
                   >
@@ -520,19 +555,32 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                       value=""
                     />
                   </div>
+                  <div
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="ds-helperErrorText"
+                    id="searchInput-helperErrorText"
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>
             <div
               className="css-187tdu5"
+              data-testid="ds-simpleGrid"
               id="search-header-child0-grandchild1"
             >
               <div
-                className="chakra-stack css-6dfzd0"
+                className="chakra-stack css-11okbqf"
+                data-testid="ds-buttonGroup"
               >
                 <button
                   aria-label="Search"
-                  className="chakra-button css-l47gnk"
+                  className="chakra-button css-5ltkhz"
+                  data-testid="ds-button"
                   id="search-btn"
                   onClick={[Function]}
                   type="button"
@@ -560,32 +608,40 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
           </div>
           <div
             className="css-1jiq10l"
+            data-testid="ds-simpleGrid"
             id="search-header-child1"
           >
             <div
               className="css-7ajbp2"
+              data-testid="ds-simpleGrid"
               id="search-header-child1-grandchild0"
             >
-              <fieldset
-                className="css-anp9yh"
-                id="radio-group-search-type"
+              <div
+                className="css-1piljje"
+                data-testid="ds-radioGroup"
+                id="search-type"
               >
-                <legend>
+                <span
+                  className="css-0"
+                  id="search-type-span-title"
+                >
                   Type of search
-                </legend>
+                </span>
                 <div
+                  aria-labelledby="search-type-span-title"
                   className="chakra-radio-group css-0"
                   role="radiogroup"
                 >
                   <div
-                    className="chakra-stack css-1wdv1uh"
+                    className="chakra-stack ds-radioGroup-stack css-19s3t1h"
                   >
                     <div
-                      className="css-1xdhyk6"
-                      id="circulatingCatalogSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="circulatingCatalogSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                         data-checked=""
                       >
                         <input
@@ -602,12 +658,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -618,7 +674,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           data-checked=""
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
@@ -629,7 +685,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           className="chakra-radio__label css-1y8kf23"
                           data-checked=""
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -638,13 +693,24 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="circulatingCatalogSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                     <div
-                      className="css-1xdhyk6"
-                      id="researchcatalogSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="researchcatalogSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                       >
                         <input
                           checked={false}
@@ -660,12 +726,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -676,7 +742,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
@@ -685,7 +751,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                         <span
                           className="chakra-radio__label css-1y8kf23"
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -694,13 +759,24 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="researchcatalogSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                     <div
-                      className="css-1xdhyk6"
-                      id="websiteSearch-wrapper"
+                      className="css-1u8qly9"
+                      data-testid="ds-radio"
+                      id="websiteSearch-componentWrapper"
                     >
                       <label
-                        className="chakra-radio css-13p0l12"
+                        className="chakra-radio css-rfs4w5"
                       >
                         <input
                           checked={false}
@@ -716,12 +792,12 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           required={false}
                           style={
                             {
-                              "border": "0px",
-                              "clip": "rect(0px, 0px, 0px, 0px)",
+                              "border": "0",
+                              "clip": "rect(0, 0, 0, 0)",
                               "height": "1px",
                               "margin": "-1px",
                               "overflow": "hidden",
-                              "padding": "0px",
+                              "padding": "0",
                               "position": "absolute",
                               "whiteSpace": "nowrap",
                               "width": "1px",
@@ -732,7 +808,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="css-14wybg9"
+                          className="chakra-radio__control css-ssalds"
                           onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
@@ -741,7 +817,6 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                         <span
                           className="chakra-radio__label css-1y8kf23"
                           onMouseDown={[Function]}
-                          onTouchStart={[Function]}
                         >
                           <span
                             className="css-0"
@@ -750,17 +825,30 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
                           </span>
                         </span>
                       </label>
+                      <div
+                        className="css-1xdhyk6"
+                        data-isinvalid={false}
+                        data-testid="ds-helperErrorText"
+                        id="websiteSearch-helperErrorText"
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div
-                  aria-atomic={true}
-                  aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
+                  data-testid="ds-helperErrorText"
                   id="search-type-helperErrorText"
-                />
-              </fieldset>
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

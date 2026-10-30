@@ -16,10 +16,12 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <ul
           className="css-1xdhyk6"
+          data-testid="ds-list"
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/accessibility"
               rel={null}
               target={null}
@@ -29,7 +31,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/press"
               rel={null}
               target={null}
@@ -39,7 +42,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/careers"
               rel={null}
               target={null}
@@ -49,7 +53,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/spacerental"
               rel={null}
               target={null}
@@ -62,10 +67,12 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <ul
           className="css-1xdhyk6"
+          data-testid="ds-list"
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
               rel={null}
               target={null}
@@ -75,7 +82,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/policies"
               rel={null}
               target={null}
@@ -85,7 +93,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/terms-conditions"
               rel={null}
               target={null}
@@ -95,7 +104,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/help/about-nypl/leadership/board-trustees"
               rel={null}
               target={null}
@@ -108,10 +118,12 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <ul
           className="css-1xdhyk6"
+          data-testid="ds-list"
         >
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/help/about-nypl/legal-notices/rules-and-regulations"
               rel={null}
               target={null}
@@ -121,7 +133,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/help/about-nypl"
               rel={null}
               target={null}
@@ -131,7 +144,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
           </li>
           <li>
             <a
-              className="css-1xdhyk6"
+              className="chakra-link css-1xdhyk6"
+              data-testid="ds-link"
               href="//www.nypl.org/language"
               rel={null}
               target={null}
@@ -149,7 +163,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Facebook"
-          className="css-1kjfqfr"
+          className="chakra-link css-1kjfqfr"
+          data-testid="ds-link"
           href="https://www.facebook.com/nypl"
           rel={null}
           target={null}
@@ -175,7 +190,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on Instagram"
-          className="css-1kjfqfr"
+          className="chakra-link css-1kjfqfr"
+          data-testid="ds-link"
           href="https://instagram.com/nypl"
           rel={null}
           target={null}
@@ -201,7 +217,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on YouTube"
-          className="css-1kjfqfr"
+          className="chakra-link css-1kjfqfr"
+          data-testid="ds-link"
           href="https://www.youtube.com/user/NewYorkPublicLibrary"
           rel={null}
           target={null}
@@ -227,7 +244,8 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       <li>
         <a
           aria-label="NYPL on TikTok"
-          className="css-1kjfqfr"
+          className="chakra-link css-1kjfqfr"
+          data-testid="ds-link"
           href="https://www.tiktok.com/@nypl"
           rel={null}
           target={null}
@@ -265,10 +283,11 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="NYPL Main Building Facade"
-          className="css-0"
+          className="css-1xdhyk6"
           src="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
         />
       </div>
