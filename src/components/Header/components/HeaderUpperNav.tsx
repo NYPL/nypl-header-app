@@ -35,7 +35,7 @@ const HeaderUpperNav = chakra(() => {
           <GTranslate key="gtranslate" />,
         ]}
         noStyling
-        type="ul"
+        variant="ul"
       />
     </Box>
   );

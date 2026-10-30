@@ -1,4 +1,4 @@
-import FocusLock from "@chakra-ui/focus-lock";
+import { FocusLock } from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import {
   Button,
@@ -27,7 +27,7 @@ const HeaderMobileNavButton = chakra(() => {
           aria-haspopup="true"
           aria-label={isOpen ? "Close Navigation" : "Open Navigation"}
           aria-expanded={isOpen ? true : null}
-          buttonType="text"
+          variant="text"
           id="mobileNav-btn"
           onClick={() => {
             setIsOpen(!isOpen);

@@ -34,8 +34,8 @@ const HeaderSearchForm = {
       label: {
         color: "ui.white",
         fontSize: {
-          base: "heading.callout",
-          lh: "heading.secondary",
+          base: "desktop.heading.heading7",
+          lh: "desktop.heading.heading3",
         },
       },
       input: {
@@ -76,10 +76,10 @@ const HeaderSearchForm = {
       },
     },
     radio: {
-      backgroundColor: "white",
-      border: "1px solid white",
-      _focus: { ...headerFocus, borderRadius: "100px" },
-      _hover: { ...headerFocus, borderRadius: "100px" },
+      ".chakra-radio__control": {
+        _hover: { ...headerFocus, borderRadius: "100px" },
+        _focus: { ...headerFocus, borderRadius: "100px" },
+      },
     },
     // Specifically target the radio buttons.
     ".chakra-radio": {

@@ -23,7 +23,7 @@ const HeaderLowerNav = chakra(() => {
         inline
         listItems={[...listItems, <HeaderSearchButton key="search" />]}
         noStyling
-        type="ul"
+        variant="ul"
       />
     </Box>
   );

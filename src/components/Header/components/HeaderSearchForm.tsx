@@ -25,9 +25,7 @@ export interface HeaderSearchFormProps {
 }
 
 export type SearchOptionType =
-  | "circulatingCatalog"
-  | "researchCatalog"
-  | "website";
+  "circulatingCatalog" | "researchCatalog" | "website";
 
 /**
  * Displays the search form for the Header's search interface. On mobile, two
@@ -115,7 +113,7 @@ const HeaderSearchForm = chakra(
               <ButtonGroup>
                 <Button
                   aria-label="Search"
-                  buttonType="pill"
+                  variant="pill"
                   id="search-btn"
                   onClick={onSubmit}
                   __css={{ ...styles.searchBtn, padding: "1px 6px !important" }}

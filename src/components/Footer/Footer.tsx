@@ -39,7 +39,7 @@ export const Footer = chakra(
             </Link>
           ))}
           noStyling
-          type="ul"
+          variant="ul"
           __css={styles.footerLinksInner}
         />
       ));
@@ -88,14 +88,14 @@ export const Footer = chakra(
               data-testid="text-links"
               listItems={nyplLinks}
               noStyling
-              type="ul"
+              variant="ul"
               __css={styles.footerLinksList}
             />
             <List
               data-testid="social-media-links"
               listItems={socialLinks}
               noStyling
-              type="ul"
+              variant="ul"
               __css={styles.socialMediaList}
             />
           </Box>
