@@ -72,6 +72,7 @@ const HeaderSearchForm = chakra(
     return (
       <Box __css={styles}>
         <Form
+          aria-label="Header Search Form"
           id="search-header"
           gap="grid.m"
           onSubmit={onSubmit}
