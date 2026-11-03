@@ -130,7 +130,8 @@ describe.skip("Header", () => {
     expect(lowerLinks[7]).toHaveTextContent(/search/i);
   });
 
-  it("opens the login menu", () => {
+  it("opens the login menu", async () => {
+    const user = userEvent.setup();
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
@@ -144,7 +145,7 @@ describe.skip("Header", () => {
     expect(upperLinks[0]).toHaveTextContent(/my account/i);
     expect(upperLinks[1]).toHaveTextContent(/locations/i);
 
-    userEvent.click(myAccountButton);
+    await user.click(myAccountButton);
 
     upperList = screen.getAllByRole("list")[2];
     upperLinks = within(upperList).getAllByRole("listitem");
