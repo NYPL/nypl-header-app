@@ -28,6 +28,11 @@ describe("HeaderMobileNavButton", () => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
+    global.user = userEvent.setup();
+  });
+
+  afterAll(() => {
+    delete global.user;
   });
 
   beforeEach(() => {
@@ -41,20 +46,20 @@ describe("HeaderMobileNavButton", () => {
     expect(button).toHaveAttribute("aria-label", "Open Navigation");
   });
 
-  it("renders a Close button when clicked", () => {
+  it("renders a Close button when clicked", async () => {
     const menuBtn = screen.getByRole("button");
 
     expect(menuBtn).toHaveAttribute("aria-label", "Open Navigation");
 
-    userEvent.click(menuBtn);
+    await global.user.click(menuBtn);
 
     expect(menuBtn).toHaveAttribute("aria-label", "Close Navigation");
   });
 
-  it("renders the mobile navigation menu when clicked", () => {
+  it("renders the mobile navigation menu when clicked", async () => {
     const menuBtn = screen.getByRole("button");
 
-    userEvent.click(menuBtn);
+    await global.user.click(menuBtn);
 
     const logo = screen.getByRole("img");
     const navList = screen.getByRole("navigation");
