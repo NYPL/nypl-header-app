@@ -34,6 +34,8 @@ describe("HeaderSearchForm", () => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
+
+    global.user = userEvent.setup();
   });
 
   // We want to spy on the `window.location.assign` method so we can know
@@ -63,12 +65,13 @@ describe("HeaderSearchForm", () => {
 
   afterAll(() => {
     // Restore the `window.location.assign` method.
-    window.location = realLocation;
+    (window as any).location = realLocation;
     // Restore the `Date` class.
     (global as any).Date = realDate;
     // Running all pending timers and switching to real timers using Jest
     jest.runOnlyPendingTimers();
     jest.useRealTimers();
+    delete global.user;
   });
 
   describe("Desktop", () => {
@@ -95,8 +98,8 @@ describe("HeaderSearchForm", () => {
 
       // The default value of the radio button is set to
       // "Search books, music and movies".
-      userEvent.type(searchInput, "cats");
-      userEvent.click(searchBtn);
+      await global.user.type(searchInput, "cats");
+      await global.user.click(searchBtn);
 
       // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
@@ -110,10 +113,10 @@ describe("HeaderSearchForm", () => {
       const researchRadio = screen.getByText("Search the Research Catalog");
       const searchBtn = screen.getByRole("button");
 
-      userEvent.type(searchInput, "cats");
+      await global.user.type(searchInput, "cats");
       // Select the "Search the research catalog" radio button.
-      userEvent.click(researchRadio);
-      userEvent.click(searchBtn);
+      await global.user.click(researchRadio);
+      await global.user.click(searchBtn);
 
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
@@ -122,16 +125,16 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const webRadio = screen.getByText("Search the library website");
       const searchBtn = screen.getByRole("button");
 
-      userEvent.type(searchInput, "cats");
+      await global.user.type(searchInput, "cats");
       // Select the "Search NYPL.org" radio button.
-      userEvent.click(webRadio);
+      await global.user.click(webRadio);
       // Run the search.
-      userEvent.click(searchBtn);
+      await global.user.click(searchBtn);
 
       // We mock `window.location.assign` before ALL tests and restore after
       // ALL tests. So we should have two calls to `window.location.assign`.
@@ -167,13 +170,13 @@ describe("HeaderSearchForm", () => {
       ).toBeInTheDocument();
     });
 
-    it("makes a request to the catalog", () => {
+    it("makes a request to the catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
-      userEvent.type(searchInput, "cats");
+      await global.user.type(searchInput, "cats");
       // Select the books, music, and movies radio button
-      userEvent.click(circulatingCatalogRadio);
+      await global.user.click(circulatingCatalogRadio);
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
@@ -181,13 +184,13 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it("makes a request to the Research Catalog", () => {
+    it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const researchCatalogRadio = screen.getAllByRole("radio")[1];
 
-      userEvent.type(searchInput, "cats");
+      await global.user.type(searchInput, "cats");
       // Select the Research Catalog
-      userEvent.click(researchCatalogRadio);
+      await global.user.click(researchCatalogRadio);
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
@@ -195,13 +198,13 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it("makes a request to the web catalog", () => {
+    it("makes a request to the web catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const websiteRadio = screen.getAllByRole("radio")[2];
 
-      userEvent.type(searchInput, "cats");
+      await global.user.type(searchInput, "cats");
       // Select the Website
-      userEvent.click(websiteRadio);
+      await global.user.click(websiteRadio);
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         3,

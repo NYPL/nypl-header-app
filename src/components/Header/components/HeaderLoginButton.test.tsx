@@ -1,4 +1,4 @@
-import { act, render, screen, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
@@ -47,10 +47,15 @@ describe("HeaderLoginButton", () => {
     (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
+    global.user = userEvent.setup();
+  });
+
+  afterAll(() => {
+    delete global.user;
   });
 
   describe("Desktop", () => {
-    it("renders the logged out UI if there is no `patronName` value", () => {
+    it("renders the logged out UI if there is no `patronName` value", async () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton />
@@ -61,7 +66,7 @@ describe("HeaderLoginButton", () => {
 
       expect(dropDownButton).toHaveTextContent(/my account/i);
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
@@ -72,7 +77,7 @@ describe("HeaderLoginButton", () => {
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
     });
 
-    it("focuses on the catalog link when the login is opened and there is no patron name", () => {
+    it("focuses on the catalog link when the login is opened and there is no patron name", async () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton />
@@ -81,7 +86,7 @@ describe("HeaderLoginButton", () => {
 
       const dropDownButton = screen.getByRole("button");
 
-      act(() => userEvent.click(dropDownButton));
+      await global.user.click(dropDownButton);
 
       const catalogLink = screen.getByRole("link", {
         name: /go to the catalog/i,
@@ -90,7 +95,7 @@ describe("HeaderLoginButton", () => {
     });
 
     // Skipping because this feature is temporarily removed.
-    it.skip("renders the logged in UI if there is a `patronName` value", () => {
+    it.skip("renders the logged in UI if there is a `patronName` value", async () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
@@ -102,7 +107,7 @@ describe("HeaderLoginButton", () => {
       // When logged in, the button displays "My Account".
       expect(dropDownButton).toHaveTextContent(/my account/i);
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
@@ -123,7 +128,7 @@ describe("HeaderLoginButton", () => {
     });
 
     // Skipping because this feature is temporarily removed.
-    it.skip("focuses on the greeting message when the login is opened and there is a patron", () => {
+    it.skip("focuses on the greeting message when the login is opened and there is a patron", async () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
@@ -132,7 +137,7 @@ describe("HeaderLoginButton", () => {
 
       const dropDownButton = screen.getByRole("button");
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       expect(greetingContainer).toHaveFocus();
@@ -140,7 +145,7 @@ describe("HeaderLoginButton", () => {
   });
 
   describe("Mobile", () => {
-    it("renders the logged out UI if there is no `patronName` value", () => {
+    it("renders the logged out UI if there is no `patronName` value", async () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton isMobile />
@@ -151,7 +156,7 @@ describe("HeaderLoginButton", () => {
       // There is no visible text on the button in the mobile view.
       expect(dropDownButton).toHaveAttribute("aria-label", "My Account");
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
@@ -162,7 +167,7 @@ describe("HeaderLoginButton", () => {
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
     });
 
-    it("focuses on the catalog link when the login is opened and there is no patron name", () => {
+    it("focuses on the catalog link when the login is opened and there is no patron name", async () => {
       render(
         <HeaderProvider>
           <HeaderLoginButton isMobile />
@@ -170,7 +175,7 @@ describe("HeaderLoginButton", () => {
       );
       const dropDownButton = screen.getByRole("button");
 
-      act(() => userEvent.click(dropDownButton));
+      await global.user.click(dropDownButton);
 
       const catalogLink = screen.getByRole("link", {
         name: /go to the catalog/i,
@@ -179,7 +184,7 @@ describe("HeaderLoginButton", () => {
     });
 
     // Skipping because this feature is temporarily removed.
-    it.skip("renders the logged in UI if there is a `patronName` value", () => {
+    it.skip("renders the logged in UI if there is a `patronName` value", async () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />
@@ -190,7 +195,7 @@ describe("HeaderLoginButton", () => {
 
       expect(dropDownButton).toHaveAttribute("aria-label", "My Account");
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
@@ -211,7 +216,7 @@ describe("HeaderLoginButton", () => {
     });
 
     // Skipping because this feature is temporarily removed.
-    it.skip("focuses on the greeting message when the login is opened and there is a patron", () => {
+    it.skip("focuses on the greeting message when the login is opened and there is a patron", async () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />
@@ -219,7 +224,7 @@ describe("HeaderLoginButton", () => {
       );
       const dropDownButton = screen.getByRole("button");
 
-      userEvent.click(dropDownButton);
+      await global.user.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       expect(greetingContainer).toHaveFocus();

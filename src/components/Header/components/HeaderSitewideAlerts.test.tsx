@@ -54,15 +54,15 @@ describe("HeaderSitewideAlerts", () => {
       await waitFor(() => render(<HeaderSitewideAlerts />));
     });
 
-    it("renders a notification", () => {
-      const notification = screen.getByRole("complementary");
+    it("renders a notification", async () => {
+      const notification = await screen.findByRole("complementary");
 
       expect(notification).toHaveAttribute("aria-label", "Sitewide alerts");
       expect(notification).toHaveAttribute("data-type", "standard");
     });
 
-    it("renders a list with text", () => {
-      const notification = screen.getByRole("complementary");
+    it("renders a list with text", async () => {
+      const notification = await screen.findByRole("complementary");
       const { getByText, getAllByRole } = within(notification);
       const list = getAllByRole("list");
 

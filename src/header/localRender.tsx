@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import HeaderApp from "./HeaderApp";
 
-ReactDOM.render(<HeaderApp />, document.getElementById("root") as any);
+createRoot(document.getElementById("root")).render(<HeaderApp />);
