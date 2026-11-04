@@ -92,7 +92,7 @@ describe("HeaderSearchForm", () => {
       expect(searchBtn).toHaveAttribute("aria-label", "Search");
     });
 
-    xit("makes a request to the catalog", async () => {
+    it("makes a request to the catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
@@ -108,7 +108,7 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    xit("makes a request to the Research Catalog", async () => {
+    it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const researchRadio = screen.getByText("Search the Research Catalog");
       const searchBtn = screen.getByRole("button");
@@ -146,7 +146,7 @@ describe("HeaderSearchForm", () => {
     });
   });
 
-  xdescribe("Mobile", () => {
+  describe("Mobile", () => {
     beforeEach(() => {
       render(<HeaderSearchForm isMobile isOpen />);
     });
