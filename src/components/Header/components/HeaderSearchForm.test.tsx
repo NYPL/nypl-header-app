@@ -34,7 +34,7 @@ describe("HeaderSearchForm", () => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
-    // Set up the global user for userEvent.
+
     global.user = userEvent.setup();
   });
 
