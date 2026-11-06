@@ -28,7 +28,7 @@ const HeaderLogin = chakra(
       <VStack
         __css={styles}
         sx={{
-          display: isOpen ? { base: "block", lh: "flex" } : "none",
+          display: isOpen ? "flex" : "none",
         }}
       >
         <List
@@ -37,7 +37,7 @@ const HeaderLogin = chakra(
               href={catalogLink}
               key="logInCatalog"
               ref={catalogRef}
-              type="button"
+              variant="buttonPrimary"
             >
               <Icon
                 align="left"
@@ -49,7 +49,11 @@ const HeaderLogin = chakra(
               />
               <span>Go To The Catalog</span>
             </Link>,
-            <Link href={researchLink} key="logInResearch" type="button">
+            <Link
+              href={researchLink}
+              key="logInResearch"
+              variant="buttonPrimary"
+            >
               <Icon
                 align="left"
                 color="ui.white"
@@ -62,7 +66,7 @@ const HeaderLogin = chakra(
             </Link>,
           ]}
           noStyling
-          type="ul"
+          variant="ul"
         />
       </VStack>
     );

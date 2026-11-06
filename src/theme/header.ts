@@ -56,10 +56,6 @@ const Header = {
       minHeight: { lh: "122x" },
       margin: "0 auto",
     },
-    navContainer: {
-      height: { lh: "80px", xl: "97px" },
-      gap: { lh: "s", xl: "35px" },
-    },
     horizontalRule: {
       bg: "brand.primary",
       marginTop: "0",

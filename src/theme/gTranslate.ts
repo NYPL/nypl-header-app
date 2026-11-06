@@ -1,5 +1,5 @@
-import { GLOBE_ICON_SVG_URL } from "../components/Header/utils/gTranslateUtils";
 import { headerFocus } from "./header";
+import globesvg from "../../public/globe.svg";
 
 const GTranslate = {
   baseStyle: {
@@ -15,7 +15,7 @@ const GTranslate = {
       display: "inline-block",
       width: { base: "24px", lh: "16px" },
       height: { base: "24px", lh: "16px" },
-      backgroundImage: GLOBE_ICON_SVG_URL,
+      backgroundImage: `url(${globesvg})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "contain",
       flexShrink: 0,

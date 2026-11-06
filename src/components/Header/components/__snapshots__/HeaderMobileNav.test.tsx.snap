@@ -131,11 +131,13 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     >
       <ul
         className="css-oxl4r2"
+        data-testid="ds-list"
         id="header-mobile-nav"
       >
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/books-music-movies"
             onClick={[Function]}
             rel={null}
@@ -146,7 +148,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/research"
             onClick={[Function]}
             rel={null}
@@ -157,7 +160,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/education"
             onClick={[Function]}
             rel={null}
@@ -168,7 +172,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/events"
             onClick={[Function]}
             rel={null}
@@ -179,7 +184,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/visit"
             onClick={[Function]}
             rel={null}
@@ -190,7 +196,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/give"
             onClick={[Function]}
             rel={null}
@@ -201,7 +208,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
         </li>
         <li>
           <a
-            className="css-1xdhyk6"
+            className="chakra-link css-1xdhyk6"
+            data-testid="ds-link"
             href="//www.nypl.org/get-help"
             onClick={[Function]}
             rel={null}
@@ -214,11 +222,12 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
     </nav>
   </div>
   <div
-    className="css-wcncoc"
+    className="css-1xdhyk6"
     data-testid="bottomLinks"
   >
     <a
-      className="css-g8syzw"
+      className="chakra-link css-g8syzw"
+      data-testid="ds-link"
       href="//www.nypl.org/library-card/new"
       onClick={[Function]}
       rel={null}
@@ -245,7 +254,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       Get A Library Card
     </a>
     <a
-      className="css-1i5qkun"
+      className="chakra-link css-1i5qkun"
+      data-testid="ds-link"
       href="https://pub.email.nypl.org/subscriptioncenter"
       onClick={[Function]}
       rel={null}
@@ -272,7 +282,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       Get Email Updates
     </a>
     <a
-      className="css-1hbu0qa"
+      className="chakra-link css-1hbu0qa"
+      data-testid="ds-link"
       href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
       onClick={[Function]}
       rel={null}
@@ -296,7 +307,8 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       Shop NYPL
     </a>
     <a
-      className="css-847rpw"
+      className="chakra-link css-mhfm2"
+      data-testid="ds-link"
       href="//www.nypl.org/donate-button"
       onClick={[Function]}
       rel={null}

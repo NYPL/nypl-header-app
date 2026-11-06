@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import FocusLock from "@chakra-ui/focus-lock";
+import { FocusLock } from "@chakra-ui/focus-lock";
 
 import {
   Button,
@@ -45,7 +45,7 @@ const HeaderLoginButton = chakra(
         <FocusLock isDisabled={!isOpen}>
           <Button
             aria-label={desktopButtonLabel}
-            buttonType="text"
+            variant="text"
             id="loginButton"
             onClick={() => {
               !isOpen &&

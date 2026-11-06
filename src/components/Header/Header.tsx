@@ -4,6 +4,7 @@ import {
   HStack,
   useColorModeValue,
   useMultiStyleConfig,
+  useMediaQuery,
   Spacer,
   VStack,
 } from "@chakra-ui/react";
@@ -13,7 +14,6 @@ import {
   Logo,
   HorizontalRule,
 } from "@nypl/design-system-react-components";
-import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect } from "react";
 
 /** Internal Header-only components */
@@ -120,7 +120,11 @@ export const Header = chakra(
               </Link>
               <Spacer />
               {isLargerThanLargeHeader ? (
-                <VStack alignItems="end" __css={styles.navContainer}>
+                <VStack
+                  alignItems="end"
+                  spacing={{ lh: "s", xl: "35px" }}
+                  height={{ lh: "80px", xl: "97px" }}
+                >
                   <HeaderUpperNav />
                   <HeaderLowerNav />
                 </VStack>

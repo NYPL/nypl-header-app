@@ -43,7 +43,7 @@ const HeaderMobileNav = chakra(() => {
             id="header-mobile-nav"
             listItems={listItems}
             noStyling
-            type="ul"
+            variant="ul"
             __css={{
               ...styles.sideNav,
               li: { marginBottom: "unset !important" },
@@ -51,7 +51,7 @@ const HeaderMobileNav = chakra(() => {
           />
         </nav>
       </Flex>
-      <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
+      <SimpleGrid data-testid="bottomLinks" __css={styles.bottomLinks}>
         <ListLink
           linkItem={upperNavMobileLinks.libraryCard}
           additionalStyles={{
@@ -101,7 +101,7 @@ const HeaderMobileNav = chakra(() => {
         <ListLink
           linkItem={upperNavMobileLinks.donate}
           isDonateLink={true}
-          additionalStyles={{ gridColumn: "1 / span 2" }}
+          additionalStyles={{ gridColumn: "1 / span 2", height: "75px" }}
         />
       </SimpleGrid>
     </Box>

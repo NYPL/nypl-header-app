@@ -1,4 +1,4 @@
-import FocusLock from "@chakra-ui/focus-lock";
+import { FocusLock } from "@chakra-ui/focus-lock";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 
@@ -36,7 +36,7 @@ const HeaderSearchButton = chakra(
             aria-haspopup="true"
             aria-label={labelText}
             aria-expanded={isOpen ? true : null}
-            buttonType="text"
+            variant="text"
             id="searchButton"
             onClick={() => {
               !isOpen && sendAnalyticsNavClickEvent({ clickText: "search" });

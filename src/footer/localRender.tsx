@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import FooterApp from "./FooterApp";
 
-ReactDOM.render(<FooterApp />, document.getElementById("root") as any);
+createRoot(document.getElementById("root")).render(<FooterApp />);

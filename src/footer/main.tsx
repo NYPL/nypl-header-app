@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import FooterApp from "./FooterApp";
 
 const getQueryParam = (fullUrl = "", variableToFind: string) => {
@@ -107,15 +106,14 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
           nyplFooterObject.processedScripts.length === 1 &&
           (containerId || htmlElement)
         ) {
-          setTimeout(() => {
-            ReactDOM.render(
-              <FooterApp />,
-              containerId
-                ? (document.getElementById(containerId) as any)
-                : htmlElement,
-            );
+          function AppWithCallbackAfterRender() {
             console.log("footer rendered via client");
-          }, 500);
+            return <FooterApp />;
+          }
+          const root = createRoot(
+            containerId ? document.getElementById(containerId) : htmlElement,
+          );
+          root.render(<AppWithCallbackAfterRender />);
         }
       }
     }

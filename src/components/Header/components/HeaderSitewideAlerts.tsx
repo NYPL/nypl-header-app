@@ -41,7 +41,7 @@ export const HeaderSitewideAlerts = chakra(() => {
   // contain HTML which is rendered as-is.
   const getAlertsElems = (data: Alert[]) => {
     return (
-      <List noStyling type="ul">
+      <List noStyling variant="ul">
         {data.map((alert: Alert) => (
           <Box
             as="li"
@@ -59,7 +59,6 @@ export const HeaderSitewideAlerts = chakra(() => {
       aria-label="Sitewide alerts"
       id="sitewideAlerts-notification"
       isCentered
-      noMargin
       notificationContent={getAlertsElems(alerts)}
       showIcon={false}
       __css={styles}

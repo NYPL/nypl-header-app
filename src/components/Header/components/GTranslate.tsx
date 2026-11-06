@@ -15,6 +15,35 @@ const GTranslate = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const selectors = document.querySelectorAll(".gt_selector");
+      if (selectors.length === 1) {
+        console.log("Selectors found:", selectors.length);
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const handleLanguageChange = (event: Event) => {
+      const target = event.target as HTMLSelectElement;
+      if (!target.classList?.contains(GT_SELECTOR_CLASS)) return;
+
+      const language = getLanguageFromSelectValue(target.value);
+      if (language) {
+        sendAnalyticsLanguageChangeEvent(language);
+      }
+    };
+
+    wrapper.addEventListener("change", handleLanguageChange);
+    return () => wrapper.removeEventListener("change", handleLanguageChange);
+  }, []);
+
+  useEffect(() => {
     window.gtranslateSettings = {
       default_language: DEFAULT_LANGUAGE,
       languages: supportedLanguages,
@@ -46,24 +75,7 @@ const GTranslate = () => {
     document.body.appendChild(script);
   }, []);
 
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-
-    const handleLanguageChange = (event: Event) => {
-      const target = event.target as HTMLSelectElement;
-      if (!target.classList?.contains(GT_SELECTOR_CLASS)) return;
-
-      const language = getLanguageFromSelectValue(target.value);
-      if (language) {
-        sendAnalyticsLanguageChangeEvent(language);
-      }
-    };
-
-    wrapper.addEventListener("change", handleLanguageChange);
-    return () => wrapper.removeEventListener("change", handleLanguageChange);
-  }, []);
-
+  console.log("all selecorts:", document.querySelectorAll(".gt_selector"));
   return <Box ref={wrapperRef} className="gtranslate_wrapper" __css={styles} />;
 };
 

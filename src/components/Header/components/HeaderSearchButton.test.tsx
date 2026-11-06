@@ -43,6 +43,12 @@ describe("HeaderSearchButton", () => {
     (getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
+
+    global.user = userEvent.setup();
+  });
+
+  afterAll(() => {
+    delete global.user;
   });
   describe("Desktop", () => {
     beforeEach(() => {
@@ -56,26 +62,26 @@ describe("HeaderSearchButton", () => {
       expect(searchBtn).toHaveTextContent(/search/i);
     });
 
-    it("renders a Close button when clicked", () => {
+    it("renders a Close button when clicked", async () => {
       const searchBtn = screen.getByLabelText("Open Search");
 
       expect(searchBtn).toHaveTextContent(/search/i);
       expect(screen.getByTitle(/Open Search/i)).toBeInTheDocument();
       expect(screen.queryByTitle(/Close Search/i)).not.toBeInTheDocument();
 
-      userEvent.click(searchBtn);
+      await global.user.click(searchBtn);
 
       expect(searchBtn).toHaveTextContent(/close/i);
       expect(screen.queryByTitle(/Open Search/i)).not.toBeInTheDocument();
       expect(screen.getByTitle(/Close Search/i)).toBeInTheDocument();
     });
 
-    it("renders the search form when clicked", () => {
+    it("renders the search form when clicked", async () => {
       const searchBtn = screen.getByLabelText("Open Search");
 
       expect(screen.queryByRole("form")).not.toBeInTheDocument();
 
-      userEvent.click(searchBtn);
+      await global.user.click(searchBtn);
 
       expect(screen.getByRole("form")).toBeInTheDocument();
     });
@@ -96,22 +102,22 @@ describe("HeaderSearchButton", () => {
     //   expect(searchBtn).toHaveAttribute("aria-label", "Open Search");
     // });
 
-    it("renders a Close button when clicked", () => {
+    it("renders a Close button when clicked", async () => {
       const searchBtn = screen.getByLabelText("Open Search");
 
       expect(searchBtn).toHaveAttribute("aria-label", "Open Search");
 
-      userEvent.click(searchBtn);
+      await global.user.click(searchBtn);
 
       expect(searchBtn).toHaveAttribute("aria-label", "Close Search");
     });
 
-    it("renders the search form when clicked", () => {
+    it("renders the search form when clicked", async () => {
       const searchBtn = screen.getByLabelText("Open Search");
 
       expect(screen.queryByRole("form")).not.toBeInTheDocument();
 
-      userEvent.click(searchBtn);
+      await global.user.click(searchBtn);
 
       expect(screen.getByRole("form")).toBeInTheDocument();
     });

@@ -34,7 +34,7 @@ const ListLink = ({
           clickUrl: href,
         })
       }
-      {...(isDonateLink && { type: "buttonCallout" })}
+      {...(isDonateLink && { variant: "buttonCallout" })}
       {...(additionalStyles && { __css: additionalStyles })}
     >
       {icon}

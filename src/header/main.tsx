@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import HeaderApp from "./HeaderApp";
 
 const getQueryParam = (fullUrl = "", variableToFind: string) => {
@@ -107,12 +106,9 @@ const getQueryParam = (fullUrl = "", variableToFind: string) => {
           (containerId || htmlElement)
         ) {
           setTimeout(() => {
-            ReactDOM.render(
-              <HeaderApp />,
-              containerId
-                ? (document.getElementById(containerId) as any)
-                : htmlElement,
-            );
+            createRoot(
+              containerId ? document.getElementById(containerId) : htmlElement,
+            ).render(<HeaderApp />);
             console.log("header rendered via client");
           }, 500);
         }

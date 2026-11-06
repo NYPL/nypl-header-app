@@ -22,6 +22,13 @@ describe("Header Accessibility", () => {
     (envUtils.getEnvVar as jest.Mock).mockImplementation((key) =>
       key === "VITE_APP_ENV" ? "qa" : "",
     );
+
+    // Mocks matchMedia so that the desktop view renders rather than mobile.
+    global.matchMedia = jest.fn(() => ({
+      addListener: () => {},
+      removeListener: () => {},
+      matches: true,
+    })) as jest.Mock;
   });
 
   it("passes axe accessibility test", async () => {
@@ -33,9 +40,13 @@ describe("Header Accessibility", () => {
       }),
     ) as jest.Mock;
 
-    const { container } = await waitFor(() =>
-      render(<Header isProduction={false} />),
-    );
+    const { container } = render(<Header isProduction={false} />);
+
+    // Wait for fetch to complete
+    await waitFor(() => {
+      expect((global as any).fetch).toHaveBeenCalled();
+    });
+
     expect(await axe(container)).toHaveNoViolations();
 
     jest.clearAllMocks();
@@ -130,7 +141,8 @@ describe.skip("Header", () => {
     expect(lowerLinks[7]).toHaveTextContent(/search/i);
   });
 
-  it("opens the login menu", () => {
+  it("opens the login menu", async () => {
+    const user = userEvent.setup();
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
@@ -144,7 +156,7 @@ describe.skip("Header", () => {
     expect(upperLinks[0]).toHaveTextContent(/my account/i);
     expect(upperLinks[1]).toHaveTextContent(/locations/i);
 
-    userEvent.click(myAccountButton);
+    await user.click(myAccountButton);
 
     upperList = screen.getAllByRole("list")[2];
     upperLinks = within(upperList).getAllByRole("listitem");
