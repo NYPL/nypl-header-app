@@ -34,6 +34,7 @@ export const getLanguageFromSelectValue = (value: string): string =>
 export const GTRANSLATE_CUSTOM_CSS = `
   .gt_selector {
     appearance: none;
+    cursor: pointer;
   }
   .gt_selector:focus,
   .gt_selector:focus-visible {
